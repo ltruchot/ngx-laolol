@@ -4,7 +4,7 @@
 	</div>
 </div>
 <div class="row">
-  <div *ngFor="let item of cpntData.items; let i = index; trackBy: i" class="col-xs-6 col-md-3">
+  <div *ngFor="let item of cpntData.items; let i = index;" class="col-xs-6 col-md-3">
   	<div class="px5">
     	<button (click)="checkAnswer(i)" type="button" class="btn btn-lg btn-block">{{ item.kk }}</button>
     </div>
