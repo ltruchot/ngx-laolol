@@ -1,0 +1,36 @@
+[{
+	"en": "monday",
+	"fr": "lundi",
+	"lo": "ວັນຈັນ",
+	"kk": "van tjan"
+}, {
+	"en": "tuesday",
+	"fr": "mardi",
+	"lo": "ວັນອັງຄານ",
+	"kk": "van ankhan"
+}, {
+	"en": "wednesday",
+	"fr": "mercredi",
+	"lo": "ວັນພຸດ",
+	"kk": "van phout"
+}, {
+	"en": "thursday",
+	"fr": "jeudi",
+	"lo": "ວັນພະຫັດ",
+	"kk": "van phahat"
+}, {
+	"en": "friday",
+	"fr": "vendredi",
+	"lo": "ວັນສຸກ",
+	"kk": "van souk"
+}, {
+	"en": "saturday",
+	"fr": "samedi",
+	"lo": "ວັນເສົາ",
+	"kk": "van sao"
+}, {
+	"en": "sunday",
+	"fr": "dimanche",
+	"lo": "ວັນອາທິດ",
+	"kk": "van athit"
+}]

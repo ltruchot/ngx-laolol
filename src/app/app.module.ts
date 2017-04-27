@@ -16,6 +16,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 
+// custom services
+import { GameService } from './shared-services/game.service';
+
 // language export for AOT build
 export function createTranslateLoader(http: Http) {
     return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -40,7 +43,9 @@ export function createTranslateLoader(http: Http) {
       }
     })
   ],
-  providers: [],
+  providers: [
+    GameService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
