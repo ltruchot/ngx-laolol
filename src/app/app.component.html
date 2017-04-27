@@ -17,9 +17,9 @@
 
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <ul class="nav navbar-nav" routerLinkActive="active">
-          <li><a routerLink="/">Home <span class="sr-only">(current)</span></a></li>
-          <li><a routerLink="/gameboard">Gameboard</a></li>
+        <ul class="nav navbar-nav" >
+          <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><a routerLink="/home">Home <span class="sr-only">(current)</span></a></li>
+          <li routerLinkActive="active" ><a routerLink="/gameboard">Gameboard</a></li>
         </ul>
       </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
