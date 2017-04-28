@@ -11,7 +11,8 @@ export class LanguageService {
     { code: 'lo', flag: 'la', label: 'ພາສາລາວ' }
   ];
   data = {
-    currentLang: ''
+    currentLang: 'en',
+    learningLang: 'lo'
   };
   constructor(private storage: StorageService, private translate: TranslateService) {}
   initializeLanguages () {
@@ -27,5 +28,8 @@ export class LanguageService {
     this.translate.use(code);
     this.data.currentLang = code;
     this.storage.setItem('currentLanguage', code);
+  }
+  chooseLearningLang (code: string) {
+    this.data.learningLang = code;
   }
 }

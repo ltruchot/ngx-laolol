@@ -2,4 +2,6 @@
   {{ 'home.intro1' | translate }}<br />
   {{ 'home.intro2' | translate }}
 </p>
-<p>{{ 'home.andNow' | translate }}, <a routerLink="/gameboard">{{ 'home.letsPlay' | translate }}</a></p>
+<p>{{ 'home.andNow' | translate }}, {{ 'home.letsPlay' | translate }}.<br/>
+	{{ 'home.wantLearn' | translate }} <a routerLink="/gameboard" (click)="goGameboard('lo')">{{ 'home.laoLanguage' | translate }}</a>, <a routerLink="/gameboard" (click)="goGameboard('fr')">{{ 'home.frenchLanguage' | translate }}</a> {{ 'home.or' | translate}} <a routerLink="/gameboard" (click)="goGameboard('en')">{{ 'home.englishLanguage' | translate }}</a> ?
+</p>
