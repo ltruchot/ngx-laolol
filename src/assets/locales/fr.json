@@ -1,0 +1,16 @@
+{
+  "layout": {
+    "chooseLangue": "Choisir la langue"
+  },
+  "home": {
+    "intro1": "Laolol is une application web pour aider les anglophones et les francophones à apprendre le lao.",
+    "intro2": "Ce site peut aussi être utilisé par les lao pour apprendre le français ou l'anglais",
+    "andNow": "Allez",
+    "letsPlay": "c'est parti !"
+  },
+  "gameboard": {
+    "findTranslation": "Trouver la traduction de ",
+    "correctAnswer": "Bravo, la bonne réponse est en effet",
+    "wrongAnswer": "Malheureusement, c'est faux. La bonne réponse est"
+  }
+}

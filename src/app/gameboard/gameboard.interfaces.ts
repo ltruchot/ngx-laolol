@@ -3,4 +3,5 @@ export interface GameboardCpntData {
   winItemIdx: number;
   items: Array<GameItem>;
   clickedIdx: number;
+  lang: any;
 };

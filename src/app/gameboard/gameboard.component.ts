@@ -1,12 +1,15 @@
 // ng dependencies
 import { Component, OnInit } from '@angular/core';
 
+// npm dependencies
+
 // custom interfaces
 import { GameboardCpntData } from './gameboard.interfaces';
 import { GameItem } from './../shared-interfaces/game.interfaces';
 
 // custom services
 import { GameService } from './../shared-services/game.service';
+import { LanguageService } from './../shared-services/language.service';
 
 @Component({
   selector: 'app-gameboard',
@@ -16,12 +19,14 @@ export class GameboardComponent implements OnInit {
   cpntData: GameboardCpntData = {
     winItemIdx: null,
     items: [],
-    clickedIdx: null
+    clickedIdx: null,
+    lang: null
   };
   allItems: Array<GameItem> = [];
-  constructor (private gameService: GameService) { }
+  constructor (private gameService: GameService, private languageService: LanguageService) { }
 
   ngOnInit () {
+    this.cpntData.lang =  this.languageService.data;
     this.gameService.getDays().subscribe(days => {
       this.allItems.length = 0;
       this.allItems.push(...days);

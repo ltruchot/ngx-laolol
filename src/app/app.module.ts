@@ -1,12 +1,12 @@
-// ng modules
+// ng dependencies
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule, Http } from '@angular/http';
 import { CommonModule } from '@angular/common';
 
-
-import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
+// npm dependencies
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 
 // custom modules
@@ -18,10 +18,12 @@ import { HomeComponent } from './home/home.component';
 
 // custom services
 import { GameService } from './shared-services/game.service';
+import { LanguageService } from './shared-services/language.service';
+import { StorageService } from './shared-services/storage.service';
 
 // language export for AOT build
 export function createTranslateLoader(http: Http) {
-    return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+    return new TranslateHttpLoader(http, './assets/locales/', '.json');
 }
 
 @NgModule({
@@ -44,8 +46,14 @@ export function createTranslateLoader(http: Http) {
     })
   ],
   providers: [
-    GameService
+    GameService,
+    LanguageService,
+    StorageService
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+  constructor (private languageService: LanguageService) {
+    this.languageService.initializeLanguages();
+  }
+}

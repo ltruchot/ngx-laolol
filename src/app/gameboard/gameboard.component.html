@@ -1,22 +1,28 @@
 <div class="row">
 	<div class="col-xs-12">
-		<h3 [hidden]="cpntData.winItemIdx === null">Trouvez la bonne traduction de: {{ cpntData.items[cpntData.winItemIdx]?.fr }}</h3>
+		<h3 [hidden]="cpntData.winItemIdx === null">{{ 'gameboard.findTranslation' | translate }}: {{ cpntData.items[cpntData.winItemIdx] ? cpntData.items[cpntData.winItemIdx][cpntData.lang.currentLang] : null}}</h3>
 	</div>
 </div>
 <div class="row">
   <div *ngFor="let item of cpntData.items; let i = index;" class="col-xs-6 col-md-3">
   	<div class="px5">
-    	<button (click)="checkAnswer(i)" type="button" class="btn btn-lg btn-block">{{ item.kk }}</button>
+    	<button (click)="checkAnswer(i)" [disabled]="cpntData.clickedIdx !== null && (cpntData.clickedIdx !== i)" type="button" [ngClass]="{'disabled': cpntData.clickedIdx, 'btn-success':i === cpntData.clickedIdx && cpntData.clickedIdx === cpntData.winItemIdx, 'btn-danger': i === cpntData.clickedIdx && cpntData.clickedIdx !== cpntData.winItemIdx}" class="btn btn-lg btn-block">{{ item.lo }}</button>
     </div>
   </div>
 </div>
 <div class="row">
 	<div class="col-xs-12">
 		<div [hidden]="cpntData.clickedIdx === null">
-			<h4 *ngIf="cpntData.clickedIdx === cpntData.winItemIdx; else elseBlock">Bravo !</h4>
-			<ng-template #elseBlock><h4>Dommage !</h4></ng-template>
-			<h4>La bonne réponse est {{ cpntData.items[cpntData.winItemIdx]?.kk }}</h4>
+			<h4 *ngIf="cpntData.clickedIdx === cpntData.winItemIdx; else elseBlock">
+				{{ 'gameboard.correctAnswer' | translate }} <strong>{{ cpntData.items[cpntData.winItemIdx]?.kk }}</strong>
+			</h4>
+			<ng-template #elseBlock>
+				<h4>
+					{{ 'gameboard.wrongAnswer' | translate }} <strong>{{ cpntData.items[cpntData.winItemIdx]?.kk }}</strong>
+				</h4>
+			</ng-template>
 			<button (click)="nextQuestion()" type="button" class="btn btn-primary btn-lg">Suivant</button>
 		</div>
 	</div>
 </div>
+<!-- cpntData.lang?.currentLang -->
