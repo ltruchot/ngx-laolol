@@ -1,4 +1,4 @@
-export interface GameItem {
+export interface ThemeItem {
   en: string;
   fr: string;
   lo: string;

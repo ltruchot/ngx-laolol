@@ -7,7 +7,8 @@ import { LanguageService } from './shared-services/language.service';
 })
 export class AppComponent implements OnInit {
   cpntData = {
-    availableLanguages: null
+    availableLanguages: null,
+    lang: null
   };
   constructor (private languageService: LanguageService) {
 
@@ -17,5 +18,6 @@ export class AppComponent implements OnInit {
   }
   ngOnInit () {
     this.cpntData.availableLanguages = this.languageService.AVAILABLE_LANG;
+    this.cpntData.lang = this.languageService.data;
   }
 }

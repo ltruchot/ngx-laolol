@@ -1,0 +1,17 @@
+.avaiblable-lang-list {
+	font-size: 0.8em;
+	li {
+		padding: 0 !important;
+	}
+	.avaiblable-lang {
+			padding: 0 5px 1px;
+			box-sizing: border-box;
+		&.chosen-lang {
+			background-color: #f5deb3;
+			border-radius: 5px;
+			.flag {
+				display: block;
+			}
+		}
+	}
+}

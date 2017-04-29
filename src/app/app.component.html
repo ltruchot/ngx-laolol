@@ -4,11 +4,15 @@
       <h1>Laolol</h1>
     </div>
     <div class="col-xs-6">
-      <nav>
-        {{ 'layout.chooseLangue' | translate }}:
+      <nav class="avaiblable-lang-list">
+        {{ 'layout.chooseLang' | translate }}
         <ul class="list-inline">
-          <li *ngFor="let lang of cpntData.availableLanguages; let i = index;">
-            <a (click)="changeLanguage(lang.code)" class="flag flag-{{lang.flag}}"></a>
+          <li  *ngFor="let lang of cpntData.availableLanguages; let i = index;">
+            <div class="avaiblable-lang" [ngClass]="{ 'chosen-lang': cpntData.lang.currentLang === lang.code }">
+              <a (click)="changeLanguage(lang.code)" class="flag flag-{{lang.flag}}" title="{{ lang.label }}">
+                <span class="sr-only">{{ lang.label }}</span>
+              </a>
+            </div>
           </li>
         </ul>
       </nav>
@@ -24,17 +28,17 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="/">Menu</a>
+        <span class="navbar-brand">Menu</span>
       </div>
 
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="bs-navbar-collapse-1">
         <ul class="nav navbar-nav">
           <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" data-toggle="collapse" data-target="#bs-navbar-collapse-1.in">
-            <a routerLink="/home">Home <span class="sr-only">(current)</span></a>
+            <a routerLink="/home">{{ 'layout.home' | translate }} <span class="sr-only">(current)</span></a>
           </li>
           <li routerLinkActive="active" data-toggle="collapse" data-target="#bs-navbar-collapse-1.in">
-            <a routerLink="/gameboard">Gameboard</a>
+            <a routerLink="/gameboard">{{ 'layout.gameboard' | translate }}</a>
           </li>
         </ul>
       </div><!-- /.navbar-collapse -->
@@ -42,3 +46,8 @@
   </nav>
   <router-outlet></router-outlet>
 </div>
+<footer class="px10">
+  <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">
+    <img src="/assets/img/lisence.png" />
+  </a> Loïc TRUCHOT &amp; Soulisack LUANGLAD
+</footer>

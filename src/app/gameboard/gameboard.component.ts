@@ -5,10 +5,10 @@ import { Component, OnInit } from '@angular/core';
 
 // custom interfaces
 import { GameboardCpntData } from './gameboard.interfaces';
-import { GameItem } from './../shared-interfaces/game.interfaces';
+import { ThemeItem } from './../shared-interfaces/theme.interfaces';
 
 // custom services
-import { GameService } from './../shared-services/game.service';
+import { ThemeService } from './../shared-services/theme.service';
 import { LanguageService } from './../shared-services/language.service';
 
 @Component({
@@ -20,17 +20,21 @@ export class GameboardComponent implements OnInit {
     winItemIdx: null,
     items: [],
     clickedIdx: null,
-    lang: null
+    lang: null,
+    availableLang: null,
+    theme: null,
+    availableTheme: null
   };
-  allItems: Array<GameItem> = [];
-  constructor (private gameService: GameService, private languageService: LanguageService) { }
+  allItems: Array<ThemeItem> = [];
+  constructor (private themeService: ThemeService, private languageService: LanguageService) { }
 
   ngOnInit () {
     this.cpntData.lang =  this.languageService.data;
-    this.gameService.getDays().subscribe(days => {
-      this.allItems.length = 0;
-      this.allItems.push(...days);
-      this.changeDisplayedItems();
+    this.cpntData.availableLang = this.languageService.AVAILABLE_LANG;
+    this.cpntData.theme =  this.themeService.data;
+    this.cpntData.availableTheme = this.themeService.AVAILABLE_THEME;
+    this.themeService.getLearningTheme().subscribe(data => {
+      this.resetTheme(data);
     });
   }
 
@@ -52,6 +56,24 @@ export class GameboardComponent implements OnInit {
     this.cpntData.clickedIdx = null;
     this.cpntData.winItemIdx = null;
     this.allItems.push(...this.cpntData.items);
+    this.cpntData.items.length = 0;
+    this.changeDisplayedItems();
+  }
+
+  changeLearningLang (code: string) {
+    this.languageService.data.learningLang = code;
+  }
+  changeLearningTheme(code: string) {
+    this.themeService.data.learningTheme = code;
+    this.themeService.getLearningTheme().subscribe(data => {
+      this.resetTheme(data);
+    });
+  }
+  resetTheme (data) {
+    this.cpntData.clickedIdx = null;
+    this.cpntData.winItemIdx = null;
+    this.allItems.length = 0;
+    this.allItems.push(...data);
     this.cpntData.items.length = 0;
     this.changeDisplayedItems();
   }

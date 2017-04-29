@@ -1,17 +1,20 @@
 {
   "layout": {
-    "chooseLangue": "Choisir la langue"
+    "chooseLang": "Choisir la langue",
+    "home": "Accueil",
+    "gameboard": "Salle de jeu",
+    "blackboard": "Salle de cours"
   },
   "home": {
-    "intro1": "Laolol is une application web pour aider les anglophones et les francophones à apprendre le lao.",
-    "intro2": "Ce site peut aussi être utilisé par les lao pour apprendre le français ou l'anglais",
+    "intro1": "Laolol est une application web pour aider les anglophones et les francophones à apprendre le lao.",
+    "intro2": "Ce site peut aussi être utilisé par les lao pour apprendre le français ou l'anglais.",
     "andNow": "Allez",
     "letsPlay": "c'est parti !",
     "wantLearn": "Je veux apprendre ",
     "englishLanguage": "l'anglais",
     "frenchLanguage": "le français",
     "laoLanguage": "le lao",
-    "or": "or"
+    "or": "ou"
   },
   "gameboard": {
     "findTranslation": "Trouver la traduction de ",

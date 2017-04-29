@@ -17,9 +17,9 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 
 // custom services
-import { GameService } from './shared-services/game.service';
 import { LanguageService } from './shared-services/language.service';
 import { StorageService } from './shared-services/storage.service';
+import { ThemeService } from './shared-services/theme.service';
 
 // language export for AOT build
 export function createTranslateLoader(http: Http) {
@@ -46,7 +46,7 @@ export function createTranslateLoader(http: Http) {
     })
   ],
   providers: [
-    GameService,
+    ThemeService,
     LanguageService,
     StorageService
   ],

@@ -2,6 +2,10 @@
   {{ 'home.intro1' | translate }}<br />
   {{ 'home.intro2' | translate }}
 </p>
-<p>{{ 'home.andNow' | translate }}, {{ 'home.letsPlay' | translate }}.<br/>
-	{{ 'home.wantLearn' | translate }} <a routerLink="/gameboard" (click)="goGameboard('lo')">{{ 'home.laoLanguage' | translate }}</a>, <a routerLink="/gameboard" (click)="goGameboard('fr')">{{ 'home.frenchLanguage' | translate }}</a> {{ 'home.or' | translate}} <a routerLink="/gameboard" (click)="goGameboard('en')">{{ 'home.englishLanguage' | translate }}</a> ?
+<p>{{ 'home.andNow' | translate }}, {{ 'home.letsPlay' | translate }}<br/>
+	{{ 'home.wantLearn' | translate }}:
+		<a routerLink="/gameboard" (click)="changeLearningLang('lo')">{{ 'home.laoLanguage' | translate }}</a>,
+		<a routerLink="/gameboard" (click)="changeLearningLang('fr')">{{ 'home.frenchLanguage' | translate }}</a>
+		{{ 'home.or' | translate}}
+		<a routerLink="/gameboard" (click)="changeLearningLang('en')">{{ 'home.englishLanguage' | translate }}</a>.
 </p>

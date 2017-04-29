@@ -1,17 +1,20 @@
 {
   "layout": {
-    "chooseLangue": "ເລືອກພາສາ"
+    "chooseLang": "ເລືອກ ພາສາ",
+    "home": "Home",
+    "gameboard": "Gameboard",
+    "blackboard": "Blackboard"
   },
   "home": {
     "intro1": "Laolol is a platform to help English-speaker and French-speaker to learn lao language.",
     "intro2": "It can be used by Lao-speaker as well, to learn english and french.",
     "andNow": "And now",
     "letsPlay": "let's play !",
-    "wantLearn": "I want to learn",
-    "englishLanguage": "english",
-    "frenchLanguage": "french",
-    "laoLanguage": "lao",
-    "or": "or"
+    "wantLearn": "ຂ້ອຍ ຢາກ ຮຽນ",
+    "englishLanguage": "ພາ​ສາ​ອັງ​ກິດ",
+    "frenchLanguage": "ພາສາຝຣັ່ງ",
+    "laoLanguage": "ພາສາລາວ",
+    "or": "ຫຼື"
   },
   "gameboard": {
     "findTranslation": "Find the right translation for",

@@ -1,6 +1,9 @@
 {
   "layout": {
-    "chooseLangue": "Choose your language"
+    "chooseLang": "Choose language",
+    "home": "Home",
+    "gameboard": "Gameboard",
+    "blackboard": "Blackboard"
   },
   "home": {
     "intro1": "Laolol is a platform to help English-speaker and French-speaker to learn lao language.",
@@ -17,5 +20,12 @@
     "findTranslation": "Find the translation for",
     "correctAnswer": "Bravo, the correct answer is indeed",
     "wrongAnswer": "Unfortunatly, it's wrong. The correct anwser is"
+  },
+  "theme": {
+    "vowels": "Vowels",
+    "consonants": "Consonants",
+    "animals": "Animals",
+    "plants": "Plants",
+    "days": "Week days"
   }
 }

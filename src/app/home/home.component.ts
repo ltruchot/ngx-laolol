@@ -12,8 +12,8 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
   }
 
-  goGameboard (code: string) {
-  	this.languageService.data.learningLang = code;
+  changeLearningLang (code: string) {
+    this.languageService.data.learningLang = code;
   }
 
 }

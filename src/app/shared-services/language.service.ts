@@ -6,9 +6,9 @@ import { StorageService } from './storage.service';
 export class LanguageService {
   DEFAULT_LANG = 'en';
   AVAILABLE_LANG = [
-    { code: 'en', flag: 'us', label: 'english' },
-    { code: 'fr', flag: 'fr', label: 'français' },
-    { code: 'lo', flag: 'la', label: 'ພາສາລາວ' }
+    { code: 'en', flag: 'us', label: 'english', trad: 'home.englishLanguage' },
+    { code: 'fr', flag: 'fr', label: 'français', trad: 'home.frenchLanguage' },
+    { code: 'lo', flag: 'la', label: 'ພາສາລາວ', trad: 'home.laoLanguage' }
   ];
   data = {
     currentLang: 'en',
