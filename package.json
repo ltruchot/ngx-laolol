@@ -1,11 +1,12 @@
 {
   "name": "ngx-laolol",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "license": "MIT",
   "scripts": {
     "ng": "ng",
     "start": "ng serve --poll=2000",
     "build": "ng build",
+    "release": "ng build --prod --aot",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
