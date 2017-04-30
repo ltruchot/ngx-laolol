@@ -1,9 +1,13 @@
 {
   "layout": {
+    "blackboard": "Salle de cours",
     "chooseLang": "Choisir la langue",
-    "home": "Accueil",
+    "exams": "Examens",
     "gameboard": "Salle de jeu",
-    "blackboard": "Salle de cours"
+    "home": "Accueil",
+    "lao": "Lao",
+    "lol": "LOL",
+    "menu": "Menu"
   },
   "home": {
     "intro1": "Laolol est une application web pour aider les anglophones et les francophones à apprendre le lao.",
@@ -19,6 +23,15 @@
   "gameboard": {
     "findTranslation": "Trouver la traduction de ",
     "correctAnswer": "Bravo, la bonne réponse est en effet",
+    "karaoke": "karaoke",
+    "learn": "Apprendre",
     "wrongAnswer": "Malheureusement, c'est faux. La bonne réponse est"
+  },
+  "theme": {
+    "vowels": "Voyelles",
+    "consonants": "Consonnes",
+    "animals": "Animaux",
+    "plants": "Plantes",
+    "days": "Jours de la semaine"
   }
 }

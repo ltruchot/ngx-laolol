@@ -2,10 +2,12 @@ html {
   position: relative;
   min-height: 100%;
   font-size: 12px;
+  -webkit-writing-mode: horizontal-tb;
 }
 body {
 	font-size: 1.50em;
 	margin-bottom: 60px;
+	font-family:Phetsarath_OT;
 	h1, h2, h3, h4 {
 		line-height: 1.50em;
 	}

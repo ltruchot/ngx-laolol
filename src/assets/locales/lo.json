@@ -1,15 +1,19 @@
 {
   "layout": {
+    "blackboard": "ໂຮງຮຽນ",
     "chooseLang": "ເລືອກ ພາສາ",
-    "home": "Home",
-    "gameboard": "Gameboard",
-    "blackboard": "Blackboard"
+    "exams": "ການສອບເສັງ",
+    "gameboard": "ຫ້ອງເກມ",
+    "home": " ໜ້າຫຼັກ",
+    "lao": "ລາວ",
+    "lol": "555",
+    "menu": "ລາຍການ"
   },
   "home": {
-    "intro1": "Laolol is a platform to help English-speaker and French-speaker to learn lao language.",
+    "intro1": "ລາວ555 (Laolol) is a platform to help English-speaker and French-speaker to learn lao language.",
     "intro2": "It can be used by Lao-speaker as well, to learn english and french.",
-    "andNow": "And now",
-    "letsPlay": "let's play !",
+    "andNow": "ດຽວນີ້",
+    "letsPlay": "ຫຼິ້ນ !",
     "wantLearn": "ຂ້ອຍ ຢາກ ຮຽນ",
     "englishLanguage": "ພາ​ສາ​ອັງ​ກິດ",
     "frenchLanguage": "ພາສາຝຣັ່ງ",
@@ -19,6 +23,15 @@
   "gameboard": {
     "findTranslation": "Find the right translation for",
     "correctAnswer": "Bravo, the correct answer is indeed",
+    "karaoke": "ຄາລາໂອເກະ",
+    "learn": "ຮຽນ",
     "wrongAnswer": "Unfortunatly, it's wrong. The correct anwser is"
+  },
+  "theme": {
+    "vowels": "ສະຫຼະ",
+    "consonants": "ພະຍັນຊະນະ",
+    "animals": "ສັດ",
+    "plants": "Plants",
+    "days": "ວັນ"
   }
 }
