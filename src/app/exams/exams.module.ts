@@ -3,16 +3,16 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { TranslateService, TranslateModule } from '@ngx-translate/core';
 
-import { GameboardComponent } from './gameboard.component';
+import { ExamsComponent } from './exams.component';
 
 @NgModule({
   imports: [
     CommonModule,
     TranslateModule,
     RouterModule.forChild([
-      { path: '', component: GameboardComponent, pathMatch: 'full'}
+      { path: '', component: ExamsComponent, pathMatch: 'full'}
     ])
   ],
-  declarations: [GameboardComponent]
+  declarations: [ExamsComponent]
 })
-export class GameboardModule { }
+export class ExamsModule { }

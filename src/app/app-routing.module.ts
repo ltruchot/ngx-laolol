@@ -7,8 +7,10 @@ const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent, pathMatch: 'full'},
   { path: 'gameboard', loadChildren: './gameboard/gameboard.module#GameboardModule' },
+  { path: 'blackboard', loadChildren: './blackboard/blackboard.module#BlackboardModule' },
+  { path: 'exams', loadChildren: './exams/exams.module#ExamsModule' },
   { path: '404', loadChildren: './notfound/notfound.module#NotfoundModule' },
-  { path: '**', redirectTo: '/404'}
+  { path: '**', redirectTo: '/404' }
 ];
 
 export const routing = RouterModule.forRoot(routes);

@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-6">
-      <h1>Laolol</h1>
+      <h1>{{ 'layout.lao' | translate}}<span class="title-complement">{{ 'layout.lol' | translate}}</span></h1>
     </div>
     <div class="col-xs-6">
       <nav class="avaiblable-lang-list">
@@ -35,10 +35,16 @@
       <div class="collapse navbar-collapse" id="bs-navbar-collapse-1">
         <ul class="nav navbar-nav">
           <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" data-toggle="collapse" data-target="#bs-navbar-collapse-1.in">
-            <a routerLink="/home">{{ 'layout.home' | translate }} <span class="sr-only">(current)</span></a>
+            <a routerLink="/home">{{ 'layout.home' | translate }}</a>
           </li>
           <li routerLinkActive="active" data-toggle="collapse" data-target="#bs-navbar-collapse-1.in">
             <a routerLink="/gameboard">{{ 'layout.gameboard' | translate }}</a>
+          </li>
+          <li routerLinkActive="active" data-toggle="collapse" data-target="#bs-navbar-collapse-1.in">
+            <a routerLink="/blackboard">{{ 'layout.blackboard' | translate }}</a>
+          </li>
+          <li routerLinkActive="active" data-toggle="collapse" data-target="#bs-navbar-collapse-1.in">
+            <a routerLink="/exams">{{ 'layout.exams' | translate }}</a>
           </li>
         </ul>
       </div><!-- /.navbar-collapse -->

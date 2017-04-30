@@ -3,7 +3,7 @@
 		<div class="btn-toolbar">
 			<div class="btn-group">
 				<button class="btn btn-info dropdown-toggle" data-toggle="dropdown">
-					Learn <span class="caret"></span>
+					{{ 'gameboard.learn' | translate }} <span class="caret"></span>
 				</button>
 				<ul class="dropdown-menu">
 					<li *ngFor="let lang of cpntData.availableLang"
@@ -24,7 +24,7 @@
 				</ul>
 			</div>
 			<div class="btn-group" *ngIf="cpntData.lang.learningLang === 'lo'">
-				<label class="checkbox-inline text-small"><input type="checkbox" value="" [checked]="cpntData.theme.karaoke" (change)="cpntData.theme.karaoke = !cpntData.theme.karaoke">karaoke</label>
+				<label class="checkbox-inline text-small"><input type="checkbox" value="" [checked]="cpntData.theme.karaoke" (change)="cpntData.theme.karaoke = !cpntData.theme.karaoke">{{ 'gameboard.karaoke' | translate }}</label>
 			</div>
 		</div>
 	</div>
@@ -39,7 +39,7 @@
 </div>
 <div class="row game-buttons-container">
 	<div *ngFor="let item of cpntData.items; let i = index;" class="col-xs-6 col-md-3">
-		<div class="px5">
+		<div class="px5tb">
 			<button (click)="checkAnswer(i)" type="button"
 			[disabled]="cpntData.clickedIdx !== null && (cpntData.clickedIdx !== i)" class="btn btn-lg btn-block"
 			[ngClass]="{
@@ -53,6 +53,16 @@
 					<em>{{ item.kk }}</em>
 				</ng-template>
 			</button>
+		</div>
+	</div>
+</div>
+<div class="row">
+	<div class="col-xs-12">
+		<div class="progress">
+			<div class="progress-bar no-transition" role="progressbar"
+			aria-valuenow="cpntData.currentQuestionTimer" aria-valuemin="0" aria-valuemax="100"
+			[style.width]="cpntData.currentQuestionTimer + '%'">
+			</div>
 		</div>
 	</div>
 </div>

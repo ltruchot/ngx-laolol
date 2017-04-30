@@ -7,7 +7,7 @@ import { CommonModule } from '@angular/common';
 
 // npm dependencies
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
-import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 // custom modules
 import { AppRoutingModule } from './app-routing.module';
@@ -20,6 +20,7 @@ import { HomeComponent } from './home/home.component';
 import { LanguageService } from './shared-services/language.service';
 import { StorageService } from './shared-services/storage.service';
 import { ThemeService } from './shared-services/theme.service';
+
 
 // language export for AOT build
 export function createTranslateLoader(http: Http) {

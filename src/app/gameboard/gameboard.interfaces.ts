@@ -7,4 +7,5 @@ export interface GameboardCpntData {
   availableLang: any;
   theme: any;
   availableTheme: any;
+  currentQuestionTimer: number;
 };

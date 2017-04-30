@@ -23,9 +23,12 @@ export class GameboardComponent implements OnInit {
     lang: null,
     availableLang: null,
     theme: null,
-    availableTheme: null
+    availableTheme: null,
+    currentQuestionTimer: 0
   };
   allItems: Array<ThemeItem> = [];
+  questionTimer: number = null;
+  QUESTION_TIMER_DURATION = 7;
   constructor (private themeService: ThemeService, private languageService: LanguageService) { }
 
   ngOnInit () {
@@ -47,10 +50,12 @@ export class GameboardComponent implements OnInit {
       this.allItems.splice(randomItemIdx, 1);
     }
     this.cpntData.winItemIdx = Math.floor(Math.random() * ITEM_DISPLAYED_NBR);
+    this.launchQuestionTimer();
   }
 
   checkAnswer (index) {
     this.cpntData.clickedIdx = index;
+    clearInterval(this.questionTimer);
   }
   nextQuestion () {
     this.cpntData.clickedIdx = null;
@@ -76,5 +81,28 @@ export class GameboardComponent implements OnInit {
     this.allItems.push(...data);
     this.cpntData.items.length = 0;
     this.changeDisplayedItems();
+  }
+  launchQuestionTimer () {
+    // console.log('gameboard.component::launchQuestionTimer');
+    this.resetQuestionTimer();
+    let ctr = 0;
+    window.setTimeout(() => {
+       this.questionTimer = window.setInterval(() => {
+        ctr++;
+        this.cpntData.currentQuestionTimer = Math.ceil((ctr / this.QUESTION_TIMER_DURATION) * 10);
+
+        // max reached?
+        if (ctr === (this.QUESTION_TIMER_DURATION * 10) + 3) {
+          clearInterval(this.questionTimer);
+          this.cpntData.clickedIdx = -1;
+        }
+      }, 100);
+    }, 200);
+  }
+  resetQuestionTimer () {
+    this.cpntData.currentQuestionTimer = 0;
+    if (this.questionTimer) {
+      clearInterval(this.questionTimer);
+    }
   }
 }
