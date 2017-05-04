@@ -1,0 +1,58 @@
+[{
+	"en": "eye",
+	"fr": "oeil",
+	"lo": "ຕາ",
+	"kk": "ta:",
+	"meta": {
+		"fr": {
+			"isMale": true,
+			"isPlural": false,
+			"plural": "yeux"
+		}
+	}
+}, {
+	"en": "hand",
+	"fr": "main",
+	"lo": "ມື",
+	"kk": "mu:",
+	"meta": {
+		"fr": {
+			"isMale": false,
+			"isPlural": false
+		}
+	}
+}, {
+	"en": "head",
+	"fr": "tête",
+	"lo": "",
+	"kk": "houa",
+	"meta": {
+		"fr": {
+			"isMale": false,
+			"isPlural": false
+		}
+	}
+}, {
+	"en": "ear",
+	"fr": "oreille",
+	"lo": "",
+	"kk": "hou:",
+	"meta": {
+		"fr": {
+			"isMale": false,
+			"isPlural": false
+		}
+	}
+}, {
+	"en": "hair",
+	"fr": "cheveux",
+	"lo": "",
+	"kk": "hou:",
+	"meta": {
+		"fr": {
+			"isMale": true,
+			"isPlural": true,
+			"plural": "cheveux"
+		}
+	}
+}]

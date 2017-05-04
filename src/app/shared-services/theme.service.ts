@@ -13,7 +13,8 @@ export class ThemeService {
     { code: 'consonants', trad: 'theme.consonants' },
     // { code: 'animals', trad: 'theme.animals' },
     // { code: 'plants', trad: 'theme.plants' },
-    { code: 'days', trad: 'theme.days' }
+    { code: 'days', trad: 'theme.days' },
+    { code: 'family', trad: 'theme.family' }
   ];
   data = {
     learningTheme: 'vowels',
