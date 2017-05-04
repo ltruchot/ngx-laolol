@@ -7,7 +7,9 @@
     "home": "Home",
     "lao": "Lao",
     "lol": "LOL",
-    "menu": "Menu"
+    "menu": "Menu",
+    "nameSoulisack": "Soulisack Luanglad",
+    "nameLoic": "Loïc Truchot"
   },
   "home": {
     "intro1": "Laolol is a platform to help English-speaker and French-speaker to learn lao language.",
@@ -25,7 +27,8 @@
     "correctAnswer": "Bravo, the correct answer is indeed",
     "karaoke": "karaoke",
     "learn": "Learn",
-    "wrongAnswer": "Unfortunatly, it's wrong. The correct anwser is"
+    "wrongAnswer": "Unfortunatly, it's wrong. The correct anwser is",
+    "topic": "Topic"
   },
   "theme": {
     "vowels": "Vowels",

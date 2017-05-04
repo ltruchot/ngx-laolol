@@ -1,3 +1,23 @@
-<p>
-  blackboard works!
-</p>
+<div class="row">
+	<div class="col-xs-12">
+	<h2 style="text-align: center;">{{ cpntData.availableTheme ? (cpntData.availableTheme[cpntData.theme?.learningTheme] .trad | translate) : null  }}</h2>
+	</div>
+</div>
+<div class="row">
+	<div class="col-xs-3" *ngFor="let item of cpntData.items; let i = index;">
+		<div class="thumbnail">
+			<div class="caption">
+				<h3>{{ item[cpntData.lang.learningLang] }}</h3>
+			</div>
+			<img alt="Image" style="height: 140px; width: 100%; display: block;" >
+			<div class="caption">
+				<h4>{{  cpntData.items[i][cpntData.lang.currentLang] }}</h4>
+<!-- 				<p>Cras justo odio, dapibus ac facilisis in, egestas eget quam.</p>
+				<p>
+					<a href="#" class="btn btn-primary" role="button">Button</a>
+					<a href="#" class="btn btn-default" role="button">Button</a>
+				</p> -->
+			</div>
+		</div>
+	</div>
+</div>

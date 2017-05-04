@@ -7,11 +7,13 @@
     "home": "Accueil",
     "lao": "Lao",
     "lol": "LOL",
-    "menu": "Menu"
+    "menu": "Menu",
+    "nameSoulisack": "Soulisack Luanglad",
+    "nameLoic": "Loïc Truchot"
   },
   "home": {
     "intro1": "Laolol est une application web pour aider les anglophones et les francophones à apprendre le lao.",
-    "intro2": "Ce site peut aussi être utilisé par les lao pour apprendre le français ou l'anglais.",
+    "intro2": "Ce site peut aussi être utilisé par les laophones pour apprendre le français ou l'anglais.",
     "andNow": "Allez",
     "letsPlay": "c'est parti !",
     "wantLearn": "Je veux apprendre ",
@@ -25,7 +27,8 @@
     "correctAnswer": "Bravo, la bonne réponse est en effet",
     "karaoke": "karaoke",
     "learn": "Apprendre",
-    "wrongAnswer": "Malheureusement, c'est faux. La bonne réponse est"
+    "wrongAnswer": "Malheureusement, c'est faux. La bonne réponse est",
+    "topic": "Thème"
   },
   "theme": {
     "vowels": "Voyelles",

@@ -1,19 +1,21 @@
 {
   "layout": {
-    "blackboard": "ໂຮງຮຽນ",
+    "blackboard": "ຫ້ອງຮຽນ",
     "chooseLang": "ເລືອກ ພາສາ",
-    "exams": "ການສອບເສັງ",
+    "exams": "ປະເມີນຜົນ",
     "gameboard": "ຫ້ອງເກມ",
     "home": " ໜ້າຫຼັກ",
     "lao": "ລາວ",
     "lol": "555",
-    "menu": "ລາຍການ"
+    "menu": "ລາຍການ",
+    "nameSoulisack": "ສຸລິສັກ ຫວງລາດ",
+    "nameLoic": "ໂລໂລ ທູຍໂສ"
   },
   "home": {
-    "intro1": "ລາວ555 (Laolol) is a platform to help English-speaker and French-speaker to learn lao language.",
-    "intro2": "It can be used by Lao-speaker as well, to learn english and french.",
-    "andNow": "ດຽວນີ້",
-    "letsPlay": "ຫຼິ້ນ !",
+    "intro1": "ລາວ555 (Laolol) ແມ່ນເວບໄຊທີ່ສາມາດຊ່ວຍຄົນລາວຮຽນພາສາຝະລັ່ງຫລືພາສາອັງກິດ",
+    "intro2": "ແລະມັນສາມາດຊວ່ຍຄົນທີ່ເວົາພາສາຝະລັ່ງ ຫລື ພາສາອັງກິດຮຽນພາສາລາວໄດ້ ",
+    "andNow": "ຫຼິ້ນ",
+    "letsPlay": "ດຽວນີ້ !",
     "wantLearn": "ຂ້ອຍ ຢາກ ຮຽນ",
     "englishLanguage": "ພາ​ສາ​ອັງ​ກິດ",
     "frenchLanguage": "ພາສາຝຣັ່ງ",
@@ -25,7 +27,8 @@
     "correctAnswer": "Bravo, the correct answer is indeed",
     "karaoke": "ຄາລາໂອເກະ",
     "learn": "ຮຽນ",
-    "wrongAnswer": "Unfortunatly, it's wrong. The correct anwser is"
+    "wrongAnswer": "Unfortunatly, it's wrong. The correct anwser is",
+    "topic": "ຫົວຂໍ້"
   },
   "theme": {
     "vowels": "ສະຫຼະ",

@@ -14,12 +14,12 @@
 			</div>
 			<div class="btn-group">
 				<button class="btn btn-warning dropdown-toggle" data-toggle="dropdown">
-					Theme <span class="caret"></span>
+					{{ 'gameboard.topic' | translate }} <span class="caret"></span>
 				</button>
 				<ul class="dropdown-menu">
-					<li *ngFor="let theme of cpntData.availableTheme"
+					<li *ngFor="let theme of cpntData.availableTheme; let i = index;"
 						[ngClass]="{'active': theme.code  === cpntData.theme.learningTheme}">
-						<a (click)="changeLearningTheme(theme.code)">{{ theme.trad | translate }}</a>
+						<a (click)="changeLearningTheme(i)">{{ theme.trad | translate }}</a>
 					</li>
 				</ul>
 			</div>

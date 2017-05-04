@@ -68,8 +68,8 @@ export class GameboardComponent implements OnInit {
   changeLearningLang (code: string) {
     this.languageService.data.learningLang = code;
   }
-  changeLearningTheme(code: string) {
-    this.themeService.data.learningTheme = code;
+  changeLearningTheme(index: number) {
+    this.themeService.data.learningTheme = index;
     this.themeService.getLearningTheme().subscribe(data => {
       this.resetTheme(data);
     });
