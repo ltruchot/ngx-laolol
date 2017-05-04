@@ -14,7 +14,6 @@ mongoose.connect(CONFIG.mongoUrl);
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
-
 // Parsers for POST data
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -28,10 +27,9 @@ var routes = require('./api/routes/wordsRoutes');
 routes(app);
 
 // Catch all other routes and return the index file
-// app.get('*', (req, res) => {
-// 	res.sendFile(path.join(__dirname, 'dist/index.html'));
-// });
-
+app.get('*', (req, res) => {
+	res.sendFile(path.join(__dirname, 'dist/index.html'));
+});
 
 /**
  * Get port from environment and store in Express.
