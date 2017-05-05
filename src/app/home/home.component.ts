@@ -6,10 +6,13 @@ import { LanguageService } from './../shared-services/language.service';
   templateUrl: './home.component.html'
 })
 export class HomeComponent implements OnInit {
-
+  cpntData = {
+    lang: null
+  };
   constructor(private languageService: LanguageService) { }
 
   ngOnInit() {
+    this.cpntData.lang = this.languageService.data;
   }
 
   changeLearningLang (code: string) {

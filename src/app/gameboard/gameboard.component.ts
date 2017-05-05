@@ -36,7 +36,7 @@ export class GameboardComponent implements OnInit {
     this.cpntData.availableLang = this.languageService.AVAILABLE_LANG;
     this.cpntData.theme =  this.themeService.data;
     this.cpntData.availableTheme = this.themeService.AVAILABLE_THEME;
-    this.themeService.getLearningTheme().subscribe(data => {
+    this.themeService.getCurrentTheme().subscribe(data => {
       this.resetTheme(data);
     });
   }
@@ -66,11 +66,12 @@ export class GameboardComponent implements OnInit {
   }
 
   changeLearningLang (code: string) {
-    this.languageService.data.learningLang = code;
+    this.languageService.chooseLearningLang(code);
   }
+
   changeLearningTheme(index: number) {
-    this.themeService.data.learningTheme = index;
-    this.themeService.getLearningTheme().subscribe(data => {
+    this.themeService.changeLearningTheme(index);
+    this.themeService.getCurrentTheme().subscribe(data => {
       this.resetTheme(data);
     });
   }

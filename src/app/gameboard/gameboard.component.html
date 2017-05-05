@@ -18,12 +18,12 @@
 				</button>
 				<ul class="dropdown-menu">
 					<li *ngFor="let theme of cpntData.availableTheme; let i = index;"
-						[ngClass]="{'active': theme.code  === cpntData.theme.learningTheme}">
+						[ngClass]="{'active': i  === cpntData.theme.learningThemeIdx}">
 						<a (click)="changeLearningTheme(i)">{{ theme.trad | translate }}</a>
 					</li>
 				</ul>
 			</div>
-			<div class="btn-group" *ngIf="cpntData.lang.learningLang === 'lo'">
+			<div class="btn-group" *ngIf="cpntData.lang.learningLang === 'lo' && (!cpntData.theme.learningTheme.noKaraoke)">
 				<label class="checkbox-inline text-small"><input type="checkbox" value="" [checked]="cpntData.theme.karaoke" (change)="cpntData.theme.karaoke = !cpntData.theme.karaoke">{{ 'gameboard.karaoke' | translate }}</label>
 			</div>
 		</div>
@@ -48,7 +48,7 @@
 			'btn-success':i === cpntData.clickedIdx && cpntData.clickedIdx === cpntData.winItemIdx,
 			'btn-danger': i === cpntData.clickedIdx && cpntData.clickedIdx !== cpntData.winItemIdx}" >
 				{{ item[cpntData.lang.learningLang] }}
-				<ng-template [ngIf]="cpntData.theme.karaoke && (cpntData.lang.learningLang === 'lo')">
+				<ng-template [ngIf]="cpntData.theme.karaoke && (cpntData.lang.learningLang === 'lo') && !cpntData.theme.learningTheme.noKaraoke">
 					<br />
 					<em>{{ item.kk }}</em>
 				</ng-template>
