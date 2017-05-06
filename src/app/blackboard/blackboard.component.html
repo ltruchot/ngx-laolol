@@ -1,22 +1,39 @@
+<div [hidden]= "cpntData.lang?.isCurrentLoading || !(cpntData.lang?.isLearningLoading)" class="loading"></div>
 <div class="row">
 	<div class="col-xs-12">
-	<h2 style="text-align: center;">{{ (cpntData.theme?.learningTheme?.trad) | translate : null  }}</h2>
+			<app-submenu></app-submenu>
 	</div>
 </div>
 <div class="row">
-	<div class="col-xs-3" *ngFor="let item of cpntData.items; let i = index;">
+	<div class="col-xs-12">
+	<h2 style="text-align: center;" *ngIf="cpntData.theme?.learningTheme && cpntData.lang?.learningLang">
+		{{ cpntData.theme.learningTheme[cpntData.lang.learningLang] }}
+		<em>
+			({{ cpntData.theme?.learningTheme?.trad | translate }})
+		</em>
+	</h2>
+	</div>
+</div>
+<div class="row">
+	<div class="col-xs-6 col-sm-3" *ngFor="let item of cpntData.items; let i = index;">
 		<div class="thumbnail">
+			<h3 class="mx0 text-center">{{ item[cpntData.lang.learningLang] }}</h3>
+			<div class="img-responsive img-thumbnail ratio-4-3" style="background-image:url('/assets/img/questionmark.jpg')"></div>
+			<img alt="" class="ration-4-3" />
 			<div class="caption">
-				<h3>{{ item[cpntData.lang.learningLang] }}</h3>
-			</div>
-			<img alt="Image" style="height: 140px; width: 100%; display: block;" >
-			<div class="caption">
-				<h4>{{  cpntData.items[i][cpntData.lang.currentLang] }}</h4>
-<!-- 				<p>Cras justo odio, dapibus ac facilisis in, egestas eget quam.</p>
-				<p>
-					<a href="#" class="btn btn-primary" role="button">Button</a>
-					<a href="#" class="btn btn-default" role="button">Button</a>
-				</p> -->
+				<h4>{{  item[cpntData.lang.currentLang] }}</h4>
+				<h5 *ngIf="(cpntData.lang?.learningLang === 'fr') && (item.meta && item.meta.fr && item.meta.fr.isMale !== undefined)">
+					{{ item.meta.fr.isMale ? "le" : "la" }} {{ item[cpntData.lang.learningLang] }}
+				</h5>
+				<h5 *ngIf="(cpntData.lang?.learningLang === 'fr')">
+					les {{ item.meta && item.meta.fr && item.meta.fr.plural ? item.meta.fr.plural : item.fr + "s" }}
+				</h5>
+				<h5 *ngIf="cpntData.theme.karaoke && (cpntData.lang.learningLang === 'lo') && !cpntData.theme.learningTheme.noKaraoke">
+					{{ item.kk }}
+				</h5>
+				<h5 *ngIf="item.meta && item.meta[cpntData.lang.currentLang] && item.meta[cpntData.lang.currentLang].tone">
+					{{ item.meta[cpntData.lang.currentLang].tone }}
+				</h5>
 			</div>
 		</div>
 	</div>

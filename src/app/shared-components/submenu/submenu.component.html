@@ -1,0 +1,31 @@
+<div class="btn-toolbar">
+	<div class="btn-group">
+	  <button class="btn btn-info dropdown-toggle" data-toggle="dropdown">
+	    {{ 'gameboard.learn' | translate }} <span class="caret"></span>
+	  </button>
+	  <ul class="dropdown-menu">
+	    <li *ngFor="let lang of cpntData.availableLang"
+	      [ngClass]="{'active': lang.code  === cpntData.lang.learningLang}">
+	      <a (click)="changeLearningLang(lang.code)">{{ lang.label }}</a>
+	    </li>
+	  </ul>
+	</div>
+	<div class="btn-group">
+		<button class="btn btn-warning dropdown-toggle" data-toggle="dropdown">
+			{{ 'gameboard.topic' | translate }} <span class="caret"></span>
+		</button>
+		<ul class="dropdown-menu">
+			<ng-container *ngFor="let theme of cpntData.availableTheme; let i = index;">
+				<li [ngClass]="{'active': i  === cpntData.theme.learningThemeIdx}">
+					<a (click)="changeLearningTheme(i)">{{ theme.trad | translate }}</a>
+				</li>
+				<li *ngIf="i === 1" role="separator" class="divider"></li>
+			</ng-container>
+		</ul>
+	</div>
+	<div class="btn-group" *ngIf="cpntData.lang.learningLang === 'lo' && (!cpntData.theme.learningTheme.noKaraoke)">
+		<label class="checkbox-inline text-small">
+			<input type="checkbox" value="" [checked]="cpntData.theme.karaoke" (change)="cpntData.theme.karaoke = !cpntData.theme.karaoke">{{ 'gameboard.karaoke' | translate }}
+		</label>
+	</div>
+</div>

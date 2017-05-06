@@ -1,4 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+// ng dependencies
+import { Component, OnInit, OnDestroy } from '@angular/core';
+
+// npm dependencies
+import { Subscription } from 'rxjs/Subscription';
 
 // custom services
 import { ThemeService } from './../shared-services/theme.service';
@@ -8,8 +12,8 @@ import { LanguageService } from './../shared-services/language.service';
   selector: 'app-blackboard',
   templateUrl: './blackboard.component.html'
 })
-export class BlackboardComponent implements OnInit {
-
+export class BlackboardComponent implements OnInit, OnDestroy {
+  themeSubscription: Subscription;
   cpntData = {
     items: [],
     lang: null,
@@ -18,17 +22,20 @@ export class BlackboardComponent implements OnInit {
     availableTheme: null
   };
 
-  constructor(private themeService: ThemeService, private languageService: LanguageService) { }
+  constructor(private themeService: ThemeService, private languageService: LanguageService) {
+    this.themeSubscription = this.themeService.currentTheme$.subscribe(data => {
+      this.resetTheme(data);
+    });
+  }
 
   ngOnInit () {
     this.cpntData.lang =  this.languageService.data;
     this.cpntData.availableLang = this.languageService.AVAILABLE_LANG;
     this.cpntData.theme =  this.themeService.data;
     this.cpntData.availableTheme = this.themeService.AVAILABLE_THEME;
-    this.themeService.getCurrentTheme().subscribe(data => {
-      this.resetTheme(data);
-    });
+    this.themeService.getCurrentTheme().subscribe();
   }
+
   resetTheme (data) {
     this.cpntData.items.length = 0;
     this.cpntData.items.push(...data);
@@ -38,10 +45,8 @@ export class BlackboardComponent implements OnInit {
     this.languageService.chooseLearningLang(code);
   }
 
-  changeLearningTheme(index: number) {
-    this.themeService.changeLearningTheme(index);
-    this.themeService.getCurrentTheme().subscribe(data => {
-      this.resetTheme(data);
-    });
+  ngOnDestroy() {
+    // prevent memory leak when component destroyed
+    this.themeSubscription.unsubscribe();
   }
 }

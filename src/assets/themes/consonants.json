@@ -27,15 +27,31 @@
     "en": "th",
     "fr": "th",
     "lo": "ຖ",
-    "kk": "thɔ"
+    "kk": "thɔ",
+    "meta": {
+        "en": {
+            "tone": "high tone"
+        },
+        "fr": {
+            "tone": "ton haut"
+        }
+    }
 }, {
     "en": "th",
     "fr": "th",
     "lo": "ທ",
-    "kk": "thɔ"
+    "kk": "thɔ",
+    "meta": {
+        "en": {
+            "tone": "low tone"
+        },
+        "fr": {
+            "tone": "ton bas"
+        }
+    }
 }, {
-    "en": "ɔ",
-    "fr": "ɔ",
+    "en": "h (silent)",
+    "fr": "h (muet)",
     "lo": "ອ",
     "kk": "ɔ"
 }, {
@@ -52,10 +68,26 @@
     "en": "kh",
     "fr": "kh",
     "lo": "ຂ",
-    "kk": "khɔ"
+    "kk": "khɔ",
+    "meta": {
+        "en": {
+            "tone": "high tone"
+        },
+        "fr": {
+            "tone": "ton haut"
+        }
+    }
 }, {
     "en": "kh",
     "fr": "kh",
     "lo": "ຄ",
-    "kk": "khɔ"
+    "kk": "khɔ",
+    "meta": {
+        "en": {
+            "tone": "low tone"
+        },
+        "fr": {
+            "tone": "ton bas"
+        }
+    }
 }]

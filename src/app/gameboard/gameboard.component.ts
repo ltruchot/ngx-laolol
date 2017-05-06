@@ -1,7 +1,8 @@
 // ng dependencies
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 
 // npm dependencies
+import { Subscription } from 'rxjs/Subscription';
 
 // custom interfaces
 import { GameboardCpntData } from './gameboard.interfaces';
@@ -15,33 +16,37 @@ import { LanguageService } from './../shared-services/language.service';
   selector: 'app-gameboard',
   templateUrl: './gameboard.component.html'
 })
-export class GameboardComponent implements OnInit {
+export class GameboardComponent implements OnInit, OnDestroy {
+  themeSubscription: Subscription;
   cpntData: GameboardCpntData = {
     winItemIdx: null,
-    items: [],
     clickedIdx: null,
+    currentQuestionTimer: 0,
+    items: [],
     lang: null,
     availableLang: null,
     theme: null,
-    availableTheme: null,
-    currentQuestionTimer: 0
+    availableTheme: null
   };
   allItems: Array<ThemeItem> = [];
   questionTimer: number = null;
   QUESTION_TIMER_DURATION = 7;
-  constructor (private themeService: ThemeService, private languageService: LanguageService) { }
+  constructor (private themeService: ThemeService, private languageService: LanguageService) {
+    this.themeSubscription = this.themeService.currentTheme$.subscribe(data => {
+      this.resetTheme(data);
+    });
+  }
 
   ngOnInit () {
     this.cpntData.lang =  this.languageService.data;
     this.cpntData.availableLang = this.languageService.AVAILABLE_LANG;
     this.cpntData.theme =  this.themeService.data;
     this.cpntData.availableTheme = this.themeService.AVAILABLE_THEME;
-    this.themeService.getCurrentTheme().subscribe(data => {
-      this.resetTheme(data);
-    });
+    this.themeService.getCurrentTheme().subscribe();
   }
 
   changeDisplayedItems () {
+    this.launchQuestionTimer();
     const ITEM_DISPLAYED_NBR = 4;
     const items = this.allItems;
     for (let i = 0; i < ITEM_DISPLAYED_NBR; i++) {
@@ -50,13 +55,13 @@ export class GameboardComponent implements OnInit {
       this.allItems.splice(randomItemIdx, 1);
     }
     this.cpntData.winItemIdx = Math.floor(Math.random() * ITEM_DISPLAYED_NBR);
-    this.launchQuestionTimer();
   }
 
   checkAnswer (index) {
     this.cpntData.clickedIdx = index;
     clearInterval(this.questionTimer);
   }
+
   nextQuestion () {
     this.cpntData.clickedIdx = null;
     this.cpntData.winItemIdx = null;
@@ -65,16 +70,6 @@ export class GameboardComponent implements OnInit {
     this.changeDisplayedItems();
   }
 
-  changeLearningLang (code: string) {
-    this.languageService.chooseLearningLang(code);
-  }
-
-  changeLearningTheme(index: number) {
-    this.themeService.changeLearningTheme(index);
-    this.themeService.getCurrentTheme().subscribe(data => {
-      this.resetTheme(data);
-    });
-  }
   resetTheme (data) {
     this.cpntData.clickedIdx = null;
     this.cpntData.winItemIdx = null;
@@ -83,6 +78,7 @@ export class GameboardComponent implements OnInit {
     this.cpntData.items.length = 0;
     this.changeDisplayedItems();
   }
+
   launchQuestionTimer () {
     // console.log('gameboard.component::launchQuestionTimer');
     this.resetQuestionTimer();
@@ -100,10 +96,16 @@ export class GameboardComponent implements OnInit {
       }, 100);
     }, 200);
   }
+
   resetQuestionTimer () {
     this.cpntData.currentQuestionTimer = 0;
     if (this.questionTimer) {
       clearInterval(this.questionTimer);
     }
+  }
+
+  ngOnDestroy() {
+    // prevent memory leak when component destroyed
+    this.themeSubscription.unsubscribe();
   }
 }

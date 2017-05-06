@@ -1,4 +1,5 @@
 // margins
+.mx0 { margin:0 !important; }
 .mx5 { margin:5px; }
 .mx10 { margin:10px; }
 .mx15 { margin:15px; }
@@ -14,14 +15,11 @@
 .px10 { padding:10px; }
 .px15 { padding:15px; }
 .px30 { padding:30px; }
-.px5tb {
-	padding: 5px 0;
-}
+.px5tb { padding: 5px 0; }
 
 // font-size
-.text-small {
-	font-size: .75em;
-}
+.text-standard { font-size: 1em; }
+.text-small { font-size: .75em; }
 
 // effects
 .no-transition {
@@ -31,6 +29,21 @@
 	-o-transition: 0.2s;
 	transition: 0.2s;
 }
+
+.ratio-4-3 {
+  width: 100%;
+  position: relative;
+  background: 50% 50% no-repeat;
+  background-size: cover;
+  background-clip: content-box;
+}
+
+.ratio-4-3:before {
+  display:block;
+  content:"";
+  padding-top:75%;
+}
+
 
 /* Absolute Center Spinner */
 .loading {
@@ -86,7 +99,6 @@
 }
 
 /* Animation */
-
 @-webkit-keyframes spinner {
   0% {
     -webkit-transform: rotate(0deg);
@@ -151,3 +163,5 @@
     transform: rotate(360deg);
   }
 }
+
+

@@ -1,40 +1,18 @@
+<div [hidden]= "cpntData.lang?.isCurrentLoading || !(cpntData.lang?.isLearningLoading)" class="loading"></div>
 <div class="row">
 	<div class="col-xs-12">
-		<div class="btn-toolbar">
-			<div class="btn-group">
-				<button class="btn btn-info dropdown-toggle" data-toggle="dropdown">
-					{{ 'gameboard.learn' | translate }} <span class="caret"></span>
-				</button>
-				<ul class="dropdown-menu">
-					<li *ngFor="let lang of cpntData.availableLang"
-						[ngClass]="{'active': lang.code  === cpntData.lang.learningLang}">
-						<a (click)="changeLearningLang(lang.code)">{{ lang.label }}</a>
-					</li>
-				</ul>
-			</div>
-			<div class="btn-group">
-				<button class="btn btn-warning dropdown-toggle" data-toggle="dropdown">
-					{{ 'gameboard.topic' | translate }} <span class="caret"></span>
-				</button>
-				<ul class="dropdown-menu">
-					<li *ngFor="let theme of cpntData.availableTheme; let i = index;"
-						[ngClass]="{'active': i  === cpntData.theme.learningThemeIdx}">
-						<a (click)="changeLearningTheme(i)">{{ theme.trad | translate }}</a>
-					</li>
-				</ul>
-			</div>
-			<div class="btn-group" *ngIf="cpntData.lang.learningLang === 'lo' && (!cpntData.theme.learningTheme.noKaraoke)">
-				<label class="checkbox-inline text-small"><input type="checkbox" value="" [checked]="cpntData.theme.karaoke" (change)="cpntData.theme.karaoke = !cpntData.theme.karaoke">{{ 'gameboard.karaoke' | translate }}</label>
-			</div>
-		</div>
+			<app-submenu></app-submenu>
 	</div>
 </div>
 <div class="row">
 	<div class="col-xs-12">
-		<h3 [hidden]="cpntData.winItemIdx === null">
+		<h4 class="mx0 px5tb" [hidden]="cpntData.winItemIdx === null">
 			{{ 'gameboard.findTranslation' | translate }}
 			<strong>{{ cpntData.items[cpntData.winItemIdx] ? cpntData.items[cpntData.winItemIdx][cpntData.lang.currentLang] : null}}</strong>
-		</h3>
+			<em *ngIf="cpntData.items[cpntData.winItemIdx] && cpntData.items[cpntData.winItemIdx].meta && cpntData.items[cpntData.winItemIdx].meta[cpntData.lang.currentLang] && cpntData.items[cpntData.winItemIdx].meta[cpntData.lang.currentLang].tone">
+				({{ cpntData.items[cpntData.winItemIdx].meta[cpntData.lang.currentLang].tone }})
+			</em>
+		</h4>
 	</div>
 </div>
 <div class="row game-buttons-container">

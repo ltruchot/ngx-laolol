@@ -3,4 +3,5 @@ export interface ThemeItem {
   fr: string;
   lo: string;
   kk: string;
+  meta?: any;
 }

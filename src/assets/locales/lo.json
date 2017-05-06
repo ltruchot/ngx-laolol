@@ -24,10 +24,10 @@
   },
   "gameboard": {
     "findTranslation": "Find the right translation for",
-    "correctAnswer": "Bravo, the correct answer is indeed",
+    "correctAnswer": "Bravo! the correct answer is",
     "karaoke": "ຄາລາໂອເກະ",
     "learn": "ຮຽນ",
-    "wrongAnswer": "Unfortunatly, it's wrong. The correct anwser is",
+    "wrongAnswer": "Wrong. The correct anwser is",
     "topic": "ຫົວຂໍ້"
   },
   "theme": {

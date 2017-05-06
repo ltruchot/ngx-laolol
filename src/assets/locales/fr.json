@@ -24,10 +24,10 @@
   },
   "gameboard": {
     "findTranslation": "Trouver la traduction de ",
-    "correctAnswer": "Bravo, la bonne réponse est en effet",
+    "correctAnswer": "Bravo ! La bonne réponse est ",
     "karaoke": "karaoke",
     "learn": "Apprendre",
-    "wrongAnswer": "Malheureusement, c'est faux. La bonne réponse est",
+    "wrongAnswer": "Faux. La bonne réponse est",
     "topic": "Thème"
   },
   "theme": {
