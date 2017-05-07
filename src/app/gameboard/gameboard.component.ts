@@ -21,12 +21,13 @@ export class GameboardComponent implements OnInit, OnDestroy {
   cpntData: GameboardCpntData = {
     winItemIdx: null,
     clickedIdx: null,
-    currentQuestionTimer: 0,
+    currentQuestionTimer: '0',
     items: [],
     lang: null,
     availableLang: null,
     theme: null,
-    availableTheme: null
+    availableTheme: null,
+    isCheckingAnswer: false
   };
   allItems: Array<ThemeItem> = [];
   questionTimer: number = null;
@@ -42,11 +43,11 @@ export class GameboardComponent implements OnInit, OnDestroy {
     this.cpntData.availableLang = this.languageService.AVAILABLE_LANG;
     this.cpntData.theme =  this.themeService.data;
     this.cpntData.availableTheme = this.themeService.AVAILABLE_THEME;
-    this.themeService.getCurrentTheme().subscribe();
+    this.themeService.getCurrentTheme();
   }
 
   changeDisplayedItems () {
-    this.launchQuestionTimer();
+    this.resetQuestionTimer();
     const ITEM_DISPLAYED_NBR = 4;
     const items = this.allItems;
     for (let i = 0; i < ITEM_DISPLAYED_NBR; i++) {
@@ -55,9 +56,11 @@ export class GameboardComponent implements OnInit, OnDestroy {
       this.allItems.splice(randomItemIdx, 1);
     }
     this.cpntData.winItemIdx = Math.floor(Math.random() * ITEM_DISPLAYED_NBR);
+    this.launchQuestionTimer();
   }
 
   checkAnswer (index) {
+    this.cpntData.isCheckingAnswer = true;
     this.cpntData.clickedIdx = index;
     clearInterval(this.questionTimer);
   }
@@ -81,31 +84,30 @@ export class GameboardComponent implements OnInit, OnDestroy {
 
   launchQuestionTimer () {
     // console.log('gameboard.component::launchQuestionTimer');
-    this.resetQuestionTimer();
     let ctr = 0;
-    window.setTimeout(() => {
-       this.questionTimer = window.setInterval(() => {
-        ctr++;
-        this.cpntData.currentQuestionTimer = Math.ceil((ctr / this.QUESTION_TIMER_DURATION) * 10);
+    this.questionTimer = window.setInterval(() => {
+      ctr++;
+      this.cpntData.currentQuestionTimer = ((ctr) / this.QUESTION_TIMER_DURATION).toFixed(2);
+      this.cpntData.isCheckingAnswer = false;
+      // max reached?
+      if (ctr > (this.QUESTION_TIMER_DURATION * 100) + 1) {
+        window.clearInterval(this.questionTimer);
+        this.cpntData.clickedIdx = -1;
+      }
+    }, 10);
 
-        // max reached?
-        if (ctr === (this.QUESTION_TIMER_DURATION * 10) + 3) {
-          clearInterval(this.questionTimer);
-          this.cpntData.clickedIdx = -1;
-        }
-      }, 100);
-    }, 200);
   }
 
   resetQuestionTimer () {
-    this.cpntData.currentQuestionTimer = 0;
+    this.cpntData.currentQuestionTimer = '0';
     if (this.questionTimer) {
-      clearInterval(this.questionTimer);
+      window.clearInterval(this.questionTimer);
     }
   }
 
   ngOnDestroy() {
     // prevent memory leak when component destroyed
+    window.clearInterval(this.questionTimer);
     this.themeSubscription.unsubscribe();
   }
 }
