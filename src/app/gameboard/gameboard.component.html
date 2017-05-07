@@ -9,7 +9,8 @@
 		<h4 class="mx0 px5tb" [hidden]="cpntData.winItemIdx === null">
 			{{ 'gameboard.findTranslation' | translate }}
 			<strong>{{ cpntData.items[cpntData.winItemIdx] ? cpntData.items[cpntData.winItemIdx][cpntData.lang.currentLang] : null}}</strong>
-			<em *ngIf="cpntData.items[cpntData.winItemIdx] && cpntData.items[cpntData.winItemIdx].meta && cpntData.items[cpntData.winItemIdx].meta[cpntData.lang.currentLang] && cpntData.items[cpntData.winItemIdx].meta[cpntData.lang.currentLang].tone">
+			<em *ngIf="cpntData.items[cpntData.winItemIdx]?.meta &&
+				cpntData.items[cpntData.winItemIdx].meta[cpntData.lang.currentLang]?.tone">
 				({{ cpntData.items[cpntData.winItemIdx].meta[cpntData.lang.currentLang].tone }})
 			</em>
 		</h4>
@@ -24,7 +25,7 @@
 			'btn-default': cpntData.clickedIdx === null,
 			'disabled': cpntData.clickedIdx !== null && (cpntData.clickedIdx !== i),
 			'btn-success':i === cpntData.clickedIdx && cpntData.clickedIdx === cpntData.winItemIdx,
-			'btn-danger': i === cpntData.clickedIdx && cpntData.clickedIdx !== cpntData.winItemIdx}" >
+			'btn-danger': i === cpntData.clickedIdx && cpntData.clickedIdx !== cpntData.winItemIdx}">
 				{{ item[cpntData.lang.learningLang] }}
 				<ng-template [ngIf]="cpntData.theme.karaoke && (cpntData.lang.learningLang === 'lo') && !cpntData.theme.learningTheme.noKaraoke">
 					<br />
@@ -39,8 +40,7 @@
 		<div class="progress">
 			<div class="progress-bar no-transition" role="progressbar"
 			aria-valuenow="cpntData.currentQuestionTimer" aria-valuemin="0" aria-valuemax="100"
-			[style.width]="cpntData.currentQuestionTimer + '%'">
-			</div>
+			[style.width]="cpntData.currentQuestionTimer + '%'"></div>
 		</div>
 	</div>
 </div>

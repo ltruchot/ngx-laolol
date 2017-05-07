@@ -23,11 +23,11 @@
 
 // effects
 .no-transition {
-	-webkit-transition: 0.2s;
-	-moz-transition: 0.2s;
-	-ms-transition: 0.2s;
-	-o-transition: 0.2s;
-	transition: 0.2s;
+	-webkit-transition: 0s !important;
+	-moz-transition: 0s !important;
+	-ms-transition: 0s !important;
+	-o-transition: 0s !important;
+	transition: 0s !important;
 }
 
 .ratio-4-3 {

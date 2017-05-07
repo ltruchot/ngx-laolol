@@ -20,6 +20,7 @@ import { HomeComponent } from './home/home.component';
 import { LanguageService } from './shared-services/language.service';
 import { StorageService } from './shared-services/storage.service';
 import { ThemeService } from './shared-services/theme.service';
+import { ApiService } from './shared-services/api.service';
 
 
 // language export for AOT build
@@ -49,7 +50,8 @@ export function createTranslateLoader(http: Http) {
   providers: [
     ThemeService,
     LanguageService,
-    StorageService
+    StorageService,
+    ApiService
   ],
   bootstrap: [AppComponent]
 })

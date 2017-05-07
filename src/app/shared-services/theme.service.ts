@@ -4,9 +4,11 @@ import { Http } from '@angular/http';
 
 // npm dependencies
 import { Subject } from 'rxjs/Subject';
+import 'rxjs/add/operator/map';
 
 // custom services
 import { StorageService } from './storage.service';
+import { ApiService } from './api.service';
 
 // custom interfaces
 import { ThemeItem } from './../shared-interfaces/theme.interfaces';
@@ -59,13 +61,19 @@ export class ThemeService {
     learningTheme: null,
     karaoke: false
   };
-  constructor (private http: Http, private storage: StorageService) {
+  constructor (private http: Http,
+    private storage: StorageService,
+    private apiService: ApiService) {
     this.data.learningThemeIdx = +this.storage.getItem('currentLearningThemeIdx') || 0;
     this.data.learningTheme = this.AVAILABLE_THEME[this.data.learningThemeIdx];
   }
   getCurrentTheme () {
-    return this.http.request(`assets/themes/${this.data.learningTheme.code}.json`).map(res => {
-      const parsedRes: Array<ThemeItem> = res.json();
+    return this.apiService
+      .getData(`assets/themes/${this.data.learningTheme.code}.json`)
+      .map((res: Response): any => {
+        return res.json();
+      })
+      .subscribe((parsedRes: Array<ThemeItem>) => {
       if (parsedRes && parsedRes.length && parsedRes.length >= 4) {
         this.currenThemeSource.next(parsedRes);
       } else {
@@ -80,7 +88,7 @@ export class ThemeService {
       this.data.learningThemeIdx = idx;
       this.data.learningTheme = this.AVAILABLE_THEME[idx];
       this.storage.setItem('currentLearningThemeIdx', idx);
-      this.getCurrentTheme().subscribe();
+      this.getCurrentTheme();
     }
   }
 }

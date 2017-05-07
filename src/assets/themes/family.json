@@ -9,15 +9,29 @@
     "lo": "ພໍ່",
     "kk": "phɔ:"
 }, {
-    "en": "children",
-    "fr": "enfants",
-    "lo": "ລູກ",
-    "kk": "lou:k"
+  "en": "children",
+  "fr": "enfants",
+  "lo": "ລູກ",
+  "kk": "lou:k",
+  "img": "",
+  "themes": ["family"],
+  "meta" : {
+    "fr": {
+      "isPlural": true,
+      "plural": "enfants"
+    }
+  }
 }, {
-    "en": "son",
-    "fr": "fils",
-    "lo": "ລູກຊາຍ",
-    "kk": "lou:k sa:y"
+  "en": "son",
+  "fr": "fils",
+  "lo": "ລູກຊາຍ",
+  "kk": "lou:k sa:y",
+  "meta" : {
+    "fr": {
+      "isMale": true,
+      "plural": "fils"
+    }
+  }
 }, {
     "en": "daughter",
     "fr": "fille",
