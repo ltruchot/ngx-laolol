@@ -9,7 +9,8 @@
     "lol": "555",
     "menu": "ລາຍການ",
     "nameSoulisack": "ສຸລິສັກ ຫວງລາດ",
-    "nameLoic": "ໂລໂລ ທູຍໂສ"
+    "nameLoic": "ໂລໂລ ທູຍໂສ",
+    "nameXan": "Xan Harotin"
   },
   "home": {
     "intro1": "ລາວ555 (Laolol) ແມ່ນເວບໄຊທີ່ສາມາດຊ່ວຍຄົນລາວຮຽນພາສາຝະລັ່ງຫລືພາສາອັງກິດ",
@@ -36,6 +37,7 @@
     "animals": "ສັດ",
     "plants": "Plants",
     "days": "ວັນ",
-    "family": "ຄອບຄົວ"
+    "family": "ຄອບຄົວ",
+    "human_body": "ຮ່າງກາຍຂອງຄົນ"
   }
 }

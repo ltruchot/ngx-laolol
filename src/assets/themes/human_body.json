@@ -24,7 +24,7 @@
 }, {
 	"en": "head",
 	"fr": "tête",
-	"lo": "",
+	"lo": "ຫົວ",
 	"kk": "houa",
 	"meta": {
 		"fr": {
@@ -35,7 +35,7 @@
 }, {
 	"en": "ear",
 	"fr": "oreille",
-	"lo": "",
+	"lo": "ຫູ",
 	"kk": "hou:",
 	"meta": {
 		"fr": {
@@ -45,9 +45,9 @@
 	}
 }, {
 	"en": "hair",
-	"fr": "cheveux",
-	"lo": "",
-	"kk": "",
+	"fr": "cheveu",
+	"lo": "ຜົມ",
+	"kk": "phom",
 	"meta": {
 		"fr": {
 			"isMale": true,
