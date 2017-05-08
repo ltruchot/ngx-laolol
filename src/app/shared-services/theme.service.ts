@@ -54,6 +54,13 @@ export class ThemeService {
       en: 'Family',
       fr: 'La famille',
       lo: 'ຄອບຄົວ'
+    },
+    {
+      code: 'human_body',
+      trad: 'theme.human_body',
+      en: 'Human body',
+      fr: 'Le corps humain',
+      lo: 'ຮ່າງກາຍຂອງຄົນ'
     }
   ];
   data = {

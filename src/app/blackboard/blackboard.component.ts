@@ -19,13 +19,15 @@ export class BlackboardComponent implements OnInit, OnDestroy {
     lang: null,
     availableLang: null,
     theme: null,
-    availableTheme: null
+    availableTheme: null,
+    frVowels: /[aeiouyAEIOUYàèìòùÀÈÌÒÙáéíóúâêîôûäëïöüÿÄËÏÖÜŸÆæœ]/
   };
 
   constructor(private themeService: ThemeService, private languageService: LanguageService) {
     this.themeSubscription = this.themeService.currentTheme$.subscribe(data => {
       this.resetTheme(data);
     });
+    let accentedCharacters = "";
   }
 
   ngOnInit () {

@@ -9,7 +9,8 @@
     "lol": "LOL",
     "menu": "Menu",
     "nameSoulisack": "Soulisack Luanglad",
-    "nameLoic": "Loïc Truchot"
+    "nameLoic": "Loïc Truchot",
+    "nameXan": "Xan Harotin"
   },
   "home": {
     "intro1": "Laolol est une application web pour aider les anglophones et les francophones à apprendre le lao.",
@@ -36,6 +37,7 @@
     "animals": "Animaux",
     "plants": "Plantes",
     "days": "Jours de la semaine",
-    "family": "Famille"
+    "family": "Famille",
+    "human_body": "Corps humain"
   }
 }

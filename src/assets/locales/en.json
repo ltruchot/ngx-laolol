@@ -9,7 +9,8 @@
     "lol": "LOL",
     "menu": "Menu",
     "nameSoulisack": "Soulisack Luanglad",
-    "nameLoic": "Loïc Truchot"
+    "nameLoic": "Loïc Truchot",
+    "nameXan": "Xan Harotin"
   },
   "home": {
     "intro1": "Laolol is a platform to help English-speaker and French-speaker to learn lao language.",
@@ -36,6 +37,7 @@
     "animals": "Animals",
     "plants": "Plants",
     "days": "Week days",
-    "family": "Family"
+    "family": "Family",
+    "human_body": "Human body"
   }
 }
