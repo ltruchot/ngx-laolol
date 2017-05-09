@@ -1,7 +1,7 @@
 <div class="btn-toolbar">
 	<div class="btn-group">
 	  <button class="btn btn-info dropdown-toggle" data-toggle="dropdown">
-	    {{ 'gameboard.learn' | translate }} <span class="caret"></span>
+	    {{ 'submenu.language' | translate }} <span class="caret"></span>
 	  </button>
 	  <ul class="dropdown-menu">
 	    <li *ngFor="let lang of cpntData.availableLang"
@@ -12,7 +12,7 @@
 	</div>
 	<div class="btn-group">
 		<button class="btn btn-warning dropdown-toggle" data-toggle="dropdown">
-			{{ 'gameboard.topic' | translate }} <span class="caret"></span>
+			{{ 'submenu.topic' | translate }} <span class="caret"></span>
 		</button>
 		<ul class="dropdown-menu">
 			<ng-container *ngFor="let theme of cpntData.availableTheme; let i = index;">

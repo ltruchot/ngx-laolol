@@ -6,7 +6,6 @@
     </div>
     <div class="col-xs-6">
       <nav class="avaiblable-lang-list">
-        {{ 'layout.chooseLang' | translate }}
         <ul class="list-inline">
           <li  *ngFor="let lang of cpntData.availableLanguages; let i = index;">
             <div class="avaiblable-lang" [ngClass]="{ 'chosen-lang': cpntData.lang.currentLang === lang.code }">

@@ -9,6 +9,32 @@
     "lo": "ປ",
     "kk": "pɔ"
 }, {
+    "en": "ph",
+    "fr": "ph",
+    "lo": "ຜ",
+    "kk": "phɔ",
+    "meta": {
+        "en": {
+            "tone": "high tone"
+        },
+        "fr": {
+            "tone": "ton haut"
+        }
+    }
+}, {
+    "en": "ph",
+    "fr": "ph",
+    "lo": "ພ",
+    "kk": "phɔ",
+    "meta": {
+        "en": {
+            "tone": "low tone"
+        },
+        "fr": {
+            "tone": "ton bas"
+        }
+    }
+}, {
     "en": "b",
     "fr": "b",
     "lo": "ບ",

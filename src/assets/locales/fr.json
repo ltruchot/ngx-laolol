@@ -24,12 +24,11 @@
     "or": "ou"
   },
   "gameboard": {
-    "findTranslation": "Trouver la traduction de ",
-    "correctAnswer": "Bravo ! La bonne réponse est ",
+    "findTranslation": "Trouver la bonne traduction",
+    "correctAnswer": "Bravo !",
     "karaoke": "karaoke",
     "learn": "Apprendre",
-    "wrongAnswer": "Faux. La bonne réponse est",
-    "topic": "Thème"
+    "wrongAnswer": "Mauvaise réponse."
   },
   "theme": {
     "vowels": "Voyelles",
@@ -39,5 +38,9 @@
     "days": "Jours",
     "family": "Famille",
     "human_body": "Corps humain"
+  },
+  "submenu": {
+    "language": "Langue",
+    "topic": "Thème"
   }
 }

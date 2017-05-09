@@ -24,12 +24,11 @@
     "or": "ຫຼື"
   },
   "gameboard": {
-    "findTranslation": "Find the right translation for",
-    "correctAnswer": "Bravo! the correct answer is",
+    "findTranslation": "ຊອກຫາຄໍາແປທີ່ຖຶກຕ້ອງ",
+    "correctAnswer": "ຊົມເຊີຍ, ຄໍາຕອບຖຶກຕ້ອງ",
     "karaoke": "ຄາລາໂອເກະ",
     "learn": "ຮຽນ",
-    "wrongAnswer": "Wrong. The correct anwser is",
-    "topic": "ຫົວຂໍ້"
+    "wrongAnswer": "ຜິດ ຄໍາຕອບບໍຖຶກຕ້ອງ"
   },
   "theme": {
     "vowels": "ສະຫຼະ",
@@ -39,5 +38,9 @@
     "days": "ວັນ",
     "family": "ຄອບຄົວ",
     "human_body": "ຮ່າງກາຍຂອງຄົນ"
+  },
+  "submenu": {
+    "language": "ພາສາ",
+    "topic": "ຫົວຂໍ້"
   }
 }

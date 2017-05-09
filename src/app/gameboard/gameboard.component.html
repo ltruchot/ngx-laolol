@@ -7,7 +7,7 @@
 <div class="row">
 	<div class="col-xs-12">
 		<h4 class="mx0 px5tb" [hidden]="cpntData.winItemIdx === null">
-			{{ 'gameboard.findTranslation' | translate }}
+			{{ 'gameboard.findTranslation' | translate }}:
 			<strong>{{ cpntData.items[cpntData.winItemIdx] ? cpntData.items[cpntData.winItemIdx][cpntData.lang.currentLang] : null}}</strong>
 			<em *ngIf="cpntData.items[cpntData.winItemIdx]?.meta &&
 				cpntData.items[cpntData.winItemIdx].meta[cpntData.lang.currentLang]?.tone">
@@ -48,11 +48,11 @@
 	<div class="col-xs-12">
 		<div [hidden]="cpntData.clickedIdx === null">
 			<h4 *ngIf="cpntData.clickedIdx === cpntData.winItemIdx; else elseBlock">
-				{{ 'gameboard.correctAnswer' | translate }} <strong>{{ cpntData.items[cpntData.winItemIdx] ? cpntData.items[cpntData.winItemIdx][cpntData.lang.learningLang] : null }}</strong>
+				{{ 'gameboard.correctAnswer' | translate }}
 			</h4>
 			<ng-template #elseBlock>
 				<h4>
-					{{ 'gameboard.wrongAnswer' | translate }} <strong>{{ cpntData.items[cpntData.winItemIdx] ? cpntData.items[cpntData.winItemIdx][cpntData.lang.learningLang] : null }}</strong>
+					{{ 'gameboard.wrongAnswer' | translate }}
 				</h4>
 			</ng-template>
 			<button (click)="nextQuestion()" type="button" class="btn btn-primary">Suivant</button>

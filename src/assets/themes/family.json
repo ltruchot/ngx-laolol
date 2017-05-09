@@ -40,13 +40,13 @@
 }, {
     "en": "grandfather",
     "fr": "grand-père",
-    "lo": "ພໍ່ເຖົ້າ",
-    "kk": "phɔ: thao"
+    "lo": "ພໍ່ຕູ້",
+    "kk": "phɔ: tou"
 }, {
     "en": "grandmother",
     "fr": "grand-mère",
-    "lo": "ແມ່ເຖົ້າ",
-    "kk": "mè: thao"
+    "lo": "ແມ່ຕູ້",
+    "kk": "mè: tou"
 }, {
     "en": "uncle",
     "fr": "oncle",
@@ -57,4 +57,24 @@
     "fr": "tante",
     "lo": "ປ້າ",
     "kk": "pa:"
+}, {
+    "en": "older sister",
+    "fr": "grande soeur",
+    "lo": "ເອື້ອຍ",
+    "kk": "euay"
+}, {
+    "en": "older brother",
+    "fr": "grand-frère",
+    "lo": "ອ້າຍ",
+    "kk": "ay"
+}, {
+    "en": "younger sister",
+    "fr": "petite soeur",
+    "lo": "ນອ້ງສາວ",
+    "kk": "nɔngsao"
+}, {
+    "en": "younger brother",
+    "fr": "petit frère",
+    "lo": "ນ້ອງຊາຍ",
+    "kk": "nɔngsay"
 }]
