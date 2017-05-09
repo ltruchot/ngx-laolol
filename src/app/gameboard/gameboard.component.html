@@ -22,7 +22,7 @@
 			<button (click)="checkAnswer(i)" type="button"
 			[disabled]="cpntData.clickedIdx !== null && (cpntData.clickedIdx !== i)" class="btn btn-lg btn-block"
 			[ngClass]="{
-			'btn-default': cpntData.clickedIdx === null,
+			'btn-default': cpntData.clickedIdx === null || cpntData.clickedIdx === -1,
 			'disabled': cpntData.clickedIdx !== null && (cpntData.clickedIdx !== i),
 			'btn-success':i === cpntData.clickedIdx && cpntData.clickedIdx === cpntData.winItemIdx,
 			'btn-danger': i === cpntData.clickedIdx && cpntData.clickedIdx !== cpntData.winItemIdx}">

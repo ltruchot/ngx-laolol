@@ -45,7 +45,7 @@ export class ThemeService {
       code: 'days',
       trad: 'theme.days',
       en: 'Week days',
-      fr: 'Les jours de la semaine',
+      fr: 'Les jours',
       lo: 'ວັນ'
     },
     {
