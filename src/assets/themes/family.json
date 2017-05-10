@@ -1,80 +1,165 @@
 [{
-    "en": "mother",
-    "fr": "mère",
-    "lo": "ແມ່",
-    "kk": "mè:"
+	"en": "mother",
+	"fr": "mère",
+	"lo": "ແມ່",
+	"kk": "mè:",
+	"img": "",
+	"themes": ["family"],
+	"meta" : {
+		"fr": {
+			"isMale": false
+		}
+	}
 }, {
-    "en": "father",
-    "fr": "père",
-    "lo": "ພໍ່",
-    "kk": "phɔ:"
+	"en": "father",
+	"fr": "père",
+	"lo": "ພໍ່",
+	"kk": "phɔ:",
+	"img": "",
+	"themes": ["family"],
+	"meta" : {
+		"fr": {
+			"isMale": true
+		}
+	}
 }, {
-  "en": "children",
-  "fr": "enfants",
-  "lo": "ລູກ",
-  "kk": "lou:k",
-  "img": "",
-  "themes": ["family"],
-  "meta" : {
-    "fr": {
-      "isPlural": true,
-      "plural": "enfants"
-    }
-  }
+	"en": "child",
+	"fr": "enfant",
+	"lo": "ລູກ",
+	"kk": "lou:k",
+	"img": "",
+	"themes": ["family"],
+	"meta" : {
+		"fr": {
+			"isMale": true
+		},
+		"en": {
+			"plural": "children"
+		}
+	}
 }, {
-  "en": "son",
-  "fr": "fils",
-  "lo": "ລູກຊາຍ",
-  "kk": "lou:k sa:y",
-  "meta" : {
-    "fr": {
-      "isMale": true,
-      "plural": "fils"
-    }
-  }
+	"en": "son",
+	"fr": "fils",
+	"lo": "ລູກຊາຍ",
+	"kk": "lou:k sa:y",
+	"img": "",
+	"themes": ["family"],
+	"meta" : {
+		"fr": {
+			"isMale": true,
+			"plural": "fils"
+		}
+	}
 }, {
-    "en": "daughter",
-    "fr": "fille",
-    "lo": "ລູກສາວ",
-    "kk": "lou:k sa:o"
+	"en": "daughter",
+	"fr": "fille",
+	"lo": "ລູກສາວ",
+	"kk": "lou:k sa:o",
+	"img": "",
+	"themes": ["family"],
+	"meta" : {
+		"fr": {
+			"isMale": false
+		}
+	}
 }, {
-    "en": "grandfather",
-    "fr": "grand-père",
-    "lo": "ພໍ່ຕູ້",
-    "kk": "phɔ: tou"
+	"en": "grandfather",
+	"fr": "grand-père",
+	"lo": "ພໍ່ຕູ້",
+	"kk": "phɔ: tou",
+	"img": "",
+	"themes": ["family"],
+	"meta" : {
+		"fr": {
+			"isMale": true
+		}
+	}
 }, {
-    "en": "grandmother",
-    "fr": "grand-mère",
-    "lo": "ແມ່ຕູ້",
-    "kk": "mè: tou"
+	"en": "grandmother",
+	"fr": "grand-mère",
+	"lo": "ແມ່ຕູ້",
+	"kk": "mè: tou",
+	"img": "",
+	"themes": ["family"],
+	"meta" : {
+		"fr": {
+			"isMale": false
+		}
+	}
 }, {
-    "en": "uncle",
-    "fr": "oncle",
-    "lo": "ລຸງ",
-    "kk": "loung"
+		"en": "uncle",
+		"fr": "oncle",
+		"lo": "ລຸງ",
+		"kk": "loung",
+	"img": "",
+	"themes": ["family"],
+	"meta" : {
+		"fr": {
+			"isMale": true
+		}
+	}
 }, {
-    "en": "aunt",
-    "fr": "tante",
-    "lo": "ປ້າ",
-    "kk": "pa:"
+	"en": "aunt",
+	"fr": "tante",
+	"lo": "ປ້າ",
+	"kk": "pa:",
+	"img": "",
+	"themes": ["family"],
+	"meta" : {
+		"fr": {
+			"isMale": false
+		}
+	}
 }, {
-    "en": "older sister",
-    "fr": "grande soeur",
-    "lo": "ເອື້ອຍ",
-    "kk": "euay"
+	"en": "older sister",
+	"fr": "grande soeur",
+	"lo": "ເອື້ອຍ",
+	"kk": "euay",
+	"img": "",
+	"themes": ["family"],
+	"meta" : {
+		"fr": {
+			"isMale": false,
+			"plural": "grandes soeurs"
+		}
+	}
 }, {
-    "en": "older brother",
-    "fr": "grand-frère",
-    "lo": "ອ້າຍ",
-    "kk": "ay"
+	"en": "older brother",
+	"fr": "grand frère",
+	"lo": "ອ້າຍ",
+	"kk": "ay",
+	"img": "",
+	"themes": ["family"],
+	"meta" : {
+		"fr": {
+			"isMale": true,
+			"plural": "grands frères"
+		}
+	}
 }, {
-    "en": "younger sister",
-    "fr": "petite soeur",
-    "lo": "ນອ້ງສາວ",
-    "kk": "nɔngsao"
+	"en": "younger sister",
+	"fr": "petite soeur",
+	"lo": "ນອ້ງສາວ",
+	"kk": "nɔngsao",
+	"img": "",
+	"themes": ["family"],
+	"meta" : {
+		"fr": {
+			"isMale": false,
+			"plural": "petites soeurs"
+		}
+	}
 }, {
-    "en": "younger brother",
-    "fr": "petit frère",
-    "lo": "ນ້ອງຊາຍ",
-    "kk": "nɔngsay"
+	"en": "younger brother",
+	"fr": "petit frère",
+	"lo": "ນ້ອງຊາຍ",
+	"kk": "nɔngsay",
+	"img": "",
+	"themes": ["family"],
+	"meta" : {
+		"fr": {
+			"isMale": true,
+			"plural": "petits frères"
+		}
+	}
 }]

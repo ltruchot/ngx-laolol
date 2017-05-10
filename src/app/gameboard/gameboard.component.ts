@@ -62,7 +62,7 @@ export class GameboardComponent implements OnInit, OnDestroy {
   checkAnswer (index) {
     this.cpntData.isCheckingAnswer = true;
     this.cpntData.clickedIdx = index;
-    clearInterval(this.questionTimer);
+    window.clearInterval(this.questionTimer);
   }
 
   nextQuestion () {
@@ -91,8 +91,7 @@ export class GameboardComponent implements OnInit, OnDestroy {
       this.cpntData.isCheckingAnswer = false;
       // max reached?
       if (ctr > (this.QUESTION_TIMER_DURATION * 100) + 1) {
-        window.clearInterval(this.questionTimer);
-        this.cpntData.clickedIdx = -1;
+        this.checkAnswer(-1);
       }
     }, 10);
 

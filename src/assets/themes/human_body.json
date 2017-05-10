@@ -6,7 +6,6 @@
 	"meta": {
 		"fr": {
 			"isMale": true,
-			"isPlural": false,
 			"plural": "yeux"
 		}
 	}
@@ -17,8 +16,7 @@
 	"kk": "mu:",
 	"meta": {
 		"fr": {
-			"isMale": false,
-			"isPlural": false
+			"isMale": false
 		}
 	}
 }, {
@@ -28,8 +26,7 @@
 	"kk": "houa",
 	"meta": {
 		"fr": {
-			"isMale": false,
-			"isPlural": false
+			"isMale": false
 		}
 	}
 }, {
@@ -39,8 +36,7 @@
 	"kk": "hou:",
 	"meta": {
 		"fr": {
-			"isMale": false,
-			"isPlural": false
+			"isMale": false
 		}
 	}
 }, {
