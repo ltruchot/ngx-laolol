@@ -1,4 +1,7 @@
 {
+  "words": {
+    "learn": "ຮຽນ"
+  },
   "layout": {
     "blackboard": "ຫ້ອງຮຽນ",
     "chooseLang": "ເລືອກ ພາສາ",
@@ -26,9 +29,16 @@
   "gameboard": {
     "findTranslation": "ຊອກຫາຄໍາແປທີ່ຖຶກຕ້ອງ",
     "correctAnswer": "ຊົມເຊີຍ, ຄໍາຕອບຖຶກຕ້ອງ",
+    "wrongAnswer": "ຜິດ ຄໍາຕອບບໍຖຶກຕ້ອງ",
+    "next": "Next"
+  },
+  "blackboard": {
+    "feminine": "fem.",
+    "masculine": "mas.",
+    "gender": "gender",
+    "plural": "plural",
     "karaoke": "ຄາລາໂອເກະ",
-    "learn": "ຮຽນ",
-    "wrongAnswer": "ຜິດ ຄໍາຕອບບໍຖຶກຕ້ອງ"
+    "tone": "tone"
   },
   "theme": {
     "vowels": "ສະຫຼະ",
@@ -41,6 +51,8 @@
   },
   "submenu": {
     "language": "ພາສາ",
-    "topic": "ຫົວຂໍ້"
+    "topic": "ຫົວຂໍ້",
+    "karaoke": "ຄາລາໂອເກະ",
+    "reverse": "reverse"
   }
 }

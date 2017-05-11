@@ -14,10 +14,10 @@
 	</h2>
 	</div>
 </div>
-<div class="row">
-	<div class="col-xs-6 col-sm-3" *ngFor="let item of cpntData.items; let i = index;">
+<div class="row is-flex">
+	<div class="col-xs-6 col-sm-4 col-md-3" *ngFor="let item of cpntData.items; let i = index;">
 		<div class="thumbnail">
-			<h3 class="mx0 text-center">{{ cpntData.lang?.learningLang === 'fr' ?
+			<h3 class="mx0 text-center">{{ cpntData.lang?.learningLang === 'fr' && item.meta && item.meta.fr && item.meta.fr.isMale !== undefined  ?
 			(cpntData.frVowels.test(item[cpntData.lang.learningLang][0]) ? "l'" : item.meta.fr.isMale ? "le " : "la ") :
 			'' }}{{ item[cpntData.lang.learningLang] }}</h3>
 			<div class="img-responsive img-thumbnail ratio-4-3" style="background-image:url('/assets/img/questionmark.jpg')"></div>
@@ -25,16 +25,19 @@
 			<div class="caption">
 				<h4>{{  item[cpntData.lang.currentLang] }}</h4>
 				<h5 *ngIf="(cpntData.lang?.learningLang === 'fr') && (item.meta && item.meta.fr && item.meta.fr.isMale !== undefined)">
-				  gender : {{ item.meta.fr.isMale ? 'masculin' : 'féminin' }}
+				  {{ 'blackboard.gender' | translate }}:
+				  <strong>{{ item.meta.fr.isMale ? 'un' : 'une' }} {{ item.fr }}</strong> <em>({{ item.meta.fr.isMale ? ('blackboard.masculine' | translate) : ('blackboard.feminine' | translate) }})</em>
 				</h5>
 				<h5 *ngIf="(cpntData.lang?.learningLang === 'fr')">
-					plural: les {{ item.meta && item.meta.fr && item.meta.fr.plural ? item.meta.fr.plural : item.fr + "s" }}
-				</h5>
-				<h5 *ngIf="cpntData.theme.karaoke && (cpntData.lang.learningLang === 'lo') && !cpntData.theme.learningTheme.noKaraoke">
-					karaoke: {{ item.kk }}
+					{{ 'blackboard.plural' | translate }}:
+					<strong>les {{ item.meta && item.meta.fr && item.meta.fr.plural ? item.meta.fr.plural : item.fr + "s" }}</strong>
 				</h5>
 				<h5 *ngIf="item.meta && item.meta[cpntData.lang.currentLang] && item.meta[cpntData.lang.currentLang].tone">
-					tone: {{ item.meta[cpntData.lang.currentLang].tone }}
+					{{ 'blackboard.tone' | translate }}:
+					<strong>{{ item.meta[cpntData.lang.currentLang].tone }}</strong>
+				</h5>
+				<h5 *ngIf="cpntData.theme.isKaraoke && (cpntData.lang.learningLang === 'lo') && !cpntData.theme.learningTheme.noKaraoke">
+					<em>{{ item.kk }})</em>
 				</h5>
 			</div>
 		</div>

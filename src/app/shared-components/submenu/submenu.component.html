@@ -24,8 +24,17 @@
 		</ul>
 	</div>
 	<div class="btn-group" *ngIf="cpntData.lang.learningLang === 'lo' && (!cpntData.theme.learningTheme.noKaraoke)">
-		<label class="checkbox-inline text-small">
-			<input type="checkbox" value="" [checked]="cpntData.theme.karaoke" (change)="cpntData.theme.karaoke = !cpntData.theme.karaoke">{{ 'gameboard.karaoke' | translate }}
+		<label class="checkbox-inline px6t"
+			[ngClass]="{'text-primary': cpntData.theme.isKaraoke}"
+			title="{{ 'submenu.karaoke' | translate }}" (click)="cpntData.theme.isKaraoke = !cpntData.theme.isKaraoke">
+			<span class="glyphicon glyphicon-text-background"></span>
+		</label>
+	</div>
+	<div class="btn-group">
+		<label class="checkbox-inline px6t"
+			[ngClass]="{'text-primary': cpntData.theme.isReversed}"
+			title="{{ 'submenu.reverse' | translate }}" (click)="cpntData.theme.isReversed = !cpntData.theme.isReversed">
+			<span class="glyphicon glyphicon-retweet"></span>
 		</label>
 	</div>
 </div>

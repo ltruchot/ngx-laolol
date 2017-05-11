@@ -1,4 +1,7 @@
 {
+  "words": {
+    "learn": "Learn"
+  },
   "layout": {
     "blackboard": "Blackboard",
     "chooseLang": "Choose language",
@@ -26,9 +29,16 @@
   "gameboard": {
     "findTranslation": "Find the right translation",
     "correctAnswer": "Bravo!",
+    "wrongAnswer": "Wrong answer.",
+    "next": "Next"
+  },
+  "blackboard": {
+    "feminine": "fem.",
+    "masculine": "masc.",
+    "gender": "gender",
+    "plural": "plural",
     "karaoke": "karaoke",
-    "learn": "Learn",
-    "wrongAnswer": "Wrong answer."
+    "tone": "tone"
   },
   "theme": {
     "vowels": "Vowels",
@@ -41,6 +51,9 @@
   },
   "submenu": {
     "language": "Language",
-    "topic": "Topic"
+    "topic": "Topic",
+    "karaoke": "karaoke",
+    "reverse": "reverse"
+
   }
 }

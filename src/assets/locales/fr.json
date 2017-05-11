@@ -1,4 +1,7 @@
 {
+  "words": {
+    "learn": "Apprendre"
+  },
   "layout": {
     "blackboard": "Salle de cours",
     "chooseLang": "Choisir la langue",
@@ -26,9 +29,16 @@
   "gameboard": {
     "findTranslation": "Trouver la bonne traduction",
     "correctAnswer": "Bravo !",
+    "wrongAnswer": "Mauvaise réponse.",
+    "next": "Suivant"
+  },
+  "blackboard": {
+    "feminine": "fém.",
+    "masculine": "masc.",
+    "gender": "genre",
+    "plural": "pluriel",
     "karaoke": "karaoke",
-    "learn": "Apprendre",
-    "wrongAnswer": "Mauvaise réponse."
+    "tone": "ton"
   },
   "theme": {
     "vowels": "Voyelles",
@@ -41,6 +51,8 @@
   },
   "submenu": {
     "language": "Langue",
-    "topic": "Thème"
+    "topic": "Thème",
+    "karaoke": "karaoke",
+    "reverse": "inverser"
   }
 }

@@ -27,7 +27,6 @@ export class BlackboardComponent implements OnInit, OnDestroy {
     this.themeSubscription = this.themeService.currentTheme$.subscribe(data => {
       this.resetTheme(data);
     });
-    let accentedCharacters = "";
   }
 
   ngOnInit () {
@@ -35,7 +34,7 @@ export class BlackboardComponent implements OnInit, OnDestroy {
     this.cpntData.availableLang = this.languageService.AVAILABLE_LANG;
     this.cpntData.theme =  this.themeService.data;
     this.cpntData.availableTheme = this.themeService.AVAILABLE_THEME;
-    this.themeService.getCurrentTheme() //.subscribe();
+    this.themeService.getCurrentTheme();
   }
 
   resetTheme (data) {

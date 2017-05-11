@@ -66,7 +66,8 @@ export class ThemeService {
   data = {
     learningThemeIdx: 0,
     learningTheme: null,
-    karaoke: false
+    isKaraoke: false,
+    isReversed: false
   };
   constructor (private http: Http,
     private storage: StorageService,
