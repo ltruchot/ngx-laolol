@@ -25,19 +25,16 @@
 			<div class="caption">
 				<h4>{{  item[cpntData.lang.currentLang] }}</h4>
 				<h5 *ngIf="(cpntData.lang?.learningLang === 'fr') && (item.meta && item.meta.fr && item.meta.fr.isMale !== undefined)">
-				  {{ 'blackboard.gender' | translate }}:
 				  <strong>{{ item.meta.fr.isMale ? 'un' : 'une' }} {{ item.fr }}</strong> <em>({{ item.meta.fr.isMale ? ('blackboard.masculine' | translate) : ('blackboard.feminine' | translate) }})</em>
 				</h5>
 				<h5 *ngIf="(cpntData.lang?.learningLang === 'fr')">
-					{{ 'blackboard.plural' | translate }}:
 					<strong>les {{ item.meta && item.meta.fr && item.meta.fr.plural ? item.meta.fr.plural : item.fr + "s" }}</strong>
 				</h5>
 				<h5 *ngIf="item.meta && item.meta[cpntData.lang.currentLang] && item.meta[cpntData.lang.currentLang].tone">
-					{{ 'blackboard.tone' | translate }}:
-					<strong>{{ item.meta[cpntData.lang.currentLang].tone }}</strong>
+					<em>{{ item.meta[cpntData.lang.currentLang].tone }}</em>
 				</h5>
 				<h5 *ngIf="cpntData.theme.isKaraoke && (cpntData.lang.learningLang === 'lo') && !cpntData.theme.learningTheme.noKaraoke">
-					<em>{{ item.kk }})</em>
+					<em>{{ item.kk }}</em>
 				</h5>
 			</div>
 		</div>

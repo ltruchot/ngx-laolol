@@ -15,10 +15,10 @@
     "kk": "phɔ",
     "meta": {
         "en": {
-            "tone": "high tone"
+            "tone": "high consonnant"
         },
         "fr": {
-            "tone": "ton haut"
+            "tone": "consonne haute"
         }
     }
 }, {
@@ -28,10 +28,10 @@
     "kk": "phɔ",
     "meta": {
         "en": {
-            "tone": "low tone"
+            "tone": "low consonnant"
         },
         "fr": {
-            "tone": "ton bas"
+            "tone": "consonne basse"
         }
     }
 }, {
@@ -56,10 +56,10 @@
     "kk": "thɔ",
     "meta": {
         "en": {
-            "tone": "high tone"
+            "tone": "high consonnant"
         },
         "fr": {
-            "tone": "ton haut"
+            "tone": "consonne haute"
         }
     }
 }, {
@@ -69,15 +69,15 @@
     "kk": "thɔ",
     "meta": {
         "en": {
-            "tone": "low tone"
+            "tone": "low consonnant"
         },
         "fr": {
-            "tone": "ton bas"
+            "tone": "consonne basse"
         }
     }
 }, {
-    "en": "h (silent)",
-    "fr": "h (muet)",
+    "en": "h (consonnant-vowel)",
+    "fr": "h (consonne-voyelle)",
     "lo": "ອ",
     "kk": "ɔ"
 }, {
@@ -97,10 +97,10 @@
     "kk": "khɔ",
     "meta": {
         "en": {
-            "tone": "high tone"
+            "tone": "high consonnant"
         },
         "fr": {
-            "tone": "ton haut"
+            "tone": "consonne haute"
         }
     }
 }, {
@@ -110,10 +110,10 @@
     "kk": "khɔ",
     "meta": {
         "en": {
-            "tone": "low tone"
+            "tone": "low consonnant"
         },
         "fr": {
-            "tone": "ton bas"
+            "tone": "consonne basse"
         }
     }
 }]

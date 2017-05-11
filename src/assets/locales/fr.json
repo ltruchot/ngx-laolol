@@ -35,10 +35,7 @@
   "blackboard": {
     "feminine": "fém.",
     "masculine": "masc.",
-    "gender": "genre",
-    "plural": "pluriel",
-    "karaoke": "karaoke",
-    "tone": "ton"
+    "karaoke": "karaoke"
   },
   "theme": {
     "vowels": "Voyelles",
@@ -47,7 +44,8 @@
     "plants": "Plantes",
     "days": "Jours",
     "family": "Famille",
-    "human_body": "Corps humain"
+    "human_body": "Corps humain",
+    "head": "Tête"
   },
   "submenu": {
     "language": "Langue",
