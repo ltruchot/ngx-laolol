@@ -19,7 +19,8 @@ export class AppComponent implements OnInit {
   cpntData = {
     availableLanguages: null,
     lang: null,
-    loadingRoute: true
+    loadingRoute: true,
+    currentVersion: 'Alpha version 0.0.13'
   };
   constructor (private languageService: LanguageService, private router: Router) {
     router.events.subscribe((event: RouterEvent) => {

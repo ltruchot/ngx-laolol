@@ -61,6 +61,13 @@ export class ThemeService {
       en: 'Human body',
       fr: 'Le corps humain',
       lo: 'ຮ່າງກາຍຂອງຄົນ'
+    },
+    {
+      code: 'head',
+      trad: 'theme.head',
+      en: 'Head',
+      fr: 'La tête',
+      lo: 'ຫົວ'
     }
   ];
   data = {

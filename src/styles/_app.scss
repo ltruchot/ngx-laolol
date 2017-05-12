@@ -1,3 +1,12 @@
+.main-title {
+	position: relative;
+	.version-title {
+		display: block;
+		position: absolute;
+		font-size: .3em;
+		bottom:-16px;
+	}
+}
 .title-complement {
 	color: #8A6D8B;
 	font-size: .8em;

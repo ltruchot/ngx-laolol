@@ -35,10 +35,7 @@
   "blackboard": {
     "feminine": "fem.",
     "masculine": "masc.",
-    "gender": "gender",
-    "plural": "plural",
-    "karaoke": "karaoke",
-    "tone": "tone"
+    "karaoke": "karaoke"
   },
   "theme": {
     "vowels": "Vowels",
@@ -47,13 +44,13 @@
     "plants": "Plants",
     "days": "Week days",
     "family": "Family",
-    "human_body": "Human body"
+    "human_body": "Human body",
+    "head": "Head"
   },
   "submenu": {
     "language": "Language",
     "topic": "Topic",
     "karaoke": "karaoke",
     "reverse": "reverse"
-
   }
 }

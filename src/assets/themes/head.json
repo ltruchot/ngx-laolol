@@ -1,0 +1,110 @@
+[{
+	"en": "eye",
+	"fr": "oeil",
+	"lo": "ຕາ",
+	"kk": "ta:",
+	"meta": {
+		"fr": {
+			"isMale": true,
+			"plural": "yeux"
+		}
+	}
+}, {
+	"en": "ear",
+	"fr": "oreille",
+	"lo": "ຫູ",
+	"kk": "hou:",
+	"meta": {
+		"fr": {
+			"isMale": false
+		}
+	}
+}, {
+	"en": "hair",
+	"fr": "cheveu",
+	"lo": "ຜົມ",
+	"kk": "phom",
+	"meta": {
+		"fr": {
+			"isMale": true,
+			"plural": "cheveux"
+		}
+	}
+}, {
+	"en": "nose",
+	"fr": "nez",
+	"lo": "ດັງ",
+	"kk": "dang",
+	"meta": {
+		"fr": {
+			"isMale": true,
+			"plural": "nez"
+		}
+	}
+}, {
+	"en": "mouth",
+	"fr": "bouche",
+	"lo": "ປາກ",
+	"kk": "pa:k",
+	"meta": {
+		"fr": {
+			"isMale": false
+		}
+	}
+}, {
+	"en": "tooth",
+	"fr": "dent",
+	"lo": "ແຂ້ວ",
+	"kk": "khèo",
+	"meta": {
+		"fr": {
+			"isMale": false
+		},
+		"en": {
+			"plural": "teeth"
+		}
+	}
+}, {
+	"en": "lip",
+	"fr": "lèvre",
+	"lo": "ຮີມສົບ",
+	"kk": "himsop",
+	"meta": {
+		"fr": {
+			"isMale": false
+		}
+	}
+}, {
+	"en": "eyebrow",
+	"fr": "sourcil",
+	"lo": "ຄີ້ວ",
+	"kk": "khieu",
+	"meta": {
+		"fr": {
+			"isMale": true
+		}
+	}
+}, {
+	"en": "eyelash",
+	"fr": "cil",
+	"lo": "ຂົນຕາ",
+	"kk": "khonhta",
+	"meta": {
+		"fr": {
+			"isMale": true
+		},
+		"en": {
+			"plural": "eyelashes"
+		}
+	}
+}, {
+	"en": "cheek",
+	"fr": "joue",
+	"lo": "ແກ້ມ",
+	"kk": "kème",
+	"meta": {
+		"fr": {
+			"isMale": false
+		}
+	}
+}]

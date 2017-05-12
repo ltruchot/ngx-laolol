@@ -13,7 +13,7 @@
     "menu": "ລາຍການ",
     "nameSoulisack": "ສຸລິສັກ ຫວງລາດ",
     "nameLoic": "ໂລໂລ ທູຍໂສ",
-    "nameXan": "Xan Harotin"
+    "nameXan": "ສານ ຮ່ໂລຕີນ"
   },
   "home": {
     "intro1": "ລາວ555 (Laolol) ແມ່ນເວບໄຊທີ່ສາມາດຊ່ວຍຄົນລາວຮຽນພາສາຝະລັ່ງຫລືພາສາອັງກິດ",
@@ -30,15 +30,12 @@
     "findTranslation": "ຊອກຫາຄໍາແປທີ່ຖຶກຕ້ອງ",
     "correctAnswer": "ຊົມເຊີຍ, ຄໍາຕອບຖຶກຕ້ອງ",
     "wrongAnswer": "ຜິດ ຄໍາຕອບບໍຖຶກຕ້ອງ",
-    "next": "Next"
+    "next": "ຕໍໄປ"
   },
   "blackboard": {
-    "feminine": "fem.",
-    "masculine": "mas.",
-    "gender": "gender",
-    "plural": "plural",
-    "karaoke": "ຄາລາໂອເກະ",
-    "tone": "tone"
+    "feminine": "ເພດແມ່",
+    "masculine": "ເພດຜູ້",
+    "karaoke": "ຄາລາໂອເກະ"
   },
   "theme": {
     "vowels": "ສະຫຼະ",
@@ -47,7 +44,8 @@
     "plants": "Plants",
     "days": "ວັນ",
     "family": "ຄອບຄົວ",
-    "human_body": "ຮ່າງກາຍຂອງຄົນ"
+    "human_body": "ຮ່າງກາຍຂອງຄົນ",
+    "head": "ຫົວ"
   },
   "submenu": {
     "language": "ພາສາ",

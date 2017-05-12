@@ -1,15 +1,4 @@
 [{
-	"en": "eye",
-	"fr": "oeil",
-	"lo": "ຕາ",
-	"kk": "ta:",
-	"meta": {
-		"fr": {
-			"isMale": true,
-			"plural": "yeux"
-		}
-	}
-}, {
 	"en": "hand",
 	"fr": "main",
 	"lo": "ມື",
@@ -30,24 +19,26 @@
 		}
 	}
 }, {
-	"en": "ear",
-	"fr": "oreille",
-	"lo": "ຫູ",
-	"kk": "hou:",
+	"en": "tummy",
+	"fr": "ventre",
+	"lo": "ທອ້ງ",
+	"kk": "thɔng",
 	"meta": {
 		"fr": {
-			"isMale": false
+			"isMale": true
 		}
 	}
 }, {
-	"en": "hair",
-	"fr": "cheveu",
-	"lo": "ຜົມ",
-	"kk": "phom",
+	"en": "foot",
+	"fr": "pied",
+	"lo": "ຕີນ",
+	"kk": "tine",
 	"meta": {
 		"fr": {
-			"isMale": true,
-			"plural": "cheveux"
+			"isMale": true
+		},
+		"en": {
+			"plural": "feet"
 		}
 	}
 }]
