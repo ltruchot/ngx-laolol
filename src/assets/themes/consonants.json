@@ -4,6 +4,32 @@
     "lo": "ກ",
     "kk": "kɔ"
 }, {
+    "en": "kh",
+    "fr": "kh",
+    "lo": "ຂ",
+    "kk": "khɔ",
+    "meta": {
+        "en": {
+            "tone": "high consonnant"
+        },
+        "fr": {
+            "tone": "consonne haute"
+        }
+    }
+}, {
+    "en": "kh",
+    "fr": "kh",
+    "lo": "ຄ",
+    "kk": "khɔ",
+    "meta": {
+        "en": {
+            "tone": "low consonnant"
+        },
+        "fr": {
+            "tone": "consonne basse"
+        }
+    }
+}, {
     "en": "p",
     "fr": "p",
     "lo": "ປ",
@@ -26,6 +52,32 @@
     "fr": "ph",
     "lo": "ພ",
     "kk": "phɔ",
+    "meta": {
+        "en": {
+            "tone": "low consonnant"
+        },
+        "fr": {
+            "tone": "consonne basse"
+        }
+    }
+}, {
+    "en": "s",
+    "fr": "s",
+    "lo": "ສ",
+    "kk": "sɔ",
+    "meta": {
+        "en": {
+            "tone": "high consonnant"
+        },
+        "fr": {
+            "tone": "consonne haute"
+        }
+    }
+}, {
+    "en": "s",
+    "fr": "s",
+    "lo": "ຊ",
+    "kk": "sɔ",
     "meta": {
         "en": {
             "tone": "low consonnant"
@@ -76,6 +128,32 @@
         }
     }
 }, {
+    "en": "h",
+    "fr": "h",
+    "lo": "ຫ",
+    "kk": "hɔ",
+    "meta": {
+        "en": {
+            "tone": "high consonnant"
+        },
+        "fr": {
+            "tone": "consonne haute"
+        }
+    }
+}, {
+    "en": "h",
+    "fr": "h",
+    "lo": "ຮ",
+    "kk": "hɔ",
+    "meta": {
+        "en": {
+            "tone": "low consonnant"
+        },
+        "fr": {
+            "tone": "consonne basse"
+        }
+    }
+}, {
     "en": "h (consonnant-vowel)",
     "fr": "h (consonne-voyelle)",
     "lo": "ອ",
@@ -90,30 +168,4 @@
     "fr": "y",
     "lo": "ຢ",
     "kk": "yɔ"
-}, {
-    "en": "kh",
-    "fr": "kh",
-    "lo": "ຂ",
-    "kk": "khɔ",
-    "meta": {
-        "en": {
-            "tone": "high consonnant"
-        },
-        "fr": {
-            "tone": "consonne haute"
-        }
-    }
-}, {
-    "en": "kh",
-    "fr": "kh",
-    "lo": "ຄ",
-    "kk": "khɔ",
-    "meta": {
-        "en": {
-            "tone": "low consonnant"
-        },
-        "fr": {
-            "tone": "consonne basse"
-        }
-    }
 }]

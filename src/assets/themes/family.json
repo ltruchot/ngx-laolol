@@ -162,4 +162,19 @@
 			"plural": "petits frères"
 		}
 	}
+}, {
+	"en": "grandchild",
+	"fr": "petit-enfant",
+	"lo": "ຫລານ",
+	"kk": "lânh",
+	"img": "",
+	"themes": ["family"],
+	"meta" : {
+		"fr": {
+			"isMale": true
+		},
+		"en": {
+			"plural": "grandchildren"
+		}
+	}
 }]
