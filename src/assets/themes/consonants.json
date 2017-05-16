@@ -1,10 +1,49 @@
 [{
-    "en": "k",
-    "fr": "k",
-    "lo": "ກ",
-    "kk": "kɔ"
+  "uid": "k1",
+  "en": {
+    "wrd": "k",
+    "ex": "",
+    "kk": { "lo": "ແກຍ" }
+  },
+  "fr":{
+    "wrd": "k",
+    "ex": "",
+    "kk": { "lo": "ກາ" }
+  },
+  "lo": {
+    "wrd": "ກ",
+    "ex": "",
+    "kk": { "en": "kɔ", "fr": "kɔ" }
+  },
+  "themes": ["consonants, lvl1"]
 }, {
-    "en": "kh",
+  "uid": "kh1",
+  "en": {
+    "wrd": "kh",
+    "ex": "",
+    "kk": {},
+    "meta": {
+      "tone": "high consonnant"
+    }
+  },
+  "fr":{
+    "wrd": "kh",
+    "ex": "",
+    "kk": {},
+    "meta": {
+      "tone": "consonne haute"
+    }
+  },
+  "lo": {
+    "wrd": "ຂ",
+    "ex": "",
+    "kk": { "en": "khɔ", "fr": "khɔ" }
+  },
+  "themes": ["consonants, lvl1"]
+}]
+
+[{
+    "en": "kh1",
     "fr": "kh",
     "lo": "ຂ",
     "kk": "khɔ",

@@ -1,0 +1,25 @@
+[{
+	"uid": "thankyou",
+  "en": {
+  	"wrd": "thank you",
+  	"snd": "",
+  	"kk": "khobchai",
+    "ex": "",
+    "meta": {}
+  },
+  "fr":{
+  	"wrd": "merci",
+  	"snd": "",
+  	"kk": "khoptjai",
+    "ex": "Merci pour ces jolies fleurs.",
+  	"meta": {}
+  },
+  "lo": {
+  	"wrd": "ຂອບໃຈ",
+  	"snd": "",
+    "ex": "",
+    "meta": {}
+  },
+  "img": "",
+  "themes": ["politeness", "politeness1"]
+}]

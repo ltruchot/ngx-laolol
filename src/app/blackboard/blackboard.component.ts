@@ -20,7 +20,10 @@ export class BlackboardComponent implements OnInit, OnDestroy {
     availableLang: null,
     theme: null,
     availableTheme: null,
-    frVowels: /[aeiouyAEIOUYàèìòùÀÈÌÒÙáéíóúâêîôûäëïöüÿÄËÏÖÜŸÆæœ]/
+    vowels: {
+      fr: /[aeiouyAEIOUYàèìòùÀÈÌÒÙáéíóúâêîôûäëïöüÿÄËÏÖÜŸÆæœ]/,
+      en: /[aeiou]/
+    }
   };
 
   constructor(private themeService: ThemeService, private languageService: LanguageService) {
@@ -33,17 +36,30 @@ export class BlackboardComponent implements OnInit, OnDestroy {
     this.cpntData.lang =  this.languageService.data;
     this.cpntData.availableLang = this.languageService.AVAILABLE_LANG;
     this.cpntData.theme =  this.themeService.data;
-    this.cpntData.availableTheme = this.themeService.AVAILABLE_THEME;
+    this.cpntData.availableTheme = this.themeService.AVAILABLE_THEMES;
     this.themeService.getCurrentTheme();
   }
 
   resetTheme (data) {
+    const lang = this.cpntData.lang.learningLang;
     this.cpntData.items.length = 0;
     this.cpntData.items.push(...data);
+    this.cpntData.items.forEach((item) => {
+      if (item.sound) {
+        item[lang].audio = new Audio();
+        item[lang].audio.src = `/assets/medias/${item.sound}/${item.sound}_${lang}.mp3`;
+        item[lang].audio.load();
+      }
+    });
   }
 
   changeLearningLang (code: string) {
     this.languageService.chooseLearningLang(code);
+  }
+
+  playsound(index: string) {
+    const lang = this.cpntData.lang.learningLang;
+    this.cpntData.items[index][lang].audio.play();
   }
 
   ngOnDestroy() {

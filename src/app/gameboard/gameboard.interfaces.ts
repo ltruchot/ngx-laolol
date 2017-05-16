@@ -1,7 +1,7 @@
-import { ThemeItem } from './../shared-interfaces/theme.interfaces';
+import { IThemeItem } from './../shared-interfaces/theme.interfaces';
 export interface GameboardCpntData {
   winItemIdx: number;
-  items: Array<ThemeItem>;
+  items: Array<IThemeItem>;
   clickedIdx: number;
   lang: any;
   availableLang: any;

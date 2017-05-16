@@ -1,0 +1,22 @@
+[{
+	"uid": "write1",
+  "en": {
+  	"wrd": "write",
+  	"snd": "",
+  	"kk": ""
+  },
+  "fr":{
+  	"wrd": "écrire",
+  	"snd": "",
+  	"kk": "",
+  	"meta": {
+  		"conjugation": {}
+  	}
+  },
+  "lo": {
+  	"wrd": "ຂຽນ",
+  	"snd": ""
+  },
+  "img": "",
+  "themes": ["verbs", "verbs1", "school", "school1"]
+}]

@@ -35,7 +35,8 @@
   "blackboard": {
     "feminine": "ເພດແມ່",
     "masculine": "ເພດຜູ້",
-    "karaoke": "ຄາລາໂອເກະ"
+    "karaoke": "ຄາລາໂອເກະ",
+    "listen": "listen"
   },
   "theme": {
     "vowels": "ສະຫຼະ",
@@ -45,7 +46,8 @@
     "days": "ວັນ",
     "family": "ຄອບຄົວ",
     "human_body": "ຮ່າງກາຍຂອງຄົນ",
-    "head": "ຫົວ"
+    "head": "ຫົວ",
+    "adjContrary":"ຄໍາຄູນນາມກົງກັນຂາ້ມ"
   },
   "submenu": {
     "language": "ພາສາ",

@@ -6,7 +6,7 @@ import { Subscription } from 'rxjs/Subscription';
 
 // custom interfaces
 import { GameboardCpntData } from './gameboard.interfaces';
-import { ThemeItem } from './../shared-interfaces/theme.interfaces';
+import { IThemeItem } from './../shared-interfaces/theme.interfaces';
 
 // custom services
 import { ThemeService } from './../shared-services/theme.service';
@@ -29,7 +29,7 @@ export class GameboardComponent implements OnInit, OnDestroy {
     availableTheme: null,
     isCheckingAnswer: false
   };
-  allItems: Array<ThemeItem> = [];
+  allItems: Array<IThemeItem> = [];
   questionTimer: number = null;
   QUESTION_TIMER_DURATION = 7;
   constructor (private themeService: ThemeService, private languageService: LanguageService) {
@@ -42,7 +42,7 @@ export class GameboardComponent implements OnInit, OnDestroy {
     this.cpntData.lang =  this.languageService.data;
     this.cpntData.availableLang = this.languageService.AVAILABLE_LANG;
     this.cpntData.theme =  this.themeService.data;
-    this.cpntData.availableTheme = this.themeService.AVAILABLE_THEME;
+    this.cpntData.availableTheme = this.themeService.AVAILABLE_THEMES;
     this.themeService.getCurrentTheme();
   }
 

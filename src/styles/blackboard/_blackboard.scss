@@ -1,0 +1,11 @@
+.blackboard-items {
+	.thumbnail {
+		position: relative;
+		.top-left-sound {
+			position: absolute;
+			top:0;
+			right:0;
+			cursor: pointer;
+		}
+	}
+}

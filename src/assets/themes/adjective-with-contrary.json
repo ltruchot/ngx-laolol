@@ -1,0 +1,169 @@
+[{
+  "uid": "big1",
+  "en": {
+    "wrd": "big",
+    "ex": "",
+    "kk": { "lo": "ບີກ" }
+  },
+  "fr":{
+    "wrd": "grand",
+    "ex": "",
+    "kk": { "lo": "ກຣັງ" }
+  },
+  "lo": {
+    "wrd": "ໃຫ່ຍ",
+    "ex": "",
+    "kk": { "en": "niay", "fr": "nyay" }
+  },
+  "themes": ["adjectives, lvl1", "contrary"],
+  "meta": {
+    "contrary": "small1"
+  }
+}, {
+  "uid": "small1",
+  "en": {
+    "wrd": "small",
+    "ex": "",
+    "kk": { "lo": "ສະມອນ" }
+  },
+  "fr":{
+    "wrd": "petit",
+    "ex": "",
+    "kk": { "lo": "ເປີຕີ" }
+  },
+  "lo": {
+    "wrd": "ນອ້ຍ",
+    "ex": "",
+    "kk": { "en": "noy", "fr": "nɔy" }
+  },
+  "themes": ["adjectives, lvl1", "contrary"],
+  "meta": {
+    "contrary": "big1"
+  }
+}, {
+  "uid": "expensive1",
+  "en": {
+    "wrd": "expensive",
+    "ex": "",
+    "kk": { "lo": "ເອກສເປັນສິບ" }
+  },
+  "fr":{
+    "wrd": "cher",
+    "ex": "",
+    "kk": { "lo": "ແສກ" }
+  },
+  "lo": {
+    "wrd": "ແພງ",
+    "ex": "",
+    "kk": { "en": "phae:ng", "fr": "phè:ng" }
+  },
+  "themes": ["adjectives, lvl1", "contrary"],
+  "meta": {
+    "contrary": "cheap1"
+  }
+}, {
+  "uid": "cheap1",
+  "en": {
+    "wrd": "cheap",
+    "ex": "",
+    "kk": { "lo": "ຊິບ" }
+  },
+  "fr":{
+    "wrd": "bon marché",
+    "ex": "",
+    "kk": { "lo": "ໂບງມາກເຊ" }
+  },
+  "lo": {
+    "wrd": "ຖືກ",
+    "ex": "",
+    "kk": { "en": "thuk", "fr": "thük" }
+  },
+  "themes": ["adjectives, lvl1", "contrary"],
+  "meta": {
+    "contrary": "expensive1"
+  }
+}, {
+  "uid": "fast1",
+  "en": {
+    "wrd": "fast",
+    "ex": "",
+    "kk": { "lo": "ຟາດສ" }
+  },
+  "fr":{
+    "wrd": "rapide",
+    "ex": "",
+    "kk": { "lo": "ລາປີດ" }
+  },
+  "lo": {
+    "wrd": "ໄວ",
+    "ex": "",
+    "kk": { "en": "vay", "fr": "vay" }
+  },
+  "themes": ["adjectives, lvl1", "contrary"],
+  "meta": {
+    "contrary": "slow1"
+  }
+}, {
+  "uid": "slow1",
+  "en": {
+    "wrd": "slow",
+    "ex": "",
+    "kk": { "lo": "ສະໂລ" }
+  },
+  "fr":{
+    "wrd": "lent",
+    "ex": "",
+    "kk": { "lo": "ລັງ" }
+  },
+  "lo": {
+    "wrd": "ຊ້າ",
+    "ex": "",
+    "kk": { "en": "sa:", "fr": "sa:" }
+  },
+  "themes": ["adjectives, lvl1", "contrary"],
+  "meta": {
+    "contrary": "fast1"
+  }
+}, {
+  "uid": "difficult1",
+  "en": {
+    "wrd": "difficult",
+    "ex": "",
+    "kk": { "lo": "" }
+  },
+  "fr":{
+    "wrd": "difficile",
+    "ex": "",
+    "kk": { "lo": "" }
+  },
+  "lo": {
+    "wrd": "ຍາກ",
+    "ex": "",
+    "kk": { "en": "", "fr": "" }
+  },
+  "themes": ["adjectives, lvl1", "contrary"],
+  "meta": {
+    "contrary": "easy1"
+  }
+}, {
+  "uid": "easy1",
+  "en": {
+    "wrd": "easy",
+    "ex": "",
+    "kk": { "lo": "" }
+  },
+  "fr":{
+    "wrd": "facile",
+    "ex": "",
+    "kk": { "lo": "" }
+  },
+  "lo": {
+    "wrd": "ງ່າຍ",
+    "ex": "",
+    "kk": { "en": "", "fr": "" }
+  },
+  "themes": ["adjectives, lvl1", "contrary"],
+  "meta": {
+    "contrary": "difficult1"
+  }
+}]

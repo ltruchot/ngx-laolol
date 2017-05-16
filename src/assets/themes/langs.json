@@ -1,0 +1,22 @@
+[{
+	"uid": "french1",
+  "en": {
+  	"wrd": "fench",
+  	"snd": "",
+  	"kk": "",
+    "meta": {}
+  },
+  "fr":{
+  	"wrd": "français",
+  	"snd": "",
+  	"kk": "",
+  	"meta": {}
+  },
+  "lo": {
+  	"wrd": "ພາສາຝຣັ່ງ",
+  	"snd": "",
+    "meta": {}
+  },
+  "img": "",
+  "themes": ["langs", "langs1"]
+}]

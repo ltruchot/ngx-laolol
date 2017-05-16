@@ -20,7 +20,7 @@ export class AppComponent implements OnInit {
     availableLanguages: null,
     lang: null,
     loadingRoute: true,
-    currentVersion: 'Alpha version 0.0.13'
+    currentVersion: 'Alpha version 0.0.14'
   };
   constructor (private languageService: LanguageService, private router: Router) {
     router.events.subscribe((event: RouterEvent) => {

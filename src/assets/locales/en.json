@@ -35,7 +35,8 @@
   "blackboard": {
     "feminine": "fem.",
     "masculine": "masc.",
-    "karaoke": "karaoke"
+    "karaoke": "karaoke",
+    "listen": "listen"
   },
   "theme": {
     "vowels": "Vowels",
@@ -45,7 +46,8 @@
     "days": "Week days",
     "family": "Family",
     "human_body": "Human body",
-    "head": "Head"
+    "head": "Head",
+    "adjContrary":"Adj. contrary"
   },
   "submenu": {
     "language": "Language",

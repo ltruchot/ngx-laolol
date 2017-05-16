@@ -22,7 +22,7 @@ export class SubmenuComponent implements OnInit {
     this.cpntData.lang =  this.languageService.data;
     this.cpntData.availableLang = this.languageService.AVAILABLE_LANG;
     this.cpntData.theme =  this.themeService.data;
-    this.cpntData.availableTheme = this.themeService.AVAILABLE_THEME;
+    this.cpntData.availableTheme = this.themeService.AVAILABLE_THEMES;
   }
 
   changeLearningLang (code: string) {

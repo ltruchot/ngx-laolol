@@ -1,0 +1,25 @@
+[{
+	"uid": "talented1",
+  "en": {
+  	"wrd": "talented",
+  	"snd": "",
+  	"kk": "",
+    "ex": "",
+    "meta": {}
+  },
+  "fr":{
+  	"wrd": "doué",
+  	"snd": "",
+  	"kk": "",
+    "ex": "",
+  	"meta": {}
+  },
+  "lo": {
+  	"wrd": "ເກ່ງ",
+  	"snd": "",
+    "ex": "",
+    "meta": {}
+  },
+  "img": "",
+  "themes": ["adjectives", "lvl1"]
+}]
