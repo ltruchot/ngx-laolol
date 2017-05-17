@@ -1,11 +1,17 @@
-// Get dependencies
+// get npm dependencies
 const express = require('express');
 const path = require('path');
 const http = require('http');
 const mongoose = require('mongoose');
-const Word = require('./api/models/wordsModel');
 const bodyParser = require('body-parser');
+const logger = require('morgan');
+
+// get local dependencies
 const CONFIG = require('./api/config');
+
+// mongoose models & controllers
+const Word = require('./api/models/wordsModel');
+const User = require('./api/models/usersModel');
 
 const app = express();
 // Prepare mongodb connexion
@@ -22,9 +28,10 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'dist')));
 
 // Set our api routes
-// app.use('/api', api);
-var routes = require('./api/routes/wordsRoutes');
-routes(app);
+var usersRoutes = require('./api/routes/usersRoutes');
+var wordsRoutes = require('./api/routes/wordsRoutes');
+wordsRoutes(app);
+usersRoutes(app);
 
 // Catch all other routes and return the index file
 app.get('*', (req, res) => {
@@ -46,3 +53,15 @@ const server = http.createServer(app);
  * Listen on provided port, on all network interfaces.
  */
 server.listen(port, () => console.log(`API running on localhost:${port}`));
+
+// Setting up basic middleware for all Express requests
+app.use(logger('dev')); // Log requests to API using morgan
+
+// Enable CORS from client-side
+app.use(function (req, res, next) {
+	res.header('Access-Control-Allow-Origin', '*');
+	res.header('Access-Control-Allow-Methods', 'PUT, GET, POST, DELETE, OPTIONS');
+	res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization, Access-Control-Allow-Credentials');
+	res.header('Access-Control-Allow-Credentials', 'true');
+	next();
+});

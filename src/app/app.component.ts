@@ -1,5 +1,5 @@
 // ng dependencies
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import {
     Router,
     // import as RouterEvent to avoid confusion with the DOM Event
@@ -9,20 +9,35 @@ import {
     NavigationCancel,
     NavigationError
 } from '@angular/router';
+import {
+  FormBuilder,
+  FormGroup,
+  Validators
+} from '@angular/forms';
+
+// custom services
 import { LanguageService } from './shared-services/language.service';
+import { UserService } from './shared-services/user.service';
+import { StorageService } from './shared-services/storage.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html'
 })
 export class AppComponent implements OnInit {
+  @ViewChild('loginModal') loginModal;
+  loginForm: FormGroup;
   cpntData = {
     availableLanguages: null,
     lang: null,
     loadingRoute: true,
     currentVersion: 'Alpha version 0.0.14'
   };
-  constructor (private languageService: LanguageService, private router: Router) {
+  constructor (private languageService: LanguageService,
+    private router: Router,
+    private userService: UserService,
+    private formBuilder: FormBuilder,
+    private storageService: StorageService) {
     router.events.subscribe((event: RouterEvent) => {
       this.navigationInterceptor(event);
     });
@@ -31,6 +46,10 @@ export class AppComponent implements OnInit {
     this.languageService.chooseTranslation(code);
   }
   ngOnInit () {
+    this.loginForm = this.formBuilder.group({
+      email: ['', Validators.required],
+      password: ['', Validators.required]
+    });
     this.cpntData.availableLanguages = this.languageService.AVAILABLE_LANG;
     this.cpntData.lang = this.languageService.data;
   }
@@ -50,6 +69,16 @@ export class AppComponent implements OnInit {
     }
     if (event instanceof NavigationError) {
         this.cpntData.loadingRoute = false;
+    }
+  }
+  login({ value, valid }) {
+    if (valid) {
+      this.userService.login(value).subscribe(success => {
+        if (success.token) {
+          this.storageService.setItem('AuthToken', success.token);
+          this.loginModal.close();
+        }
+      });
     }
   }
 }

@@ -1,13 +1,17 @@
 'use strict';
-module.exports = function (app) {
-	console.log('wordsRoutes');
-	var words = require('../controllers/wordsController');
-	app.route('/words')
-		.get(words.listWords)
-		.post(words.createWord);
+const passport = require('passport');
+const passportService = require('./../passport');
 
-	app.route('/words/:wordId')
+// Middleware to require login/auth
+const requireAuth = passport.authenticate('jwt', { session: false });
+module.exports = function (app) {
+	var words = require('../controllers/wordsController');
+	app.route('/api/words')
+		.get(words.listWords)
+		.post(requireAuth, words.createWord);
+
+	app.route('/api/words/:wordId')
 		.get(words.readWord)
-		.put(words.updateWord)
-		.delete(words.deleteWord);
+		.put(requireAuth, words.updateWord)
+		.delete(requireAuth, words.deleteWord);
 };

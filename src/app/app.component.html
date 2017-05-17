@@ -1,4 +1,25 @@
 <div [hidden]= "!(cpntData.lang?.isCurrentLoading) && !cpntData.loadingRoute" class="loading"></div>
+<modal #loginModal>
+  <modal-header>
+    <h2>Login</h2>
+  </modal-header>
+  <modal-content>
+    <div class="row">
+      <form class="col-xs-12" name="form" (ngSubmit)="login(loginForm)" [formGroup]="loginForm">
+        <div class="form-group">
+          <input type="email" class="form-control input-lg" name="email" formControlName="email" placeholder="Email" required />
+        </div>
+        <div class="form-group">
+          <input type="password" class="form-control input-lg" name="password" formControlName="password" placeholder="Password" required />
+        </div>
+        <button type="submit" class="btn btn-primary btn-lg btn-block" [disabled]="loginForm.invalid">login</button>
+      </form>
+    </div>
+  </modal-content>
+  <modal-footer>
+    <button class="btn btn-default" (click)="loginModal.close()">cancel</button>
+  </modal-footer>
+</modal>
 <div class="container">
   <div class="row">
     <div class="col-xs-6">
@@ -16,6 +37,9 @@
           </li>
         </ul>
       </nav>
+      <div (click)="loginModal.open()" class="clickable-icon">
+        <span class="glyphicon glyphicon-user"></span>
+      </div>
     </div>
   </div>
   <nav role="navigation" class="navbar navbar-default">
