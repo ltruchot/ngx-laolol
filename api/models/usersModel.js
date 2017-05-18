@@ -20,8 +20,8 @@ var UserSchema = new Schema({
 	},
 	role: {
 		type: String,
-		enum: ['Member', 'Client', 'Owner', 'Admin'],
-		default: 'Member'
+		enum: ['Client', 'Member', 'Owner', 'Admin'],
+		default: 'Client'
 	},
 	resetPasswordToken: { type: String },
 	resetPasswordExpires: { type: Date }
