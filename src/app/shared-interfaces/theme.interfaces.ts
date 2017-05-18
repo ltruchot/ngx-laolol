@@ -4,15 +4,15 @@ export interface IThemeItem {
   fr: ILangItem;
   lo: ILangItem;
   themes: Array<string>;
-  sound?: string;
   img?: string;
   meta?: any;
 };
 
 export interface ILangItem {
   wrd: string;
-  ex: string;
   kk: ILangKaraokeItem;
+  ex?: string;
+  sound?: string;
   meta?: any;
 };
 

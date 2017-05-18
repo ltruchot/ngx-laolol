@@ -11,11 +11,15 @@
 			<strong *ngIf="cpntData.items[cpntData.winItemIdx]">
 				{{ cpntData.items[cpntData.winItemIdx][cpntData.theme.isReversed ? cpntData.lang.learningLang : cpntData.lang.currentLang].wrd }}
 			</strong>
-			<ng-template [ngIf]="cpntData.theme.isReversed && cpntData.theme.isKaraoke && !cpntData.theme.learningTheme.noKaraoke && cpntData.items[cpntData.winItemIdx][cpntData.lang.learningLang].kk[cpntData.lang.currentLang]"><em>({{ cpntData.items[cpntData.winItemIdx][cpntData.lang.learningLang].kk[cpntData.lang.currentLang] }})</em></ng-template>
-<!-- 			<em *ngIf="cpntData.items[cpntData.winItemIdx]?.meta &&
-				cpntData.items[cpntData.winItemIdx].meta[cpntData.lang.currentLang]?.tone">
-				({{ cpntData.items[cpntData.winItemIdx].meta[cpntData.lang.currentLang].tone }})
-			</em> -->
+			<ng-template [ngIf]="cpntData.theme.isReversed && cpntData.theme.isKaraoke && !cpntData.theme.learningTheme.noKaraoke && cpntData.items[cpntData.winItemIdx] &&
+			cpntData.items[cpntData.winItemIdx][cpntData.lang.learningLang].kk[cpntData.lang.currentLang]">
+				<em>({{ cpntData.items[cpntData.winItemIdx][cpntData.lang.learningLang].kk[cpntData.lang.currentLang] }})</em>
+			</ng-template>
+			<em *ngIf="(cpntData.lang?.currentLang === 'fr' || cpntData.lang?.currentLang === 'en') &&
+			!cpntData.theme.isReversed && cpntData.items[cpntData.winItemIdx] &&
+			cpntData.items[cpntData.winItemIdx][cpntData.lang.currentLang].meta?.tone">
+				({{ cpntData.items[cpntData.winItemIdx][cpntData.lang.currentLang].meta?.tone }})
+			</em>
 		</h4>
 	</div>
 </div>
@@ -31,6 +35,11 @@
 				'disabled': cpntData.clickedIdx !== null && (cpntData.clickedIdx !== i)
 			}">
 				{{ item[cpntData.theme.isReversed ? cpntData.lang.currentLang : cpntData.lang.learningLang].wrd }}
+				<em *ngIf="(cpntData.lang?.currentLang === 'fr' || cpntData.lang?.currentLang === 'en') &&
+				cpntData.theme.isReversed &&
+				item[cpntData.lang.currentLang].meta?.tone">
+					({{ item[cpntData.lang.currentLang].meta?.tone }})
+				</em>
 				<ng-template [ngIf]="cpntData.theme.isKaraoke && !cpntData.theme.learningTheme.noKaraoke && !cpntData.theme.isReversed">
 					<br />
 					<em>{{ item[cpntData.lang.learningLang].kk[cpntData.lang.currentLang] }}</em>

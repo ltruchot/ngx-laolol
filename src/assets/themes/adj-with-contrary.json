@@ -129,17 +129,17 @@
   "en": {
     "wrd": "difficult",
     "ex": "",
-    "kk": { "lo": "" }
+    "kk": { "lo": "ດີຟີກືດ" }
   },
   "fr":{
     "wrd": "difficile",
     "ex": "",
-    "kk": { "lo": "" }
+    "kk": { "lo": "ດີຟີຊີນ" }
   },
   "lo": {
     "wrd": "ຍາກ",
     "ex": "",
-    "kk": { "en": "", "fr": "" }
+    "kk": { "en": "nyak", "fr": "nyak" }
   },
   "themes": ["adjectives, lvl1", "contrary"],
   "meta": {
@@ -150,17 +150,17 @@
   "en": {
     "wrd": "easy",
     "ex": "",
-    "kk": { "lo": "" }
+    "kk": { "lo": "ອີຊີ" }
   },
   "fr":{
     "wrd": "facile",
     "ex": "",
-    "kk": { "lo": "" }
+    "kk": { "lo": "ຟາຊີນ" }
   },
   "lo": {
     "wrd": "ງ່າຍ",
     "ex": "",
-    "kk": { "en": "", "fr": "" }
+    "kk": { "en": "ngai", "fr": "ngay" }
   },
   "themes": ["adjectives, lvl1", "contrary"],
   "meta": {

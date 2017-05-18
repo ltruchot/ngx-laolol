@@ -30,8 +30,9 @@ export class AppComponent implements OnInit {
   cpntData = {
     availableLanguages: null,
     lang: null,
+    user: null,
     loadingRoute: true,
-    currentVersion: 'Alpha version 0.0.14'
+    currentVersion: '0.0.14'
   };
   constructor (private languageService: LanguageService,
     private router: Router,
@@ -46,12 +47,24 @@ export class AppComponent implements OnInit {
     this.languageService.chooseTranslation(code);
   }
   ngOnInit () {
+    // clear store if it's a new version
+    const version = this.storageService.getItem('version');
+    if (version !== this.cpntData.currentVersion) {
+      this.storageService.clear();
+      this.storageService.setItem('version', this.cpntData.currentVersion);
+    }
+    this.languageService.initializeLanguages();
+
+    // init login form
     this.loginForm = this.formBuilder.group({
       email: ['', Validators.required],
       password: ['', Validators.required]
     });
+
+    // init available data
     this.cpntData.availableLanguages = this.languageService.AVAILABLE_LANG;
     this.cpntData.lang = this.languageService.data;
+    this.cpntData.user = this.userService.data;
   }
 
   // Shows and hides the loading spinner during RouterEvent changes
@@ -71,14 +84,18 @@ export class AppComponent implements OnInit {
         this.cpntData.loadingRoute = false;
     }
   }
-  login({ value, valid }) {
+
+  login ({ value, valid }) {
     if (valid) {
-      this.userService.login(value).subscribe(success => {
-        if (success.token) {
-          this.storageService.setItem('AuthToken', success.token);
-          this.loginModal.close();
-        }
+      this.userService.login(value, () => {
+        this.loginModal.close();
       });
     }
+  }
+
+  logout () {
+    this.userService.logout(() => {
+      this.loginModal.close();
+    });
   }
 }

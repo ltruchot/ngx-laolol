@@ -34,20 +34,31 @@ export class ThemeService {
     //   lo: 'ພະຍັນຊະນະ'
     // },
     {
+      'uid': 'consonants',
+      'trad': 'theme.consonants',
+      'en': {
+        'wrd': 'consonant',
+        'kk': {}
+      },
+      'fr': {
+        'wrd': 'consonne',
+        'kk': {}
+      },
+      'lo': {
+        'wrd': 'ພະຍັນຊະນະ',
+        'kk': {}
+      }
+    },
+    {
       'uid': 'animals',
       'trad': 'theme.animals',
       'en': {
         'wrd': 'animal',
-        'kk': {
-          'lo': ''
-        },
-        'meta': {}
+        'kk': {}
       },
       'fr': {
         'wrd': 'animal',
-        'kk': {
-          'lo': ''
-        },
+        'kk': {},
         'meta': {
           'fr': {
             'isMale': true,
@@ -71,27 +82,20 @@ export class ThemeService {
       }
     },
     {
-      'uid': 'adjective-with-contrary',
+      'uid': 'adj-with-contrary',
       'noPlural': true,
       'trad': 'theme.adjContrary',
       'en': {
-        'wrd': 'adj. contratry',
-        'kk': {
-          'lo': ''
-        }
+        'wrd': 'Adjectives & contratry',
+        'kk': {}
       },
       'fr': {
-        'wrd': 'adj. contraire',
-        'kk': {
-          'lo': ''
-        }
+        'wrd': 'Adjectifs & contraires',
+        'kk': {}
       },
       'lo': {
         'wrd': 'ຄໍາຄູນນາມກົງກັນຂາ້ມ',
-        'kk': {
-          'en': 'sad',
-          'fr': 'sat'
-        }
+        'kk': {}
       }
     }
     // { code: 'plants', trad: 'theme.plants' },

@@ -3,34 +3,55 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var WordSchema = new Schema({
-	en: {
+	uid: {
 		type: String,
-		Required: 'An english translation is needed.'
+		Required: 'An universal ID is needed.'
+	},
+	en: {
+		wrd: {
+			type: String,
+			Required: 'An english translation is needed.'
+		},
+		kk: {
+			en: String,
+			fr: String,
+			lo: String
+		},
+		ex: String,
+		sound: String
 	},
 	fr: {
-		type: String,
-		Required: 'A french translation is needed.'
+		wrd: {
+			type: String,
+			Required: 'An english translation is needed.'
+		},
+		kk: {
+			en: String,
+			fr: String,
+			lo: String
+		},
+		ex: String,
+		sound: String
 	},
 	lo: {
-		type: String,
-		Required: 'A lao translation is needed.'
-	},
-	kk: {
-		type: String,
-		Required: 'A karaoke translation is needed.'
+		wrd: {
+			type: String,
+			Required: 'An english translation is needed.'
+		},
+		kk: {
+			en: String,
+			fr: String,
+			lo: String
+		},
+		ex: String,
+		sound: String
 	},
 	themes: {
 		type: [String],
 		Required: 'At least one tag is required.'
 	},
 	meta: {
-		fr: {
-			isMale: Boolean,
-			isPlural: Boolean,
-			plural: String
-		},
-		lo: {},
-		en: {}
+		contrary: String
 	}
 });
 module.exports = mongoose.model('Word', WordSchema);

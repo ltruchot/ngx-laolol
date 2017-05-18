@@ -19,7 +19,7 @@
 				<li [ngClass]="{'active': i  === cpntData.theme.learningThemeIdx}">
 					<a (click)="changeLearningTheme(i)">{{ theme.trad | translate }}</a>
 				</li>
-				<li *ngIf="i === 1" role="separator" class="divider"></li>
+				<li *ngIf="i === 0" role="separator" class="divider"></li>
 			</ng-container>
 		</ul>
 	</div>

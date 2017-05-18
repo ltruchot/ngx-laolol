@@ -64,9 +64,9 @@
     "kk": {
       "en": "maew",
       "fr": "mèow"
-    }
+    },
+    "sound": "cat/cat_lo.mp3"
   },
-  "sound": "cat",
   "img": "cat",
   "themes": ["animals, lvl1"]
 }, {

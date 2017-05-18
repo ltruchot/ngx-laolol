@@ -5,25 +5,29 @@
   </modal-header>
   <modal-content>
     <div class="row">
-      <form class="col-xs-12" name="form" (ngSubmit)="login(loginForm)" [formGroup]="loginForm">
+      <form *ngIf="!(cpntData.user?.isConnected)" class="col-xs-12" name="form" (ngSubmit)="login(loginForm)" [formGroup]="loginForm">
         <div class="form-group">
           <input type="email" class="form-control input-lg" name="email" formControlName="email" placeholder="Email" required />
         </div>
         <div class="form-group">
           <input type="password" class="form-control input-lg" name="password" formControlName="password" placeholder="Password" required />
         </div>
-        <button type="submit" class="btn btn-primary btn-lg btn-block" [disabled]="loginForm.invalid">login</button>
+        <button type="submit" class="btn btn-primary btn-lg btn-block" [disabled]="loginForm.invalid">Log in</button>
       </form>
+      <div class="col-xs-12" *ngIf="cpntData.user?.isConnected">
+        <p>Connected as <strong>{{ cpntData.user.infos.firstName }} {{ cpntData.user.infos.lastName }}</strong></p>
+        <button type="submit" class="btn btn-danger btn-lg btn-block" (click)="logout()">Disconnect</button>
+      </div>
     </div>
   </modal-content>
   <modal-footer>
-    <button class="btn btn-default" (click)="loginModal.close()">cancel</button>
+    <button class="btn btn-default" (click)="loginModal.close()">Cancel</button>
   </modal-footer>
 </modal>
 <div class="container">
   <div class="row">
     <div class="col-xs-6">
-      <h1 class="main-title">{{ 'layout.lao' | translate}}<span class="title-complement">{{ 'layout.lol' | translate}}</span><em class="version-title">{{ cpntData.currentVersion }}</em></h1>
+      <h1 class="main-title">{{ 'layout.lao' | translate}}<span class="title-complement">{{ 'layout.lol' | translate}}</span><em class="version-title">Alpha version {{ cpntData.currentVersion }}</em></h1>
     </div>
     <div class="col-xs-6">
       <nav class="avaiblable-lang-list">
@@ -37,7 +41,7 @@
           </li>
         </ul>
       </nav>
-      <div (click)="loginModal.open()" class="clickable-icon">
+      <div (click)="loginModal.open()" class="clickable-icon" [ngClass]="{'text-success': cpntData.user.isConnected}">
         <span class="glyphicon glyphicon-user"></span>
       </div>
     </div>
@@ -52,7 +56,7 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <span class="navbar-brand">{{ 'layout.menu' | translate }}</span>
+        <span class="navbar-brand"><em>{{ 'layout.menu' | translate }}</em></span>
       </div>
 
       <!-- Collect the nav links, forms, and other content for toggling -->

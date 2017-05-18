@@ -60,8 +60,4 @@ export function createTranslateLoader(http: Http) {
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule {
-  constructor (private languageService: LanguageService) {
-    this.languageService.initializeLanguages();
-  }
-}
+export class AppModule {}

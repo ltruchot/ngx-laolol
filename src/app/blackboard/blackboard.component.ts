@@ -45,11 +45,14 @@ export class BlackboardComponent implements OnInit, OnDestroy {
     this.cpntData.items.length = 0;
     this.cpntData.items.push(...data);
     this.cpntData.items.forEach((item) => {
-      if (item.sound) {
-        item[lang].audio = new Audio();
-        item[lang].audio.src = `/assets/medias/${item.sound}/${item.sound}_${lang}.mp3`;
-        item[lang].audio.load();
-      }
+      this.cpntData.availableLang.forEach((avLang) => {
+        const sound = item[avLang.code].sound;
+        if (sound) {
+          item[avLang.code].audio = new Audio();
+          item[avLang.code].audio.src = '/assets/medias/' + sound;
+          item[avLang.code].audio.load();
+        }
+      });
     });
   }
 
@@ -59,7 +62,9 @@ export class BlackboardComponent implements OnInit, OnDestroy {
 
   playsound(index: string) {
     const lang = this.cpntData.lang.learningLang;
-    this.cpntData.items[index][lang].audio.play();
+    if (this.cpntData.items[index][lang].audio) {
+      this.cpntData.items[index][lang].audio.play();
+    }
   }
 
   ngOnDestroy() {
