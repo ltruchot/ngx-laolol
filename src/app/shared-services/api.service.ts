@@ -11,7 +11,7 @@ import { StorageService } from './storage.service';
 
 @Injectable()
 export class ApiService {
-  private SERVER_URL = 'http://localhost:3000/';
+  private SERVER_URL = 'http://localhost:3000/'; // 'http://laolol.com/';
   private cachedObs = {};
   constructor(private http: Http, private storageService: StorageService) { }
   getData(resource, forceRefresh?: boolean) {
@@ -38,6 +38,10 @@ export class ApiService {
     }
     return dataObs$;
   }
+  get (url)  {
+    return this.http.get(this.SERVER_URL + url)
+      .map(res => res.json());
+  }
   post (url, data) {
     const body = new URLSearchParams();
     for (const key in data) {
@@ -51,6 +55,7 @@ export class ApiService {
       'Authorization': this.storageService.getItem('AuthToken')
     });
     const options = new RequestOptions({headers: headers});
-    return this.http.post(this.SERVER_URL + url, body.toString(), options).map(res => res.json());
+    return this.http.post(this.SERVER_URL + url, body.toString(), options)
+      .map(res => res.json());
   }
 }

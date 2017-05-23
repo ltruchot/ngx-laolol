@@ -52,8 +52,20 @@ export class GameboardComponent implements OnInit, OnDestroy {
     const items = this.allItems;
     for (let i = 0; i < ITEM_DISPLAYED_NBR; i++) {
       const randomItemIdx = Math.floor(Math.random() * items.length);
-      this.cpntData.items.push(items[randomItemIdx]);
-      this.allItems.splice(randomItemIdx, 1);
+      if (items[randomItemIdx].meta && items[randomItemIdx].meta.conflict) {
+        const hasConflict = this.cpntData.items.find((item) => {
+          return item.meta && (item.uid === items[randomItemIdx].meta.conflict);
+        });
+        if (!hasConflict) {
+          this.cpntData.items.push(items[randomItemIdx]);
+          this.allItems.splice(randomItemIdx, 1);
+        } else {
+          i--;
+        }
+      } else {
+        this.cpntData.items.push(items[randomItemIdx]);
+        this.allItems.splice(randomItemIdx, 1);
+      }
     }
     this.cpntData.winItemIdx = Math.floor(Math.random() * ITEM_DISPLAYED_NBR);
     this.launchQuestionTimer();

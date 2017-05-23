@@ -1,6 +1,7 @@
 // ng dependencies
 import { Injectable } from '@angular/core';
-
+// npm dependencies
+import { Observable } from 'rxjs/Observable';
 // custom services
 import { ApiService } from './api.service';
 import { StorageService } from './storage.service';

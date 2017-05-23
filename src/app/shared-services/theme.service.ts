@@ -26,22 +26,16 @@ export class ThemeService {
     //   fr: 'Les voyelles',
     //   lo: 'ສະຫຼະ'
     // },
-    // {
-    //   code: 'consonants',
-    //   trad: 'theme.consonants',
-    //   en: 'Consonants',
-    //   fr: 'Les consonnes',
-    //   lo: 'ພະຍັນຊະນະ'
-    // },
     {
       'uid': 'consonants',
-      'trad': 'theme.consonants',
+      'noPlural': true,
       'en': {
-        'wrd': 'consonant',
+        'wrd': 'consonants',
         'kk': {}
       },
       'fr': {
-        'wrd': 'consonne',
+        'wrd': 'Les consonnes',
+        'short': 'Consonnes',
         'kk': {}
       },
       'lo': {
@@ -51,20 +45,15 @@ export class ThemeService {
     },
     {
       'uid': 'animals',
-      'trad': 'theme.animals',
       'en': {
-        'wrd': 'animal',
+        'wrd': 'Animals',
+        'short': 'Animals',
         'kk': {}
       },
       'fr': {
-        'wrd': 'animal',
-        'kk': {},
-        'meta': {
-          'fr': {
-            'isMale': true,
-            'plural': 'animaux'
-          }
-        }
+        'wrd': 'Les animaux',
+        'short': 'Animaux',
+        'kk': {}
       },
       'lo': {
         'wrd': 'ສັດ',
@@ -84,17 +73,35 @@ export class ThemeService {
     {
       'uid': 'adj-with-contrary',
       'noPlural': true,
-      'trad': 'theme.adjContrary',
       'en': {
         'wrd': 'Adjectives & contratry',
+        'short': 'Adj. & contrary',
         'kk': {}
       },
       'fr': {
         'wrd': 'Adjectifs & contraires',
+        'short': 'Adj. contraires',
         'kk': {}
       },
       'lo': {
         'wrd': 'ຄໍາຄູນນາມກົງກັນຂາ້ມ',
+        'kk': {}
+      }
+    },
+    {
+      'uid': 'politness',
+      'noPlural': true,
+      'en': {
+        'wrd': 'Politness',
+        'kk': {}
+      },
+      'fr': {
+        'wrd': 'La politesse',
+        'short': 'Politesse',
+        'kk': {}
+      },
+      'lo': {
+        'wrd': 'ຄວາມສຸພາບ',
         'kk': {}
       }
     }

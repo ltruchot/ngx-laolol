@@ -8,9 +8,7 @@ const requireLogin = passport.authenticate('local', { session: false });
 
 // Constants for role types
 const REQUIRE_ADMIN = 'Admin';
-const REQUIRE_OWNER = 'Owner';
-const REQUIRE_MEMBER = 'Member';
-const REQUIRE_CLIENT = 'Client';
+const REQUIRE_CLIENT = 'User';
 
 module.exports = function (app) {
 	var users = require('../controllers/usersController');
@@ -19,4 +17,7 @@ module.exports = function (app) {
 
 	app.route('/api/login')
 		.post(requireLogin, users.login);
+
+	app.route('/api/isadmin/:userId')
+		.post(requireAuth, users.roleAuthorization(REQUIRE_ADMIN));
 };

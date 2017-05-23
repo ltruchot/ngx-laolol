@@ -1,25 +1,64 @@
 [{
-	"uid": "thankyou",
+	"uid": "thankyou1",
   "en": {
   	"wrd": "thank you",
-  	"snd": "",
-  	"kk": "khobchai",
-    "ex": "",
-    "meta": {}
+  	"kk": { "lo": "" }
   },
   "fr":{
   	"wrd": "merci",
-  	"snd": "",
-  	"kk": "khoptjai",
-    "ex": "Merci pour ces jolies fleurs.",
-  	"meta": {}
+  	"kk": { "lo": "ແມຊີ" },
+    "ex": "Merci pour ces jolies fleurs."
   },
   "lo": {
   	"wrd": "ຂອບໃຈ",
-  	"snd": "",
-    "ex": "",
-    "meta": {}
+    "kk": { "en": "khobchai", "fr": "khoptjay" }
   },
-  "img": "",
-  "themes": ["politeness", "politeness1"]
+  "themes": ["politeness", "lvl1"]
+}, {
+  "uid": "hello1",
+  "en": {
+    "wrd": "hello",
+    "kk": { "lo": "ແຮໂລ" },
+    "ex": "Hello! How are you?"
+  },
+  "fr":{
+    "wrd": "bonjour",
+    "kk": { "lo": "ໂບງຊູ" },
+    "ex": "Bonjour ! Comment-ça va ?"
+  },
+  "lo": {
+    "wrd": "ສະບາຍດີ",
+    "kk": { "en": "sabaidi", "fr": "sabaydi" }
+  },
+  "themes": ["politeness", "lvl1"]
+}, {
+  "uid": "excuseme1",
+  "en": {
+    "wrd": "excuse me / sorry",
+    "kk": { "lo": "" }
+  },
+  "fr":{
+    "wrd": "excusez-moi / pardon",
+    "kk": { "lo": "" }
+  },
+  "lo": {
+    "wrd": "ຂໍໂທດ",
+    "kk": { "en": "khɔ:tho:d", "fr": "khɔ:tho:d" }
+  },
+  "themes": ["politeness", "lvl1"]
+}, {
+  "uid": "nicetomeatyou1",
+  "en": {
+    "wrd": "nice to meet you",
+    "kk": { "lo": "" }
+  },
+  "fr":{
+    "wrd": "enchanté",
+    "kk": { "lo": "" }
+  },
+  "lo": {
+    "wrd": "ຍິນ​ດີ​ທີ່​ໄດ້​",
+    "kk": { "en": "nyindithidai", "fr": "nyindithiday" }
+  },
+  "themes": ["politeness", "lvl1"]
 }]

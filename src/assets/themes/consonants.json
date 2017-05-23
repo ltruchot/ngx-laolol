@@ -33,7 +33,10 @@
     "wrd": "ຂ",
     "kk": { "en": "khɔ", "fr": "khɔ" }
   },
-  "themes": ["consonants, lvl1"]
+  "themes": ["consonants, lvl1"],
+  "meta": {
+    "conflict": "kh2"
+  }
 }, {
   "uid": "kh2",
   "en": {
@@ -54,7 +57,10 @@
     "wrd": "ຄ",
     "kk": { "en": "khɔ", "fr": "khɔ" }
   },
-  "themes": ["consonants, lvl1"]
+  "themes": ["consonants, lvl1"],
+  "meta": {
+    "conflict": "kh1"
+  }
 }, {
   "uid": "p1",
   "en": {
@@ -90,7 +96,10 @@
     "wrd": "ຜ",
     "kk": { "en": "phɔ", "fr": "phɔ" }
   },
-  "themes": ["consonants, lvl1"]
+  "themes": ["consonants, lvl1"],
+  "meta": {
+    "conflict": "ph2"
+  }
 }, {
   "uid": "ph2",
   "en": {
@@ -111,7 +120,10 @@
     "wrd": "ພ",
     "kk": { "en": "phɔ", "fr": "phɔ" }
   },
-  "themes": ["consonants, lvl1"]
+  "themes": ["consonants, lvl1"],
+  "meta": {
+    "conflict": "ph1"
+  }
 }, {
   "uid": "s1",
   "en": {
@@ -132,7 +144,10 @@
     "wrd": "ສ",
     "kk": { "en": "sɔ", "fr": "sɔ" }
   },
-  "themes": ["consonants, lvl1"]
+  "themes": ["consonants, lvl1"],
+  "meta": {
+    "conflict": "s2"
+  }
 }, {
   "uid": "s2",
   "en": {
@@ -153,7 +168,10 @@
     "wrd": "ຊ",
     "kk": { "en": "sɔ", "fr": "sɔ" }
   },
-  "themes": ["consonants, lvl1"]
+  "themes": ["consonants, lvl1"],
+  "meta": {
+    "conflict": "s1"
+  }
 }, {
   "uid": "b1",
   "en": {
@@ -219,7 +237,10 @@
     "wrd": "ຖ",
     "kk": { "en": "thɔ", "fr": "thɔ" }
   },
-  "themes": ["consonants, lvl1"]
+  "themes": ["consonants, lvl1"],
+  "meta": {
+    "conflict": "th2"
+  }
 }, {
   "uid": "th2",
   "en": {
@@ -240,7 +261,10 @@
     "wrd": "ທ",
     "kk": { "en": "thɔ", "fr": "thɔ" }
   },
-  "themes": ["consonants, lvl1"]
+  "themes": ["consonants, lvl1"],
+  "meta": {
+    "conflict": "th1"
+  }
 }, {
   "uid": "h1",
   "en": {
@@ -261,7 +285,10 @@
     "wrd": "ຫ",
     "kk": { "en": "hɔ", "fr": "hɔ" }
   },
-  "themes": ["consonants, lvl1"]
+  "themes": ["consonants, lvl1"],
+  "meta": {
+    "conflict": "h2"
+  }
 }, {
   "uid": "h2",
   "en": {
@@ -282,18 +309,21 @@
     "wrd": "ຮ",
     "kk": { "en": "hɔ", "fr": "hɔ" }
   },
-  "themes": ["consonants, lvl1"]
+  "themes": ["consonants, lvl1"],
+  "meta": {
+    "conflict": "h1"
+  }
 }, {
-  "uid": "h3",
+  "uid": "cv1",
   "en": {
-    "wrd": "h",
+    "wrd": "-",
     "kk": {},
     "meta": {
       "tone": "consonnant-vowel"
     }
   },
   "fr":{
-    "wrd": "h",
+    "wrd": "-",
     "kk": {},
     "meta": {
       "tone": "consonne-voyelle"

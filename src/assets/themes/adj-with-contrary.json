@@ -129,7 +129,7 @@
   "en": {
     "wrd": "difficult",
     "ex": "",
-    "kk": { "lo": "ດີຟີກືດ" }
+    "kk": { "lo": "ດີຟີໂກ" }
   },
   "fr":{
     "wrd": "difficile",
@@ -165,5 +165,173 @@
   "themes": ["adjectives, lvl1", "contrary"],
   "meta": {
     "contrary": "difficult1"
+  }
+}, {
+  "uid": "old1",
+  "en": {
+    "wrd": "old",
+    "ex": "",
+    "kk": { "lo": "ໂອນ" }
+  },
+  "fr":{
+    "wrd": "vieux",
+    "ex": "",
+    "kk": { "lo": "ວີເອີ" }
+  },
+  "lo": {
+    "wrd": "ເຖົ້າ",
+    "ex": "",
+    "kk": { "en": "thao", "fr": "thao" }
+  },
+  "themes": ["adjectives, lvl1", "contrary"],
+  "meta": {
+    "contrary": "young1"
+  }
+}, {
+  "uid": "young1",
+  "en": {
+    "wrd": "young",
+    "ex": "",
+    "kk": { "lo": "ຢັງ" }
+  },
+  "fr":{
+    "wrd": "jeune",
+    "ex": "",
+    "kk": { "lo": "ເຢີນ" }
+  },
+  "lo": {
+    "wrd": "ໜູ່ມ",
+    "ex": "",
+    "kk": { "en": "noom", "fr": "noum" }
+  },
+  "themes": ["adjectives, lvl1", "contrary"],
+  "meta": {
+    "contrary": "old1"
+  }
+}, {
+  "uid": "ancient1",
+  "en": {
+    "wrd": "ancient",
+    "ex": "",
+    "kk": { "lo": "ເອນຊຽນ" }
+  },
+  "fr":{
+    "wrd": "ancient",
+    "ex": "",
+    "kk": { "lo": "ອັງຊຽນ" }
+  },
+  "lo": {
+    "wrd": "ເກົ່າ",
+    "ex": "",
+    "kk": { "en": "kao", "fr": "kao" }
+  },
+  "themes": ["adjectives, lvl1", "contrary"],
+  "meta": {
+    "contrary": "new1"
+  }
+}, {
+  "uid": "new1",
+  "en": {
+    "wrd": "new",
+    "ex": "",
+    "kk": { "lo": "ນີວ" }
+  },
+  "fr":{
+    "wrd": "nouveau",
+    "ex": "",
+    "kk": { "lo": "ນູໂວ" }
+  },
+  "lo": {
+    "wrd": "ໃໝ່",
+    "ex": "",
+    "kk": { "en": "mai", "fr": "may" }
+  },
+  "themes": ["adjectives, lvl1", "contrary"],
+  "meta": {
+    "contrary": "ancient1"
+  }
+}, {
+  "uid": "high1",
+  "en": {
+    "wrd": "high",
+    "ex": "",
+    "kk": { "lo": "ຮາຍ" }
+  },
+  "fr":{
+    "wrd": "haut",
+    "ex": "",
+    "kk": { "lo": "ໂອ" }
+  },
+  "lo": {
+    "wrd": "ສູງ",
+    "ex": "",
+    "kk": { "en": "soung", "fr": "soung" }
+  },
+  "themes": ["adjectives, lvl1", "contrary"],
+  "meta": {
+    "contrary": "low1"
+  }
+}, {
+  "uid": "low1",
+  "en": {
+    "wrd": "low",
+    "ex": "",
+    "kk": { "lo": "ໂລ" }
+  },
+  "fr":{
+    "wrd": "bas",
+    "ex": "",
+    "kk": { "lo": "ບາ" }
+  },
+  "lo": {
+    "wrd": "ຕຳ່",
+    "ex": "",
+    "kk": { "en": "tam", "fr": "tam" }
+  },
+  "themes": ["adjectives, lvl1", "contrary"],
+  "meta": {
+    "contrary": "high1"
+  }
+}, {
+  "uid": "tall1",
+  "en": {
+    "wrd": "tall",
+    "ex": "",
+    "kk": { "lo": "ໂທນ" }
+  },
+  "fr":{
+    "wrd": "grand",
+    "ex": "",
+    "kk": { "lo": "ກຣັງ" }
+  },
+  "lo": {
+    "wrd": "ສູງ",
+    "ex": "",
+    "kk": { "en": "soung", "fr": "soung" }
+  },
+  "themes": ["adjectives, lvl1", "contrary"],
+  "meta": {
+    "contrary": "short1"
+  }
+}, {
+  "uid": "short1",
+  "en": {
+    "wrd": "short",
+    "ex": "",
+    "kk": { "lo": "ຊອດ" }
+  },
+  "fr":{
+    "wrd": "petit",
+    "ex": "",
+    "kk": { "lo": "ເປີຕີ" }
+  },
+  "lo": {
+    "wrd": "ເຕ້ຍ",
+    "ex": "",
+    "kk": { "en": "tya", "fr": "tya" }
+  },
+  "themes": ["adjectives, lvl1", "contrary"],
+  "meta": {
+    "contrary": "tall1"
   }
 }]

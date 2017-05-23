@@ -14,10 +14,10 @@
 		<button class="btn btn-warning dropdown-toggle" data-toggle="dropdown">
 			{{ 'submenu.topic' | translate }} <span class="caret"></span>
 		</button>
-		<ul class="dropdown-menu">
+		<ul class="dropdown-menu" *ngIf="cpntData.lang?.learningLang">
 			<ng-container *ngFor="let theme of cpntData.availableTheme; let i = index;">
 				<li [ngClass]="{'active': i  === cpntData.theme.learningThemeIdx}">
-					<a (click)="changeLearningTheme(i)">{{ theme.trad | translate }}</a>
+					<a (click)="changeLearningTheme(i)">{{ theme[cpntData.lang.currentLang].short || theme[cpntData.lang.currentLang].wrd }}</a>
 				</li>
 				<li *ngIf="i === 0" role="separator" class="divider"></li>
 			</ng-container>

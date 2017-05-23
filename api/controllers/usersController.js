@@ -12,10 +12,11 @@ function generateToken (user) {
 // Set user info from request
 function setUserInfo (request) {
 	return {
+		_id: request._id,
 		firstName: request.profile.firstName,
 		lastName: request.profile.lastName,
 		email: request.email,
-		role: 'Client'
+		role: request.role
 	};
 }
 
@@ -79,9 +80,7 @@ exports.register = function (req, res, next) {
 // Role authorization check
 exports.roleAuthorization = function (role) {
 	return function (req, res, next) {
-		const user = req.user;
-
-		User.findById(user._id, function (err, foundUser) {
+		User.findById(req.params.userId, function (err, foundUser) {
 			if (err) {
 				res.status(422).json({ error: 'No user was found.' });
 				return next(err);
@@ -89,10 +88,11 @@ exports.roleAuthorization = function (role) {
 
 			// If user is found, check role.
 			if (foundUser.role === role) {
-				return next();
+				res.status(201).json(true);
+				return next('Is ' + role);
 			}
 
-			res.status(401).json({ error: 'You are not authorized to view this content.' });
+			res.status(401).json(false);
 			return next('Unauthorized');
 		});
 	};

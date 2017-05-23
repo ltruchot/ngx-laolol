@@ -9,7 +9,7 @@
 	<h2 class="text-center backboard-title" *ngIf="cpntData.theme?.learningTheme && cpntData.lang?.learningLang">
 		{{ cpntData.theme.learningTheme[cpntData.lang.learningLang].wrd }}
 		<em>
-			({{ cpntData.theme?.learningTheme?.trad | translate }})
+			({{ cpntData.theme.learningTheme[cpntData.lang.currentLang].wrd }})
 		</em>
 	</h2>
 	</div>
@@ -21,10 +21,13 @@
 				title="{{ 'backboard.listen' | translate }}" (click)="playsound(i)">
 				<span class="glyphicon glyphicon-volume-down"></span>
 			</label>
-			<h3 class="mx0 text-center" style="line-height: 22px;">
-				<ng-template [ngIf]="cpntData.lang && (cpntData.lang.learningLang === 'fr')">
-					<span *ngIf="item.fr.meta && (item.fr.meta.isMale !== undefined)">
-					{{ cpntData.vowels.fr.test(item.fr.wrd[0]) ? "l'" : (item.fr.meta.isMale ? "le " : "la ") }}</span>{{ item.fr.wrd }}
+			<h3 class="mx0 text-center px5" style="line-height: 22px;">
+				<ng-template [ngIf]="cpntData.lang?.learningLang === 'fr'">
+				  <span *ngIf="item.fr.meta && item.fr.meta.isMale !== undefined">
+				  	{{ item.fr.meta.isMale ? 'un' : 'une' }}
+				  </span>
+				  {{ item.fr.wrd }}
+				  <em *ngIf="item.fr.meta && item.fr.meta.isMale !== undefined">({{ item.fr.meta.isMale ? ('blackboard.masculine' | translate) : ('blackboard.feminine' | translate) }})</em>
 				</ng-template>
 				<ng-template [ngIf]="cpntData.lang &&
 				(cpntData.lang.learningLang === 'en' || cpntData.lang.learningLang === 'lo')">
@@ -41,9 +44,11 @@
 			<img alt="" class="ration-4-3" />
 			<div class="caption">
 				<h4>{{ item[cpntData.lang.currentLang].wrd }}</h4>
-				<h5 *ngIf="cpntData.lang?.learningLang === 'fr' &&
-					item.fr.meta && item.fr.meta.isMale !== undefined">
-				  <strong>{{ item.fr.meta.isMale ? 'un' : 'une' }} {{ item.fr.wrd }}</strong> <em>({{ item.fr.meta.isMale ? ('blackboard.masculine' | translate) : ('blackboard.feminine' | translate) }})</em>
+				<h5 *ngIf="cpntData.lang && (cpntData.lang.learningLang === 'fr')">
+					<strong>
+						<span *ngIf="item.fr.meta && (item.fr.meta.isMale !== undefined)">
+							{{ cpntData.vowels.fr.test(item.fr.wrd[0]) ? "l'" : (item.fr.meta.isMale ? "le " : "la ") }}</span>{{ item.fr.wrd }}
+					</strong>
 				</h5>
 				<h5 *ngIf="!cpntData.theme.learningTheme.noPlural && cpntData.lang &&
 					(cpntData.lang.learningLang === 'fr' || cpntData.lang.learningLang === 'en')">

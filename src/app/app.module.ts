@@ -23,6 +23,7 @@ import { StorageService } from './shared-services/storage.service';
 import { ThemeService } from './shared-services/theme.service';
 import { ApiService } from './shared-services/api.service';
 import { UserService } from './shared-services/user.service';
+import { AdminActivationService } from './shared-services/admin-activation.service';
 
 
 // language export for AOT build
@@ -56,7 +57,8 @@ export function createTranslateLoader(http: Http) {
     LanguageService,
     StorageService,
     ApiService,
-    UserService
+    UserService,
+    AdminActivationService
   ],
   bootstrap: [AppComponent]
 })

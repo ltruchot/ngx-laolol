@@ -54,6 +54,7 @@
     "kk": {
       "lo": ""
     },
+    "sound": "cat/cat_fr.mp3",
     "meta": {
       "isMale": true
     }
@@ -84,6 +85,7 @@
     "kk": {
       "lo": ""
     },
+    "sound": "dog/dog_fr.mp3",
     "meta": {
       "isMale": true
     }
@@ -94,7 +96,8 @@
     "kk": {
       "en": "ma:",
       "fr": "ma:"
-    }
+    },
+    "sound": "dog/dog_lo.mp3"
   },
   "themes": ["animals, lvl1"]
 }, {
@@ -225,6 +228,7 @@
     "kk": {
       "lo": ""
     },
+    "sound": "tiger/tiger_fr.mp3",
     "meta": {
       "isMale": true
     }
@@ -235,7 +239,8 @@
     "kk": {
       "en": "seua",
       "fr": "süa"
-    }
+    },
+    "sound": "tiger/tiger_lo.mp3"
   },
   "themes": ["animals, lvl1"]
 }, {
@@ -309,6 +314,7 @@
     "kk": {
       "lo": ""
     },
+    "sound": "buffalo/buffalo_fr.mp3",
     "meta": {
       "isMale": true
     }
@@ -319,7 +325,8 @@
     "kk": {
       "en": "khooai:",
       "fr": "khouay:"
-    }
+    },
+    "sound": "buffalo/buffalo_lo.mp3"
   },
   "themes": ["animals, lvl1"]
 }, {
