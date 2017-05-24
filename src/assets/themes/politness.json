@@ -2,16 +2,16 @@
 	"uid": "thankyou1",
   "en": {
   	"wrd": "thank you",
-  	"kk": { "lo": "" }
+  	"kk": { "lo": "ແທງຄີວ" }
   },
   "fr":{
   	"wrd": "merci",
-  	"kk": { "lo": "ແມຊີ" },
+  	"kk": { "lo": "ແມກຊີ" },
     "ex": "Merci pour ces jolies fleurs."
   },
   "lo": {
   	"wrd": "ຂອບໃຈ",
-    "kk": { "en": "khobchai", "fr": "khoptjay" }
+    "kk": { "en": "khɔbchai", "fr": "khɔptjay" }
   },
   "themes": ["politeness", "lvl1"]
 }, {
@@ -28,18 +28,18 @@
   },
   "lo": {
     "wrd": "ສະບາຍດີ",
-    "kk": { "en": "sabaidi", "fr": "sabaydi" }
+    "kk": { "en": "sabaidee", "fr": "sabaydi" }
   },
   "themes": ["politeness", "lvl1"]
 }, {
   "uid": "excuseme1",
   "en": {
     "wrd": "excuse me / sorry",
-    "kk": { "lo": "" }
+    "kk": { "lo": "ເອກສຄີວມີ / ຊໍຣີ" }
   },
   "fr":{
     "wrd": "excusez-moi / pardon",
-    "kk": { "lo": "" }
+    "kk": { "lo": "ເອກສກູຍເຢມົວ" }
   },
   "lo": {
     "wrd": "ຂໍໂທດ",
@@ -57,8 +57,77 @@
     "kk": { "lo": "" }
   },
   "lo": {
-    "wrd": "ຍິນ​ດີ​ທີ່​ໄດ້​",
-    "kk": { "en": "nyindithidai", "fr": "nyindithiday" }
+    "wrd": "ຍິນ​ດີ​ທີ່​ໄດ້ຮູ້ຈັກ​",
+    "kk": { "en": "nyindee thee dai hoochak", "fr": "nyindi thi day houtjak" }
+  },
+  "themes": ["politeness", "lvl1"]
+}, {
+  "uid": "please1",
+  "en": {
+    "wrd": "please",
+    "kk": { "lo": "ຟີສ" },
+    "meta": {
+      "description": "ask for something"
+    }
+  },
+  "fr":{
+    "wrd": "s'il vous plaît",
+    "kk": { "lo": "ສີວູແປ" },
+    "meta": {
+      "description": "demander quelque chose"
+    }
+  },
+  "lo": {
+    "wrd": "ຂໍ ... ແດ່",
+    "kk": { "en": "khɔ ... dae", "fr": "khɔ ... dè" },
+    "meta": {
+      "description": "ຂໍ ອັນໃດໜື່ງ"
+    }
+  },
+  "themes": ["politeness", "lvl1"]
+}, {
+  "uid": "goodnight1",
+  "en": {
+    "wrd": "good night",
+    "kk": { "lo": "ກູດໃນ" }
+  },
+  "fr":{
+    "wrd": "bonne nuit",
+    "kk": { "lo": "ບອນນູຍ" }
+  },
+  "lo": {
+    "wrd": "ນອນລັບຝັນດີ",
+    "kk": { "en": "nɔn lap fan dee", "fr": "nɔn lap fân di" }
+  },
+  "themes": ["politeness", "lvl1"]
+}, {
+  "uid": "goodbye1",
+  "en": {
+    "wrd": "good bye",
+    "kk": { "lo": "ກູດບາຍ" }
+  },
+  "fr":{
+    "wrd": "au revoir",
+    "kk": { "lo": "ໂອເຣີວົວ" }
+  },
+  "lo": {
+    "wrd": "ລາກອ່ນ",
+    "kk": { "en": "la:kɔn", "fr": "la:kɔne" }
+  },
+  "themes": ["politeness", "lvl1"]
+}, {
+  "uid": "goodluck1",
+  "en": {
+    "wrd": "good luck",
+    "kk": { "lo": "ກູດລັກ" }
+  },
+  "fr":{
+    "wrd": "bonne chance",
+    "kk": { "lo": "ບອນຊັງ" }
+  },
+  "lo": {
+    "wrd": "ໂຊກດີ",
+    "kk": { "en": "sok dee", "fr": "sok di" }
   },
   "themes": ["politeness", "lvl1"]
 }]

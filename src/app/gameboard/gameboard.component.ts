@@ -54,8 +54,9 @@ export class GameboardComponent implements OnInit, OnDestroy {
       const randomItemIdx = Math.floor(Math.random() * items.length);
       if (items[randomItemIdx].meta && items[randomItemIdx].meta.conflict) {
         const hasConflict = this.cpntData.items.find((item) => {
-          return item.meta && (item.uid === items[randomItemIdx].meta.conflict);
+          return items[randomItemIdx].meta.conflict.indexOf(item.uid) !== -1;
         });
+        // console.log('changeDisplayedItems conflict:', hasConflict && hasConflict.uid, items[randomItemIdx].uid);
         if (!hasConflict) {
           this.cpntData.items.push(items[randomItemIdx]);
           this.allItems.splice(randomItemIdx, 1);

@@ -35,7 +35,7 @@
   },
   "themes": ["consonants, lvl1"],
   "meta": {
-    "conflict": "kh2"
+    "conflict": ["kh2"]
   }
 }, {
   "uid": "kh2",
@@ -59,7 +59,7 @@
   },
   "themes": ["consonants, lvl1"],
   "meta": {
-    "conflict": "kh1"
+    "conflict": ["kh1"]
   }
 }, {
   "uid": "p1",
@@ -98,7 +98,7 @@
   },
   "themes": ["consonants, lvl1"],
   "meta": {
-    "conflict": "ph2"
+    "conflict": ["ph2"]
   }
 }, {
   "uid": "ph2",
@@ -122,7 +122,7 @@
   },
   "themes": ["consonants, lvl1"],
   "meta": {
-    "conflict": "ph1"
+    "conflict": ["ph1"]
   }
 }, {
   "uid": "s1",
@@ -146,7 +146,7 @@
   },
   "themes": ["consonants, lvl1"],
   "meta": {
-    "conflict": "s2"
+    "conflict": ["s2"]
   }
 }, {
   "uid": "s2",
@@ -170,7 +170,7 @@
   },
   "themes": ["consonants, lvl1"],
   "meta": {
-    "conflict": "s1"
+    "conflict": ["s1"]
   }
 }, {
   "uid": "b1",
@@ -239,7 +239,7 @@
   },
   "themes": ["consonants, lvl1"],
   "meta": {
-    "conflict": "th2"
+    "conflict": ["th2"]
   }
 }, {
   "uid": "th2",
@@ -263,7 +263,7 @@
   },
   "themes": ["consonants, lvl1"],
   "meta": {
-    "conflict": "th1"
+    "conflict": ["th1"]
   }
 }, {
   "uid": "h1",
@@ -287,7 +287,7 @@
   },
   "themes": ["consonants, lvl1"],
   "meta": {
-    "conflict": "h2"
+    "conflict": ["h2"]
   }
 }, {
   "uid": "h2",
@@ -311,7 +311,7 @@
   },
   "themes": ["consonants, lvl1"],
   "meta": {
-    "conflict": "h1"
+    "conflict": ["h1"]
   }
 }, {
   "uid": "cv1",
@@ -362,6 +362,57 @@
   "lo": {
     "wrd": "ຢ",
     "kk": { "en": "yɔ", "fr": "yɔ" }
+  },
+  "themes": ["consonants, lvl1"]
+}, {
+  "uid": "l1",
+  "en": {
+    "wrd": "l",
+    "kk": {}
+  },
+  "fr":{
+    "wrd": "l",
+    "kk": {}
+  },
+  "lo": {
+    "wrd": "ລ",
+    "kk": { "en": "lɔ", "fr": "lɔ" }
+  },
+  "themes": ["consonants, lvl1"],
+  "meta": {
+    "conflict": ["l2"]
+  }
+}, {
+  "uid": "l2",
+  "en": {
+    "wrd": "l",
+    "kk": {}
+  },
+  "fr":{
+    "wrd": "r",
+    "kk": {}
+  },
+  "lo": {
+    "wrd": "ຣ",
+    "kk": { "en": "lɔ", "fr": "rɔ" }
+  },
+  "themes": ["consonants, lvl1"],
+  "meta": {
+    "conflict": ["l1"]
+  }
+}, {
+  "uid": "v1",
+  "en": {
+    "wrd": "v",
+    "kk": {}
+  },
+  "fr":{
+    "wrd": "v",
+    "kk": {}
+  },
+  "lo": {
+    "wrd": "ວ",
+    "kk": { "en": "vɔ", "fr": "vɔ" }
   },
   "themes": ["consonants, lvl1"]
 }]

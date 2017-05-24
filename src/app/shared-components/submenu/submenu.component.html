@@ -30,7 +30,7 @@
 			<span class="glyphicon glyphicon-text-background"></span>
 		</label>
 	</div>
-	<div class="btn-group">
+	<div class="btn-group" *ngIf="router.url === '/gameboard'">
 		<label class="checkbox-inline px6t"
 			[ngClass]="{'text-primary': cpntData.theme.isReversed}"
 			title="{{ 'submenu.reverse' | translate }}" (click)="cpntData.theme.isReversed = !cpntData.theme.isReversed">

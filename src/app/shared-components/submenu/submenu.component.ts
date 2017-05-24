@@ -1,5 +1,6 @@
 // ng dependencies
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 // custom services
 import { ThemeService } from './../../shared-services/theme.service';
@@ -16,7 +17,9 @@ export class SubmenuComponent implements OnInit {
     theme: null,
     availableTheme: null
   };
-  constructor (private themeService: ThemeService, private languageService: LanguageService) { }
+  constructor (private themeService: ThemeService,
+    private languageService: LanguageService,
+    private router: Router) {}
 
   ngOnInit () {
     this.cpntData.lang =  this.languageService.data;

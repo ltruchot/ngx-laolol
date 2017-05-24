@@ -27,7 +27,6 @@
 				  	{{ item.fr.meta.isMale ? 'un' : 'une' }}
 				  </span>
 				  {{ item.fr.wrd }}
-				  <em *ngIf="item.fr.meta && item.fr.meta.isMale !== undefined">({{ item.fr.meta.isMale ? ('blackboard.masculine' | translate) : ('blackboard.feminine' | translate) }})</em>
 				</ng-template>
 				<ng-template [ngIf]="cpntData.lang &&
 				(cpntData.lang.learningLang === 'en' || cpntData.lang.learningLang === 'lo')">
@@ -49,6 +48,7 @@
 						<span *ngIf="item.fr.meta && (item.fr.meta.isMale !== undefined)">
 							{{ cpntData.vowels.fr.test(item.fr.wrd[0]) ? "l'" : (item.fr.meta.isMale ? "le " : "la ") }}</span>{{ item.fr.wrd }}
 					</strong>
+					 <em *ngIf="item.fr.meta && item.fr.meta.isMale !== undefined">({{ item.fr.meta.isMale ? ('blackboard.masculine' | translate) : ('blackboard.feminine' | translate) }})</em>
 				</h5>
 				<h5 *ngIf="!cpntData.theme.learningTheme.noPlural && cpntData.lang &&
 					(cpntData.lang.learningLang === 'fr' || cpntData.lang.learningLang === 'en')">
