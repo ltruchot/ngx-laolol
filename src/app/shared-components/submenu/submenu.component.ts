@@ -19,7 +19,7 @@ export class SubmenuComponent implements OnInit {
   };
   constructor (private themeService: ThemeService,
     private languageService: LanguageService,
-    private router: Router) {}
+    public router: Router) {}
 
   ngOnInit () {
     this.cpntData.lang =  this.languageService.data;
