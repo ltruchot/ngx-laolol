@@ -14,9 +14,11 @@
   "lo": {
     "wrd": "ປາ",
     "ex": "",
-    "kk": { "en": "pa:", "fr": "pa:" }
+    "kk": { "en": "pa:", "fr": "pa:" },
+    "sound": "fish/fish_lo.mp3"
   },
-  "themes": ["animals, lvl1"]
+  "themes": ["animals, lvl1"],
+  "img": "fish/fish.png"
 }, {
   "uid": "crocodile1",
   "en": {
@@ -36,7 +38,8 @@
     "kk": {
       "en": "khae:",
       "fr": "khè:"
-    }
+    },
+    "sound": "crocodile/crocodile_lo.mp3"
   },
   "themes": ["animals, lvl1"]
 }, {
@@ -68,8 +71,8 @@
     },
     "sound": "cat/cat_lo.mp3"
   },
-  "img": "cat",
-  "themes": ["animals, lvl1"]
+  "themes": ["animals, lvl1"],
+  "img": "cat/cat.png"
 }, {
   "uid": "dog1",
   "en": {
@@ -91,7 +94,7 @@
     }
   },
   "lo": {
-    "wrd": "ຫມາ",
+    "wrd": "ໝາ",
     "ex": "",
     "kk": {
       "en": "ma:",
@@ -125,7 +128,8 @@
     "kk": {
       "en": "sang",
       "fr": "sâng"
-    }
+    },
+    "sound": "elephant/elephant_lo.mp3"
   },
   "themes": ["animals, lvl1"]
 }, {
@@ -153,9 +157,11 @@
     "kk": {
       "en": "kai",
       "fr": "kay"
-    }
+    },
+    "sound": "chicken/chicken_lo.mp3"
   },
-  "themes": ["animals, lvl1"]
+  "themes": ["animals, lvl1"],
+  "img": "chicken/chicken.png"
 }, {
   "uid": "goat1",
   "en": {
@@ -181,7 +187,8 @@
     "kk": {
       "en": "bae:",
       "fr": "bè:"
-    }
+    },
+    "sound": "goat/goat_lo.mp3"
   },
   "themes": ["animals, lvl1"]
 }, {
@@ -210,7 +217,8 @@
     "kk": {
       "en": "mi:",
       "fr": "mi:"
-    }
+    },
+    "sound": "bear/bear_lo.mp3"
   },
   "themes": ["animals, lvl1"]
 }, {
@@ -268,7 +276,8 @@
     "kk": {
       "en": "ngooa",
       "fr": "ngoua"
-    }
+    },
+    "sound": "cow/cow_lo.mp3"
   },
   "themes": ["animals, lvl1"]
 }, {
@@ -291,12 +300,13 @@
     }
   },
   "lo": {
-    "wrd": "ຫມູ",
+    "wrd": "ໝູ",
     "ex": "",
     "kk": {
       "en": "moo:",
       "fr": "mou:"
-    }
+    },
+    "sound": "pig/pig_lo.mp3"
   },
   "themes": ["animals, lvl1"]
 }, {
@@ -354,9 +364,11 @@
     "kk": {
       "en": "noo:",
       "fr": "nou:"
-    }
+    },
+    "sound": "rat/rat_lo.mp3"
   },
-  "themes": ["animals, lvl1"]
+  "themes": ["animals, lvl1"],
+  "img": "rat/rat.png"
 }, {
   "uid": "snake1",
   "en": {
@@ -382,9 +394,11 @@
     "kk": {
       "en": "ngoo:",
       "fr": "ngou:"
-    }
+    },
+    "sound": "snake/snake_lo.mp3"
   },
-  "themes": ["animals, lvl1"]
+  "themes": ["animals, lvl1"],
+  "img": "snake/snake.png"
 }, {
   "uid": "monkey1",
   "en": {
@@ -410,7 +424,8 @@
     "kk": {
       "en": "ling",
       "fr": "lîng"
-    }
+    },
+    "sound": "monkey/monkey_lo.mp3"
   },
   "themes": ["animals, lvl1"]
 }, {
@@ -438,9 +453,11 @@
     "kk": {
       "en": "paet",
       "fr": "pèt"
-    }
+    },
+    "sound": "duck/duck_lo.mp3"
   },
-  "themes": ["animals, lvl1"]
+  "themes": ["animals, lvl1"],
+  "img": "duck/duck.png"
 }, {
   "uid": "rabbit1",
   "en": {
@@ -466,9 +483,11 @@
     "kk": {
       "en": "katai:",
       "fr": "katay:"
-    }
+    },
+    "sound": "rabbit/rabbit_lo.mp3"
   },
-  "themes": ["animals, lvl1"]
+  "themes": ["animals, lvl1"],
+  "img": "rabbit/rabbit.png"
 }, {
   "uid": "bird1",
   "en": {
@@ -495,7 +514,8 @@
     "kk": {
       "en": "nok",
       "fr": "nôk"
-    }
+    },
+    "sound": "bird/bird_lo.mp3"
   },
   "themes": ["animals, lvl1"]
 }, {
@@ -523,7 +543,8 @@
     "kk": {
       "en": "kob",
       "fr": "kôp"
-    }
+    },
+    "sound": "frog/frog_lo.mp3"
   },
   "themes": ["animals, lvl1"]
 }, {
@@ -551,7 +572,9 @@
     "kk": {
       "en": "tao",
       "fr": "tao"
-    }
+    },
+    "sound": "turtle/turtle_lo.mp3"
   },
-  "themes": ["animals, lvl1"]
+  "themes": ["animals, lvl1"],
+  "img": "turtle/turtle.png"
 }]

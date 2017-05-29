@@ -4,8 +4,15 @@
 </p>
 <p>{{ 'home.andNow' | translate }}, {{ 'home.letsPlay' | translate }}<br/>
 	{{ 'home.wantLearn' | translate }}:
-		<a routerLink="/gameboard" (click)="changeLearningLang('lo')">{{ 'home.laoLanguage' | translate }}</a>,
-		<a routerLink="/gameboard" (click)="changeLearningLang('fr')">{{ 'home.frenchLanguage' | translate }}</a>
-		{{ 'home.or' | translate}}
-		<a routerLink="/gameboard" (click)="changeLearningLang('en')">{{ 'home.englishLanguage' | translate }}</a>.
+		<a *ngIf="cpntData.lang?.currentLang !== 'lo'"
+			routerLink="/gameboard"
+			(click)="changeLearningLang('lo')">{{ 'home.laoLanguage' | translate }}</a>
+		<ng-template [ngIf]="cpntData.lang?.currentLang === 'fr' || cpntData.lang?.currentLang === 'en'">{{ 'home.or' | translate }}</ng-template>
+		<a *ngIf="cpntData.lang?.currentLang !== 'fr'"
+			routerLink="/gameboard"
+			(click)="changeLearningLang('fr')">{{ 'home.frenchLanguage' | translate }}</a><!--
+	--><ng-template [ngIf]="cpntData.lang?.currentLang === 'lo'"> {{ 'home.or' | translate }} </ng-template><!--
+	--><a *ngIf="cpntData.lang?.currentLang !== 'en'"
+			routerLink="/gameboard"
+			(click)="changeLearningLang('en')">{{ 'home.englishLanguage' | translate }}</a>.
 </p>

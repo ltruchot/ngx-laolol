@@ -39,8 +39,13 @@
 					<em class="text-small">{{ item[cpntData.lang.learningLang].kk[cpntData.lang.currentLang] }}</em>
 				</ng-template>
 			</h3>
-			<div class="img-responsive img-thumbnail ratio-4-3" style="background-image:url('/assets/img/questionmark.jpg')"></div>
-			<img alt="" class="ration-4-3" />
+			<div *ngIf="cpntData.theme.learningTheme.hasImages && !item.img" class="img-responsive img-thumbnail ratio-4-3"
+				style="background-image:url('assets/img/questionmark.jpg')">
+			</div>
+			<div *ngIf="cpntData.theme.learningTheme.hasImages && item.img" class="img-responsive img-thumbnail ratio-4-3"
+				[ngStyle]="{'background-image':'url(assets/medias/' + item.img + ')'}">
+			</div>
+			<hr class="mx0" *ngIf="!cpntData.theme.learningTheme.hasImages"/>
 			<div class="caption">
 				<h4>{{ item[cpntData.lang.currentLang].wrd }}</h4>
 				<h5 *ngIf="cpntData.lang && (cpntData.lang.learningLang === 'fr')">

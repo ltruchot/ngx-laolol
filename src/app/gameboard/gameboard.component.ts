@@ -29,9 +29,10 @@ export class GameboardComponent implements OnInit, OnDestroy {
     availableTheme: null,
     isCheckingAnswer: false
   };
+  last3Answers: Array<string> = [];
   allItems: Array<IThemeItem> = [];
   questionTimer: number = null;
-  QUESTION_TIMER_DURATION = 7;
+  QUESTION_TIMER_DURATION = 8;
   constructor (private themeService: ThemeService, private languageService: LanguageService) {
     this.themeSubscription = this.themeService.currentTheme$.subscribe(data => {
       this.resetTheme(data);
@@ -48,27 +49,37 @@ export class GameboardComponent implements OnInit, OnDestroy {
 
   changeDisplayedItems () {
     this.resetQuestionTimer();
+
+    // choose element displayed, thend put it in template
     const ITEM_DISPLAYED_NBR = 4;
-    const items = this.allItems;
+    const items = this.allItems.slice();
     for (let i = 0; i < ITEM_DISPLAYED_NBR; i++) {
-      const randomItemIdx = Math.floor(Math.random() * items.length);
-      if (items[randomItemIdx].meta && items[randomItemIdx].meta.conflict) {
-        const hasConflict = this.cpntData.items.find((item) => {
+      let randomItemIdx = Math.floor(Math.random() * items.length);
+      while (items[randomItemIdx].meta &&
+        items[randomItemIdx].meta.conflict &&
+        this.cpntData.items.find((item) => {
+          // if (items[randomItemIdx].meta.conflict.indexOf(item.uid) !== -1) {
+          //   console.log('changeDisplayedItems conflict:', item.uid, items[randomItemIdx].uid);
+          // }
           return items[randomItemIdx].meta.conflict.indexOf(item.uid) !== -1;
-        });
-        // console.log('changeDisplayedItems conflict:', hasConflict && hasConflict.uid, items[randomItemIdx].uid);
-        if (!hasConflict) {
-          this.cpntData.items.push(items[randomItemIdx]);
-          this.allItems.splice(randomItemIdx, 1);
-        } else {
-          i--;
-        }
-      } else {
-        this.cpntData.items.push(items[randomItemIdx]);
-        this.allItems.splice(randomItemIdx, 1);
+        })) {
+        randomItemIdx = Math.floor(Math.random() * items.length);
       }
+      this.cpntData.items.push(items[randomItemIdx]);
+      items.splice(randomItemIdx, 1);
     }
-    this.cpntData.winItemIdx = Math.floor(Math.random() * ITEM_DISPLAYED_NBR);
+    // choose the good answer then put in template
+    let winIdx = Math.floor(Math.random() * ITEM_DISPLAYED_NBR);
+    while (this.last3Answers.indexOf(this.cpntData.items[winIdx].uid) !== -1) {
+      // console.log('winIdx conflict', this.cpntData.items[winIdx].uid, this.last3Answers);
+      winIdx = Math.floor(Math.random() * ITEM_DISPLAYED_NBR);
+    }
+    this.cpntData.winItemIdx = winIdx;
+    this.last3Answers.unshift(this.cpntData.items[winIdx].uid);
+
+    if (this.last3Answers.length > 3) {
+      this.last3Answers.pop();
+    }
     this.launchQuestionTimer();
   }
 
@@ -81,7 +92,6 @@ export class GameboardComponent implements OnInit, OnDestroy {
   nextQuestion () {
     this.cpntData.clickedIdx = null;
     this.cpntData.winItemIdx = null;
-    this.allItems.push(...this.cpntData.items);
     this.cpntData.items.length = 0;
     this.changeDisplayedItems();
   }

@@ -12,14 +12,15 @@
     "wrd": "ກ",
     "kk": { "en": "kɔ", "fr": "kɔ" }
   },
-  "themes": ["consonants, lvl1"]
+  "themes": ["consonants, lvl1"],
+  "img": "chicken/chicken.png"
 }, {
   "uid": "kh1",
   "en": {
     "wrd": "kh",
     "kk": {},
     "meta": {
-      "tone": "high consonnant"
+      "tone": "high consonant"
     }
   },
   "fr":{
@@ -43,7 +44,7 @@
     "wrd": "kh",
     "kk": {},
     "meta": {
-      "tone": "low consonnant"
+      "tone": "low consonant"
     }
   },
   "fr":{
@@ -62,75 +63,42 @@
     "conflict": ["kh1"]
   }
 }, {
-  "uid": "p1",
+  "uid": "ng1",
   "en": {
-    "wrd": "p",
+    "wrd": "ng",
     "kk": {}
   },
   "fr":{
-    "wrd": "p",
+    "wrd": "ng",
     "kk": {}
   },
   "lo": {
-    "wrd": "ປ",
-    "kk": { "en": "pɔ", "fr": "pɔ" }
+    "wrd": "ງ",
+    "kk": { "en": "ngɔ", "fr": "ngɔ" }
   },
   "themes": ["consonants, lvl1"]
 }, {
-  "uid": "ph1",
+  "uid": "ch1",
   "en": {
-    "wrd": "ph",
-    "kk": {},
-    "meta": {
-      "tone": "high consonnant"
-    }
+    "wrd": "tj",
+    "kk": {}
   },
   "fr":{
-    "wrd": "ph",
-    "kk": {},
-    "meta": {
-      "tone": "consonne haute"
-    }
+    "wrd": "tj",
+    "kk": {}
   },
   "lo": {
-    "wrd": "ຜ",
-    "kk": { "en": "phɔ", "fr": "phɔ" }
+    "wrd": "ຈ",
+    "kk": { "en": "chɔ", "fr": "tjɔ" }
   },
-  "themes": ["consonants, lvl1"],
-  "meta": {
-    "conflict": ["ph2"]
-  }
-}, {
-  "uid": "ph2",
-  "en": {
-    "wrd": "ph",
-    "kk": {},
-    "meta": {
-      "tone": "low consonnant"
-    }
-  },
-  "fr":{
-    "wrd": "ph",
-    "kk": {},
-    "meta": {
-      "tone": "consonne basse"
-    }
-  },
-  "lo": {
-    "wrd": "ພ",
-    "kk": { "en": "phɔ", "fr": "phɔ" }
-  },
-  "themes": ["consonants, lvl1"],
-  "meta": {
-    "conflict": ["ph1"]
-  }
+  "themes": ["consonants, lvl1"]
 }, {
   "uid": "s1",
   "en": {
     "wrd": "s",
     "kk": {},
     "meta": {
-      "tone": "high consonnant"
+      "tone": "high consonant"
     }
   },
   "fr":{
@@ -154,7 +122,7 @@
     "wrd": "s",
     "kk": {},
     "meta": {
-      "tone": "low consonnant"
+      "tone": "low consonant"
     }
   },
   "fr":{
@@ -173,18 +141,18 @@
     "conflict": ["s1"]
   }
 }, {
-  "uid": "b1",
+  "uid": "ny1",
   "en": {
-    "wrd": "b",
+    "wrd": "ny",
     "kk": {}
   },
   "fr":{
-    "wrd": "b",
+    "wrd": "ny",
     "kk": {}
   },
   "lo": {
-    "wrd": "ບ",
-    "kk": { "en": "bɔ", "fr": "bɔ" }
+    "wrd": "ຍ",
+    "kk": { "en": "nyɔ", "fr": "nyɔ" }
   },
   "themes": ["consonants, lvl1"]
 }, {
@@ -247,7 +215,7 @@
     "wrd": "th",
     "kk": {},
     "meta": {
-      "tone": "low consonnant"
+      "tone": "low consonant"
     }
   },
   "fr":{
@@ -266,87 +234,159 @@
     "conflict": ["th1"]
   }
 }, {
-  "uid": "h1",
+  "uid": "n1",
   "en": {
-    "wrd": "h",
+    "wrd": "n",
+    "kk": {}
+  },
+  "fr":{
+    "wrd": "n",
+    "kk": {}
+  },
+  "lo": {
+    "wrd": "ນ",
+    "kk": { "en": "nɔ", "fr": "nɔ" }
+  },
+  "themes": ["consonants, lvl1"]
+}, {
+  "uid": "b1",
+  "en": {
+    "wrd": "b",
+    "kk": {}
+  },
+  "fr":{
+    "wrd": "b",
+    "kk": {}
+  },
+  "lo": {
+    "wrd": "ບ",
+    "kk": { "en": "bɔ", "fr": "bɔ" }
+  },
+  "themes": ["consonants, lvl1"]
+}, {
+  "uid": "p1",
+  "en": {
+    "wrd": "p",
+    "kk": {}
+  },
+  "fr":{
+    "wrd": "p",
+    "kk": {}
+  },
+  "lo": {
+    "wrd": "ປ",
+    "kk": { "en": "pɔ", "fr": "pɔ" }
+  },
+  "themes": ["consonants, lvl1"]
+}, {
+  "uid": "ph1",
+  "en": {
+    "wrd": "ph",
     "kk": {},
     "meta": {
-      "tone": "high consonnant"
+      "tone": "high consonant"
     }
   },
   "fr":{
-    "wrd": "h",
+    "wrd": "ph",
     "kk": {},
     "meta": {
       "tone": "consonne haute"
     }
   },
   "lo": {
-    "wrd": "ຫ",
-    "kk": { "en": "hɔ", "fr": "hɔ" }
+    "wrd": "ຜ",
+    "kk": { "en": "phɔ", "fr": "phɔ" }
   },
   "themes": ["consonants, lvl1"],
   "meta": {
-    "conflict": ["h2"]
+    "conflict": ["ph2"]
   }
 }, {
-  "uid": "h2",
+  "uid": "f1",
   "en": {
-    "wrd": "h",
+    "wrd": "f",
     "kk": {},
     "meta": {
-      "tone": "low consonnant"
+      "tone": "high consonant"
     }
   },
   "fr":{
-    "wrd": "h",
+    "wrd": "f",
+    "kk": {},
+    "meta": {
+      "tone": "consonne haute"
+    }
+  },
+  "lo": {
+    "wrd": "ຝ",
+    "kk": { "en": "fɔ", "fr": "fɔ" }
+  },
+  "themes": ["consonants, lvl1"],
+  "meta": {
+    "conflict": ["f2"]
+  }
+}, {
+  "uid": "ph2",
+  "en": {
+    "wrd": "ph",
+    "kk": {},
+    "meta": {
+      "tone": "low consonant"
+    }
+  },
+  "fr":{
+    "wrd": "ph",
     "kk": {},
     "meta": {
       "tone": "consonne basse"
     }
   },
   "lo": {
-    "wrd": "ຮ",
-    "kk": { "en": "hɔ", "fr": "hɔ" }
+    "wrd": "ພ",
+    "kk": { "en": "phɔ", "fr": "phɔ" }
   },
   "themes": ["consonants, lvl1"],
   "meta": {
-    "conflict": ["h1"]
+    "conflict": ["ph1"]
   }
 }, {
-  "uid": "cv1",
+  "uid": "f2",
   "en": {
-    "wrd": "-",
+    "wrd": "f",
     "kk": {},
     "meta": {
-      "tone": "consonnant-vowel"
+      "tone": "low consonant"
     }
   },
   "fr":{
-    "wrd": "-",
+    "wrd": "f",
     "kk": {},
     "meta": {
-      "tone": "consonne-voyelle"
+      "tone": "consonne basse"
     }
   },
   "lo": {
-    "wrd": "ອ",
-    "kk": { "en": "ɔ", "fr": "ɔ" }
+    "wrd": "ຟ",
+    "kk": { "en": "fɔ", "fr": "fɔ" }
   },
-  "themes": ["consonants, lvl1"]
+  "themes": ["consonants, lvl1"],
+  "meta": {
+    "conflict": ["f1"]
+  }
 }, {
-  "uid": "tj1",
+  "uid": "m1",
   "en": {
-    "wrd": "tj",
+    "wrd": "m",
     "kk": {}
   },
   "fr":{
-    "wrd": "tj",
+    "wrd": "m",
     "kk": {}
   },
   "lo": {
-    "wrd": "ຈ",
-    "kk": { "en": "chɔ", "fr": "tjɔ" }
+    "wrd": "ມ",
+    "kk": { "en": "mɔ", "fr": "mɔ" }
   },
   "themes": ["consonants, lvl1"]
 }, {
@@ -371,12 +411,12 @@
     "kk": {}
   },
   "fr":{
-    "wrd": "l",
+    "wrd": "r",
     "kk": {}
   },
   "lo": {
-    "wrd": "ລ",
-    "kk": { "en": "lɔ", "fr": "lɔ" }
+    "wrd": "ຣ",
+    "kk": { "en": "lɔ", "fr": "rɔ" }
   },
   "themes": ["consonants, lvl1"],
   "meta": {
@@ -389,12 +429,12 @@
     "kk": {}
   },
   "fr":{
-    "wrd": "r",
+    "wrd": "l",
     "kk": {}
   },
   "lo": {
-    "wrd": "ຣ",
-    "kk": { "en": "lɔ", "fr": "rɔ" }
+    "wrd": "ລ",
+    "kk": { "en": "lɔ", "fr": "lɔ" }
   },
   "themes": ["consonants, lvl1"],
   "meta": {
@@ -415,4 +455,73 @@
     "kk": { "en": "vɔ", "fr": "vɔ" }
   },
   "themes": ["consonants, lvl1"]
+}, {
+  "uid": "h1",
+  "en": {
+    "wrd": "h",
+    "kk": {},
+    "meta": {
+      "tone": "high consonant"
+    }
+  },
+  "fr":{
+    "wrd": "h",
+    "kk": {},
+    "meta": {
+      "tone": "consonne haute"
+    }
+  },
+  "lo": {
+    "wrd": "ຫ",
+    "kk": { "en": "hɔ", "fr": "hɔ" }
+  },
+  "themes": ["consonants, lvl1"],
+  "meta": {
+    "conflict": ["h2"]
+  }
+}, {
+  "uid": "cv1",
+  "en": {
+    "wrd": "-",
+    "kk": {},
+    "meta": {
+      "tone": "consonant-vowel"
+    }
+  },
+  "fr":{
+    "wrd": "-",
+    "kk": {},
+    "meta": {
+      "tone": "consonne-voyelle"
+    }
+  },
+  "lo": {
+    "wrd": "ອ",
+    "kk": { "en": "ɔ", "fr": "ɔ" }
+  },
+  "themes": ["consonants, lvl1"]
+}, {
+  "uid": "h2",
+  "en": {
+    "wrd": "h",
+    "kk": {},
+    "meta": {
+      "tone": "low consonant"
+    }
+  },
+  "fr":{
+    "wrd": "h",
+    "kk": {},
+    "meta": {
+      "tone": "consonne basse"
+    }
+  },
+  "lo": {
+    "wrd": "ຮ",
+    "kk": { "en": "hɔ", "fr": "hɔ" }
+  },
+  "themes": ["consonants, lvl1"],
+  "meta": {
+    "conflict": ["h1"]
+  }
 }]

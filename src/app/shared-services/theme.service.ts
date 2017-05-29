@@ -29,6 +29,7 @@ export class ThemeService {
     {
       'uid': 'consonants',
       'noPlural': true,
+      'hasImages': true,
       'en': {
         'wrd': 'consonants',
         'kk': {}
@@ -45,6 +46,7 @@ export class ThemeService {
     },
     {
       'uid': 'animals',
+      'hasImages': true,
       'en': {
         'wrd': 'Animals',
         'short': 'Animals',
@@ -136,7 +138,7 @@ export class ThemeService {
     // }
   ];
   data = {
-    learningThemeIdx: 0,
+    learningThemeIdx: 1,
     learningTheme: null,
     isKaraoke: false,
     isReversed: false
@@ -144,7 +146,8 @@ export class ThemeService {
   constructor (private http: Http,
     private storage: StorageService,
     private apiService: ApiService) {
-    this.data.learningThemeIdx = +this.storage.getItem('currentLearningThemeIdx') || 0;
+    const currentThemeIdx = this.storage.getItem('currentLearningThemeIdx');
+    this.data.learningThemeIdx = !isNaN(currentThemeIdx) ? currentThemeIdx : 1;
     this.data.learningTheme = this.AVAILABLE_THEMES[this.data.learningThemeIdx];
   }
   getCurrentTheme () {
