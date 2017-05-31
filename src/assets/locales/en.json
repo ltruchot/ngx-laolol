@@ -1,6 +1,7 @@
 {
   "words": {
-    "learn": "Learn"
+    "learn": "Learn",
+    "or": "or"
   },
   "layout": {
     "blackboard": "Blackboard",
@@ -11,9 +12,12 @@
     "lao": "Lao",
     "lol": "LOL",
     "menu": "Menu",
+    "about": "About",
+    "illustrationBy": "ill. by",
     "nameSoulisack": "Soulisack Luanglad",
     "nameLoic": "Loïc Truchot",
-    "nameXan": "Xan Harotin"
+    "nameXan": "Xan Harotin",
+    "underConstruction": "This section is still under construction."
   },
   "home": {
     "intro1": "Laolol is a platform to help English-speaker and French-speaker to learn lao language.",
@@ -23,8 +27,7 @@
     "wantLearn": "I want to learn",
     "englishLanguage": "english",
     "frenchLanguage": "french",
-    "laoLanguage": "lao",
-    "or": "or"
+    "laoLanguage": "lao"
   },
   "gameboard": {
     "findTranslation": "Find the right translation",
@@ -54,5 +57,25 @@
     "topic": "Topic",
     "karaoke": "karaoke",
     "reverse": "reverse"
+  },
+  "about": {
+    "presLaololTitle": "Laolol needs you!",
+    "presLaolol1": "After a few months of voluntary work on Laolol, we decided to go further!",
+    "presLaolol2": "We want to start",
+    "presLaolol3": "a crowdfunding campaign",
+    "presLaolol4": "to imply every person interested in the support of lao language, and to give a free way for laotians to learn english and french languages.",
+    "presLaolol5": "If we can find",
+    "presLaolol6": "we will be able to do a big step further: new words, images, sounds, and little remunerations for any contributor in Laos.",
+    "presLaolol7": "Finally, we could",
+    "presLaolol8": "print a t-shirt",
+    "presLaolol9": ", useful to communicate about our project and to arouse everyone's curiosity on",
+    "presPeopleTitle": "About us...",
+    "presLoic1" : "is a web application developer, expert in JavaScript, working between France, Belgium and Laos",
+    "presLoic2": "Passionate about computer science, and student in Lao language, he is in charge of developing the computerized part of",
+    "presLoic3": "To do this, he uses tools like",
+    "presLoic4": "You can help him by contributing to the shared working repository",
+    "presSoulisack1": "is PhD in social and pedagogical sciences, professor of languages (French, English, Lao, Vietnamese) and researcher in anthropology and linguistics",
+    "presSoulisack2": " He heads the Department of Social Sciences at the University of Health Sciences in Vientiane, Laos",
+    "presSoulisack3": "He brings his linguistic expertise for the choice of themes and words (items) to be learned on LaoLol. He is also responsible for all lao translations on the website"
   }
 }

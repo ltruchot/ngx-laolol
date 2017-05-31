@@ -7,11 +7,11 @@
 		<a *ngIf="cpntData.lang?.currentLang !== 'lo'"
 			routerLink="/gameboard"
 			(click)="changeLearningLang('lo')">{{ 'home.laoLanguage' | translate }}</a>
-		<ng-template [ngIf]="cpntData.lang?.currentLang === 'fr' || cpntData.lang?.currentLang === 'en'">{{ 'home.or' | translate }}</ng-template>
+		<ng-template [ngIf]="cpntData.lang?.currentLang === 'fr' || cpntData.lang?.currentLang === 'en'">{{ 'words.or' | translate }}</ng-template>
 		<a *ngIf="cpntData.lang?.currentLang !== 'fr'"
 			routerLink="/gameboard"
 			(click)="changeLearningLang('fr')">{{ 'home.frenchLanguage' | translate }}</a><!--
-	--><ng-template [ngIf]="cpntData.lang?.currentLang === 'lo'"> {{ 'home.or' | translate }} </ng-template><!--
+	--><ng-template [ngIf]="cpntData.lang?.currentLang === 'lo'"> {{ 'words.or' | translate }} </ng-template><!--
 	--><a *ngIf="cpntData.lang?.currentLang !== 'en'"
 			routerLink="/gameboard"
 			(click)="changeLearningLang('en')">{{ 'home.englishLanguage' | translate }}</a>.

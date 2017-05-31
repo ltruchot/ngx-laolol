@@ -18,12 +18,18 @@
 .px15 { padding:15px; }
 .px30 { padding:30px; }
 .px6t { padding-top:6px; }
+.pxr0 { padding-right:0; }
 .px5tb { padding: 5px 0; }
 .px5lr { padding: 0 5px; }
 
 // font-size
 .text-standard { font-size: 1em; }
+.text-middle { font-size: .85em; }
 .text-small { font-size: .75em; }
+.text-justify-right {
+  text-align: justify;
+  direction:rtl;
+}
 
 // effects
 .no-transition {

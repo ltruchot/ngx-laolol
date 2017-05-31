@@ -74,14 +74,22 @@
           <li routerLinkActive="active" data-toggle="collapse" data-target="#bs-navbar-collapse-1.in">
             <a routerLink="/exams">{{ 'layout.exams' | translate }}</a>
           </li>
+          <li routerLinkActive="active" data-toggle="collapse" data-target="#bs-navbar-collapse-1.in">
+            <a routerLink="/about">{{ 'layout.about' | translate }}</a>
+          </li>
         </ul>
       </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
   </nav>
   <router-outlet></router-outlet>
 </div>
-<footer class="px10">
+<footer class="px5">
   <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">
     <img src="/assets/img/lisence.png" />
-  </a> {{ 'layout.nameLoic' | translate }} &amp; {{ 'layout.nameSoulisack' | translate }}
+  </a>
+  {{ 'layout.nameLoic' | translate }} &amp; {{ 'layout.nameSoulisack' | translate }}.
+  &copy;2017 {{ 'layout.illustrationBy' | translate }}
+  <a href="https://xanharotin.wordpress.com/" target="_blank">
+    {{ 'layout.nameXan' | translate }}
+  </a>
 </footer>
