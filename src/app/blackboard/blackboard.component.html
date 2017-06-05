@@ -17,26 +17,32 @@
 <div class="row is-flex blackboard-items">
 	<div class="col-xs-6 col-sm-4 col-md-3" *ngFor="let item of cpntData.items; let i = index;">
 		<div class="thumbnail">
-			<label class="top-left-sound px5" *ngIf="item[cpntData.lang.learningLang].sound"
+			<label class="top-right-sound px5" *ngIf="item[cpntData.lang.learningLang].sound"
 				title="{{ 'blackboard.listen' | translate }}" (click)="playsound(i)">
 				<span class="glyphicon glyphicon-volume-down"></span>
 			</label>
-			<h3 class="mx0 text-center px5" style="line-height: 22px;">
+			<h3 class="mx0 text-center px5 pxb8" style="line-height: 22px;">
 				<ng-template [ngIf]="cpntData.lang?.learningLang === 'fr'">
-				  <span *ngIf="item.fr.meta && item.fr.meta.isMale !== undefined">
+				  <span *ngIf="(!cpntData.theme?.learningTheme?.noArticle) &&
+				  	item.fr.meta && item.fr.meta.isMale !== undefined">
 				  	{{ item.fr.meta.isMale ? 'un' : 'une' }}
 				  </span>
 				  {{ item.fr.wrd }}
 				</ng-template>
-				<ng-template [ngIf]="cpntData.lang &&
-				(cpntData.lang.learningLang === 'en' || cpntData.lang.learningLang === 'lo')">
-					{{ item[cpntData.lang.learningLang].wrd }}
+				<ng-template [ngIf]="cpntData.lang?.learningLang === 'en'">
+					<span *ngIf="!cpntData.theme?.learningTheme?.noArticle">
+				  	{{ cpntData.vowels.en.test(item.en.wrd[0]) ? "an" : "a" }}
+				  </span>
+				  {{ item.en.wrd }}
+				</ng-template>
+				<ng-template [ngIf]="cpntData.lang?.learningLang === 'lo'">
+					{{ item.lo.wrd }}
 				</ng-template>
 				<ng-template [ngIf]="cpntData.theme.isKaraoke &&
 					!cpntData.theme.learningTheme.noKaraoke &&
 					item[cpntData.lang.learningLang].kk[cpntData.lang.currentLang]">
 					<br />
-					<em class="text-small">{{ item[cpntData.lang.learningLang].kk[cpntData.lang.currentLang] }}</em>
+					<em class="text-small text-primary">{{ item[cpntData.lang.learningLang].kk[cpntData.lang.currentLang] }}</em>
 				</ng-template>
 			</h3>
 			<div *ngIf="cpntData.theme.learningTheme.hasImages && !item.img" class="img-responsive img-thumbnail ratio-4-3"
@@ -44,20 +50,22 @@
 			</div>
 			<div *ngIf="cpntData.theme.learningTheme.hasImages && item.img" class="img-responsive img-thumbnail ratio-4-3"
 				[ngStyle]="{'background-image':'url(assets/medias/' + item.img + ')'}">
+				<div class="text-muted top-left-text" *ngIf="cpntData.theme.learningTheme.hasSpecialExample && item.lo.ex">
+					{{ item.lo.ex }}
+				</div>
 			</div>
 			<hr class="mx0" *ngIf="!cpntData.theme.learningTheme.hasImages"/>
 			<div class="caption">
 				<h4>{{ item[cpntData.lang.currentLang].wrd }}</h4>
-				<h5 *ngIf="cpntData.lang && (cpntData.lang.learningLang === 'fr')">
+				<h5 *ngIf="cpntData.lang && (cpntData.lang.learningLang === 'fr') && item.fr.meta && (item.fr.meta.isMale !== undefined)">
 					<strong>
-						<span *ngIf="item.fr.meta && (item.fr.meta.isMale !== undefined)">
-							{{ cpntData.vowels.fr.test(item.fr.wrd[0]) ? "l'" : (item.fr.meta.isMale ? "le " : "la ") }}</span>{{ item.fr.wrd }}
+						{{ cpntData.vowels.fr.test(item.fr.wrd[0]) ? "l'" : (item.fr.meta.isMale ? "le " : "la ") }}{{ item.fr.wrd }}
 					</strong>
-					 <em *ngIf="item.fr.meta && item.fr.meta.isMale !== undefined">({{ item.fr.meta.isMale ? ('blackboard.masculine' | translate) : ('blackboard.feminine' | translate) }})</em>
+					 <em>({{ item.fr.meta.isMale ? ('blackboard.masculine' | translate) : ('blackboard.feminine' | translate) }})</em>
 				</h5>
 				<h5 *ngIf="!cpntData.theme.learningTheme.noPlural && cpntData.lang &&
 					(cpntData.lang.learningLang === 'fr' || cpntData.lang.learningLang === 'en')">
-					<strong>{{ cpntData.lang.learningLang === 'fr' ? 'les' : 'the' }}</strong>
+					<strong>{{ cpntData.lang.learningLang === 'fr' ? 'les' : '' }}</strong>
 					<strong>{{ (item[cpntData.lang.learningLang].meta && item[cpntData.lang.learningLang].meta.plural) ?
 					item[cpntData.lang.learningLang].meta.plural :
 					item[cpntData.lang.learningLang].wrd + "s" }}</strong>

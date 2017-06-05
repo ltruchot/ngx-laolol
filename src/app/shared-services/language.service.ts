@@ -7,9 +7,9 @@ export class LanguageService {
   DEFAULT_LANG = 'en';
   DEFAULT_LEARNING_LANG = 'lo';
   AVAILABLE_LANG = [
-    { code: 'en', flag: 'us', label: 'english', trad: 'home.englishLanguage' },
-    { code: 'fr', flag: 'fr', label: 'français', trad: 'home.frenchLanguage' },
-    { code: 'lo', flag: 'la', label: 'ພາສາລາວ', trad: 'home.laoLanguage' }
+    { code: 'en', flag: 'us', learnCode: 'lo', label: 'english', trad: 'home.englishLanguage' },
+    { code: 'fr', flag: 'fr', learnCode: 'lo', label: 'français', trad: 'home.frenchLanguage' },
+    { code: 'lo', flag: 'la', learnCode: 'en', label: 'ພາສາລາວ', trad: 'home.laoLanguage' }
   ];
   data = {
     currentLang: 'en',

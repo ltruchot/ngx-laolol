@@ -32,7 +32,7 @@ export class AppComponent implements OnInit {
     lang: null,
     user: null,
     loadingRoute: true,
-    currentVersion: '0.0.18'
+    currentVersion: "v0.0.19 Karryn's dream"
   };
   constructor (private languageService: LanguageService,
     private router: Router,

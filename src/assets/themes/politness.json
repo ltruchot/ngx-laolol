@@ -1,16 +1,46 @@
 [{
-	"uid": "thankyou1",
+  "uid": "yes1",
   "en": {
-  	"wrd": "thank you",
-  	"kk": { "lo": "ແທງຄີວ" }
+    "wrd": "yes",
+    "kk": { "lo": "ແຢສ" }
   },
   "fr":{
-  	"wrd": "merci",
-  	"kk": { "lo": "ແມກຊີ" },
+    "wrd": "oui",
+    "kk": { "lo": "ອຸຍ" }
+  },
+  "lo": {
+    "wrd": "ເຈົ້າ",
+    "kk": { "en": "chao", "fr": "tjao" }
+  },
+  "themes": ["politeness", "lvl1"]
+},{
+  "uid": "no1",
+  "en": {
+    "wrd": "no",
+    "kk": { "lo": "ໂນ" }
+  },
+  "fr":{
+    "wrd": "non",
+    "kk": { "lo": "ໂນງ" }
+  },
+  "lo": {
+    "wrd": "ບໍ່",
+    "kk": { "en": "bɔ:", "fr": "bɔ:" }
+  },
+  "themes": ["politeness", "lvl1"]
+},{
+  "uid": "thankyou1",
+  "en": {
+    "wrd": "thank you",
+    "kk": { "lo": "ແທງຄີວ" }
+  },
+  "fr":{
+    "wrd": "merci",
+    "kk": { "lo": "ແມກຊີ" },
     "ex": "Merci pour ces jolies fleurs."
   },
   "lo": {
-  	"wrd": "ຂອບໃຈ",
+    "wrd": "ຂອບໃຈ",
     "kk": { "en": "khɔbchai", "fr": "khɔptjay" }
   },
   "themes": ["politeness", "lvl1"]
@@ -47,21 +77,6 @@
   },
   "themes": ["politeness", "lvl1"]
 }, {
-  "uid": "nicetomeatyou1",
-  "en": {
-    "wrd": "nice to meet you",
-    "kk": { "lo": "" }
-  },
-  "fr":{
-    "wrd": "enchanté",
-    "kk": { "lo": "" }
-  },
-  "lo": {
-    "wrd": "ຍິນ​ດີ​ທີ່​ໄດ້ຮູ້ຈັກ​",
-    "kk": { "en": "nyindee thee dai hoochak", "fr": "nyindi thi day houtjak" }
-  },
-  "themes": ["politeness", "lvl1"]
-}, {
   "uid": "please1",
   "en": {
     "wrd": "please",
@@ -83,21 +98,6 @@
     "meta": {
       "description": "ຂໍ ອັນໃດໜື່ງ"
     }
-  },
-  "themes": ["politeness", "lvl1"]
-}, {
-  "uid": "goodnight1",
-  "en": {
-    "wrd": "good night",
-    "kk": { "lo": "ກູດໃນ" }
-  },
-  "fr":{
-    "wrd": "bonne nuit",
-    "kk": { "lo": "ບອນນູຍ" }
-  },
-  "lo": {
-    "wrd": "ນອນລັບຝັນດີ",
-    "kk": { "en": "nɔn lap fan dee", "fr": "nɔn lap fân di" }
   },
   "themes": ["politeness", "lvl1"]
 }, {
@@ -128,6 +128,36 @@
   "lo": {
     "wrd": "ໂຊກດີ",
     "kk": { "en": "sok dee", "fr": "sok di" }
+  },
+  "themes": ["politeness", "lvl1"]
+}, {
+  "uid": "goodnight1",
+  "en": {
+    "wrd": "good night",
+    "kk": { "lo": "ກູດໃນ" }
+  },
+  "fr":{
+    "wrd": "bonne nuit",
+    "kk": { "lo": "ບອນນູຍ" }
+  },
+  "lo": {
+    "wrd": "ນອນລັບຝັນດີ",
+    "kk": { "en": "nɔn lap fan dee", "fr": "nɔn lap fân di" }
+  },
+  "themes": ["politeness", "lvl1"]
+}, {
+  "uid": "nicetomeatyou1",
+  "en": {
+    "wrd": "nice to meet you",
+    "kk": { "lo": "" }
+  },
+  "fr":{
+    "wrd": "enchanté",
+    "kk": { "lo": "" }
+  },
+  "lo": {
+    "wrd": "ຍິນ​ດີ​ທີ່​ໄດ້ຮູ້ຈັກ​",
+    "kk": { "en": "nyindee thee dai hoochak", "fr": "nyindi thi day houtjak" }
   },
   "themes": ["politeness", "lvl1"]
 }]

@@ -17,125 +17,155 @@ import { IThemeItem } from './../shared-interfaces/theme.interfaces';
 export class ThemeService {
   private currenThemeSource = new Subject<any>();
   currentTheme$ = this.currenThemeSource.asObservable();
-  AVAILABLE_THEMES = [
-    // {
-    //   code: 'vowels',
-    //   trad: 'theme.vowels',
-    //   noKaraoke: true,
-    //   en: 'Vowels',
-    //   fr: 'Les voyelles',
-    //   lo: 'ສະຫຼະ'
-    // },
-    {
-      'uid': 'consonants',
-      'noPlural': true,
-      'hasImages': true,
-      'en': {
-        'wrd': 'consonants',
-        'kk': {}
-      },
-      'fr': {
-        'wrd': 'Les consonnes',
-        'short': 'Consonnes',
-        'kk': {}
-      },
-      'lo': {
-        'wrd': 'ພະຍັນຊະນະ',
-        'kk': {}
-      }
+  AVAILABLE_THEMES = [{
+    'uid': 'consonants',
+    'noPlural': true,
+    'noArticle': true,
+    'hasImages': true,
+    'hasSpecialExample': true,
+    'en': {
+      'wrd': 'Consonants',
+      'kk': {}
     },
-    {
-      'uid': 'animals',
-      'hasImages': true,
-      'en': {
-        'wrd': 'Animals',
-        'short': 'Animals',
-        'kk': {}
+    'fr': {
+      'wrd': 'Les consonnes',
+      'short': 'Consonnes',
+      'kk': {}
+    },
+    'lo': {
+      'wrd': 'ພະຍັນຊະນະ',
+      'kk': {}
+    }
+  }, {
+    'uid': 'vowels',
+    'noKaraoke': true,
+    'noPlural': true,
+    'noArticle': true,
+    'en': {
+      'wrd': 'Vowels',
+      'kk': {}
+    },
+    'fr': {
+      'wrd': 'Les voyelles',
+      'short': 'Voyelles',
+      'kk': {}
+    },
+    'lo': {
+      'wrd': 'ສະຫຼະ',
+      'kk': {}
+    }
+  }, {
+    'uid': 'syllables',
+    'noKaraoke': true,
+    'noPlural': true,
+    'noArticle': true,
+    'en': {
+      'wrd': 'Syllables',
+      'kk': {}
+    },
+    'fr': {
+      'wrd': 'Les syllabes',
+      'short': 'Syllabes',
+      'kk': {}
+    },
+    'lo': {
+      'wrd': 'ພະຍາງ',
+      'kk': {}
+    }
+  }, {
+    'uid': 'animals',
+    'hasImages': true,
+    'en': {
+      'wrd': 'Animals',
+      'short': 'Animals',
+      'kk': {}
+    },
+    'fr': {
+      'wrd': 'Les animaux',
+      'short': 'Animaux',
+      'kk': {}
+    },
+    'lo': {
+      'wrd': 'ສັດ',
+      'kk': {
+        'en': 'sad',
+        'fr': 'sat'
       },
-      'fr': {
-        'wrd': 'Les animaux',
-        'short': 'Animaux',
-        'kk': {}
-      },
-      'lo': {
-        'wrd': 'ສັດ',
-        'kk': {
-          'en': 'sad',
-          'fr': 'sat'
-        },
-        'meta': {
-          'classifier': 'ໂຕ',
-          'cl_kk': {
-            'fr': 'to:',
-            'en': 'to:'
-          }
+      'meta': {
+        'classifier': 'ໂຕ',
+        'cl_kk': {
+          'fr': 'to:',
+          'en': 'to:'
         }
       }
-    },
-    {
-      'uid': 'adj-with-contrary',
-      'noPlural': true,
-      'en': {
-        'wrd': 'Adjectives & contratry',
-        'short': 'Adj. & contrary',
-        'kk': {}
-      },
-      'fr': {
-        'wrd': 'Adjectifs & contraires',
-        'short': 'Adj. contraires',
-        'kk': {}
-      },
-      'lo': {
-        'wrd': 'ຄໍາຄູນນາມກົງກັນຂາ້ມ',
-        'kk': {}
-      }
-    },
-    {
-      'uid': 'politness',
-      'noPlural': true,
-      'en': {
-        'wrd': 'Politness',
-        'kk': {}
-      },
-      'fr': {
-        'wrd': 'La politesse',
-        'short': 'Politesse',
-        'kk': {}
-      },
-      'lo': {
-        'wrd': 'ຄວາມສຸພາບ',
-        'kk': {}
-      }
     }
-    // { code: 'plants', trad: 'theme.plants' },
-    // {
-    //   code: 'days',
-    //   trad: 'theme.days',
-    //   en: 'Week days',
-    //   fr: 'Les jours',
-    //   lo: 'ວັນ'
-    // },
-    // {
-    //   code: 'family',
-    //   trad: 'theme.family',
-    //   en: 'Family',
-    //   fr: 'La famille',
-    //   lo: 'ຄອບຄົວ'
-    // },
-    // {
-    //   code: 'human_body',
-    //   trad: 'theme.human_body',
-    //   en: 'Human body',
-    //   fr: 'Le corps humain',
-    //   lo: 'ຮ່າງກາຍຂອງຄົນ'
-    // },
-    // {
-    //   code: 'head',
-    //   trad: 'theme.head',
-    //   en: 'Head',
-    //   fr: 'La tête',
-    //   lo: 'ຫົວ'
-    // }
+  },
+  {
+    'uid': 'adj-with-contrary',
+    'noPlural': true,
+    'noArticle': true,
+    'en': {
+      'wrd': 'Adjectives & contratry',
+      'short': 'Adj. & contrary',
+      'kk': {}
+    },
+    'fr': {
+      'wrd': 'Adjectifs & contraires',
+      'short': 'Adj. contraires',
+      'kk': {}
+    },
+    'lo': {
+      'wrd': 'ຄໍາຄູນນາມກົງກັນຂາ້ມ',
+      'kk': {}
+    }
+  },
+  {
+    'uid': 'politness',
+    'noPlural': true,
+    'noArticle': true,
+    'en': {
+      'wrd': 'Politness',
+      'kk': {}
+    },
+    'fr': {
+      'wrd': 'La politesse',
+      'short': 'Politesse',
+      'kk': {}
+    },
+    'lo': {
+      'wrd': 'ຄວາມສຸພາບ',
+      'kk': {}
+    }
+  }
+  // { code: 'plants', trad: 'theme.plants' },
+  // {
+  //   code: 'days',
+  //   trad: 'theme.days',
+  //   en: 'Week days',
+  //   fr: 'Les jours',
+  //   lo: 'ວັນ'
+  // },
+  // {
+  //   code: 'family',
+  //   trad: 'theme.family',
+  //   en: 'Family',
+  //   fr: 'La famille',
+  //   lo: 'ຄອບຄົວ'
+  // },
+  // {
+  //   code: 'human_body',
+  //   trad: 'theme.human_body',
+  //   en: 'Human body',
+  //   fr: 'Le corps humain',
+  //   lo: 'ຮ່າງກາຍຂອງຄົນ'
+  // },
+  // {
+  //   code: 'head',
+  //   trad: 'theme.head',
+  //   en: 'Head',
+  //   fr: 'La tête',
+  //   lo: 'ຫົວ'
+  // }
   ];
   data = {
     learningThemeIdx: 1,

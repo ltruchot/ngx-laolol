@@ -10,7 +10,8 @@
   },
   "lo": {
     "wrd": "ກ",
-    "kk": { "en": "kɔ", "fr": "kɔ" }
+    "kk": { "en": "kɔ", "fr": "kɔ" },
+    "ex": "ໄກ່"
   },
   "themes": ["consonants, lvl1"],
   "img": "chicken/chicken.png"
@@ -74,9 +75,11 @@
   },
   "lo": {
     "wrd": "ງ",
-    "kk": { "en": "ngɔ", "fr": "ngɔ" }
+    "kk": { "en": "ngɔ", "fr": "ngɔ" },
+    "ex": "ງົວ"
   },
-  "themes": ["consonants, lvl1"]
+  "themes": ["consonants, lvl1"],
+  "img": "cow/cow.png"
 }, {
   "uid": "ch1",
   "en": {
@@ -110,9 +113,11 @@
   },
   "lo": {
     "wrd": "ສ",
-    "kk": { "en": "sɔ", "fr": "sɔ" }
+    "kk": { "en": "sɔ", "fr": "sɔ" },
+    "ex": "ເສືອ"
   },
   "themes": ["consonants, lvl1"],
+  "img": "tiger/tiger.png",
   "meta": {
     "conflict": ["s2"]
   }
@@ -134,9 +139,11 @@
   },
   "lo": {
     "wrd": "ຊ",
-    "kk": { "en": "sɔ", "fr": "sɔ" }
+    "kk": { "en": "sɔ", "fr": "sɔ" },
+    "ex": "ຊ້າງ"
   },
   "themes": ["consonants, lvl1"],
+  "img": "elephant/elephant.png",
   "meta": {
     "conflict": ["s1"]
   }
@@ -260,9 +267,11 @@
   },
   "lo": {
     "wrd": "ບ",
-    "kk": { "en": "bɔ", "fr": "bɔ" }
+    "kk": { "en": "bɔ", "fr": "bɔ" },
+    "ex": "ແບ້"
   },
-  "themes": ["consonants, lvl1"]
+  "themes": ["consonants, lvl1"],
+  "img": "goat/goat.png"
 }, {
   "uid": "p1",
   "en": {
@@ -275,9 +284,11 @@
   },
   "lo": {
     "wrd": "ປ",
-    "kk": { "en": "pɔ", "fr": "pɔ" }
+    "kk": { "en": "pɔ", "fr": "pɔ" },
+    "ex": "ປາ"
   },
-  "themes": ["consonants, lvl1"]
+  "themes": ["consonants, lvl1"],
+  "img": "fish/fish.png"
 }, {
   "uid": "ph1",
   "en": {
@@ -386,9 +397,11 @@
   },
   "lo": {
     "wrd": "ມ",
-    "kk": { "en": "mɔ", "fr": "mɔ" }
+    "kk": { "en": "mɔ", "fr": "mɔ" },
+    "ex": "ແມວ"
   },
-  "themes": ["consonants, lvl1"]
+  "themes": ["consonants, lvl1"],
+  "img": "cat/cat.png"
 }, {
   "uid": "y1",
   "en": {

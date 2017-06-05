@@ -1,30 +1,40 @@
 [{
-  "uid": "fish1",
+  "uid": "dog1",
   "en": {
-    "wrd": "fish",
-    "ex": "The little fish swims in the river.",
-    "kk": { "lo": "ຟີຊ໌" }
+    "wrd": "dog",
+    "ex": "",
+    "kk": {
+      "lo": "ດອກ"
+    }
   },
   "fr":{
-    "wrd": "poisson",
-    "ex": "Le petit poisson nage dans la rivière.",
-    "kk": { "lo": "ປວາສົງ" },
-    "meta": { "isMale": true }
+    "wrd": "chien",
+    "ex": "",
+    "kk": {
+      "lo": "ຊຽງ"
+    },
+    "sound": "dog/dog_fr.mp3",
+    "meta": {
+      "isMale": true
+    }
   },
   "lo": {
-    "wrd": "ປາ",
+    "wrd": "ໝາ",
     "ex": "",
-    "kk": { "en": "pa:", "fr": "pa:" },
-    "sound": "fish/fish_lo.mp3"
+    "kk": {
+      "en": "ma:",
+      "fr": "ma:"
+    },
+    "sound": "dog/dog_lo.mp3"
   },
   "themes": ["animals, lvl1"],
-  "img": "fish/fish.png"
+  "img": "dog/dog.png"
 }, {
   "uid": "cat1",
   "en": {
     "wrd": "cat",
     "ex": "",
-    "kk": { "lo": "" }
+    "kk": { "lo": "ແຄດ" }
   },
   "fr":{
     "wrd": "chat",
@@ -52,13 +62,13 @@
     "wrd": "turtle",
     "ex": "",
     "kk": {
-      "lo": ""
+      "lo": "ເຖີໂຖ"
     }
   },
   "fr":{
     "wrd": "tortue",
     "ex": "",
-    "kk": {"lo": "ຕໍຕື"},
+    "kk": {"lo": "ຕອກຕູຍ"},
     "meta": {
       "isMale": false
     }
@@ -80,14 +90,14 @@
     "wrd": "chicken",
     "ex": "",
     "kk": {
-      "lo": ""
+      "lo": "ຊິກເກນ"
     }
   },
   "fr":{
     "wrd": "poule",
     "ex": "",
     "kk": {
-      "lo": ""
+      "lo": "ປູນ"
     },
     "meta": {
       "isMale": false
@@ -110,14 +120,14 @@
     "wrd": "rat",
     "ex": "",
     "kk": {
-      "lo": ""
+      "lo": "ແຣດ"
     }
   },
   "fr":{
     "wrd": "rat",
     "ex": "",
     "kk": {
-      "lo": ""
+      "lo": "ຣາ"
     },
     "meta": {
       "isMale": true
@@ -135,19 +145,71 @@
   "themes": ["animals, lvl1"],
   "img": "rat/rat.png"
 }, {
+  "uid": "fish1",
+  "en": {
+    "wrd": "fish",
+    "ex": "The little fish swims in the river.",
+    "kk": { "lo": "ຟີຊ໌" },
+    "meta": { "plural": "fish" }
+  },
+  "fr":{
+    "wrd": "poisson",
+    "ex": "Le petit poisson nage dans la rivière.",
+    "kk": { "lo": "ປວົຊົງ" },
+    "meta": { "isMale": true }
+  },
+  "lo": {
+    "wrd": "ປາ",
+    "ex": "",
+    "kk": { "en": "pa:", "fr": "pa:" },
+    "sound": "fish/fish_lo.mp3"
+  },
+  "themes": ["animals, lvl1"],
+  "img": "fish/fish.png"
+}, {
+  "uid": "elephant1",
+  "en": {
+    "wrd": "elephant",
+    "ex": "",
+    "kk": {
+      "lo": "ເອເລເຟນ"
+    }
+  },
+  "fr":{
+    "wrd": "éléphant",
+    "ex": "",
+    "kk": {
+      "lo": "ເອເລຟັງ"
+    },
+    "meta": {
+      "isMale": true
+    }
+  },
+  "lo": {
+    "wrd": "ຊ້າງ",
+    "ex": "",
+    "kk": {
+      "en": "sang",
+      "fr": "sâng"
+    },
+    "sound": "elephant/elephant_lo.mp3"
+  },
+  "themes": ["animals, lvl1"],
+  "img": "elephant/elephant.png"
+}, {
   "uid": "duck1",
   "en": {
     "wrd": "duck",
     "ex": "",
     "kk": {
-      "lo": ""
+      "lo": "ດັກ"
     }
   },
   "fr":{
     "wrd": "canard",
     "ex": "",
     "kk": {
-      "lo": ""
+      "lo": "ການາ"
     },
     "meta": {
       "isMale": true
@@ -170,14 +232,14 @@
     "wrd": "rabbit",
     "ex": "",
     "kk": {
-      "lo": ""
+      "lo": "ຣາບິດ"
     }
   },
   "fr":{
     "wrd": "lapin",
     "ex": "",
     "kk": {
-      "lo": ""
+      "lo": "ລາແປງ"
     },
     "meta": {
       "isMale": true
@@ -200,14 +262,14 @@
     "wrd": "snake",
     "ex": "",
     "kk": {
-      "lo": ""
+      "lo": "ສເນກ"
     }
   },
   "fr":{
     "wrd": "serpent",
     "ex": "",
     "kk": {
-      "lo": ""
+      "lo": "ແສກປັງ"
     },
     "meta": {
       "isMale": true
@@ -225,48 +287,19 @@
   "themes": ["animals, lvl1"],
   "img": "snake/snake.png"
 }, {
-  "uid": "elephant1",
-  "en": {
-    "wrd": "elephant",
-    "ex": "",
-    "kk": {
-      "lo": ""
-    }
-  },
-  "fr":{
-    "wrd": "éléphant",
-    "ex": "",
-    "kk": {
-      "lo": ""
-    },
-    "meta": {
-      "isMale": true
-    }
-  },
-  "lo": {
-    "wrd": "ຊ້າງ",
-    "ex": "",
-    "kk": {
-      "en": "sang",
-      "fr": "sâng"
-    },
-    "sound": "elephant/elephant_lo.mp3"
-  },
-  "themes": ["animals, lvl1"]
-}, {
   "uid": "goat1",
   "en": {
     "wrd": "goat",
     "ex": "",
     "kk": {
-      "lo": ""
+      "lo": "ໂກດ"
     }
   },
   "fr":{
     "wrd": "chèvre",
     "ex": "",
     "kk": {
-      "lo": ""
+      "lo": "ແຊວຣ"
     },
     "meta": {
       "isMale": false
@@ -281,21 +314,22 @@
     },
     "sound": "goat/goat_lo.mp3"
   },
-  "themes": ["animals, lvl1"]
+  "themes": ["animals, lvl1"],
+  "img": "goat/goat.png"
 }, {
   "uid": "bear1",
   "en": {
     "wrd": "bear",
     "ex": "",
     "kk": {
-      "lo": ""
+      "lo": "ແບ"
     }
   },
   "fr":{
     "wrd": "ours",
     "ex": "",
     "kk": {
-      "lo": ""
+      "lo": "ອວກສ"
     },
     "meta": {
       "isMale": true,
@@ -311,18 +345,19 @@
     },
     "sound": "bear/bear_lo.mp3"
   },
-  "themes": ["animals, lvl1"]
+  "themes": ["animals, lvl1"],
+  "img": "bear/bear.png"
 }, {
   "uid": "crocodile1",
   "en": {
     "wrd": "crocodile",
     "ex": "",
-    "kk": { "lo": ""}
+    "kk": { "lo": "ໂຄໂກດາຍ"}
   },
   "fr":{
     "wrd": "crocodile",
     "ex": "",
-    "kk": { "lo": "" },
+    "kk": { "lo": "ໂຄໂກດີນ" },
     "meta": { "isMale": true }
   },
   "lo": {
@@ -334,51 +369,22 @@
     },
     "sound": "crocodile/crocodile_lo.mp3"
   },
-  "themes": ["animals, lvl1"]
-}, {
-  "uid": "dog1",
-  "en": {
-    "wrd": "dog",
-    "ex": "",
-    "kk": {
-      "lo": ""
-    }
-  },
-  "fr":{
-    "wrd": "chien",
-    "ex": "",
-    "kk": {
-      "lo": ""
-    },
-    "sound": "dog/dog_fr.mp3",
-    "meta": {
-      "isMale": true
-    }
-  },
-  "lo": {
-    "wrd": "ໝາ",
-    "ex": "",
-    "kk": {
-      "en": "ma:",
-      "fr": "ma:"
-    },
-    "sound": "dog/dog_lo.mp3"
-  },
-  "themes": ["animals, lvl1"]
+  "themes": ["animals, lvl1"],
+  "img": "crocodile/crocodile.png"
 }, {
   "uid": "tiger1",
   "en": {
     "wrd": "tiger",
     "ex": "",
     "kk": {
-      "lo": ""
+      "lo": "ໄທເກີ"
     }
   },
   "fr":{
     "wrd": "tigre",
     "ex": "",
     "kk": {
-      "lo": ""
+      "lo": "ຕິກເຣີ"
     },
     "sound": "tiger/tiger_fr.mp3",
     "meta": {
@@ -394,21 +400,22 @@
     },
     "sound": "tiger/tiger_lo.mp3"
   },
-  "themes": ["animals, lvl1"]
+  "themes": ["animals, lvl1"],
+  "img": "tiger/tiger.png"
 }, {
   "uid": "cow1",
   "en": {
     "wrd": "cow",
     "ex": "",
     "kk": {
-      "lo": ""
+      "lo": "ຄາວ"
     }
   },
   "fr":{
     "wrd": "vache",
     "ex": "",
     "kk": {
-      "lo": ""
+      "lo": "ວາດສ"
     },
     "meta": {
       "isMale": false
@@ -423,21 +430,22 @@
     },
     "sound": "cow/cow_lo.mp3"
   },
-  "themes": ["animals, lvl1"]
+  "themes": ["animals, lvl1"],
+  "img": "cow/cow.png"
 }, {
   "uid": "pig1",
   "en": {
     "wrd": "pig",
     "ex": "",
     "kk": {
-      "lo": ""
+      "lo": "ພິກ"
     }
   },
   "fr":{
     "wrd": "cochon",
     "ex": "",
     "kk": {
-      "lo": ""
+      "lo": "ໂກໂຊງ"
     },
     "meta": {
       "isMale": true
@@ -452,21 +460,22 @@
     },
     "sound": "pig/pig_lo.mp3"
   },
-  "themes": ["animals, lvl1"]
+  "themes": ["animals, lvl1"],
+  "img": "pig/pig.png"
 }, {
   "uid": "buffalo1",
   "en": {
     "wrd": "buffalo",
     "ex": "",
     "kk": {
-      "lo": ""
+      "lo": "ບັບຟາໂລ"
     }
   },
   "fr":{
     "wrd": "buffle",
     "ex": "",
     "kk": {
-      "lo": ""
+      "lo": "ບູບຟ"
     },
     "sound": "buffalo/buffalo_fr.mp3",
     "meta": {
@@ -489,14 +498,14 @@
     "wrd": "monkey",
     "ex": "",
     "kk": {
-      "lo": ""
+      "lo": "ມອງຄີ"
     }
   },
   "fr":{
     "wrd": "singe",
     "ex": "",
     "kk": {
-      "lo": ""
+      "lo": "ແຊງ"
     },
     "meta": {
       "isMale": true
@@ -518,14 +527,14 @@
     "wrd": "bird",
     "ex": "",
     "kk": {
-      "lo": ""
+      "lo": "ເບີດ"
     }
   },
   "fr":{
     "wrd": "oiseau",
     "ex": "",
     "kk": {
-      "lo": ""
+      "lo": "ອົວໂຊ"
     },
     "meta": {
       "isMale": true,
@@ -548,14 +557,14 @@
     "wrd": "frog",
     "ex": "",
     "kk": {
-      "lo": ""
+      "lo": "ຟຣອກ"
     }
   },
   "fr":{
     "wrd": "grenouille",
     "ex": "",
     "kk": {
-      "lo": ""
+      "lo": "ເກຣີນູຍ"
     },
     "meta": {
       "isMale": false

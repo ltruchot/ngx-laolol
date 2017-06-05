@@ -1,6 +1,6 @@
 # Ngx Laolol
 
-Current version: alpha v0.0.18.
+Current version: alpha v0.0.19.
 
 Running here: [laolol.com](http://laolol.com)
 
