@@ -1,14 +1,17 @@
 # Ngx Laolol
 
-Current version: alpha v0.0.19.
+Current version: Alpha v0.0.20 "Playground of Languages".
 
 Running here: [laolol.com](http://laolol.com)
 
 
-Laolol / ລາວ555 is an Angular 4 web application to learn the lao language for english/french-speakers an
+Laolol / ລາວ555 is an [Angular 4](https://angular.io/) web application to learn the lao language for english/french-speakers and vice versa.
 
 
-Licence: [CC-BY-NC-4.0](https://creativecommons.org/licenses/by-nc/4.0/): you can use/copy/modify but only without commercial intentions.
+Licences: [CC-BY-NC-4.0](https://creativecommons.org/licenses/by-nc/4.0/): you can use/copy/modify any code but only without commercial intentions. ©2017 All right reserved for every other medias (sounds, images, videos, pictures, etc.) including [Xan Harotin's illustrations](https://xanharotin.wordpress.com/).
+
+
+Transparent & agile project management: [Trello](https://trello.com/b/L3XSHsjL/laolol)
 
 ## Development watch && serve
 

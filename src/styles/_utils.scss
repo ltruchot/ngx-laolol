@@ -1,36 +1,22 @@
 // margins
 .mx0 { margin:0 !important; }
-.mx5 { margin:5px; }
-.mx10 { margin:10px; }
-.mx15 { margin:15px; }
-.mx30 { margin:30px; }
 .top0 { margin-top: 0 }
-.top5 { margin-top:5px; }
-.top10 { margin-top:10px; }
-.top15 { margin-top:15px; }
-.top30 { margin-top:30px; }
-.left10 { margin-left:10px; }
 .bottom10 { margin-bottom:10px; }
 
 // paddings
 .px5 { padding:5px; }
-.px10 { padding:10px; }
-.px15 { padding:15px; }
-.px30 { padding:30px; }
 .px6t { padding-top:6px; }
 .pxr0 { padding-right:0; }
 .pxb8 { padding-bottom: 8px;}
 .px5tb { padding: 5px 0; }
 .px5lr { padding: 0 5px; }
+.px5lr8 { padding: 5px 8px; }
 
 // font-size
+.text-big { font-size: 1.3em }
 .text-standard { font-size: 1em; }
 .text-middle { font-size: .85em; }
 .text-small { font-size: .75em; }
-.text-justify-right {
-  text-align: justify;
-  direction:rtl;
-}
 
 // effects
 .no-transition {

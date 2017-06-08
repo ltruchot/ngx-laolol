@@ -326,15 +326,24 @@
   "uid": "ia1",
   "en": {
     "wrd": "ia",
-    "kk": {}
+    "kk": {},
+    "meta": {
+      "comment": "ancient regime version"
+    }
   },
   "fr":{
     "wrd": "iya",
-    "kk": {}
+    "kk": {},
+    "meta": {
+      "comment": "version de l'ancien régime"
+    }
   },
   "lo": {
     "wrd": "ເxັຽ",
-    "kk": {}
+    "kk": {},
+    "meta": {
+      "comment": "ໄຊ້ກ່ອນການປຽ່ນແປງການປົກຄອງ"
+    }
   },
   "themes": ["vowels, lvl2"],
   "meta": {
@@ -344,15 +353,24 @@
   "uid": "ia2",
   "en": {
     "wrd": "i:a",
-    "kk": {}
+    "kk": {},
+    "meta": {
+      "comment": "ancient regime version"
+    }
   },
   "fr":{
     "wrd": "i:ya",
-    "kk": {}
+    "kk": {},
+    "meta": {
+      "comment": "version de l'ancien régime"
+    }
   },
   "lo": {
     "wrd": "ເxຽ",
-    "kk": {}
+    "kk": {},
+    "meta": {
+      "comment": "ໄຊ້ກ່ອນການປຽ່ນແປງການປົກຄອງ"
+    }
   },
   "themes": ["vowels, lvl2"],
   "meta": {
@@ -362,15 +380,24 @@
   "uid": "ia3",
   "en": {
     "wrd": "ia",
-    "kk": {}
+    "kk": {},
+    "meta": {
+      "comment": "new regime version"
+    }
   },
   "fr":{
     "wrd": "iya",
-    "kk": {}
+    "kk": {},
+    "meta": {
+      "comment": "version du nouveau régime"
+    }
   },
   "lo": {
     "wrd": "ເxັຍ",
-    "kk": {}
+    "kk": {},
+    "meta": {
+      "comment": "ໄຊ້ຫລັງການປຽ່ນແປງການປົກຄອງ"
+    }
   },
   "themes": ["vowels, lvl2"],
   "meta": {
@@ -380,15 +407,24 @@
   "uid": "ia4",
   "en": {
     "wrd": "i:a",
-    "kk": {}
+    "kk": {},
+    "meta": {
+      "comment": "new regime version"
+    }
   },
   "fr":{
     "wrd": "i:ya",
-    "kk": {}
+    "kk": {},
+    "meta": {
+      "comment": "version du nouveau régime"
+    }
   },
   "lo": {
     "wrd": "ເxຍ",
-    "kk": {}
+    "kk": {},
+    "meta": {
+      "comment": "ໄຊ້ຫລັງການປຽ່ນແປງການປົກຄອງ"
+    }
   },
   "themes": ["vowels, lvl2"],
   "meta": {
@@ -437,7 +473,7 @@
     "kk": {}
   },
   "fr":{
-    "wrd": "iya",
+    "wrd": "üa",
     "kk": {}
   },
   "lo": {

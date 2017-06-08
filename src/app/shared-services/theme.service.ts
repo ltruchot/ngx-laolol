@@ -136,6 +136,24 @@ export class ThemeService {
       'wrd': 'ຄວາມສຸພາບ',
       'kk': {}
     }
+  },
+  {
+    'uid': 'professions',
+    'noPlural': true,
+    'noArticle': true,
+    'en': {
+      'wrd': 'Professions',
+      'kk': {}
+    },
+    'fr': {
+      'wrd': 'La métiers',
+      'short': 'Métiers',
+      'kk': {}
+    },
+    'lo': {
+      'wrd': 'ອາຊີບ',
+      'kk': {}
+    }
   }
   // { code: 'plants', trad: 'theme.plants' },
   // {
@@ -168,7 +186,7 @@ export class ThemeService {
   // }
   ];
   data = {
-    learningThemeIdx: 1,
+    learningThemeIdx: 3,
     learningTheme: null,
     isKaraoke: false,
     isReversed: false
@@ -177,8 +195,15 @@ export class ThemeService {
     private storage: StorageService,
     private apiService: ApiService) {
     const currentThemeIdx = this.storage.getItem('currentLearningThemeIdx');
-    this.data.learningThemeIdx = !isNaN(currentThemeIdx) ? currentThemeIdx : 1;
+    const isKaraokeActivated = !!this.storage.getItem('isKaraokeActivated');
+    this.data.learningThemeIdx = !isNaN(currentThemeIdx) ? currentThemeIdx : 3;
     this.data.learningTheme = this.AVAILABLE_THEMES[this.data.learningThemeIdx];
+    this.data.isKaraoke = isKaraokeActivated;
+  }
+
+  toggleKaraoke () {
+    this.data.isKaraoke = !this.data.isKaraoke;
+    this.storage.setItem('isKaraokeActivated', this.data.isKaraoke);
   }
   getCurrentTheme () {
     return this.apiService

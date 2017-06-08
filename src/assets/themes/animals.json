@@ -71,7 +71,8 @@
     "kk": {"lo": "ຕອກຕູຍ"},
     "meta": {
       "isMale": false
-    }
+    },
+    "sound": "turtle/turtle_fr.mp3"
   },
   "lo": {
     "wrd": "ເຕົ່າ",
@@ -101,7 +102,8 @@
     },
     "meta": {
       "isMale": false
-    }
+    },
+    "sound": "chicken/chicken_fr.mp3"
   },
   "lo": {
     "wrd": "ໄກ່",
@@ -131,7 +133,8 @@
     },
     "meta": {
       "isMale": true
-    }
+    },
+    "sound": "rat/rat_fr.mp3"
   },
   "lo": {
     "wrd": "ໜູ",
@@ -183,7 +186,8 @@
     },
     "meta": {
       "isMale": true
-    }
+    },
+    "sound": "elephant/elephant_fr.mp3"
   },
   "lo": {
     "wrd": "ຊ້າງ",
@@ -213,7 +217,8 @@
     },
     "meta": {
       "isMale": true
-    }
+    },
+    "sound": "duck/duck_fr.mp3"
   },
   "lo": {
     "wrd": "ເປັດ",
@@ -491,7 +496,8 @@
     },
     "sound": "buffalo/buffalo_lo.mp3"
   },
-  "themes": ["animals, lvl1"]
+  "themes": ["animals, lvl1"],
+  "img": "buffalo/buffalo.png"
 }, {
   "uid": "monkey1",
   "en": {
@@ -520,7 +526,8 @@
     },
     "sound": "monkey/monkey_lo.mp3"
   },
-  "themes": ["animals, lvl1"]
+  "themes": ["animals, lvl1"],
+  "img": "monkey/monkey.png"
 }, {
   "uid": "bird1",
   "en": {
@@ -550,7 +557,8 @@
     },
     "sound": "bird/bird_lo.mp3"
   },
-  "themes": ["animals, lvl1"]
+  "themes": ["animals, lvl1"],
+  "img": "bird/bird.png"
 }, {
   "uid": "frog1",
   "en": {
@@ -579,5 +587,6 @@
     },
     "sound": "frog/frog_lo.mp3"
   },
-  "themes": ["animals, lvl1"]
+  "themes": ["animals, lvl1"],
+  "img": "frog/frog.png"
 }]

@@ -57,9 +57,11 @@
   },
   "lo": {
     "wrd": "ຄ",
-    "kk": { "en": "khɔ", "fr": "khɔ" }
+    "kk": { "en": "khɔ", "fr": "khɔ" },
+    "ex": "ຄວາຍ"
   },
   "themes": ["consonants, lvl1"],
+  "img": "buffalo/buffalo.png",
   "meta": {
     "conflict": ["kh1"]
   }
@@ -252,9 +254,11 @@
   },
   "lo": {
     "wrd": "ນ",
-    "kk": { "en": "nɔ", "fr": "nɔ" }
+    "kk": { "en": "nɔ", "fr": "nɔ" },
+    "ex": "ນົກ"
   },
-  "themes": ["consonants, lvl1"]
+  "themes": ["consonants, lvl1"],
+  "img": "bird/bird.png"
 }, {
   "uid": "b1",
   "en": {
@@ -447,9 +451,11 @@
   },
   "lo": {
     "wrd": "ລ",
-    "kk": { "en": "lɔ", "fr": "lɔ" }
+    "kk": { "en": "lɔ", "fr": "lɔ" },
+    "ex": "ລິງ"
   },
   "themes": ["consonants, lvl1"],
+  "img": "monkey/monkey.png",
   "meta": {
     "conflict": ["l1"]
   }

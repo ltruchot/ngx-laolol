@@ -1,0 +1,73 @@
+[{
+  "uid": "teacher1",
+  "en": {
+    "wrd": "teacher",
+    "ex": "",
+    "kk": {}
+  },
+  "fr":{
+    "wrd": "professeur",
+    "ex": "",
+    "kk": {}
+  },
+  "lo": {
+    "wrd": "ອາຈານ",
+    "ex": "",
+    "kk": { "en": "a:cha:n", "fr": "a:tja:n" }
+  },
+  "themes": ["professions", "lvl1"]
+}, {
+  "uid": "doctor1",
+  "en": {
+    "wrd": "doctor",
+    "ex": "",
+    "kk": {}
+  },
+  "fr":{
+    "wrd": "médecin",
+    "ex": "",
+    "kk": {}
+  },
+  "lo": {
+    "wrd": "ໝໍ",
+    "ex": "",
+    "kk": { "en": "mɔ:", "fr": "mɔ:" }
+  },
+  "themes": ["professions", "lvl1"]
+}, {
+  "uid": "policeman1",
+  "en": {
+    "wrd": "police man",
+    "ex": "",
+    "kk": {}
+  },
+  "fr":{
+    "wrd": "policier",
+    "ex": "",
+    "kk": {}
+  },
+  "lo": {
+    "wrd": "ຕໍາຫຼວດ",
+    "ex": "",
+    "kk": { "en": "tamlooad", "fr": "tamlouat" }
+  },
+  "themes": ["professions", "lvl1"]
+}, {
+  "uid": "nurse1",
+  "en": {
+    "wrd": "nurse",
+    "ex": "",
+    "kk": {}
+  },
+  "fr":{
+    "wrd": "infirmier",
+    "ex": "",
+    "kk": {}
+  },
+  "lo": {
+    "wrd": "ພະຍາບານ",
+    "ex": "",
+    "kk": { "en": "phania:ba:n", "fr": "phanya:ba:n" }
+  },
+  "themes": ["professions", "lvl1"]
+}]

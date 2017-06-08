@@ -26,7 +26,7 @@
 	<div class="btn-group" *ngIf="!cpntData.theme.learningTheme.noKaraoke">
 		<label class="checkbox-inline px6t"
 			[ngClass]="{'text-primary': cpntData.theme.isKaraoke}"
-			title="{{ 'submenu.karaoke' | translate }}" (click)="cpntData.theme.isKaraoke = !cpntData.theme.isKaraoke">
+			title="{{ 'submenu.karaoke' | translate }}" (click)="toggleKaraoke()">
 			<span class="glyphicon glyphicon-text-background"></span>
 		</label>
 	</div>

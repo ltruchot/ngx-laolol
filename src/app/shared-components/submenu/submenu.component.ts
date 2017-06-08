@@ -31,7 +31,12 @@ export class SubmenuComponent implements OnInit {
   changeLearningLang (code: string) {
     this.languageService.chooseLearningLang(code);
   }
+
   changeLearningTheme(index: number) {
     this.themeService.changeLearningTheme(index);
+  }
+
+  toggleKaraoke () {
+    this.themeService.toggleKaraoke();
   }
 }

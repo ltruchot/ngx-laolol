@@ -58,24 +58,24 @@
     "karaoke": "ຄາລາໂອເກະ",
     "reverse": "ຈັບຄູ່"
   },
-  "about": {
-    "presLaololTitle": "LaoLol à besoin de vous !",
-    "presLaolol1": "Après plusieurs mois de travail bénévole sur Laolol, nous avons décidé d’aller plus loin !",
-    "presLaolol2": "Nous nous apprêtons à lancer",
-    "presLaolol3": "une campagne de financement participatif",
-    "presLaolol4": "pour impliquer tous ceux qui veulent soutenir la langue lao, et l’accès gratuit à l’apprentissage de français et à l’anglais pour les laotiens .",
-    "presLaolol5": "Si nous parvenons à rassembler",
-    "presLaolol6": "nous pourrons faire un grand pas dans l’ajout de nouveaux mots, d’images, de sons, et nous offrirons des petites rémunérations à tous les futurs contributeurs du site à Vientiane.",
-    "presLaolol7": "Enfin, nous pourrons",
-    "presLaolol8": "imprimer un t-shirt",
-    "presLaolol9": "en coton du Laos qui servira de support de communication pour notre application. Tous ceux qui le verront seront curieux de savoir comment apprendre des langues sur",
-    "presPeopleTitle": "Qui sommes-nous ?",
-    "presLoic1" : "est un développeur d’applications web, expert en JavaScript, travaillant entre la France, la Belgique et le Laos",
-    "presLoic2": "Passionné d’informatique et étudiant en langue lao, il se charge de développer la partie informatisée de",
-    "presLoic3": "Pour cela, il utilise des outils comme",
-    "presLoic4": "Vous pouvez lui venir en aide en contribuant au répertoire de travail partagé",
-    "presSoulisack1": "est docteur en socio-didactique des langues étrangères, professeur de langues (français, anglais, lao, vietnamien) et chercheur en anthropologie et en linguistique",
-    "presSoulisack2": "Il dirige le département des sciences sociales à l’université des sciences de la santé, à Vientiane, au Laos",
-    "presSoulisack3": "Il apporte son expertise linguistique pour le choix des thèmes et des mots (items) à apprendre. Il se charge aussi de toutes les traductions en lao sur Laolol."
+ "about": {
+    "presLaololTitle": "Laolol needs you!",
+    "presLaolol1": "After a few months of voluntary work on Laolol, we decided to go further!",
+    "presLaolol2": "We want to start",
+    "presLaolol3": "a crowdfunding campaign",
+    "presLaolol4": "to imply every person interested in the support of lao language, and to give a free way for laotians to learn english and french languages.",
+    "presLaolol5": "If we can find",
+    "presLaolol6": "we will be able to do a big step further: new words, images, sounds, and little remunerations for any contributor in Laos.",
+    "presLaolol7": "Finally, we could",
+    "presLaolol8": "print a t-shirt",
+    "presLaolol9": ", useful to communicate about our project and to arouse everyone's curiosity on",
+    "presPeopleTitle": "About us...",
+    "presLoic1" : "is a web application developer, expert in JavaScript, working between France, Belgium and Laos",
+    "presLoic2": "Passionate about computer science, and student in Lao language, he is in charge of developing the computerized part of",
+    "presLoic3": "To do this, he uses tools like",
+    "presLoic4": "You can help him by contributing to the shared working repository",
+    "presSoulisack1": "is PhD in social and pedagogical sciences, professor of languages (French, English, Lao, Vietnamese) and researcher in anthropology and linguistics",
+    "presSoulisack2": " He heads the Department of Social Sciences at the University of Health Sciences in Vientiane, Laos",
+    "presSoulisack3": "He brings his linguistic expertise for the choice of themes and words (items) to be learned on LaoLol. He is also responsible for all lao translations on the website"
   }
 }

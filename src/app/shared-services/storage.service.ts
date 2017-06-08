@@ -7,6 +7,7 @@ export class StorageService {
     'authToken',
     'currentLanguage',
     'currentLearningThemeIdx',
+    'isKaraokeActivated',
     'learningLanguage',
     'userInfos',
     'version'
