@@ -5,14 +5,14 @@
 <p>{{ 'home.andNow' | translate }}, {{ 'home.letsPlay' | translate }}<br/>
 	{{ 'home.wantLearn' | translate }}:
 		<a *ngIf="cpntData.lang?.currentLang !== 'lo'"
-			routerLink="/gameboard"
+			[routerLink]="'/gameboard/' + cpntData.theme?.learningTheme?.uid"
 			(click)="changeLearningLang('lo')">{{ 'home.laoLanguage' | translate }}</a>
 		<ng-template [ngIf]="cpntData.lang?.currentLang === 'fr' || cpntData.lang?.currentLang === 'en'">{{ 'words.or' | translate }}</ng-template>
 		<a *ngIf="cpntData.lang?.currentLang !== 'fr'"
-			routerLink="/gameboard"
+			[routerLink]="'/gameboard/' + cpntData.theme?.learningTheme?.uid"
 			(click)="changeLearningLang('fr')">{{ 'home.frenchLanguage' | translate }}</a><!--
 	--><ng-template [ngIf]="cpntData.lang?.currentLang === 'lo'"> {{ 'words.or' | translate }} </ng-template><!--
 	--><a *ngIf="cpntData.lang?.currentLang !== 'en'"
-			routerLink="/gameboard"
+			[routerLink]="'/gameboard/' + cpntData.theme?.learningTheme?.uid"
 			(click)="changeLearningLang('en')">{{ 'home.englishLanguage' | translate }}</a>.
 </p>

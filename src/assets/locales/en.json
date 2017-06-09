@@ -30,7 +30,7 @@
     "laoLanguage": "lao"
   },
   "gameboard": {
-    "findTranslation": "Find the right translation",
+    "findTranslation": "Find the translation of",
     "correctAnswer": "Bravo!",
     "wrongAnswer": "Wrong answer.",
     "next": "Next"

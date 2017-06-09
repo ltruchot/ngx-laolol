@@ -1,6 +1,6 @@
 # Ngx Laolol
 
-Current version: Alpha v0.0.20 "Playground of Languages".
+Current version: Alpha v0.0.21 "Playground of Languages".
 
 Running here: [laolol.com](http://laolol.com)
 

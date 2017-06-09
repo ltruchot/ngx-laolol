@@ -1,5 +1,5 @@
 <div [hidden]= "!(cpntData.lang?.isCurrentLoading) && !cpntData.loadingRoute" class="loading"></div>
-<modal #loginModal>
+<!-- <modal #loginModal>
   <modal-header>
     <h2>Login</h2>
   </modal-header>
@@ -23,7 +23,7 @@
   <modal-footer>
     <button class="btn btn-default" (click)="loginModal.close()">Cancel</button>
   </modal-footer>
-</modal>
+</modal> -->
 <div class="container">
   <div class="row">
     <div class="col-xs-6">
@@ -41,9 +41,9 @@
           </li>
         </ul>
       </nav>
-      <div (click)="loginModal.open()" class="clickable-icon" [ngClass]="{'text-success': cpntData.user.isConnected}">
+<!--       <div (click)="loginModal.open()" class="clickable-icon" [ngClass]="{'text-success': cpntData.user.isConnected}">
         <span class="glyphicon glyphicon-user"></span>
-      </div>
+      </div> -->
     </div>
   </div>
   <nav role="navigation" class="navbar navbar-default">
@@ -65,11 +65,17 @@
           <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" data-toggle="collapse" data-target="#bs-navbar-collapse-1.in">
             <a routerLink="/home">{{ 'layout.home' | translate }}</a>
           </li>
-          <li routerLinkActive="active" data-toggle="collapse" data-target="#bs-navbar-collapse-1.in">
-            <a routerLink="/gameboard">{{ 'layout.gameboard' | translate }}</a>
+          <li  [class.active]="router.url.split('/')[1] === 'gameboard'"
+            data-toggle="collapse" data-target="#bs-navbar-collapse-1.in">
+            <a [routerLink]="['/gameboard/'+ cpntData.theme?.learningTheme?.uid]">
+              {{ 'layout.gameboard' | translate }}
+            </a>
           </li>
-          <li routerLinkActive="active" data-toggle="collapse" data-target="#bs-navbar-collapse-1.in">
-            <a routerLink="/blackboard">{{ 'layout.blackboard' | translate }}</a>
+          <li [class.active]="router.url.split('/')[1] === 'blackboard'"
+            data-toggle="collapse" data-target="#bs-navbar-collapse-1.in">
+            <a [routerLink]="['/blackboard/'+ cpntData.theme?.learningTheme?.uid]">
+              {{ 'layout.blackboard' | translate }}
+            </a>
           </li>
           <li routerLinkActive="active" data-toggle="collapse" data-target="#bs-navbar-collapse-1.in">
             <a routerLink="/exams">{{ 'layout.exams' | translate }}</a>

@@ -17,7 +17,7 @@
 		<ul class="dropdown-menu" *ngIf="cpntData.lang?.learningLang">
 			<ng-container *ngFor="let theme of cpntData.availableTheme; let i = index;">
 				<li [ngClass]="{'active': i  === cpntData.theme.learningThemeIdx}">
-					<a (click)="changeLearningTheme(i)">{{ theme[cpntData.lang.currentLang].short || theme[cpntData.lang.currentLang].wrd }}</a>
+					<a (click)="changeLearningTheme(theme.uid)">{{ theme[cpntData.lang.currentLang].short || theme[cpntData.lang.currentLang].wrd }}</a>
 				</li>
 				<li *ngIf="i === 2" role="separator" class="divider"></li>
 			</ng-container>
@@ -30,7 +30,7 @@
 			<span class="glyphicon glyphicon-text-background"></span>
 		</label>
 	</div>
-	<div class="btn-group" *ngIf="router.url === '/gameboard'">
+	<div class="btn-group" *ngIf="cpntData.currentUrl === 'gameboard'">
 		<label class="checkbox-inline px6t"
 			[ngClass]="{'text-primary': cpntData.theme.isReversed}"
 			title="{{ 'submenu.reverse' | translate }}" (click)="cpntData.theme.isReversed = !cpntData.theme.isReversed">

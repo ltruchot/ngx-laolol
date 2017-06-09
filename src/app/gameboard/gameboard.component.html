@@ -7,13 +7,13 @@
 <div class="row">
 	<div class="col-xs-12">
 		<h4 class="mx0 px5tb" [hidden]="cpntData.winItemIdx === null">
-			{{ 'gameboard.findTranslation' | translate }}
+			{{ 'gameboard.findTranslation' | translate }}:
 			<span class="text-big" *ngIf="cpntData.items[cpntData.winItemIdx]">
 				{{ cpntData.items[cpntData.winItemIdx][cpntData.theme.isReversed ? cpntData.lang.learningLang : cpntData.lang.currentLang].wrd }}
 			</span>
 			<ng-template [ngIf]="cpntData.theme.isReversed && cpntData.theme.isKaraoke && !cpntData.theme.learningTheme.noKaraoke && cpntData.items[cpntData.winItemIdx] &&
 			cpntData.items[cpntData.winItemIdx][cpntData.lang.learningLang].kk[cpntData.lang.currentLang]">
-				<em>({{ cpntData.items[cpntData.winItemIdx][cpntData.lang.learningLang].kk[cpntData.lang.currentLang] }})</em>
+				<em class="text-primary">({{ cpntData.items[cpntData.winItemIdx][cpntData.lang.learningLang].kk[cpntData.lang.currentLang] }})</em>
 			</ng-template>
 			<em *ngIf="(cpntData.lang?.currentLang === 'fr' || cpntData.lang?.currentLang === 'en') &&
 			!cpntData.theme.isReversed && cpntData.items[cpntData.winItemIdx] &&

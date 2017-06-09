@@ -229,4 +229,17 @@ export class ThemeService {
       this.getCurrentTheme();
     }
   }
+
+  changeLearningThemeByUid (uid: string) {
+    let idx = -1;
+    const availableTheme = this.AVAILABLE_THEMES.find((item, itemIdx) => {
+      idx = itemIdx;
+      return item.uid === uid;
+    });
+    if (availableTheme && idx !== -1) {
+      this.changeLearningTheme(idx);
+    }
+    return !!availableTheme;
+  }
+
 }

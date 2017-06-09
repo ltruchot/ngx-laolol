@@ -15,13 +15,15 @@ export class SubmenuComponent implements OnInit {
     lang: null,
     availableLang: null,
     theme: null,
-    availableTheme: null
+    availableTheme: null,
+    currentUrl: ''
   };
   constructor (private themeService: ThemeService,
     private languageService: LanguageService,
     public router: Router) {}
 
   ngOnInit () {
+    this.cpntData.currentUrl = this.router.url.split('/')[1];
     this.cpntData.lang =  this.languageService.data;
     this.cpntData.availableLang = this.languageService.AVAILABLE_LANG;
     this.cpntData.theme =  this.themeService.data;
@@ -32,8 +34,12 @@ export class SubmenuComponent implements OnInit {
     this.languageService.chooseLearningLang(code);
   }
 
-  changeLearningTheme(index: number) {
-    this.themeService.changeLearningTheme(index);
+  changeLearningTheme(uid: string) {
+
+    this.router.parseUrl(this.router.url);
+    if (this.cpntData.currentUrl) {
+      this.router.navigate([this.cpntData.currentUrl + '/' + uid]);
+    }
   }
 
   toggleKaraoke () {

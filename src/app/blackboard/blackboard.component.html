@@ -38,7 +38,7 @@
 				<ng-template [ngIf]="cpntData.lang?.learningLang === 'lo'">
 					{{ item.lo.wrd }}
 				</ng-template>
-				<ng-template [ngIf]="cpntData.theme.isKaraoke &&
+				<ng-template [ngIf]="cpntData.theme.isKaraoke && cpntData.lang?.learningLang &&
 					!cpntData.theme.learningTheme.noKaraoke &&
 					item[cpntData.lang.learningLang].kk[cpntData.lang.currentLang]">
 					<br />

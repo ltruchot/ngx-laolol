@@ -1,5 +1,6 @@
 // ng dependencies
 import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
 
 // npm dependencies
 import { Subscription } from 'rxjs/Subscription';
@@ -26,22 +27,35 @@ export class BlackboardComponent implements OnInit, OnDestroy {
     }
   };
 
-  constructor(private themeService: ThemeService, private languageService: LanguageService) {
+  constructor(private themeService: ThemeService,
+    private languageService: LanguageService,
+    private route: ActivatedRoute,
+    private router: Router) {
     this.themeSubscription = this.themeService.currentTheme$.subscribe(data => {
       this.resetTheme(data);
     });
   }
 
   ngOnInit () {
-    this.cpntData.lang =  this.languageService.data;
-    this.cpntData.availableLang = this.languageService.AVAILABLE_LANG;
-    this.cpntData.theme =  this.themeService.data;
-    this.cpntData.availableTheme = this.themeService.AVAILABLE_THEMES;
-    this.themeService.getCurrentTheme();
+     this.route.params.subscribe(params => {
+      if (params.uid) {
+        if (this.themeService.changeLearningThemeByUid(params.uid)) {
+            this.cpntData.lang =  this.languageService.data;
+            this.cpntData.availableLang = this.languageService.AVAILABLE_LANG;
+            this.cpntData.theme =  this.themeService.data;
+            this.cpntData.availableTheme = this.themeService.AVAILABLE_THEMES;
+            this.themeService.getCurrentTheme();
+        } else {
+          this.router.navigate(['404']);
+        }
+      } else {
+        this.router.navigate(['404']);
+      }
+    });
+
   }
 
   resetTheme (data) {
-    const lang = this.cpntData.lang.learningLang;
     this.cpntData.items.length = 0;
     this.cpntData.items.push(...data);
     this.cpntData.items.forEach((item) => {
