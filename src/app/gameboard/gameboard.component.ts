@@ -37,7 +37,7 @@ export class GameboardComponent implements OnInit, OnDestroy {
   constructor (private themeService: ThemeService,
     private languageService: LanguageService,
     private route: ActivatedRoute,
-    private router: Router) {
+    public router: Router) {
     this.themeSubscription = this.themeService.currentTheme$.subscribe(data => {
       this.resetTheme(data);
     });

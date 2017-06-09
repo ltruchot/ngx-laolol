@@ -37,7 +37,7 @@ export class AppComponent implements OnInit {
     currentVersion: 'Alpha version 0.0.21'
   };
   constructor (private languageService: LanguageService,
-    private router: Router,
+    public router: Router,
     // private userService: UserService,
     // private formBuilder: FormBuilder,
     private themeService: ThemeService,

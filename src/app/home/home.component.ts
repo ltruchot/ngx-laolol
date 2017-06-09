@@ -15,7 +15,7 @@ export class HomeComponent implements OnInit {
     lang: null,
     theme: null
   };
-  constructor(private router: Router,
+  constructor(public router: Router,
     private languageService: LanguageService,
     private themeService: ThemeService) { }
 
