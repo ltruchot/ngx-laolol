@@ -1,4 +1,4 @@
-<div [hidden]= "!(cpntData.lang?.isCurrentLoading) && !cpntData.loadingRoute" class="loading"></div>
+<div [hidden]= "!cpntData.loadingRoute && !(cpntData.lang?.isCurrentLoading) && !(cpntData.theme?.isCurrentLoading)" class="loading"></div>
 <!-- <modal #loginModal>
   <modal-header>
     <h2>Login</h2>
@@ -27,7 +27,7 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-6">
-      <h1 class="main-title top0">{{ 'layout.lao' | translate}}<span class="title-complement">{{ 'layout.lol' | translate}}</span><em class="version-title">{{ cpntData.currentVersion }}</em></h1>
+      <h1 class="main-title top0"><img [src]=" cpntData.lang.currentLang !== 'lo' ? '/assets/img/laolol-title.png' : '/assets/img/laolol-title-lao.png'" alt="{{ 'layout.lao' | translate}}{{ 'layout.lol' | translate}}" /><span [style.display]="'none'">{{ 'layout.lao' | translate}}{{ 'layout.lol' | translate}}</span><em class="version-title">{{ cpntData.currentVersion }}</em></h1>
     </div>
     <div class="col-xs-6">
       <nav class="avaiblable-lang-list">

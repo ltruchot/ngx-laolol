@@ -1,12 +1,20 @@
+// ng dependencies
 import { Injectable } from '@angular/core';
+
+// npm dependencies
 import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
+
+// custom services
 import { StorageService } from './storage.service';
+
+// custom interfaces
+import { Language } from './../shared-interfaces/language.interfaces';
 
 @Injectable()
 export class LanguageService {
   DEFAULT_LANG = 'en';
   DEFAULT_LEARNING_LANG = 'lo';
-  AVAILABLE_LANG = [
+  AVAILABLE_LANG: Array<Language> = [
     { code: 'en', flag: 'us', learnCode: 'lo', label: 'english', trad: 'home.englishLanguage' },
     { code: 'fr', flag: 'fr', learnCode: 'lo', label: 'français', trad: 'home.frenchLanguage' },
     { code: 'lo', flag: 'la', learnCode: 'en', label: 'ພາສາລາວ', trad: 'home.laoLanguage' }
@@ -21,6 +29,10 @@ export class LanguageService {
   initializeLanguages () {
     // prepare loading infos
     this.translate.onLangChange.subscribe((event: LangChangeEvent) => {
+      const langInfos: Language = this.getLangInfos(event.lang);
+      if (this.data.learningLang === event.lang) {
+        this.chooseLearningLang(langInfos.learnCode);
+      }
       this.data.isCurrentLoading = false;
     });
 
@@ -35,6 +47,7 @@ export class LanguageService {
     const learningLanguage: string = this.storage.getItem('learningLanguage') || '';
     this.chooseLearningLang(learningLanguage);
   }
+
   chooseTranslation (code: string) {
     this.data.isCurrentLoading = true;
     code = (code || this.DEFAULT_LANG);
@@ -42,11 +55,16 @@ export class LanguageService {
     this.data.currentLang = code;
     this.storage.setItem('currentLanguage', code);
   }
+
   chooseLearningLang (code: string) {
     this.data.isLearningLoading = true;
     code = (code || this.DEFAULT_LEARNING_LANG);
     this.data.learningLang = code;
     this.storage.setItem('learningLanguage', code);
     this.data.isLearningLoading = false;
+  }
+
+  getLangInfos (code: string): Language {
+    return this.AVAILABLE_LANG.find(lang => lang.code === code);
   }
 }

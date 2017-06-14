@@ -64,6 +64,11 @@ export class BlackboardComponent implements OnInit, OnDestroy {
         if (sound) {
           item[avLang.code].audio = new Audio();
           item[avLang.code].audio.src = '/assets/medias/' + sound;
+          item[avLang.code].audioLoaded = false;
+          item[avLang.code].audio.addEventListener('canplaythrough', function audioLoad () {
+            item[avLang.code].audioLoaded = true;
+            this.removeEventListener('canplaythrough', audioLoad);
+          });
           item[avLang.code].audio.load();
         }
       });

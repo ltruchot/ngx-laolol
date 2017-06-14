@@ -189,7 +189,8 @@ export class ThemeService {
     learningThemeIdx: 3,
     learningTheme: null,
     isKaraoke: false,
-    isReversed: false
+    isReversed: false,
+    isCurrentLoading: false
   };
   constructor (private http: Http,
     private storage: StorageService,
@@ -206,18 +207,20 @@ export class ThemeService {
     this.storage.setItem('isKaraokeActivated', this.data.isKaraoke);
   }
   getCurrentTheme () {
+    this.data.isCurrentLoading = true;
     return this.apiService
       .getData(`assets/themes/${this.data.learningTheme.uid}.json`)
       .map((res: Response): any => {
         return res.json();
       })
       .subscribe((parsedRes: Array<IThemeItem>) => {
-      if (parsedRes && parsedRes.length && parsedRes.length >= 4) {
-        this.currenThemeSource.next(parsedRes);
-      } else {
-        throw new Error(`/themes/${this.data.learningTheme.uid}.json wasn't parsed correctly.
-          Check if fils exists ans is correctly formed and with at least 7 items`);
-      }
+        if (parsedRes && parsedRes.length && parsedRes.length >= 4) {
+          this.currenThemeSource.next(parsedRes);
+        } else {
+          throw new Error(`/themes/${this.data.learningTheme.uid}.json wasn't parsed correctly.
+            Check if fils exists ans is correctly formed and with at least 7 items`);
+        }
+        this.data.isCurrentLoading = false;
     });
   }
 

@@ -21,14 +21,14 @@
     "wrd": "kh",
     "kk": {},
     "meta": {
-      "tone": "high consonant"
+      "comment": "high consonant"
     }
   },
   "fr":{
     "wrd": "kh",
     "kk": {},
     "meta": {
-      "tone": "consonne haute"
+      "comment": "consonne haute"
     }
   },
   "lo": {
@@ -45,14 +45,14 @@
     "wrd": "kh",
     "kk": {},
     "meta": {
-      "tone": "low consonant"
+      "comment": "low consonant"
     }
   },
   "fr":{
     "wrd": "kh",
     "kk": {},
     "meta": {
-      "tone": "consonne basse"
+      "comment": "consonne basse"
     }
   },
   "lo": {
@@ -103,14 +103,14 @@
     "wrd": "s",
     "kk": {},
     "meta": {
-      "tone": "high consonant"
+      "comment": "high consonant"
     }
   },
   "fr":{
     "wrd": "s",
     "kk": {},
     "meta": {
-      "tone": "consonne haute"
+      "comment": "consonne haute"
     }
   },
   "lo": {
@@ -129,14 +129,14 @@
     "wrd": "s",
     "kk": {},
     "meta": {
-      "tone": "low consonant"
+      "comment": "low consonant"
     }
   },
   "fr":{
     "wrd": "s",
     "kk": {},
     "meta": {
-      "tone": "consonne basse"
+      "comment": "consonne basse"
     }
   },
   "lo": {
@@ -200,14 +200,14 @@
     "wrd": "th",
     "kk": {},
     "meta": {
-      "tone": "high consonnant"
+      "comment": "high consonnant"
     }
   },
   "fr":{
     "wrd": "th",
     "kk": {},
     "meta": {
-      "tone": "consonne haute"
+      "comment": "consonne haute"
     }
   },
   "lo": {
@@ -224,14 +224,14 @@
     "wrd": "th",
     "kk": {},
     "meta": {
-      "tone": "low consonant"
+      "comment": "low consonant"
     }
   },
   "fr":{
     "wrd": "th",
     "kk": {},
     "meta": {
-      "tone": "consonne basse"
+      "comment": "consonne basse"
     }
   },
   "lo": {
@@ -299,14 +299,14 @@
     "wrd": "ph",
     "kk": {},
     "meta": {
-      "tone": "high consonant"
+      "comment": "high consonant"
     }
   },
   "fr":{
     "wrd": "ph",
     "kk": {},
     "meta": {
-      "tone": "consonne haute"
+      "comment": "consonne haute"
     }
   },
   "lo": {
@@ -323,14 +323,14 @@
     "wrd": "f",
     "kk": {},
     "meta": {
-      "tone": "high consonant"
+      "comment": "high consonant"
     }
   },
   "fr":{
     "wrd": "f",
     "kk": {},
     "meta": {
-      "tone": "consonne haute"
+      "comment": "consonne haute"
     }
   },
   "lo": {
@@ -347,14 +347,14 @@
     "wrd": "ph",
     "kk": {},
     "meta": {
-      "tone": "low consonant"
+      "comment": "low consonant"
     }
   },
   "fr":{
     "wrd": "ph",
     "kk": {},
     "meta": {
-      "tone": "consonne basse"
+      "comment": "consonne basse"
     }
   },
   "lo": {
@@ -371,14 +371,14 @@
     "wrd": "f",
     "kk": {},
     "meta": {
-      "tone": "low consonant"
+      "comment": "low consonant"
     }
   },
   "fr":{
     "wrd": "f",
     "kk": {},
     "meta": {
-      "tone": "consonne basse"
+      "comment": "consonne basse"
     }
   },
   "lo": {
@@ -480,14 +480,14 @@
     "wrd": "h",
     "kk": {},
     "meta": {
-      "tone": "high consonant"
+      "comment": "high consonant"
     }
   },
   "fr":{
     "wrd": "h",
     "kk": {},
     "meta": {
-      "tone": "consonne haute"
+      "comment": "consonne haute"
     }
   },
   "lo": {
@@ -504,14 +504,14 @@
     "wrd": "-",
     "kk": {},
     "meta": {
-      "tone": "consonant-vowel"
+      "comment": "consonant-vowel"
     }
   },
   "fr":{
     "wrd": "-",
     "kk": {},
     "meta": {
-      "tone": "consonne-voyelle"
+      "comment": "consonne-voyelle"
     }
   },
   "lo": {
@@ -525,14 +525,14 @@
     "wrd": "h",
     "kk": {},
     "meta": {
-      "tone": "low consonant"
+      "comment": "low consonant"
     }
   },
   "fr":{
     "wrd": "h",
     "kk": {},
     "meta": {
-      "tone": "consonne basse"
+      "comment": "consonne basse"
     }
   },
   "lo": {

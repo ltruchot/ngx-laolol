@@ -17,7 +17,7 @@
 <div class="row is-flex blackboard-items">
 	<div class="col-xs-6 col-sm-4 col-md-3" *ngFor="let item of cpntData.items; let i = index;">
 		<div class="thumbnail">
-			<label class="top-right-sound px5lr8" *ngIf="item[cpntData.lang.learningLang].sound"
+			<label class="top-right-sound px5lr8" *ngIf="item[cpntData.lang.learningLang].audioLoaded"
 				title="{{ 'blackboard.listen' | translate }}" (click)="playsound(i)">
 				<span class="glyphicon glyphicon-volume-down"></span>
 			</label>
@@ -70,8 +70,8 @@
 					item[cpntData.lang.learningLang].meta.plural :
 					item[cpntData.lang.learningLang].wrd + "s" }}</strong>
 				</h5>
-				<h5 *ngIf="item[cpntData.lang.currentLang].meta && item[cpntData.lang.currentLang].meta.tone">
-					<em>{{ item[cpntData.lang.currentLang].meta.tone }}</em>
+				<h5 *ngIf="item[cpntData.lang.currentLang].meta && item[cpntData.lang.currentLang].meta.comment">
+					<em>{{ item[cpntData.lang.currentLang].meta.comment }}</em>
 				</h5>
 			</div>
 		</div>
