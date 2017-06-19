@@ -31,9 +31,19 @@
 	}
 }
 .clickable-icon {
+	border: none;
+	text-decoration: none;
+	display: block;
 	position:absolute;
-	top:8px;
-	right:12px;
+	max-width: 20px;
+	top:4px;
+	right:15px;
 	font-size: 0.9em;
 	cursor: pointer;
+	img {
+		width: 100%;
+	}
+	@media screen and (max-width: $small-device) {
+    right: 4px;
+  }
 }

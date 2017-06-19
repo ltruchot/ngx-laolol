@@ -1,7 +1,8 @@
 {
   "words": {
     "learn": "ຮຽນ",
-    "ou": "ຫຼື"
+    "ou": "ຫຼື",
+    "and": "ແລະ"
   },
   "layout": {
     "blackboard": "ຫ້ອງຮຽນ",
@@ -69,6 +70,7 @@
     "presLaolol7": "Finally, we could",
     "presLaolol8": "print a t-shirt",
     "presLaolol9": ", useful to communicate about our project and to arouse everyone's curiosity on",
+    "presLaolol10": "You will be able to follow every new step on ",
     "presPeopleTitle": "About us...",
     "presLoic1" : "is a web application developer, expert in JavaScript, working between France, Belgium and Laos",
     "presLoic2": "Passionate about computer science, and student in Lao language, he is in charge of developing the computerized part of",

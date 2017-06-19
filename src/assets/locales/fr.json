@@ -1,7 +1,8 @@
 {
   "words": {
     "learn": "Apprendre",
-    "or": "ou"
+    "or": "ou",
+    "and": "et"
   },
   "layout": {
     "blackboard": "Salle de cours",
@@ -68,7 +69,8 @@
     "presLaolol6": "nous pourrons faire un grand pas dans l’ajout de nouveaux mots, d’images, de sons, et nous offrirons des petites rémunérations à tous les futurs contributeurs du site à Vientiane.",
     "presLaolol7": "Enfin, nous pourrons",
     "presLaolol8": "imprimer un t-shirt",
-    "presLaolol9": "en coton du Laos qui servira de support de communication pour notre application. Tous ceux qui le verront seront curieux de savoir comment apprendre des langues sur",
+    "presLaolol9": " en coton du Laos qui servira de support de communication pour notre application. Tous ceux qui le verront seront curieux de savoir comment apprendre des langues sur",
+    "presLaolol10": "Vous pourrez suivre toutes nos avancées sur ",
     "presPeopleTitle": "Qui sommes-nous ?",
     "presLoic1" : "est un développeur d’applications web, expert en JavaScript, travaillant entre la France, la Belgique et le Laos",
     "presLoic2": "Passionné d’informatique et étudiant en langue lao, il se charge de développer la partie informatisée de",

@@ -146,7 +146,7 @@ export class ThemeService {
       'kk': {}
     },
     'fr': {
-      'wrd': 'La métiers',
+      'wrd': 'Les métiers',
       'short': 'Métiers',
       'kk': {}
     },
@@ -188,7 +188,7 @@ export class ThemeService {
   data = {
     learningThemeIdx: 3,
     learningTheme: null,
-    isKaraoke: false,
+    isKaraoke: true,
     isReversed: false,
     isCurrentLoading: false
   };
@@ -196,10 +196,10 @@ export class ThemeService {
     private storage: StorageService,
     private apiService: ApiService) {
     const currentThemeIdx = this.storage.getItem('currentLearningThemeIdx');
-    const isKaraokeActivated = !!this.storage.getItem('isKaraokeActivated');
+    const isKaraokeActivated = this.storage.getItem('isKaraokeActivated');
     this.data.learningThemeIdx = !isNaN(currentThemeIdx) ? currentThemeIdx : 3;
     this.data.learningTheme = this.AVAILABLE_THEMES[this.data.learningThemeIdx];
-    this.data.isKaraoke = isKaraokeActivated;
+    this.data.isKaraoke = typeof isKaraokeActivated !== 'undefined' ? isKaraokeActivated : true;
   }
 
   toggleKaraoke () {
