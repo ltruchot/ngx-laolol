@@ -3,207 +3,207 @@
   "en": { "wrd": "a" },
   "fr":{ "wrd": "a" },
   "lo": { "wrd": "xະ" },
-  "themes": ["vowels, lvl1"],
+  "themes": ["vowels", "lvl1"],
   "meta": { "conflict": ["a2"] }
 }, {
   "uid": "a2",
   "en": { "wrd": "a:" },
   "fr":{ "wrd": "a:" },
   "lo": { "wrd": "xາ" },
-  "themes": ["vowels, lvl1"],
+  "themes": ["vowels", "lvl1"],
   "meta": { "conflict": ["a1"] }
 }, {
   "uid": "i1",
   "en": { "wrd": "i" },
   "fr":{ "wrd": "i" },
   "lo": { "wrd": "xິ" },
-  "themes": ["vowels, lvl1"],
+  "themes": ["vowels", "lvl1"],
   "meta": { "conflict": ["i2"] }
 }, {
   "uid": "i2",
   "en": { "wrd": "i:" },
   "fr":{ "wrd": "i:" },
   "lo": { "wrd": "xີ" },
-  "themes": ["vowels, lvl1"],
+  "themes": ["vowels", "lvl1"],
   "meta": { "conflict": ["i1"] }
 }, {
   "uid": "ue1",
   "en": { "wrd": "ue" },
   "fr":{ "wrd": "ü" },
   "lo": { "wrd": "xຶ" },
-  "themes": ["vowels, lvl1"],
+  "themes": ["vowels", "lvl1"],
   "meta": { "conflict": ["u2"] }
 }, {
   "uid": "ue2",
   "en": { "wrd": "ue:" },
   "fr":{ "wrd": "ü:" },
   "lo": { "wrd": "xື" },
-  "themes": ["vowels, lvl1"],
+  "themes": ["vowels", "lvl1"],
   "meta": { "conflict": ["u1"] }
 }, {
   "uid": "oo1",
   "en": { "wrd": "oo" },
   "fr":{ "wrd": "ou" },
   "lo": { "wrd": "xຸ" },
-  "themes": ["vowels, lvl1"],
+  "themes": ["vowels", "lvl1"],
   "meta": { "conflict": ["oo2"] }
 }, {
   "uid": "oo2",
   "en": { "wrd": "oo:" },
   "fr":{ "wrd": "ou:" },
   "lo": { "wrd": "xູ" },
-  "themes": ["vowels, lvl1"],
+  "themes": ["vowels", "lvl1"],
   "meta": { "conflict": ["oo1"] }
-}, {
-  "uid": "e1",
-  "en": { "wrd": "e" },
-  "fr":{ "wrd": "é" },
-  "lo": { "wrd": "ເxະ" },
-  "themes": ["vowels, lvl1"],
-  "meta": { "conflict": ["e2"] }
-}, {
-  "uid": "e2",
-  "en": { "wrd": "e:" },
-  "fr":{ "wrd": "é:" },
-  "lo": { "wrd": "ເx" },
-  "themes": ["vowels, lvl1"],
-  "meta": { "conflict": ["e1"] }
-}, {
-  "uid": "ae1",
-  "en": { "wrd": "ae" },
-  "fr":{ "wrd": "è" },
-  "lo": { "wrd": "ແxະ" },
-  "themes": ["vowels, lvl1"],
-  "meta": { "conflict": ["ae2"] }
-}, {
-  "uid": "ae2",
-  "en": { "wrd": "ae:" },
-  "fr":{ "wrd": "è:" },
-  "lo": { "wrd": "ແx" },
-  "themes": ["vowels, lvl1"],
-  "meta": { "conflict": ["ae1"] }
 }, {
   "uid": "o",
   "en": { "wrd": "o" },
   "fr":{ "wrd": "ô" },
   "lo": { "wrd": "ໂxະ" },
-  "themes": ["vowels, lvl1"],
+  "themes": ["vowels", "lvl1"],
   "meta": { "conflict": ["o2"] }
 }, {
   "uid": "o2",
   "en": { "wrd": "o:" },
   "fr":{ "wrd": "ô:" },
   "lo": { "wrd": "ໂx" },
-  "themes": ["vowels, lvl1"],
+  "themes": ["vowels", "lvl1"],
   "meta": { "conflict": ["o1"] }
+}, {
+  "uid": "e1",
+  "en": { "wrd": "e" },
+  "fr":{ "wrd": "é" },
+  "lo": { "wrd": "ເxະ" },
+  "themes": ["vowels", "lvl2"],
+  "meta": { "conflict": ["e2"] }
+}, {
+  "uid": "e2",
+  "en": { "wrd": "e:" },
+  "fr":{ "wrd": "é:" },
+  "lo": { "wrd": "ເx" },
+  "themes": ["vowels", "lvl2"],
+  "meta": { "conflict": ["e1"] }
+}, {
+  "uid": "ae1",
+  "en": { "wrd": "ae" },
+  "fr":{ "wrd": "è" },
+  "lo": { "wrd": "ແxະ" },
+  "themes": ["vowels", "lvl2"],
+  "meta": { "conflict": ["ae2"] }
+}, {
+  "uid": "ae2",
+  "en": { "wrd": "ae:" },
+  "fr":{ "wrd": "è:" },
+  "lo": { "wrd": "ແx" },
+  "themes": ["vowels", "lvl2"],
+  "meta": { "conflict": ["ae1"] }
 }, {
   "uid": "ɔ1",
   "en": { "wrd": "ɔ" },
   "fr":{ "wrd": "ɔ" },
   "lo": { "wrd": "ເxາະ" },
-  "themes": ["vowels, lvl1"],
+  "themes": ["vowels", "lvl2"],
   "meta": { "conflict": ["ɔ2"] }
 }, {
   "uid": "ɔ2",
   "en": { "wrd": "ɔ:" },
   "fr":{ "wrd": "ɔ:" },
   "lo": { "wrd": "xໍ" },
-  "themes": ["vowels, lvl1"],
+  "themes": ["vowels", "lvl2"],
   "meta": { "conflict": ["ɔ1"] }
 }, {
   "uid": "oe1",
   "en": { "wrd": "oe" },
   "fr":{ "wrd": "eu" },
   "lo": { "wrd": "ເxິ" },
-  "themes": ["vowels, lvl1"],
+  "themes": ["vowels", "lvl2"],
   "meta": { "conflict": ["oe2"] }
 }, {
   "uid": "oe2",
   "en": { "wrd": "oe:" },
   "fr":{ "wrd": "eu:" },
   "lo": { "wrd": "ເxີ" },
-  "themes": ["vowels, lvl1"],
+  "themes": ["vowels", "lvl2"],
   "meta": { "conflict": ["oe1"] }
 }, {
   "uid": "ia1",
   "en": { "wrd": "ia", "meta": { "comment": "ancient regime version" } },
   "fr":{ "wrd": "iya", "meta": { "comment": "version de l'ancien régime" } },
   "lo": { "wrd": "ເxັຽ", "meta": { "comment": "ໄຊ້ກ່ອນການປຽ່ນແປງການປົກຄອງ" } },
-  "themes": ["vowels, lvl2"],
+  "themes": ["vowels", "lvl3"],
   "meta": { "conflict": ["ia2", "ia3", "ia4"] }
 }, {
   "uid": "ia2",
   "en": { "wrd": "i:a", "meta": { "comment": "ancient regime version" } },
   "fr":{ "wrd": "i:ya", "meta": { "comment": "version de l'ancien régime" } },
   "lo": { "wrd": "ເxຽ", "meta": { "comment": "ໄຊ້ກ່ອນການປຽ່ນແປງການປົກຄອງ" } },
-  "themes": ["vowels, lvl2"],
+  "themes": ["vowels", "lvl3"],
   "meta": { "conflict": ["ia1", "ia3", "ia4"] }
 }, {
   "uid": "ia3",
   "en": { "wrd": "ia", "meta": { "comment": "new regime version" } },
   "fr":{ "wrd": "iya", "meta": { "comment": "version du nouveau régime" } },
   "lo": { "wrd": "ເxັຍ", "meta": { "comment": "ໄຊ້ຫລັງການປຽ່ນແປງການປົກຄອງ" } },
-  "themes": ["vowels, lvl2"],
+  "themes": ["vowels", "lvl3"],
   "meta": { "conflict": ["ia1", "ia2", "ia4"] }
 }, {
   "uid": "ia4",
   "en": { "wrd": "i:a", "meta": { "comment": "new regime version" } },
   "fr":{ "wrd": "i:ya", "meta": { "comment": "version du nouveau régime" } },
   "lo": { "wrd": "ເxຍ", "meta": { "comment": "ໄຊ້ຫລັງການປຽ່ນແປງການປົກຄອງ" } },
-  "themes": ["vowels, lvl2"],
+  "themes": ["vowels", "lvl3"],
   "meta": { "conflict": ["ia1", "ia2", "ia3"] }
 }, {
   "uid": "ooa1",
   "en": { "wrd": "ooa" },
   "fr":{ "wrd": "oua" },
   "lo": { "wrd": "xົວະ" },
-  "themes": ["vowels, lvl2"],
+  "themes": ["vowels", "lvl3"],
   "meta": { "conflict": ["ooa2"] }
 }, {
   "uid": "ooa2",
   "en": { "wrd": "ooa:" },
   "fr":{ "wrd": "oua:" },
   "lo": { "wrd": "xົວ" },
-  "themes": ["vowels, lvl2"],
+  "themes": ["vowels", "lvl3"],
   "meta": { "conflict": ["ooa1"] }
 }, {
   "uid": "ua1",
   "en": { "wrd": "ua" },
   "fr":{ "wrd": "üa" },
   "lo": { "wrd": "ເxຶອ" },
-  "themes": ["vowels, lvl2"],
+  "themes": ["vowels", "lvl3"],
   "meta": { "conflict": ["ua2"] }
 }, {
   "uid": "ua2",
   "en": { "wrd": "ua:" },
   "fr":{ "wrd": "üa:" },
   "lo": { "wrd": "ເxືອ" },
-  "themes": ["vowels, lvl2"],
+  "themes": ["vowels", "lvl3"],
   "meta": { "conflict": ["ua1"] }
 }, {
   "uid": "ai1",
   "en": { "wrd": "ai" },
   "fr":{ "wrd": "ay" },
   "lo": { "wrd": "ໄx" },
-  "themes": ["vowels, lvl2"],
+  "themes": ["vowels", "lvl3"],
   "meta": { "conflict": ["ai1"] }
 }, {
   "uid": "ai2",
   "en": { "wrd": "ai" },
   "fr":{ "wrd": "ay" },
   "lo": { "wrd": "ໃx" },
-  "themes": ["vowels, lvl2"],
+  "themes": ["vowels", "lvl3"],
   "meta": { "conflict": ["ai1"] }
 }, {
   "uid": "ao1",
   "en": { "wrd": "ao" },
   "fr":{ "wrd": "ao" },
   "lo": { "wrd": "ເxົາ" },
-  "themes": ["vowels, lvl2"]
+  "themes": ["vowels", "lvl3"]
 }, {
   "uid": "am1",
   "en": { "wrd": "am" },
   "fr":{ "wrd": "am" },
   "lo": { "wrd": "xໍຳ" },
-  "themes": ["vowels, lvl2"]
+  "themes": ["vowels", "lvl3"]
 }]

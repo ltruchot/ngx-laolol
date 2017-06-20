@@ -57,6 +57,7 @@
     "language": "Language",
     "topic": "Topic",
     "level": "Level",
+    "all": "All",
     "karaoke": "karaoke",
     "reverse": "reverse"
   },

@@ -1,12 +1,10 @@
 [{
   "uid": "k1",
   "en": {
-    "wrd": "k",
-    "kk": { "lo": "ແກຍ" }
+    "wrd": "k"
   },
   "fr":{
-    "wrd": "k",
-    "kk": { "lo": "ກາ" }
+    "wrd": "k"
   },
   "lo": {
     "wrd": "ກ",
@@ -19,14 +17,12 @@
   "uid": "kh1",
   "en": {
     "wrd": "kh",
-    "kk": {},
     "meta": {
       "comment": "high consonant"
     }
   },
   "fr":{
     "wrd": "kh",
-    "kk": {},
     "meta": {
       "comment": "consonne haute"
     }
@@ -43,14 +39,12 @@
   "uid": "kh2",
   "en": {
     "wrd": "kh",
-    "kk": {},
     "meta": {
       "comment": "low consonant"
     }
   },
   "fr":{
     "wrd": "kh",
-    "kk": {},
     "meta": {
       "comment": "consonne basse"
     }
@@ -68,12 +62,10 @@
 }, {
   "uid": "ng1",
   "en": {
-    "wrd": "ng",
-    "kk": {}
+    "wrd": "ng"
   },
   "fr":{
-    "wrd": "ng",
-    "kk": {}
+    "wrd": "ng"
   },
   "lo": {
     "wrd": "ງ",
@@ -85,12 +77,10 @@
 }, {
   "uid": "ch1",
   "en": {
-    "wrd": "tj",
-    "kk": {}
+    "wrd": "tj"
   },
   "fr":{
-    "wrd": "tj",
-    "kk": {}
+    "wrd": "tj"
   },
   "lo": {
     "wrd": "ຈ",
@@ -101,14 +91,12 @@
   "uid": "s1",
   "en": {
     "wrd": "s",
-    "kk": {},
     "meta": {
       "comment": "high consonant"
     }
   },
   "fr":{
     "wrd": "s",
-    "kk": {},
     "meta": {
       "comment": "consonne haute"
     }
@@ -127,14 +115,12 @@
   "uid": "s2",
   "en": {
     "wrd": "s",
-    "kk": {},
     "meta": {
       "comment": "low consonant"
     }
   },
   "fr":{
     "wrd": "s",
-    "kk": {},
     "meta": {
       "comment": "consonne basse"
     }
@@ -152,12 +138,10 @@
 }, {
   "uid": "ny1",
   "en": {
-    "wrd": "ny",
-    "kk": {}
+    "wrd": "ny"
   },
   "fr":{
-    "wrd": "ny",
-    "kk": {}
+    "wrd": "ny"
   },
   "lo": {
     "wrd": "ຍ",
@@ -167,12 +151,10 @@
 }, {
   "uid": "d1",
   "en": {
-    "wrd": "d",
-    "kk": {}
+    "wrd": "d"
   },
   "fr":{
-    "wrd": "d",
-    "kk": {}
+    "wrd": "d"
   },
   "lo": {
     "wrd": "ດ",
@@ -182,12 +164,10 @@
 }, {
   "uid": "t1",
   "en": {
-    "wrd": "t",
-    "kk": {}
+    "wrd": "t"
   },
   "fr":{
-    "wrd": "t",
-    "kk": {}
+    "wrd": "t"
   },
   "lo": {
     "wrd": "ຕ",
@@ -198,14 +178,12 @@
   "uid": "th1",
   "en": {
     "wrd": "th",
-    "kk": {},
     "meta": {
       "comment": "high consonnant"
     }
   },
   "fr":{
     "wrd": "th",
-    "kk": {},
     "meta": {
       "comment": "consonne haute"
     }
@@ -222,14 +200,12 @@
   "uid": "th2",
   "en": {
     "wrd": "th",
-    "kk": {},
     "meta": {
       "comment": "low consonant"
     }
   },
   "fr":{
     "wrd": "th",
-    "kk": {},
     "meta": {
       "comment": "consonne basse"
     }
@@ -245,12 +221,10 @@
 }, {
   "uid": "n1",
   "en": {
-    "wrd": "n",
-    "kk": {}
+    "wrd": "n"
   },
   "fr":{
-    "wrd": "n",
-    "kk": {}
+    "wrd": "n"
   },
   "lo": {
     "wrd": "ນ",
@@ -262,12 +236,10 @@
 }, {
   "uid": "b1",
   "en": {
-    "wrd": "b",
-    "kk": {}
+    "wrd": "b"
   },
   "fr":{
-    "wrd": "b",
-    "kk": {}
+    "wrd": "b"
   },
   "lo": {
     "wrd": "ບ",
@@ -279,12 +251,10 @@
 }, {
   "uid": "p1",
   "en": {
-    "wrd": "p",
-    "kk": {}
+    "wrd": "p"
   },
   "fr":{
-    "wrd": "p",
-    "kk": {}
+    "wrd": "p"
   },
   "lo": {
     "wrd": "ປ",
@@ -297,14 +267,12 @@
   "uid": "ph1",
   "en": {
     "wrd": "ph",
-    "kk": {},
     "meta": {
       "comment": "high consonant"
     }
   },
   "fr":{
     "wrd": "ph",
-    "kk": {},
     "meta": {
       "comment": "consonne haute"
     }
@@ -321,14 +289,12 @@
   "uid": "f1",
   "en": {
     "wrd": "f",
-    "kk": {},
     "meta": {
       "comment": "high consonant"
     }
   },
   "fr":{
     "wrd": "f",
-    "kk": {},
     "meta": {
       "comment": "consonne haute"
     }
@@ -345,14 +311,12 @@
   "uid": "ph2",
   "en": {
     "wrd": "ph",
-    "kk": {},
     "meta": {
       "comment": "low consonant"
     }
   },
   "fr":{
     "wrd": "ph",
-    "kk": {},
     "meta": {
       "comment": "consonne basse"
     }
@@ -369,14 +333,12 @@
   "uid": "f2",
   "en": {
     "wrd": "f",
-    "kk": {},
     "meta": {
       "comment": "low consonant"
     }
   },
   "fr":{
     "wrd": "f",
-    "kk": {},
     "meta": {
       "comment": "consonne basse"
     }
@@ -392,12 +354,10 @@
 }, {
   "uid": "m1",
   "en": {
-    "wrd": "m",
-    "kk": {}
+    "wrd": "m"
   },
   "fr":{
-    "wrd": "m",
-    "kk": {}
+    "wrd": "m"
   },
   "lo": {
     "wrd": "ມ",
@@ -409,12 +369,10 @@
 }, {
   "uid": "y1",
   "en": {
-    "wrd": "y",
-    "kk": {}
+    "wrd": "y"
   },
   "fr":{
-    "wrd": "y",
-    "kk": {}
+    "wrd": "y"
   },
   "lo": {
     "wrd": "ຢ",
@@ -424,12 +382,10 @@
 }, {
   "uid": "l1",
   "en": {
-    "wrd": "l",
-    "kk": {}
+    "wrd": "l"
   },
   "fr":{
-    "wrd": "r",
-    "kk": {}
+    "wrd": "r"
   },
   "lo": {
     "wrd": "ຣ",
@@ -442,12 +398,10 @@
 }, {
   "uid": "l2",
   "en": {
-    "wrd": "l",
-    "kk": {}
+    "wrd": "l"
   },
   "fr":{
-    "wrd": "l",
-    "kk": {}
+    "wrd": "l"
   },
   "lo": {
     "wrd": "ລ",
@@ -462,12 +416,10 @@
 }, {
   "uid": "v1",
   "en": {
-    "wrd": "v",
-    "kk": {}
+    "wrd": "v"
   },
   "fr":{
-    "wrd": "v",
-    "kk": {}
+    "wrd": "v"
   },
   "lo": {
     "wrd": "ວ",
@@ -478,14 +430,12 @@
   "uid": "h1",
   "en": {
     "wrd": "h",
-    "kk": {},
     "meta": {
       "comment": "high consonant"
     }
   },
   "fr":{
     "wrd": "h",
-    "kk": {},
     "meta": {
       "comment": "consonne haute"
     }
@@ -502,14 +452,12 @@
   "uid": "cv1",
   "en": {
     "wrd": "-",
-    "kk": {},
     "meta": {
       "comment": "consonant-vowel"
     }
   },
   "fr":{
     "wrd": "-",
-    "kk": {},
     "meta": {
       "comment": "consonne-voyelle"
     }
@@ -523,14 +471,12 @@
   "uid": "h2",
   "en": {
     "wrd": "h",
-    "kk": {},
     "meta": {
       "comment": "low consonant"
     }
   },
   "fr":{
     "wrd": "h",
-    "kk": {},
     "meta": {
       "comment": "consonne basse"
     }

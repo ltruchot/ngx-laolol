@@ -1,8 +1,9 @@
 {
   "words": {
     "learn": "ຮຽນ",
-    "ou": "ຫຼື",
-    "and": "ແລະ"
+    "or": "ຫຼື",
+    "and": "ແລະ",
+    "all": "all"
   },
   "layout": {
     "blackboard": "ຫ້ອງຮຽນ",
@@ -57,6 +58,7 @@
     "language": "ພາສາ",
     "topic": "ຫົວຂໍ້",
     "level": "Level",
+    "all": "All",
     "karaoke": "ຄາລາໂອເກະ",
     "reverse": "ຈັບຄູ່"
   },

@@ -49,8 +49,9 @@ export class SubmenuComponent implements OnInit {
     }
   }
   changeLearningLevel (lvl: number) {
-    console.log('submenu.component::changeLearningThemeLvl');
-    this.cpntData.theme.currentLevel = lvl;
+    // console.log('submenu.component::changeLearningThemeLvl');
+    this.cpntData.theme.learningLevel = lvl;
+    this.themeService.getCurrentTheme();
   }
   toggleKaraoke () {
     this.themeService.toggleKaraoke();

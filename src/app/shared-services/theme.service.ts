@@ -23,6 +23,7 @@ export class ThemeService {
     'noArticle': true,
     'hasImages': true,
     'hasSpecialExample': true,
+    'hasCapital': true,
     'en': {
       'wrd': 'Consonants',
       'kk': {}
@@ -41,6 +42,8 @@ export class ThemeService {
     'noKaraoke': true,
     'noPlural': true,
     'noArticle': true,
+    'hasCapital': true,
+    'levels': 3,
     'en': {
       'wrd': 'Vowels',
       'kk': {}
@@ -59,6 +62,7 @@ export class ThemeService {
     'noKaraoke': true,
     'noPlural': true,
     'noArticle': true,
+    'hasCapital': true,
     'levels': 2,
     'en': {
       'wrd': 'Syllables',
@@ -193,7 +197,8 @@ export class ThemeService {
     isReversed: false,
     isCurrentLoading: false,
     learningLevel: 0,
-    levels: []
+    levels: [],
+    items: {}
   };
   constructor (private http: Http,
     private storage: StorageService,
@@ -206,32 +211,50 @@ export class ThemeService {
     this.checkLevels();
   }
   checkLevels () {
-    console.log('submenu.component::checkLevels', this.data.learningTheme);
+    // console.log('submenu.component::checkLevels', this.data.learningTheme);
     this.data.learningLevel = 0;
     const levels = this.data.learningTheme.levels;
-    this.data.levels = levels ? Array.from(Array(levels).keys()) : [];
+    this.data.levels = levels ? Array.from(Array(levels + 1).keys()) : [];
   }
 
   toggleKaraoke () {
     this.data.isKaraoke = !this.data.isKaraoke;
     this.storage.setItem('isKaraokeActivated', this.data.isKaraoke);
   }
+
+  getCurrentLevel () {
+    // console.log('theme.services::getCurrentLevel');
+    let items: Array<IThemeItem>;
+    if (this.data.learningLevel) {
+      items = this.data.items[this.data.learningTheme.uid].filter(item => item.themes.indexOf('lvl' + this.data.learningLevel) !== -1);
+    } else {
+      items = this.data.items[this.data.learningTheme.uid];
+    }
+    return items;
+  }
+
   getCurrentTheme () {
     this.data.isCurrentLoading = true;
-    return this.apiService
-      .getData(`assets/themes/${this.data.learningTheme.uid}.json`)
-      .map((res: Response): any => {
-        return res.json();
-      })
-      .subscribe((parsedRes: Array<IThemeItem>) => {
-        if (parsedRes && parsedRes.length && parsedRes.length >= 4) {
-          this.currenThemeSource.next(parsedRes);
-        } else {
-          throw new Error(`/themes/${this.data.learningTheme.uid}.json wasn't parsed correctly.
-            Check if fils exists ans is correctly formed and with at least 7 items`);
-        }
-        this.data.isCurrentLoading = false;
-    });
+    if (this.data.items[this.data.learningTheme.uid]) {
+      this.currenThemeSource.next(this.getCurrentLevel());
+      this.data.isCurrentLoading = false;
+    } else {
+      this.apiService
+        .getData(`assets/themes/${this.data.learningTheme.uid}.json`)
+        .map((res: Response): any => {
+          return res.json();
+        })
+        .subscribe((parsedRes: Array<IThemeItem>) => {
+          if (parsedRes && parsedRes.length && parsedRes.length >= 4) {
+            this.data.items[this.data.learningTheme.uid] = parsedRes;
+            this.currenThemeSource.next(this.getCurrentLevel());
+          } else {
+            throw new Error(`/themes/${this.data.learningTheme.uid}.json wasn't parsed correctly.
+              Check if fils exists ans is correctly formed and with at least 7 items`);
+          }
+          this.data.isCurrentLoading = false;
+      });
+    }
   }
 
   changeLearningTheme (idx: number) {

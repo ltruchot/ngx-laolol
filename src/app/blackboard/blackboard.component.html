@@ -40,6 +40,7 @@
 				</ng-template>
 				<ng-template [ngIf]="cpntData.theme.isKaraoke && cpntData.lang?.learningLang &&
 					!cpntData.theme.learningTheme.noKaraoke &&
+					item[cpntData.lang.learningLang].kk &&
 					item[cpntData.lang.learningLang].kk[cpntData.lang.currentLang]">
 					<br />
 					<em class="text-small text-primary">{{ item[cpntData.lang.learningLang].kk[cpntData.lang.currentLang] }}</em>
@@ -72,6 +73,9 @@
 				</h5>
 				<h5 *ngIf="item[cpntData.lang.currentLang].meta && item[cpntData.lang.currentLang].meta.comment">
 					<em>{{ item[cpntData.lang.currentLang].meta.comment }}</em>
+				</h5>
+				<h5 *ngIf="cpntData.lang?.currentLang === 'lo' && cpntData.theme.learningTheme.hasCapital">
+					<span class="text-uppercase">{{ item[cpntData.lang.learningLang].wrd }}</span>
 				</h5>
 			</div>
 		</div>

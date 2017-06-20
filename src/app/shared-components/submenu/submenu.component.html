@@ -31,10 +31,12 @@
 		</button>
 		<ul class="dropdown-menu">
 			<ng-container *ngFor="let level of cpntData.theme.levels; let i = index;">
-				<li [ngClass]="{'active': i  === cpntData.theme.currentLevel}">
-					<a (click)="changeLearningLevel(i)">{{ 'submenu.level' | translate }} {{ i }}</a>
+				<li [ngClass]="{'active': i  === cpntData.theme.learningLevel}">
+					<a (click)="changeLearningLevel(i)">
+						<span *ngIf="i === 0; else realLvl">{{ 'submenu.all' | translate }}</span>
+						<ng-template #realLvl>{{ 'submenu.level' | translate }} {{ i }}</ng-template>
+					</a>
 				</li>
-				<li *ngIf="i === 2" role="separator" class="divider"></li>
 			</ng-container>
 		</ul>
 	</div>
