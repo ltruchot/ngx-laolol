@@ -56,6 +56,7 @@
   "submenu": {
     "language": "Langue",
     "topic": "Thème",
+    "level": "Niveau",
     "karaoke": "karaoke",
     "reverse": "inverser"
   },

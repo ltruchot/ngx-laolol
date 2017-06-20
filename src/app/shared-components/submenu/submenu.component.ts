@@ -2,6 +2,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
+// npm dependencies
+// import { Subscription } from 'rxjs/Subscription';
+
 // custom services
 import { ThemeService } from './../../shared-services/theme.service';
 import { LanguageService } from './../../shared-services/language.service';
@@ -11,16 +14,21 @@ import { LanguageService } from './../../shared-services/language.service';
   templateUrl: './submenu.component.html'
 })
 export class SubmenuComponent implements OnInit {
+  // themeSubscription: Subscription;
   cpntData = {
     lang: null,
     availableLang: null,
     theme: null,
     availableTheme: null,
-    currentUrl: ''
+    currentUrl: '',
+    levels: []
   };
   constructor (private themeService: ThemeService,
     private languageService: LanguageService,
-    public router: Router) {}
+    public router: Router) {
+    // this.themeSubscription = this.themeService.currentTheme$.subscribe(data => {
+    // });
+  }
 
   ngOnInit () {
     this.cpntData.currentUrl = this.router.url.split('/')[1];
@@ -40,7 +48,10 @@ export class SubmenuComponent implements OnInit {
       this.router.navigate([this.cpntData.currentUrl + '/' + uid]);
     }
   }
-
+  changeLearningLevel (lvl: number) {
+    console.log('submenu.component::changeLearningThemeLvl');
+    this.cpntData.theme.currentLevel = lvl;
+  }
   toggleKaraoke () {
     this.themeService.toggleKaraoke();
   }

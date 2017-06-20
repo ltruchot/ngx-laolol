@@ -40,7 +40,7 @@
 				item[cpntData.lang.currentLang].meta?.tone">
 					({{ item[cpntData.lang.currentLang].meta?.tone }})
 				</em>
-				<ng-template [ngIf]="cpntData.theme.isKaraoke && !cpntData.theme.learningTheme.noKaraoke && !cpntData.theme.isReversed">
+				<ng-template [ngIf]="cpntData.theme.isKaraoke && !cpntData.theme.learningTheme.noKaraoke && item[cpntData.lang.learningLang].kk && !cpntData.theme.isReversed">
 					<br />
 					<em class="text-primary">{{ item[cpntData.lang.learningLang].kk[cpntData.lang.currentLang] }}</em>
 				</ng-template>

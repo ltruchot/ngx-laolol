@@ -59,6 +59,7 @@ export class ThemeService {
     'noKaraoke': true,
     'noPlural': true,
     'noArticle': true,
+    'levels': 2,
     'en': {
       'wrd': 'Syllables',
       'kk': {}
@@ -190,7 +191,9 @@ export class ThemeService {
     learningTheme: null,
     isKaraoke: true,
     isReversed: false,
-    isCurrentLoading: false
+    isCurrentLoading: false,
+    learningLevel: 0,
+    levels: []
   };
   constructor (private http: Http,
     private storage: StorageService,
@@ -200,6 +203,13 @@ export class ThemeService {
     this.data.learningThemeIdx = !isNaN(currentThemeIdx) ? currentThemeIdx : 3;
     this.data.learningTheme = this.AVAILABLE_THEMES[this.data.learningThemeIdx];
     this.data.isKaraoke = typeof isKaraokeActivated !== 'undefined' ? isKaraokeActivated : true;
+    this.checkLevels();
+  }
+  checkLevels () {
+    console.log('submenu.component::checkLevels', this.data.learningTheme);
+    this.data.learningLevel = 0;
+    const levels = this.data.learningTheme.levels;
+    this.data.levels = levels ? Array.from(Array(levels).keys()) : [];
   }
 
   toggleKaraoke () {
@@ -228,6 +238,7 @@ export class ThemeService {
     if ((!isNaN(idx)) && (idx !== this.data.learningThemeIdx)) {
       this.data.learningThemeIdx = idx;
       this.data.learningTheme = this.AVAILABLE_THEMES[idx];
+      this.checkLevels();
       this.storage.setItem('currentLearningThemeIdx', idx);
       this.getCurrentTheme();
     }

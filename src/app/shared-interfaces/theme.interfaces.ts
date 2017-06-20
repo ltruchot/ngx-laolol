@@ -10,7 +10,7 @@ export interface IThemeItem {
 
 export interface ILangItem {
   wrd: string;
-  kk: ILangKaraokeItem;
+  kk?: ILangKaraokeItem;
   ex?: string;
   sound?: string;
   meta?: any;
