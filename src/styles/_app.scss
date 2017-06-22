@@ -42,7 +42,7 @@
       display: block;
     }
   }
-  .lang-ddl-container {
+  .lang-block-container {
     padding:2px 0;
     float: left;
     margin-left: 20px;
@@ -51,8 +51,25 @@
       margin-left:0;
       float: none;
       width:100%;
-      .lang-ddl-content {
+      .lang-block-content {
         float: right;
+      }
+    }
+    .list-inline {
+      margin-bottom: 0;
+      .list-inline-item {
+        padding: 0 !important;
+      }
+    }
+    .avaiblable-lang {
+        padding: 0 5px 1px;
+        box-sizing: border-box;
+      &.chosen-lang {
+        background-color: #f5deb3;
+        border-radius: 5px;
+        .flag {
+          display: block;
+        }
       }
     }
   }

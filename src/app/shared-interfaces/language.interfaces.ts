@@ -3,5 +3,5 @@ export interface Language {
   flag: string;
   learnCode: string;
   label: string;
-  trad: string;
+  tradLabel: string;
 };

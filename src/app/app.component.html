@@ -38,11 +38,23 @@
         </h1>
       </div>
       <div class="col-7">
-        <div class="avaiblable-lang-list float-right">
-
+        <div class="avaiblable-lang-list">
+          <div class="lang-block-container">
+            <div class="lang-block-content clearfix">
+              <ul class="list-inline float-right">
+                <li class="list-inline-item" *ngFor="let lang of cpntData.availableLanguages; let i = index;">
+                  <div class="avaiblable-lang" [ngClass]="{ 'chosen-lang': cpntData.lang.currentLang === lang.code }">
+                    <a (click)="changeCurrentLanguage(lang.code)" class="flag flag-{{lang.flag}}" title="{{ lang.label }}">
+                      <span class="sr-only">{{ lang.label }}</span>
+                    </a>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
           <!-- begin "i speak" ddl -->
-          <div class="lang-ddl-container">
-            <div class="lang-ddl-content">
+<!--           <div class="lang-block-container">
+            <div class="lang-block-content">
               <span class="text-small">{{ 'layout.iSpeak' | translate }}</span>
               <div class="btn-group">
                 <button class="btn btn-secondary button-flag"
@@ -63,26 +75,22 @@
                 </div>
               </div>
             </div>
-          </div>
+          </div> -->
           <!-- end "i speak" ddl -->
           <!-- begin "i learn" ddl -->
-          <div class="lang-ddl-container">
-            <div class="lang-ddl-content">
-              <span class="text-small">{{ 'layout.iLearn' | translate }}</span>
+          <div class="lang-block-container">
+            <div class="lang-block-content">
+              <span>{{ 'layout.iLearn' | translate }}</span>
               <div class="btn-group">
-                <button class="btn btn-secondary button-flag"
+                <button class="btn btn-secondary button-flag dropdown-toggle"
                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                   <span class="flag flag-{{ cpntData.lang.learningLangInfos?.flag }}"></span>
-                </button>
-                <button class="btn btn-secondary dropdown-toggle dropdown-toggle-split"
-                  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                   {{ cpntData.lang.learningLangInfos?.tradLabel | translate }}
                 </button>
                 <div class="dropdown-menu">
                   <ng-container *ngFor="let lang of cpntData.availableLanguages">
                     <a *ngIf="lang.code !== cpntData.lang.currentLang && lang.code !== cpntData.lang.learningLang"
-                      class="dropdown-item" title="{{ lang.label }}" (click)="changeLearningLanguage(lang.code)">
-                      <span class="flag flag-{{lang.flag}}"></span>
-                      <span class="sr-only">{{ lang.label }}</span>
+                      class="dropdown-item" (click)="changeLearningLanguage(lang.code)">
+                       {{ lang.tradLabel | translate }}
                     </a>
                   </ng-container>
                 </div>
