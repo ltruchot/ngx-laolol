@@ -23,15 +23,16 @@ export class LanguageService {
     currentLang: 'en',
     learningLang: 'lo',
     isCurrentLoading: true,
-    isLearningLoading: true
+    isLearningLoading: true,
+    currentLangInfos: null,
+    learningLangInfos: null
   };
   constructor(private storage: StorageService, private translate: TranslateService) {}
   initializeLanguages () {
     // prepare loading infos
     this.translate.onLangChange.subscribe((event: LangChangeEvent) => {
-      const langInfos: Language = this.getLangInfos(event.lang);
       if (this.data.learningLang === event.lang) {
-        this.chooseLearningLang(langInfos.learnCode);
+        this.chooseLearningLang(this.getLangInfos(event.lang).learnCode);
       }
       this.data.isCurrentLoading = false;
     });
@@ -53,6 +54,7 @@ export class LanguageService {
     code = (code || this.DEFAULT_LANG);
     this.translate.use(code);
     this.data.currentLang = code;
+    this.data.currentLangInfos = this.getLangInfos(code);
     this.storage.setItem('currentLanguage', code);
   }
 
@@ -60,6 +62,7 @@ export class LanguageService {
     this.data.isLearningLoading = true;
     code = (code || this.DEFAULT_LEARNING_LANG);
     this.data.learningLang = code;
+    this.data.learningLangInfos = this.getLangInfos(code);
     this.storage.setItem('learningLanguage', code);
     this.data.isLearningLoading = false;
   }

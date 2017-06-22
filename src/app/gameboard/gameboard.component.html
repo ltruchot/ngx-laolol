@@ -1,11 +1,11 @@
 <div [hidden]= "cpntData.lang?.isCurrentLoading || !(cpntData.lang?.isLearningLoading)" class="loading"></div>
 <div class="row">
-	<div class="col-xs-12">
+	<div class="col">
 			<app-submenu></app-submenu>
 	</div>
 </div>
 <div class="row">
-	<div class="col-xs-12">
+	<div class="col">
 		<h4 class="mx0 px5tb" [hidden]="cpntData.winItemIdx === null">
 			{{ 'gameboard.findTranslation' | translate }}:
 			<span class="text-big" *ngIf="cpntData.items[cpntData.winItemIdx]">
@@ -23,8 +23,8 @@
 		</h4>
 	</div>
 </div>
-<div class="row game-buttons-container is-flex">
-	<div *ngFor="let item of cpntData.items; let i = index;" class="col-xs-6 col-md-3">
+<div class="row game-buttons-container">
+	<div *ngFor="let item of cpntData.items; let i = index;" class="col-6 col-md-3">
 		<div class="px5tb">
 			<button (click)="checkAnswer(i)" type="button"
 			[disabled]="cpntData.clickedIdx !== null && (cpntData.clickedIdx !== i)" class="btn btn-lg btn-block"
@@ -49,7 +49,7 @@
 	</div>
 </div>
 <div class="row">
-	<div class="col-xs-12">
+	<div class="col">
 		<div class="progress">
 			<div class="progress-bar no-transition" role="progressbar"
 			aria-valuenow="cpntData.currentQuestionTimer" aria-valuemin="0" aria-valuemax="100"
@@ -58,7 +58,7 @@
 	</div>
 </div>
 <div class="row">
-	<div class="col-xs-12">
+	<div class="col">
 		<div [hidden]="cpntData.clickedIdx === null">
 			<h4 *ngIf="cpntData.clickedIdx === cpntData.winItemIdx; else elseBlock">
 				{{ 'gameboard.correctAnswer' | translate }}

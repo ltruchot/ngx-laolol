@@ -1,18 +1,5 @@
 <div class="btn-toolbar">
 	<div class="btn-group">
-	  <button class="btn btn-info dropdown-toggle" data-toggle="dropdown">
-	    {{ 'submenu.language' | translate }} <span class="caret"></span>
-	  </button>
-	  <ul class="dropdown-menu">
-	  	<ng-container *ngFor="let lang of cpntData.availableLang">
-		    <li *ngIf="lang.code  !== cpntData.lang.currentLang"
-		      [ngClass]="{'active': lang.code  === cpntData.lang.learningLang}">
-		      <a (click)="changeLearningLang(lang.code)">{{ lang.label }}</a>
-		    </li>
-	    </ng-container>
-	  </ul>
-	</div>
-	<div class="btn-group">
 		<button class="btn btn-warning dropdown-toggle" data-toggle="dropdown">
 			{{ 'submenu.topic' | translate }} <span class="caret"></span>
 		</button>

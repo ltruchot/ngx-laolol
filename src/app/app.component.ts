@@ -34,7 +34,7 @@ export class AppComponent implements OnInit {
     user: null,
     theme: null,
     loadingRoute: true,
-    currentVersion: 'Alpha version 0.0.24'
+    currentVersion: 'Beta version 0.1.0'
   };
   constructor (private languageService: LanguageService,
     public router: Router,
@@ -47,8 +47,11 @@ export class AppComponent implements OnInit {
       this.navigationInterceptor(event);
     });
   }
-  changeLanguage (code) {
+  changeCurrentLanguage (code) {
     this.languageService.chooseTranslation(code);
+  }
+  changeLearningLanguage (code) {
+    this.languageService.chooseLearningLang(code);
   }
   ngOnInit () {
     // clear store if it's a new version

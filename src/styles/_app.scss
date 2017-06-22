@@ -1,49 +1,91 @@
-.main-title {
-	position: relative;
-	.version-title {
-		display: block;
-		position: absolute;
-		font-size: .3em;
-		bottom:-28px;
-		left: 5px;
-	}
+.app-container {
+  @include media-breakpoint-down(sm) {
+    padding-right: 10px;
+    padding-left: 10px;
+  }
+  @include media-breakpoint-down(xs) {
+    padding-right: 5px;
+    padding-left: 5px;
+  }
 }
+
+.main-title {
+  margin: 0;
+  padding-bottom: 8px;
+  position: relative;
+  a, img {
+    display: block;
+  }
+  .version-title {
+    display: block;
+    position: absolute;
+    line-height: .3em;
+    font-size: .3em;
+    bottom:7px;
+    left: 5px;
+  }
+}
+
 .title-complement {
-	color: #8A6D8B;
-	font-size: .8em;
-	font-weight: bold;
+  color: #8A6D8B;
+  font-size: .8em;
+  font-weight: bold;
 }
 .avaiblable-lang-list {
-	font-size: 0.8em;
-	li {
-		padding: 0 !important;
-	}
-	.avaiblable-lang {
-			padding: 0 5px 1px;
-			box-sizing: border-box;
-		&.chosen-lang {
-			background-color: #f5deb3;
-			border-radius: 5px;
-			.flag {
-				display: block;
-			}
-		}
-	}
-}
-.clickable-icon {
-	border: none;
-	text-decoration: none;
-	display: block;
-	position:absolute;
-	max-width: 16px;
-	top:4px;
-	right:15px;
-	font-size: 0.9em;
-	cursor: pointer;
-	img {
-		width: 100%;
-	}
-	@media screen and (max-width: $small-device) {
-    right: 4px;
+  padding-right:45px;
+  @include media-breakpoint-down(xs) {
+    padding-right:25px;
   }
+  .button-flag {
+    padding:0 5px;
+    .flag {
+      display: block;
+    }
+  }
+  .lang-ddl-container {
+    padding:2px 0;
+    float: left;
+    margin-left: 20px;
+    margin-right: 10px;
+    @include media-breakpoint-down(sm) {
+      margin-left:0;
+      float: none;
+      width:100%;
+      .lang-ddl-content {
+        float: right;
+      }
+    }
+  }
+  .dropdown-menu {
+    min-width: 70px;
+    a {
+      text-align: center;
+      display:block;
+      padding:0;
+      .flag {
+        display: block;
+        margin: auto;
+      }
+    }
+  }
+}
+.clickable-icons {
+  border: none;
+  text-decoration: none;
+  display: block;
+  position:absolute;
+  max-width: 16px;
+  top:2px;
+  right:15px;
+  font-size: 0.9em;
+  cursor: pointer;
+  a {
+    display: block;
+    margin-bottom: 8px;
+    img {
+      display: block;
+      width: 100%;
+    }
+  }
+
 }

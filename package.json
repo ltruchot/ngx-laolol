@@ -1,12 +1,17 @@
 {
   "name": "ngx-laolol",
-  "version": "0.0.24",
+  "version": "0.1.0",
   "license": "CC-BY-NC-4.0",
+  "engines": {
+    "node": "~8.0.0",
+    "npm": "~5.0.0"
+  },
   "scripts": {
     "ng": "ng",
     "start": "ng serve --poll=2000",
     "build": "ng build",
     "release": "rm -rf dist && npm i && ng build --prod --aot",
+    "update": "rm -rf node_modules dist && npm i && ng build --prod --aot",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
@@ -21,11 +26,11 @@
     "@angular/platform-browser": "^4.0.0",
     "@angular/platform-browser-dynamic": "^4.0.0",
     "@angular/router": "^4.0.0",
-    "@ngx-translate/core": "^6.0.1",
-    "@ngx-translate/http-loader": "0.0.3",
+    "@ngx-translate/core": "^7.0.0",
+    "@ngx-translate/http-loader": "^0.1.0",
     "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.17.1",
-    "bootstrap": "^3.3.7",
+    "bootstrap": "^4.0.0-alpha.6",
     "classlist.js": "^1.1.20150312",
     "core-js": "^2.4.1",
     "crypto": "0.0.3",
@@ -40,11 +45,12 @@
     "passport-jwt": "^2.2.1",
     "passport-local": "^1.0.0",
     "rxjs": "^5.1.0",
+    "tether": "^1.4.0",
     "web-animations-js": "^2.2.5",
     "zone.js": "^0.8.4"
   },
   "devDependencies": {
-    "@angular/cli": "1.0.0",
+    "@angular/cli": "^1.1.2",
     "@angular/compiler-cli": "^4.0.0",
     "@types/jasmine": "2.5.38",
     "@types/node": "~6.0.60",

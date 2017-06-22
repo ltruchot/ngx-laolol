@@ -5,7 +5,7 @@
   </modal-header>
   <modal-content>
     <div class="row">
-      <form *ngIf="!(cpntData.user?.isConnected)" class="col-xs-12" name="form" (ngSubmit)="login(loginForm)" [formGroup]="loginForm">
+      <form *ngIf="!(cpntData.user?.isConnected)" class="col" name="form" (ngSubmit)="login(loginForm)" [formGroup]="loginForm">
         <div class="form-group">
           <input type="email" class="form-control input-lg" name="email" formControlName="email" placeholder="Email" required />
         </div>
@@ -14,7 +14,7 @@
         </div>
         <button type="submit" class="btn btn-primary btn-lg btn-block" [disabled]="loginForm.invalid">Log in</button>
       </form>
-      <div class="col-xs-12" *ngIf="cpntData.user?.isConnected">
+      <div class="col" *ngIf="cpntData.user?.isConnected">
         <p>Connected as <strong>{{ cpntData.user.infos.firstName }} {{ cpntData.user.infos.lastName }}</strong></p>
         <button type="submit" class="btn btn-danger btn-lg btn-block" (click)="logout()">Disconnect</button>
       </div>
@@ -24,76 +24,123 @@
     <button class="btn btn-default" (click)="loginModal.close()">Cancel</button>
   </modal-footer>
 </modal> -->
-<div class="container">
-  <div class="row">
-    <div class="col-xs-6">
-      <h1 class="main-title top0"><img [src]=" cpntData.lang.currentLang !== 'lo' ? '/assets/img/laolol-title.png' : '/assets/img/laolol-title-lao.png'" alt="{{ 'layout.lao' | translate}}{{ 'layout.lol' | translate}}" /><span [style.display]="'none'">{{ 'layout.lao' | translate}}{{ 'layout.lol' | translate}}</span><em class="version-title">{{ cpntData.currentVersion }}</em></h1>
-    </div>
-    <div class="col-xs-6">
-      <nav class="avaiblable-lang-list">
-        <ul class="list-inline">
-          <li  *ngFor="let lang of cpntData.availableLanguages; let i = index;">
-            <div class="avaiblable-lang" [ngClass]="{ 'chosen-lang': cpntData.lang.currentLang === lang.code }">
-              <a (click)="changeLanguage(lang.code)" class="flag flag-{{lang.flag}}" title="{{ lang.label }}">
-                <span class="sr-only">{{ lang.label }}</span>
-              </a>
+<div class="container app-container">
+  <header>
+    <div class="row">
+      <div class="col-5">
+        <h1 class="main-title">
+          <a routerLink="/home">
+            <img alt="{{ 'layout.lao' | translate}}{{ 'layout.lol' | translate}}"
+              [src]="cpntData.lang.currentLang !== 'lo' ? '/assets/img/laolol-title.png' : '/assets/img/laolol-title-lao.png'" />
+            <span class="sr-only">{{ 'layout.lao' | translate }}{{ 'layout.lol' | translate }}</span>
+          </a>
+          <em class="version-title">{{ cpntData.currentVersion }}</em>
+        </h1>
+      </div>
+      <div class="col-7">
+        <div class="avaiblable-lang-list float-right">
+
+          <!-- begin "i speak" ddl -->
+          <div class="lang-ddl-container">
+            <div class="lang-ddl-content">
+              <span class="text-small">{{ 'layout.iSpeak' | translate }}</span>
+              <div class="btn-group">
+                <button class="btn btn-secondary button-flag"
+                  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                   <span class="flag flag-{{ cpntData.lang.currentLangInfos?.flag }}"></span>
+                </button>
+                <button class="btn btn-secondary dropdown-toggle dropdown-toggle-split"
+                  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                </button>
+                <div class="dropdown-menu">
+                  <ng-container *ngFor="let lang of cpntData.availableLanguages">
+                    <a *ngIf="lang.code  !== cpntData.lang.currentLang" class="dropdown-item"
+                    title="{{ lang.label }}" (click)="changeCurrentLanguage(lang.code)">
+                      <span class="flag flag-{{lang.flag}}"></span>
+                      <span class="sr-only">{{ lang.label }}</span>
+                    </a>
+                  </ng-container>
+                </div>
+              </div>
             </div>
-          </li>
-        </ul>
-      </nav>
-<!--       <div (click)="loginModal.open()" class="clickable-icon" [ngClass]="{'text-success': cpntData.user.isConnected}">
-        <span class="glyphicon glyphicon-user"></span>
-      </div> -->
-      <div class="clickable-icon">
-        <a href="https://web.facebook.com/laolol/" target="_blank"><img src="/assets/img/FB-f-Logo__blue_1024.png"></a>
+          </div>
+          <!-- end "i speak" ddl -->
+          <!-- begin "i learn" ddl -->
+          <div class="lang-ddl-container">
+            <div class="lang-ddl-content">
+              <span class="text-small">{{ 'layout.iLearn' | translate }}</span>
+              <div class="btn-group">
+                <button class="btn btn-secondary button-flag"
+                  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                   <span class="flag flag-{{ cpntData.lang.learningLangInfos?.flag }}"></span>
+                </button>
+                <button class="btn btn-secondary dropdown-toggle dropdown-toggle-split"
+                  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                </button>
+                <div class="dropdown-menu">
+                  <ng-container *ngFor="let lang of cpntData.availableLanguages">
+                    <a *ngIf="lang.code !== cpntData.lang.currentLang && lang.code !== cpntData.lang.learningLang"
+                      class="dropdown-item" title="{{ lang.label }}" (click)="changeLearningLanguage(lang.code)">
+                      <span class="flag flag-{{lang.flag}}"></span>
+                      <span class="sr-only">{{ lang.label }}</span>
+                    </a>
+                  </ng-container>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- end "i learn" ddl -->
+        </div>
+  <!--       <div (click)="loginModal.open()" class="clickable-icon" [ngClass]="{'text-success': cpntData.user.isConnected}">
+          <span class="glyphicon glyphicon-user"></span>
+        </div> -->
+        <div class="clickable-icons">
+          <a href="https://web.facebook.com/laolol/" target="_blank"><img src="/assets/img/logo-facebook.png"></a>
+          <a href="https://trello.com/b/L3XSHsjL/laolol" target="_blank"><img src="/assets/img/logo-trello.png"></a>
+        </div>
       </div>
     </div>
-  </div>
-
-  <nav role="navigation" class="navbar navbar-default">
-    <div class="container-fluid">
-      <!-- Brand and toggle get grouped for better mobile display -->
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-navbar-collapse-1" aria-expanded="false">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <span class="navbar-brand"><em>{{ 'layout.menu' | translate }}</em></span>
-      </div>
-
-      <!-- Collect the nav links, forms, and other content for toggling -->
-      <div class="collapse navbar-collapse" id="bs-navbar-collapse-1">
-        <ul class="nav navbar-nav">
-          <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" data-toggle="collapse" data-target="#bs-navbar-collapse-1.in">
-            <a routerLink="/home">{{ 'layout.home' | translate }}</a>
+    <!-- begin main menu navbar -->
+    <nav role="navigation" class="navbar navbar-default navbar-toggleable-sm navbar-light bg-faded">
+      <button class="navbar-toggler navbar-toggler-right" type="button"
+        data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <a class="navbar-brand"><em>{{ 'layout.menu' | translate }}</em></a>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" data-toggle="collapse" data-target="#navbarSupportedContent.show">
+            <a class="nav-link" routerLink="/home">{{ 'layout.home' | translate }}</a>
           </li>
-          <li  [class.active]="router.url.split('/')[1] === 'gameboard'"
-            data-toggle="collapse" data-target="#bs-navbar-collapse-1.in">
-            <a [routerLink]="['/gameboard/'+ cpntData.theme?.learningTheme?.uid]">
+          <li class="nav-item" [class.active]="router.url.split('/')[1] === 'gameboard'"
+            data-toggle="collapse" data-target="#navbarSupportedContent.show">
+            <a class="nav-link" [routerLink]="['/gameboard/'+ cpntData.theme?.learningTheme?.uid]">
               {{ 'layout.gameboard' | translate }}
             </a>
           </li>
-          <li [class.active]="router.url.split('/')[1] === 'blackboard'"
-            data-toggle="collapse" data-target="#bs-navbar-collapse-1.in">
-            <a [routerLink]="['/blackboard/'+ cpntData.theme?.learningTheme?.uid]">
+          <li class="nav-item" [class.active]="router.url.split('/')[1] === 'blackboard'"
+            data-toggle="collapse" data-target="#navbarSupportedContent.show">
+            <a class="nav-link" [routerLink]="['/blackboard/'+ cpntData.theme?.learningTheme?.uid]">
               {{ 'layout.blackboard' | translate }}
             </a>
           </li>
-          <li routerLinkActive="active" data-toggle="collapse" data-target="#bs-navbar-collapse-1.in">
-            <a routerLink="/exams">{{ 'layout.exams' | translate }}</a>
+          <li class="nav-item" routerLinkActive="active"
+          data-toggle="collapse" data-target="#navbarSupportedContent.show">
+            <a class="nav-link" routerLink="/exams">{{ 'layout.exams' | translate }}</a>
           </li>
-          <li routerLinkActive="active" data-toggle="collapse" data-target="#bs-navbar-collapse-1.in">
-            <a routerLink="/about">{{ 'layout.about' | translate }}</a>
+          <li class="nav-item" routerLinkActive="active"
+          data-toggle="collapse" data-target="#navbarSupportedContent.show">
+            <a class="nav-link" routerLink="/about">{{ 'layout.about' | translate }}</a>
           </li>
         </ul>
-      </div><!-- /.navbar-collapse -->
-    </div><!-- /.container-fluid -->
-  </nav>
+      </div>
+    </nav>
+  </header>
+  <!-- end main menu navbar -->
   <router-outlet></router-outlet>
 </div>
-<footer class="px5">
+<footer class="px5 text-small">
   <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">
     <img src="/assets/img/lisence.png" />
   </a>

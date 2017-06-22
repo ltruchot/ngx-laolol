@@ -1,11 +1,11 @@
 <div [hidden]= "cpntData.lang?.isCurrentLoading || !(cpntData.lang?.isLearningLoading)" class="loading"></div>
 <div class="row">
-	<div class="col-xs-12">
+	<div class="col">
 			<app-submenu></app-submenu>
 	</div>
 </div>
 <div class="row">
-	<div class="col-xs-12">
+	<div class="col">
 	<h2 class="text-center backboard-title" *ngIf="cpntData.theme?.learningTheme && cpntData.lang?.learningLang">
 		{{ cpntData.theme.learningTheme[cpntData.lang.learningLang].wrd }}
 		<em>
@@ -14,8 +14,8 @@
 	</h2>
 	</div>
 </div>
-<div class="row is-flex blackboard-items">
-	<div class="col-xs-6 col-sm-4 col-md-3" *ngFor="let item of cpntData.items; let i = index;">
+<div class="row blackboard-items">
+	<div class="col-6 col-sm-4 col-md-3" *ngFor="let item of cpntData.items; let i = index;">
 		<div class="thumbnail">
 			<label class="top-right-sound px5lr8" *ngIf="item[cpntData.lang.learningLang].audioLoaded"
 				title="{{ 'blackboard.listen' | translate }}" (click)="playsound(i)">

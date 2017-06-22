@@ -18,7 +18,9 @@
     "nameSoulisack": "Soulisack Luanglad",
     "nameLoic": "Loïc Truchot",
     "nameXan": "Xan Harotin",
-    "underConstruction": "Cette section du site est encore en construction."
+    "underConstruction": "Cette section du site est encore en construction.",
+    "iSpeak": "Je parle",
+    "iLearn": "J'apprends"
   },
   "home": {
     "intro1": "Laolol est une application web pour aider les anglophones et les francophones à apprendre le lao.",
@@ -62,7 +64,7 @@
     "reverse": "inverser"
   },
   "about": {
-    "presLaololTitle": "LaoLol à besoin de vous !",
+    "presLaololTitle": "LaoLol a besoin de vous !",
     "presLaolol1": "Après plusieurs mois de travail bénévole sur Laolol, nous avons décidé d’aller plus loin !",
     "presLaolol2": "Nous nous apprêtons à lancer",
     "presLaolol3": "une campagne de financement participatif",
