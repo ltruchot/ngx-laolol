@@ -34,7 +34,7 @@
               [src]="cpntData.lang.currentLang !== 'lo' ? '/assets/img/laolol-title.png' : '/assets/img/laolol-title-lao.png'" />
             <span class="sr-only">{{ 'layout.lao' | translate }}{{ 'layout.lol' | translate }}</span>
           </a>
-          <em class="version-title">{{ cpntData.currentVersion }}</em>
+          <em class="version-title text-smallest">{{ cpntData.currentVersion }}</em>
         </h1>
       </div>
       <div class="col-7">
@@ -79,14 +79,14 @@
           <!-- end "i speak" ddl -->
           <!-- begin "i learn" ddl -->
           <div class="lang-block-container">
-            <div class="lang-block-content">
+            <div class="lang-block-content ddl-lang">
               <span>{{ 'layout.iLearn' | translate }}</span>
               <div class="btn-group">
-                <button class="btn btn-secondary button-flag dropdown-toggle"
+                <button  id="btn-menu-lang" class="btn btn-secondary button-flag dropdown-toggle"
                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                    {{ cpntData.lang.learningLangInfos?.tradLabel | translate }}
                 </button>
-                <div class="dropdown-menu">
+                <div class="dropdown-menu"  aria-labelledby="btn-menu-lang">
                   <ng-container *ngFor="let lang of cpntData.availableLanguages">
                     <a *ngIf="lang.code !== cpntData.lang.currentLang && lang.code !== cpntData.lang.learningLang"
                       class="dropdown-item" (click)="changeLearningLanguage(lang.code)">
@@ -109,15 +109,15 @@
       </div>
     </div>
     <!-- begin main menu navbar -->
-    <nav role="navigation" class="navbar navbar-default navbar-toggleable-sm navbar-light bg-faded">
+    <nav role="navigation" class="main-menu navbar navbar-default navbar-toggleable-sm navbar-light bg-faded">
       <button class="navbar-toggler navbar-toggler-right" type="button"
         data-toggle="collapse" data-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <a class="navbar-brand"><em>{{ 'layout.menu' | translate }}</em></a>
+      <a class="navbar-brand hidden-sm-up"><em>{{ 'layout.menu' | translate }}</em></a>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
+        <ul class="navbar-nav mx-auto">
           <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" data-toggle="collapse" data-target="#navbarSupportedContent.show">
             <a class="nav-link" routerLink="/home">{{ 'layout.home' | translate }}</a>
           </li>
@@ -146,9 +146,11 @@
     </nav>
   </header>
   <!-- end main menu navbar -->
-  <router-outlet></router-outlet>
+  <div class="main-content">
+    <router-outlet></router-outlet>
+  </div>
 </div>
-<footer class="px5 text-small">
+<footer class="px5 text-small-r bg-faded">
   <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">
     <img src="/assets/img/lisence.png" />
   </a>

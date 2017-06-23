@@ -2,9 +2,11 @@
 <div class="row">
 	<div class="col-12 col-sm-9 col-lg-10 text-justify">
     <p>{{ 'about.presLaolol1' | translate }}</p>
-    <p>{{ 'about.presLaolol2' | translate }} <b>{{ 'about.presLaolol3' | translate }}</b> {{ 'about.presLaolol4' | translate }}<br />
-    {{ 'about.presLaolol5' | translate }} <b>1000€</b>, {{ 'about.presLaolol6' | translate }}</p>
-    <p>{{ 'about.presLaolol7' | translate }} <b>{{ 'about.presLaolol8' | translate }}</b>{{ 'about.presLaolol9' | translate }} <a routerLink="/home">laolol.com</a>...</p>
+    <p>{{ 'about.presLaolol2' | translate }} <a href="{{ 'about.ululeLink' | translate }}"><strong>{{ 'about.presLaolol3' | translate }}</strong></a>.
+    {{ 'about.presLaolol4' | translate }}:
+    <a href="{{ 'about.ululeLink' | translate }}">{{ 'about.ululeLink' | translate }}</a><br />
+    {{ 'about.presLaolol5' | translate }} <strong>1000€</strong>, {{ 'about.presLaolol6' | translate }}</p>
+    <p>{{ 'about.presLaolol7' | translate }} <strong>{{ 'about.presLaolol8' | translate }}</strong>{{ 'about.presLaolol9' | translate }} <a routerLink="/home">laolol.com</a>...</p>
     <p>{{ 'about.presLaolol10' | translate }} <a href="https://trello.com/b/L3XSHsjL/laolol" target="_blank">Trello</a> {{ 'words.and' | translate }} <a href="https://github.com/n-a-n/ngx-laolol" target="_blank">Github</a>.</p>
 	</div>
   <div class="col-12 col-sm-3 col-lg-2">
@@ -18,8 +20,8 @@
   	<img class="img-responsive img-thumbnail" src="/assets/img/pictures/loic_truchot-angular-vientiane.jpg" />
   </div>
   <div class="col-9 col-sm-10 col-lg-11 text-justify">
-  	<b>{{ 'layout.nameLoic' | translate }}</b> {{ 'about.presLoic1' | translate }}.
-  	{{ 'about.presLoic2' | translate }} <a routerLink="/home">{{ 'layout.lao' | translate}}<span class="title-complement">{{ 'layout.lol' | translate}}</span></a>.<br />
+  	<strong>{{ 'layout.nameLoic' | translate }}</strong> {{ 'about.presLoic1' | translate }}.
+  	{{ 'about.presLoic2' | translate }} <a routerLink="/home">{{ 'layout.lao' | translate}}{{ 'layout.lol' | translate}}</a>.<br />
   	{{ 'about.presLoic3' | translate }} JavaScript/HTML/CSS, <a href="https://angular.io/" target="_blank">Angular 4</a>, <a href="http://getbootstrap.com/" target="_blank">Bootstrap 4</a>, {{ 'words.or' | translate }} <a href="https://nodejs.org" target="_blank">Node.js</a>.
 		{{ 'about.presLoic4' | translate }} <a href="https://github.com/n-a-n/ngx-laolol" target="_blank">ngx-laolol</a>.
   </div>
@@ -27,7 +29,7 @@
 <br />
 <div class="row">
   <div class="col-9 col-sm-10 col-lg-11 text-justify">
-	  <b>{{ 'layout.nameSoulisack' | translate }}</b> {{ 'about.presSoulisack1' | translate }}.
+	  <strong>{{ 'layout.nameSoulisack' | translate }}</strong> {{ 'about.presSoulisack1' | translate }}.
 	  {{ 'about.presSoulisack2' | translate }}.<br />
 	  {{ 'about.presSoulisack3' | translate }}.<br />
   </div>
@@ -36,3 +38,22 @@
   </div>
 </div>
 <hr />
+<h2 class="text-capitalize">{{ 'about.acknowledgements' | translate }}</h2>
+<div class="row mxb10">
+  <div class="col-3 col-sm-2 col-lg-1">
+    <img class="img-responsive img-thumbnail" src="/assets/img/pictures/vilayvone_sisavath.jpg" />
+  </div>
+  <div class="col-9 col-sm-10 col-lg-11 text-justify">
+    Un tout grand merci à <strong>{{ 'layout.nameLa' | translate }}</strong> de
+    <a href="http://www.if-laos.org/" target="_blank">l'institut français du Laos</a>.
+    <br/>
+    Cette jeune laotienne est impliquée depuis plusieurs années dans les activités de l'institut. Son très bon niveau en français lui permet de travailler à l'accueil, où elle met en contact élèves, professeurs, administrateurs et curieux.
+    <br/>
+    C'est principalement sa voix qu'on peut entendre <strong>prononcer des mots en lao</strong> dans les différentes sections de LaoLol.
+  </div>
+</div>
+<div class="row">
+  <div class="col-12">
+    Un grand merci aussi à Marion et Eliot, professeurs à l'instituts, volontaires et enthousiastes pour aider à la rédaction et la correction du français.
+  </div>
+</div>

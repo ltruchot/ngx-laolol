@@ -80,6 +80,7 @@ export class ThemeService {
   }, {
     'uid': 'animals',
     'hasImages': true,
+    'hasCapital': true,
     'en': {
       'wrd': 'Animals',
       'short': 'Animals',

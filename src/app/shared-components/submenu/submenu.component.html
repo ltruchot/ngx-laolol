@@ -1,44 +1,47 @@
-<div class="btn-toolbar">
-	<div class="btn-group">
-		<button class="btn btn-warning dropdown-toggle" data-toggle="dropdown">
-			{{ 'submenu.topic' | translate }} <span class="caret"></span>
+<div class="btn-toolbar main-submenu">
+	<div class="btn-group btn-sm" role="group">
+		<button id="btn-submenu-theme" class="btn btn-warning dropdown-toggle btn-sm"
+			data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+			{{ cpntData.theme.learningTheme ? cpntData.theme.learningTheme[cpntData.lang.currentLang].short || cpntData.theme.learningTheme[cpntData.lang.currentLang].wrd : null  }}
 		</button>
-		<ul class="dropdown-menu" *ngIf="cpntData.lang?.learningLang">
+		<div class="dropdown-menu" aria-labelledby="btn-submenu-theme">
 			<ng-container *ngFor="let theme of cpntData.availableTheme; let i = index;">
-				<li [ngClass]="{'active': i  === cpntData.theme.learningThemeIdx}">
-					<a (click)="changeLearningTheme(theme.uid)">{{ theme[cpntData.lang.currentLang].short || theme[cpntData.lang.currentLang].wrd }}</a>
-				</li>
-				<li *ngIf="i === 2" role="separator" class="divider"></li>
-			</ng-container>
-		</ul>
-	</div>
-	<div class="btn-group" *ngIf="cpntData.theme.levels.length">
-		<button class="btn btn-danger dropdown-toggle" data-toggle="dropdown">
-			{{ 'submenu.level' | translate }} <span class="caret"></span>
-		</button>
-		<ul class="dropdown-menu">
-			<ng-container *ngFor="let level of cpntData.theme.levels; let i = index;">
-				<li [ngClass]="{'active': i  === cpntData.theme.learningLevel}">
-					<a (click)="changeLearningLevel(i)">
-						<span *ngIf="i === 0; else realLvl">{{ 'submenu.all' | translate }}</span>
-						<ng-template #realLvl>{{ 'submenu.level' | translate }} {{ i }}</ng-template>
+					<a class="dropdown-item" [ngClass]="{'active': i  === cpntData.theme.learningThemeIdx}"
+						(click)="changeLearningTheme(theme.uid)">
+						{{ theme[cpntData.lang.currentLang].short || theme[cpntData.lang.currentLang].wrd }}
 					</a>
-				</li>
+					<div *ngIf="i === 2" class="dropdown-divider"></div>
 			</ng-container>
-		</ul>
+		</div>
 	</div>
-	<div class="btn-group" *ngIf="!cpntData.theme.learningTheme.noKaraoke">
-		<label class="checkbox-inline px6t"
-			[ngClass]="{'text-primary': cpntData.theme.isKaraoke}"
+	<div class="btn-group btn-sm" role="group" *ngIf="cpntData.theme?.levels?.length">
+		<button id="btn-submenu-level" class="btn btn-danger dropdown-toggle btn-sm"
+			data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				<span *ngIf="cpntData.theme.learningLevel === 0; else realLvl">{{ 'submenu.all' | translate }}</span>
+				<ng-template #realLvl>{{ 'submenu.level' | translate }} {{ cpntData.theme.learningLevel }}</ng-template>
+		</button>
+		<div class="dropdown-menu" aria-labelledby="btn-submenu-level">
+			<ng-container *ngFor="let level of cpntData.theme.levels; let i = index;">
+				<a class="dropdown-item" [ngClass]="{'active': i  === cpntData.theme.learningLevel}"
+					(click)="changeLearningLevel(i)">
+					<span *ngIf="i === 0; else realLvl">{{ 'submenu.all' | translate }}</span>
+					<ng-template #realLvl>{{ 'submenu.level' | translate }} {{ i }}</ng-template>
+				</a>
+			</ng-container>
+		</div>
+	</div>
+	<div class="btn-group btn-sm" *ngIf="!cpntData.theme.learningTheme.noKaraoke">
+		<button class="btn btn-secondary btn-sm"
+			[ngClass]="{'active': cpntData.theme.isKaraoke}"
 			title="{{ 'submenu.karaoke' | translate }}" (click)="toggleKaraoke()">
-			<span class="glyphicon glyphicon-text-background"></span>
-		</label>
+			<span class="icon-spell-check"></span>
+		</button>
 	</div>
-	<div class="btn-group" *ngIf="cpntData.currentUrl === 'gameboard'">
-		<label class="checkbox-inline px6t"
-			[ngClass]="{'text-primary': cpntData.theme.isReversed}"
+	<div class="btn-group btn-sm" *ngIf="cpntData.currentUrl === 'gameboard'">
+		<button class="btn btn-secondary btn-sm"
+			[ngClass]="{'active': cpntData.theme.isReversed}"
 			title="{{ 'submenu.reverse' | translate }}" (click)="cpntData.theme.isReversed = !cpntData.theme.isReversed">
-			<span class="glyphicon glyphicon-retweet"></span>
-		</label>
+			<span class="icon-loop"></span>
+		</button>
 	</div>
 </div>

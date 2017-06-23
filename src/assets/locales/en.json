@@ -18,6 +18,7 @@
     "nameSoulisack": "Soulisack Luanglad",
     "nameLoic": "Loïc Truchot",
     "nameXan": "Xan Harotin",
+    "nameLa": "Vilaivone \"Laa\" Sisavad",
     "underConstruction": "This section is still under construction.",
     "iSpeak": "I speak",
     "iLearn": "I'm learning"
@@ -64,9 +65,11 @@
     "reverse": "reverse"
   },
   "about": {
+    "acknowledgements": "acknowledgements",
+    "ululeLink": "http://www.ulule.com/laolol",
     "presLaololTitle": "Laolol needs you!",
     "presLaolol1": "After a few months of voluntary work on Laolol, we decided to go further!",
-    "presLaolol2": "We want to start",
+    "presLaolol2": "We just start",
     "presLaolol3": "a crowdfunding campaign",
     "presLaolol4": "to imply every person interested in the support of lao language, and to give a free way for laotians to learn english and french languages.",
     "presLaolol5": "If we can find",

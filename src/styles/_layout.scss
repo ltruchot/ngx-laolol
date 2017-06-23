@@ -1,26 +1,24 @@
 html {
   position: relative;
   min-height: 100%;
-  font-size: 12px;
+  font-size: 16px;
   -webkit-writing-mode: horizontal-tb;
 }
 body {
-	margin-bottom: 60px;
-	font-family:Phetsarath_OT;
-	h1, h2, h3, h4 {
-		line-height: 1.50em;
-	}
+	margin-bottom: 30px;
+	font-family:Phetsarath_OT !important;
 }
 footer {
+	height:30px;
 	font-style: italic;
 	position: absolute;
   bottom: 0;
   width: 100%;
-  box-sizing: border-box;
-  /* Set the fixed height of the footer here */
-  background-color: #f5f5f5;
 	img {
 		width: 30px;
 		margin-top:-3px;
 	}
+}
+button {
+	font-family:Phetsarath_OT !important;
 }

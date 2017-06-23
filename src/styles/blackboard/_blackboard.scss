@@ -1,21 +1,16 @@
 .blackboard-items {
-	.thumbnail {
-		position: relative;
-		.top-right-sound {
-			position: absolute;
-			top:0;
-			right:0;
-			cursor: pointer;
-		}
-		.img-thumbnail {
-			position: relative;
-			.top-left-text {
-				font-style: italic;
-				position: absolute;
-				top:5px;
-				left:5px;
-			}
-		}
-
+	.card {
+	  img {
+	  	border:0;
+	  	width:100%;
+	  	height:auto;
+	  }
+	  .card-header {
+	  	font-size: 1.5rem;
+	  	line-height: 1.1rem;
+	  }
+	  h3 {
+	  	font-size:1.5rem;
+	  }
 	}
 }

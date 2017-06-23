@@ -1,12 +1,8 @@
 <div [hidden]= "cpntData.lang?.isCurrentLoading || !(cpntData.lang?.isLearningLoading)" class="loading"></div>
+<app-submenu></app-submenu>
 <div class="row">
 	<div class="col">
-			<app-submenu></app-submenu>
-	</div>
-</div>
-<div class="row">
-	<div class="col">
-		<h4 class="mx0 px5tb" [hidden]="cpntData.winItemIdx === null">
+		<div class="mx0 pxtb5" [hidden]="cpntData.winItemIdx === null">
 			{{ 'gameboard.findTranslation' | translate }}:
 			<span class="text-big" *ngIf="cpntData.items[cpntData.winItemIdx]">
 				{{ cpntData.items[cpntData.winItemIdx][cpntData.theme.isReversed ? cpntData.lang.learningLang : cpntData.lang.currentLang].wrd }}
@@ -20,14 +16,14 @@
 			cpntData.items[cpntData.winItemIdx][cpntData.lang.currentLang].meta?.tone">
 				({{ cpntData.items[cpntData.winItemIdx][cpntData.lang.currentLang].meta?.tone }})
 			</em>
-		</h4>
+		</div>
 	</div>
 </div>
 <div class="row game-buttons-container">
 	<div *ngFor="let item of cpntData.items; let i = index;" class="col-6 col-md-3">
-		<div class="px5tb">
-			<button (click)="checkAnswer(i)" type="button"
-			[disabled]="cpntData.clickedIdx !== null && (cpntData.clickedIdx !== i)" class="btn btn-lg btn-block"
+		<div class="pxtb5 h-100">
+			<button class="btn btn-secondary btn-lg btn-block no-transition h-100" (click)="checkAnswer(i)"
+			[disabled]="cpntData.clickedIdx !== null && (cpntData.clickedIdx !== i)"
 			[ngClass]="{
 				'btn-default': cpntData.clickedIdx === null || (cpntData.clickedIdx === -1),
 				'btn-success': i === cpntData.winItemIdx && cpntData.isCheckingAnswer,
@@ -60,13 +56,13 @@
 <div class="row">
 	<div class="col">
 		<div [hidden]="cpntData.clickedIdx === null">
-			<h4 *ngIf="cpntData.clickedIdx === cpntData.winItemIdx; else elseBlock">
+			<div *ngIf="cpntData.clickedIdx === cpntData.winItemIdx; else elseBlock">
 				{{ 'gameboard.correctAnswer' | translate }}
-			</h4>
+			</div>
 			<ng-template #elseBlock>
-				<h4>
+				<div>
 					{{ 'gameboard.wrongAnswer' | translate }}
-				</h4>
+				</div>
 			</ng-template>
 			<button (click)="nextQuestion()" type="button" class="btn btn-primary">{{ 'gameboard.next' | translate }}</button>
 		</div>

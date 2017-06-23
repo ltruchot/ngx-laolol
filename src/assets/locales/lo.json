@@ -19,6 +19,7 @@
     "nameSoulisack": "ສຸລິສັກ ຫວງລາດ",
     "nameLoic": "ໂລໂລ ທູຍໂສ",
     "nameXan": "ສານ ຮ່ໂລຕີນ",
+    "nameLa": "ວິໄລວອນ \"ຫຼ້າ\" ສີສະຫວັດ",
     "underConstruction": "Cette section du site est encore en construction.",
     "iSpeak": "ຂ້ອຍເວົ້າ",
     "iLearn": "ຂ້ອຍຮຽນ"
@@ -65,9 +66,11 @@
     "reverse": "ຈັບຄູ່"
   },
  "about": {
+    "acknowledgements": "ຂອບໃຈ",
+    "ululeLink": "http://www.ulule.com/laolol",
     "presLaololTitle": "Laolol needs you!",
     "presLaolol1": "After a few months of voluntary work on Laolol, we decided to go further!",
-    "presLaolol2": "We want to start",
+    "presLaolol2": "We just start",
     "presLaolol3": "a crowdfunding campaign",
     "presLaolol4": "to imply every person interested in the support of lao language, and to give a free way for laotians to learn english and french languages.",
     "presLaolol5": "If we can find",

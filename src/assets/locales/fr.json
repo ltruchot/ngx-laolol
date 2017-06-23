@@ -18,6 +18,7 @@
     "nameSoulisack": "Soulisack Luanglad",
     "nameLoic": "Loïc Truchot",
     "nameXan": "Xan Harotin",
+    "nameLa": "Vilayvone \"Lâ\" Sisavath",
     "underConstruction": "Cette section du site est encore en construction.",
     "iSpeak": "Je parle",
     "iLearn": "J'apprends"
@@ -64,11 +65,13 @@
     "reverse": "inverser"
   },
   "about": {
+    "acknowledgements": "remerciements",
+    "ululeLink": "http://fr.ulule.com/laolol",
     "presLaololTitle": "LaoLol a besoin de vous !",
     "presLaolol1": "Après plusieurs mois de travail bénévole sur Laolol, nous avons décidé d’aller plus loin !",
-    "presLaolol2": "Nous nous apprêtons à lancer",
+    "presLaolol2": "Nous lançons",
     "presLaolol3": "une campagne de financement participatif",
-    "presLaolol4": "pour impliquer tous ceux qui veulent soutenir la langue lao, et l’accès gratuit à l’apprentissage du français et de l’anglais pour les laotiens.",
+    "presLaolol4": "pour impliquer tous ceux qui veulent soutenir la langue lao, et l’accès gratuit à l’apprentissage du français et de l’anglais pour les laotiens",
     "presLaolol5": "Si nous parvenons à rassembler",
     "presLaolol6": "nous pourrons faire un grand pas dans l’ajout de nouveaux mots, d’images, de sons, et nous offrirons des petites rémunérations à tous les futurs contributeurs du site à Vientiane.",
     "presLaolol7": "Enfin, nous pourrons",

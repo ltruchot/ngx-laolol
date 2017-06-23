@@ -1,25 +1,30 @@
 // margins
 .mx0 { margin:0 !important; }
-.bottom10 { margin-bottom:10px; }
+.mxb10 { margin-bottom:10px; }
+.mxtb5 { margin: 5px 0; }
+.mxr5 { margin-right: 5px;}
 
 // paddings
 .px5 { padding:5px; }
-.px6t { padding-top:6px; }
+.pxt6 { padding-top:6px; }
 .pxr0 { padding-right:0; }
 .pxb8 { padding-bottom: 8px;}
-.px5tb { padding: 5px 0; }
-.px5lr { padding: 0 5px; }
+.pxtb5 { padding: 5px 0; }
 .px5lr8 { padding: 5px 8px; }
 
 // font-size
-.text-big { font-size: 1.3em }
-.text-standard { font-size: 1em; }
-.text-middle { font-size: .85em; }
-.text-small { font-size: .75em; }
-.text-smaller { font-size: .65em; }
-
-.pos-r{ position: relative; }
-
+.text-big { font-size: 1.3rem }
+.text-standard { font-size: 1rem; }
+.text-medium { font-size: .85rem; }
+.text-small { font-size: .75rem; }
+.text-smaller { font-size: .7rem; }
+.text-smallest { font-size: .65rem; }
+.text-small-r {
+  font-size: .75rem;
+  @include media-breakpoint-down(xs) {
+    font-size: .65rem;
+  }
+}
 // effects
 .no-transition {
 	-webkit-transition: 0s !important;
