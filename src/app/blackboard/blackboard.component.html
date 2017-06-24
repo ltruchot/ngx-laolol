@@ -15,7 +15,7 @@
 	<div class="row">
 		<div class="col-6 col-sm-4 col-md-3 mxtb5" *ngFor="let item of cpntData.items; let i = index;">
 			<div class="card h-100">
-			  <div class="card-header">
+			  <div class="card-header pos-r">
 			    <ng-template [ngIf]="cpntData.lang?.learningLang === 'fr'">
 					  <span *ngIf="(!cpntData.theme?.learningTheme?.noArticle) &&
 					  	item.fr.meta && item.fr.meta.isMale !== undefined">
@@ -39,6 +39,10 @@
 						<br />
 						<em class="text-medium text-primary">{{ item[cpntData.lang.learningLang].kk[cpntData.lang.currentLang] }}</em>
 					</ng-template>
+					<label class="pos-top-right p5" *ngIf="item[cpntData.lang.learningLang].audioLoaded"
+					title="{{ 'blackboard.listen' | translate }}" (click)="playsound(i)">
+						<span class="text-medium icon-volume-low"></span>
+					</label>
 			  </div>
 			  <div class="card-img-top pos-r" *ngIf="cpntData.theme?.learningTheme?.hasImages">
 			  	<img *ngIf="!item.img" src="/assets/img/questionmark.jpg" />

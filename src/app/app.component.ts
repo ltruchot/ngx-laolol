@@ -34,7 +34,7 @@ export class AppComponent implements OnInit {
     user: null,
     theme: null,
     loadingRoute: true,
-    currentVersion: 'Beta version 0.1.1'
+    currentVersion: 'Beta version 0.1.2'
   };
   constructor (private languageService: LanguageService,
     public router: Router,

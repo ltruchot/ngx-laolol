@@ -1,6 +1,6 @@
 {
   "name": "ngx-laolol",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "license": "CC-BY-NC-4.0",
   "engines": {
     "node": "~8.0.0",
@@ -10,8 +10,8 @@
     "ng": "ng",
     "start": "ng serve --poll=2000",
     "build": "ng build",
-    "release": "rm -rf dist && npm i && ng build --prod --aot",
-    "update": "rm -rf node_modules dist && npm i && ng build --prod --aot",
+    "release": "rm -rf dist && ng build --prod --aot",
+    "update": "rm -rf node_modules && npm cache verify && npm i",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
