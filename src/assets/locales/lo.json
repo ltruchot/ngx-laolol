@@ -46,17 +46,6 @@
     "karaoke": "ຄາລາໂອເກະ",
     "listen": "ຟັງ"
   },
-  "theme": {
-    "vowels": "ສະຫຼະ",
-    "consonants": "ພະຍັນຊະນະ",
-    "animals": "ສັດ",
-    "plants": "Plants",
-    "days": "ວັນ",
-    "family": "ຄອບຄົວ",
-    "human_body": "ຮ່າງກາຍຂອງຄົນ",
-    "head": "ຫົວ",
-    "adjContrary":"ຄໍາຄູນນາມກົງກັນຂາ້ມ"
-  },
   "submenu": {
     "language": "ພາສາ",
     "topic": "ຫົວຂໍ້",

@@ -40,13 +40,13 @@
 						<em class="text-medium text-primary">{{ item[cpntData.lang.learningLang].kk[cpntData.lang.currentLang] }}</em>
 					</ng-template>
 			  </div>
-			  <img *ngIf="cpntData.theme?.learningTheme?.hasImages && !item.img"
-					src="/assets/img/questionmark.jpg" class="card-img-top" />
-				<img *ngIf="cpntData.theme.learningTheme.hasImages && item.img"
-					[src]="'/assets/medias/' + item.img" />
-	<!-- 			<div class="text-muted top-left-text" *ngIf="cpntData.theme.learningTheme.hasSpecialExample && item.lo.ex">
-					{{ item.lo.ex }}
-				</div> -->
+			  <div class="card-img-top pos-r" *ngIf="cpntData.theme?.learningTheme?.hasImages">
+			  	<img *ngIf="!item.img" src="/assets/img/questionmark.jpg" />
+					<img *ngIf="item.img" [src]="'/assets/medias/' + item.img" />
+					<div class="text-muted pos-top-left">
+						{{ item.lo.ex }}
+					</div>
+				</div>
 			  <div class="card-block">
 			    <h3 class="card-title">{{ item[cpntData.lang.currentLang].wrd }}</h3>
 			    <p class="card-text" *ngIf="cpntData.lang && (cpntData.lang.learningLang === 'fr') && item.fr.meta && (item.fr.meta.isMale !== undefined)">
@@ -62,7 +62,8 @@
 						item[cpntData.lang.learningLang].meta.plural :
 						item[cpntData.lang.learningLang].wrd + "s" }}</strong>
 					</p>
-					<p class="card-text" *ngIf="item[cpntData.lang.currentLang].meta && item[cpntData.lang.currentLang].meta.comment">
+					<p class="card-text"
+						*ngIf="item[cpntData.lang.currentLang].meta && item[cpntData.lang.currentLang].meta.comment">
 						<em>{{ item[cpntData.lang.currentLang].meta.comment }}</em>
 					</p>
 			    <p class="card-text" *ngIf="cpntData.lang?.currentLang === 'lo' && cpntData.theme.learningTheme.hasCapital">

@@ -17,25 +17,23 @@ import { IThemeItem } from './../shared-interfaces/theme.interfaces';
 export class ThemeService {
   private currenThemeSource = new Subject<any>();
   currentTheme$ = this.currenThemeSource.asObservable();
+  themeOptions: Array<string> = [
+    'hasCapital',
+    'hasImages',
+    'hasSpecialExample',
+    'levels',
+    'noArticle',
+    'noKaraoke',
+    'noPlural',
+  ];
   AVAILABLE_THEMES = [{
     'uid': 'consonants',
-    'noPlural': true,
-    'noArticle': true,
-    'hasImages': true,
-    'hasSpecialExample': true,
-    'hasCapital': true,
-    'en': {
-      'wrd': 'Consonants',
-      'kk': {}
-    },
-    'fr': {
-      'wrd': 'Les consonnes',
-      'short': 'Consonnes',
-      'kk': {}
+    'noPlural': true, 'noArticle': true, 'hasImages': true, 'hasSpecialExample': true, 'hasCapital': true,
+    'en': { 'wrd': 'Consonants' },
+    'fr': { 'wrd': 'Les consonnes', 'short': 'Consonnes'
     },
     'lo': {
-      'wrd': 'ພະຍັນຊະນະ',
-      'kk': {}
+      'wrd': 'ພະຍັນຊະນະ'
     }
   }, {
     'uid': 'vowels',
@@ -45,121 +43,62 @@ export class ThemeService {
     'hasCapital': true,
     'levels': 3,
     'en': {
-      'wrd': 'Vowels',
-      'kk': {}
+      'wrd': 'Vowels'
     },
     'fr': {
       'wrd': 'Les voyelles',
-      'short': 'Voyelles',
-      'kk': {}
+      'short': 'Voyelles'
     },
     'lo': {
-      'wrd': 'ສະຫຼະ',
-      'kk': {}
+      'wrd': 'ສະຫຼະ'
     }
   }, {
     'uid': 'syllables',
-    'noKaraoke': true,
-    'noPlural': true,
-    'noArticle': true,
-    'hasCapital': true,
+    'noKaraoke': true, 'noPlural': true, 'noArticle': true, 'hasCapital': true,
     'levels': 2,
-    'en': {
-      'wrd': 'Syllables',
-      'kk': {}
-    },
-    'fr': {
-      'wrd': 'Les syllabes',
-      'short': 'Syllabes',
-      'kk': {}
-    },
+    'en': { 'wrd': 'Syllables' },
+    'fr': { 'wrd': 'Les syllabes', 'short': 'Syllabes' },
     'lo': {
-      'wrd': 'ພະຍາງ',
-      'kk': {}
+      'wrd': 'ພະຍາງ'
     }
   }, {
-    'uid': 'animals',
-    'hasImages': true,
+    'uid': 'politness',
+    'noPlural': true, 'noArticle': true,
+    'en': { 'wrd': 'Politness' },
+    'fr': { 'wrd': 'La politesse', 'short': 'Politesse' },
+    'lo': { 'wrd': 'ຄວາມສຸພາບ' }
+  }, {
+    'uid': 'family',
     'hasCapital': true,
-    'en': {
-      'wrd': 'Animals',
-      'short': 'Animals',
-      'kk': {}
-    },
-    'fr': {
-      'wrd': 'Les animaux',
-      'short': 'Animaux',
-      'kk': {}
-    },
+    'levels': 2,
+    'en': { 'wrd': 'Family' },
+    'fr': { 'wrd': 'La famille', 'short': 'Famille' },
+    'lo': { 'wrd': 'ຄອບຄົວ' }
+  }, {
+    'uid': 'animals',
+    'hasImages': true, 'hasCapital': true,
+    'en': { 'wrd': 'Animals', 'short': 'Animals' },
+    'fr': { 'wrd': 'Les animaux', 'short': 'Animaux' },
     'lo': {
       'wrd': 'ສັດ',
-      'kk': {
-        'en': 'sad',
-        'fr': 'sat'
-      },
+      'kk': {'en': 'sad', 'fr': 'sat' },
       'meta': {
         'classifier': 'ໂຕ',
-        'cl_kk': {
-          'fr': 'to:',
-          'en': 'to:'
-        }
+        'cl_kk': { 'fr': 'to:', 'en': 'to:' }
       }
     }
-  },
-  {
+  }, {
     'uid': 'adj-with-contrary',
-    'noPlural': true,
-    'noArticle': true,
-    'en': {
-      'wrd': 'Adjectives & contratry',
-      'short': 'Adj. & contrary',
-      'kk': {}
-    },
-    'fr': {
-      'wrd': 'Adjectifs & contraires',
-      'short': 'Adj. contraires',
-      'kk': {}
-    },
-    'lo': {
-      'wrd': 'ຄໍາຄູນນາມກົງກັນຂາ້ມ',
-      'kk': {}
-    }
-  },
-  {
-    'uid': 'politness',
-    'noPlural': true,
-    'noArticle': true,
-    'en': {
-      'wrd': 'Politness',
-      'kk': {}
-    },
-    'fr': {
-      'wrd': 'La politesse',
-      'short': 'Politesse',
-      'kk': {}
-    },
-    'lo': {
-      'wrd': 'ຄວາມສຸພາບ',
-      'kk': {}
-    }
-  },
-  {
+    'noPlural': true, 'noArticle': true,
+    'en': { 'wrd': 'Adjectives & contratry', 'short': 'Adj. & contrary' },
+    'fr': { 'wrd': 'Adjectifs & contraires', 'short': 'Adj. contraires' },
+    'lo': { 'wrd': 'ຄໍາຄູນນາມກົງກັນຂາ້ມ' }
+  }, {
     'uid': 'professions',
-    'noPlural': true,
-    'noArticle': true,
-    'en': {
-      'wrd': 'Professions',
-      'kk': {}
-    },
-    'fr': {
-      'wrd': 'Les métiers',
-      'short': 'Métiers',
-      'kk': {}
-    },
-    'lo': {
-      'wrd': 'ອາຊີບ',
-      'kk': {}
-    }
+    'noPlural': true, 'noArticle': true,
+    'en': { 'wrd': 'Professions' },
+    'fr': { 'wrd': 'Les métiers', 'short': 'Métiers' },
+    'lo': { 'wrd': 'ອາຊີບ' }
   }
   // { code: 'plants', trad: 'theme.plants' },
   // {
@@ -192,7 +131,7 @@ export class ThemeService {
   // }
   ];
   data = {
-    learningThemeIdx: 3,
+    learningThemeIdx: 0,
     learningTheme: null,
     isKaraoke: true,
     isReversed: false,
@@ -206,7 +145,7 @@ export class ThemeService {
     private apiService: ApiService) {
     const currentThemeIdx = this.storage.getItem('currentLearningThemeIdx');
     const isKaraokeActivated = this.storage.getItem('isKaraokeActivated');
-    this.data.learningThemeIdx = !isNaN(currentThemeIdx) ? currentThemeIdx : 3;
+    this.data.learningThemeIdx = !isNaN(currentThemeIdx) ? currentThemeIdx : 5;
     this.data.learningTheme = this.AVAILABLE_THEMES[this.data.learningThemeIdx];
     this.data.isKaraoke = typeof isKaraokeActivated !== 'undefined' ? isKaraokeActivated : true;
     this.checkLevels();

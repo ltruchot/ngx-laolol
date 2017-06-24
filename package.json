@@ -1,6 +1,6 @@
 {
   "name": "ngx-laolol",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "license": "CC-BY-NC-4.0",
   "engines": {
     "node": "~8.0.0",

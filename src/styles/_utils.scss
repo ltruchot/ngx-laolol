@@ -25,6 +25,17 @@
     font-size: .65rem;
   }
 }
+
+// positions
+.pos-r {
+  position: relative;
+  .pos-top-left {
+    position: absolute;
+    top:2px;
+    left:5px
+  }
+}
+
 // effects
 .no-transition {
 	-webkit-transition: 0s !important;

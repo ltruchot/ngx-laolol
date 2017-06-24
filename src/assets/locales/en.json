@@ -45,17 +45,6 @@
     "karaoke": "karaoke",
     "listen": "listen"
   },
-  "theme": {
-    "vowels": "Vowels",
-    "consonants": "Consonants",
-    "animals": "Animals",
-    "plants": "Plants",
-    "days": "Week days",
-    "family": "Family",
-    "human_body": "Human body",
-    "head": "Head",
-    "adjContrary":"Adj. contrary"
-  },
   "submenu": {
     "language": "Language",
     "topic": "Topic",
