@@ -31,9 +31,7 @@ export class LanguageService {
   initializeLanguages () {
     // prepare loading infos
     this.translate.onLangChange.subscribe((event: LangChangeEvent) => {
-      if (this.data.learningLang === event.lang) {
-        this.chooseLearningLang(this.getLangInfos(event.lang).learnCode);
-      }
+      this.chooseLearningLang(this.getLangInfos(event.lang).learnCode);
       this.data.isCurrentLoading = false;
     });
 

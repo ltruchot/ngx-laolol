@@ -12,7 +12,7 @@
     "wrd": "ເຈົ້າ",
     "kk": { "en": "chao", "fr": "tjao" }
   },
-  "themes": ["politeness", "lvl1"]
+  "themes": ["politeness", "lvl0"]
 },{
   "uid": "no1",
   "en": {
@@ -27,7 +27,7 @@
     "wrd": "ບໍ່",
     "kk": { "en": "bɔ:", "fr": "bɔ:" }
   },
-  "themes": ["politeness", "lvl1"]
+  "themes": ["politeness", "lvl0"]
 },{
   "uid": "thankyou1",
   "en": {
@@ -43,7 +43,7 @@
     "wrd": "ຂອບໃຈ",
     "kk": { "en": "khɔbchai", "fr": "khɔptjay" }
   },
-  "themes": ["politeness", "lvl1"]
+  "themes": ["politeness", "lvl0"]
 }, {
   "uid": "hello1",
   "en": {
@@ -60,7 +60,7 @@
     "wrd": "ສະບາຍດີ",
     "kk": { "en": "sabaidee", "fr": "sabaydi" }
   },
-  "themes": ["politeness", "lvl1"]
+  "themes": ["politeness", "lvl0"]
 }, {
   "uid": "excuseme1",
   "en": {
@@ -75,7 +75,7 @@
     "wrd": "ຂໍໂທດ",
     "kk": { "en": "khɔ:tho:d", "fr": "khɔ:tho:d" }
   },
-  "themes": ["politeness", "lvl1"]
+  "themes": ["politeness", "lvl0"]
 }, {
   "uid": "please1",
   "en": {
@@ -99,7 +99,7 @@
       "description": "ຂໍ ອັນໃດໜື່ງ"
     }
   },
-  "themes": ["politeness", "lvl1"]
+  "themes": ["politeness", "lvl0"]
 }, {
   "uid": "goodbye1",
   "en": {
@@ -114,7 +114,7 @@
     "wrd": "ລາກອ່ນ",
     "kk": { "en": "la:kɔn", "fr": "la:kɔne" }
   },
-  "themes": ["politeness", "lvl1"]
+  "themes": ["politeness", "lvl0"]
 }, {
   "uid": "goodluck1",
   "en": {
@@ -129,7 +129,7 @@
     "wrd": "ໂຊກດີ",
     "kk": { "en": "sok dee", "fr": "sok di" }
   },
-  "themes": ["politeness", "lvl1"]
+  "themes": ["politeness", "lvl0"]
 }, {
   "uid": "goodnight1",
   "en": {
@@ -144,7 +144,7 @@
     "wrd": "ນອນລັບຝັນດີ",
     "kk": { "en": "nɔn lap fan dee", "fr": "nɔn lap fân di" }
   },
-  "themes": ["politeness", "lvl1"]
+  "themes": ["politeness", "lvl0"]
 }, {
   "uid": "nicetomeatyou1",
   "en": {
@@ -159,5 +159,5 @@
     "wrd": "ຍິນ​ດີ​ທີ່​ໄດ້ຮູ້ຈັກ​",
     "kk": { "en": "nyindee thee dai hoochak", "fr": "nyindi thi day houtjak" }
   },
-  "themes": ["politeness", "lvl1"]
+  "themes": ["politeness", "lvl0"]
 }]

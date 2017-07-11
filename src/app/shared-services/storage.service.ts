@@ -8,6 +8,7 @@ export class StorageService {
     'currentLanguage',
     'currentLearningThemeIdx',
     'isKaraokeActivated',
+    'isMoreInfosActivated',
     'learningLanguage',
     'userInfos',
     'version'

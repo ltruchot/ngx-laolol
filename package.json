@@ -1,7 +1,10 @@
 {
   "name": "ngx-laolol",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "license": "CC-BY-NC-4.0",
+  "author": "Loïc TRUCHOT",
+  "description": "Learn lao language while playing.",
+  "private": true,
   "engines": {
     "node": "~8.0.0",
     "npm": "~5.0.0"
@@ -16,7 +19,6 @@
     "lint": "ng lint",
     "e2e": "ng e2e"
   },
-  "private": true,
   "dependencies": {
     "@angular/common": "^4.0.0",
     "@angular/compiler": "^4.0.0",
@@ -38,6 +40,7 @@
     "intl": "^1.2.5",
     "jquery": "^3.2.1",
     "jsonwebtoken": "^7.4.0",
+    "laonetics": "^0.2.0",
     "mongoose": "^4.9.7",
     "morgan": "^1.8.1",
     "ngx-modal": "0.0.29",

@@ -15,7 +15,7 @@
     "ex": "",
     "kk": { "en": "a:cha:n", "fr": "a:tja:n" }
   },
-  "themes": ["professions", "lvl1"]
+  "themes": ["professions", "lvl0"]
 }, {
   "uid": "doctor1",
   "en": {
@@ -33,7 +33,7 @@
     "ex": "",
     "kk": { "en": "mɔ:", "fr": "mɔ:" }
   },
-  "themes": ["professions", "lvl1"]
+  "themes": ["professions", "lvl0"]
 }, {
   "uid": "policeman1",
   "en": {
@@ -51,7 +51,7 @@
     "ex": "",
     "kk": { "en": "tamlooad", "fr": "tamlouat" }
   },
-  "themes": ["professions", "lvl1"]
+  "themes": ["professions", "lvl0"]
 }, {
   "uid": "nurse1",
   "en": {
@@ -69,5 +69,299 @@
     "ex": "",
     "kk": { "en": "phania:ba:n", "fr": "phanya:ba:n" }
   },
+  "themes": ["professions", "lvl0"]
+}, {
+  "uid": "engineer1",
+  "en": {
+    "wrd": "engineer",
+    "ex": "",
+    "kk": {}
+  },
+  "fr":{
+    "wrd": "ingénieur",
+    "ex": "",
+    "kk": {}
+  },
+  "lo": {
+    "wrd": "ວິສະວະກອນ",
+    "ex": ""
+  },
+  "themes": ["professions", "lvl0"]
+}, {
+  "uid": "chef1",
+  "en": {
+    "wrd": "chef",
+    "ex": "",
+    "kk": {}
+  },
+  "fr":{
+    "wrd": "cuisinier",
+    "ex": "",
+    "kk": {}
+  },
+  "lo": {
+    "wrd": "ພໍຄົວ / ແມ່ຄົວ",
+    "ex": ""
+  },
+  "themes": ["professions", "lvl0"]
+}, {
+  "uid": "soldier1",
+  "en": {
+    "wrd": "soldier",
+    "ex": "",
+    "kk": {}
+  },
+  "fr":{
+    "wrd": "militaire",
+    "ex": "",
+    "kk": {}
+  },
+  "lo": {
+    "wrd": "ທະຫານ",
+    "ex": ""
+  },
+  "themes": ["professions", "lvl0"]
+}, {
+  "uid": "shopkeeper1",
+  "en": {
+    "wrd": "shopkeeper",
+    "ex": "",
+    "kk": {}
+  },
+  "fr":{
+    "wrd": "commerçant",
+    "ex": "",
+    "kk": {}
+  },
+  "lo": {
+    "wrd": "ແມ່ຄ້າ / ພໍ່ຄ້າ",
+    "ex": ""
+  },
+  "themes": ["professions", "lvl0"]
+}, {
+  "uid": "electrician1",
+  "en": {
+    "wrd": "electrician",
+    "ex": "",
+    "kk": {}
+  },
+  "fr":{
+    "wrd": "électricien",
+    "ex": "",
+    "kk": {}
+  },
+  "lo": {
+    "wrd": "ຊ່າງໄຟຟ້າ",
+    "ex": ""
+  },
   "themes": ["professions", "lvl1"]
+}, {
+  "uid": "mechanic1",
+  "en": {
+    "wrd": "mechanic",
+    "ex": "",
+    "kk": {}
+  },
+  "fr":{
+    "wrd": "mécanicien",
+    "ex": "",
+    "kk": {}
+  },
+  "lo": {
+    "wrd": "ຊ່າງແປງລົດ",
+    "ex": ""
+  },
+  "themes": ["professions", "lvl1"]
+}, {
+  "uid": "clockmaker1",
+  "en": {
+    "wrd": "clockmaker",
+    "ex": "",
+    "kk": {}
+  },
+  "fr":{
+    "wrd": "horloger",
+    "ex": "",
+    "kk": {}
+  },
+  "lo": {
+    "wrd": "ຊ່າງແປງໂມງ",
+    "ex": ""
+  },
+  "themes": ["professions", "lvl1"]
+}, {
+  "uid": "builder1",
+  "en": {
+    "wrd": "builder",
+    "ex": "",
+    "kk": {}
+  },
+  "fr":{
+    "wrd": "maçon",
+    "ex": "",
+    "kk": {}
+  },
+  "lo": {
+    "wrd": "ຊ່າງກໍ່",
+    "ex": ""
+  },
+  "themes": ["professions", "lvl1"]
+}, {
+  "uid": "carpenter1",
+  "en": {
+    "wrd": "carpenter",
+    "ex": "",
+    "kk": {}
+  },
+  "fr":{
+    "wrd": "menuisier",
+    "ex": "",
+    "kk": {}
+  },
+  "lo": {
+    "wrd": "ຊ່າງໄມ້",
+    "ex": ""
+  },
+  "themes": ["professions", "lvl1"]
+}, {
+  "uid": "shoemaker1",
+  "en": {
+    "wrd": "shoemaker",
+    "ex": ""
+  },
+  "fr":{
+    "wrd": "cordonnier",
+    "ex": ""
+  },
+  "lo": {
+    "wrd": "ຊ່າງຍິບເກິບ",
+    "ex": ""
+  },
+  "themes": ["professions", "lvl1"]
+}, {
+  "uid": "tailor1",
+  "en": {
+    "wrd": "tailor",
+    "ex": ""
+  },
+  "fr":{
+    "wrd": "tailleur",
+    "ex": ""
+  },
+  "lo": {
+    "wrd": "ຊ່າງຍິບເຄື່ອງ",
+    "ex": ""
+  },
+  "themes": ["professions", "lvl1"]
+}, {
+  "uid": "barber1",
+  "en": {
+    "wrd": "barber",
+    "ex": ""
+  },
+  "fr":{
+    "wrd": "coiffeur",
+    "ex": ""
+  },
+  "lo": {
+    "wrd": "ຊ່າງຕັດຜົມ",
+    "ex": ""
+  },
+  "themes": ["professions", "lvl1"]
+}, {
+  "uid": "musician1",
+  "en": {
+    "wrd": "musician"
+  },
+  "fr":{
+    "wrd": "musicien"
+  },
+  "lo": {
+    "wrd": "ນັກດົນຕີ"
+  },
+  "themes": ["professions", "lvl2"]
+}, {
+  "uid": "author1",
+  "en": {
+    "wrd": "author"
+  },
+  "fr":{
+    "wrd": "écrivain"
+  },
+  "lo": {
+    "wrd": "ນັກຂຽນ"
+  },
+  "themes": ["professions", "lvl2"]
+}, {
+  "uid": "pilot1",
+  "en": {
+    "wrd": "pilot"
+  },
+  "fr":{
+    "wrd": "pilote"
+  },
+  "lo": {
+    "wrd": "ນັກບີນ"
+  },
+  "themes": ["professions", "lvl2"]
+}, {
+  "uid": "sportsman1",
+  "en": {
+    "wrd": "sportsman"
+  },
+  "fr":{
+    "wrd": "sportif"
+  },
+  "lo": {
+    "wrd": "ນັກກິລາ"
+  },
+  "themes": ["professions", "lvl2"]
+}, {
+  "uid": "student1",
+  "en": {
+    "wrd": "student"
+  },
+  "fr":{
+    "wrd": "étudiant"
+  },
+  "lo": {
+    "wrd": "ນັກຮຽນ"
+  },
+  "themes": ["professions", "lvl2"]
+}, {
+  "uid": "accountant1",
+  "en": {
+    "wrd": "accountant"
+  },
+  "fr":{
+    "wrd": "comptable"
+  },
+  "lo": {
+    "wrd": "ນັກບັນຊີ"
+  },
+  "themes": ["professions", "lvl2"]
+}, {
+  "uid": "scientist1",
+  "en": {
+    "wrd": "scientist"
+  },
+  "fr":{
+    "wrd": "scientifique"
+  },
+  "lo": {
+    "wrd": "ນັກວິທະຍາສາດ"
+  },
+  "themes": ["professions", "lvl2"]
+}, {
+  "uid": "politician1",
+  "en": {
+    "wrd": "politician"
+  },
+  "fr":{
+    "wrd": "homme politique"
+  },
+  "lo": {
+    "wrd": "ນັກການເມືອງ"
+  },
+  "themes": ["professions", "lvl2"]
 }]

@@ -95,9 +95,21 @@ export class ThemeService {
     'lo': { 'wrd': 'ຄໍາຄູນນາມກົງກັນຂາ້ມ' }
   }, {
     'uid': 'professions',
+    'levels': 3,
     'noPlural': true, 'noArticle': true,
-    'en': { 'wrd': 'Professions' },
-    'fr': { 'wrd': 'Les métiers', 'short': 'Métiers' },
+    'en': {
+      'wrd': 'Professions',
+      'desc': ['', '']
+    },
+    'fr': {
+      'wrd': 'Les métiers',
+      'short': 'Métiers',
+      'desc': [
+        'En lao, pour certains métiers on distingue le masculin du féminin en utilisant "ພໍ່" et "ແມ່", littéralement "père" et "mère".',
+        'En lao, la plupart des métiers techniques commence par le mot"ຊ່າງ" (sâ:ng), littéralement "technicien", ou encore "ຊ່າງແປງ", "le réparateur".',
+        'En lao, les métiers artistiques ou nécessitant un talent particulier commence souvent par le mot "ນັກ", littéralement "expert".'
+      ]
+    },
     'lo': { 'wrd': 'ອາຊີບ' }
   }
   // { code: 'plants', trad: 'theme.plants' },
@@ -135,6 +147,7 @@ export class ThemeService {
     learningTheme: null,
     isKaraoke: true,
     isReversed: false,
+    isMoreInfos: false,
     isCurrentLoading: false,
     learningLevel: 0,
     levels: [],
@@ -145,9 +158,11 @@ export class ThemeService {
     private apiService: ApiService) {
     const currentThemeIdx = this.storage.getItem('currentLearningThemeIdx');
     const isKaraokeActivated = this.storage.getItem('isKaraokeActivated');
+    const isMoreInfosActivated = this.storage.getItem('isMoreInfosActivated');
     this.data.learningThemeIdx = !isNaN(currentThemeIdx) ? currentThemeIdx : 5;
     this.data.learningTheme = this.AVAILABLE_THEMES[this.data.learningThemeIdx];
     this.data.isKaraoke = typeof isKaraokeActivated !== 'undefined' ? isKaraokeActivated : true;
+    this.data.isMoreInfos = typeof isMoreInfosActivated !== 'undefined' ? isMoreInfosActivated : true;
     this.checkLevels();
   }
   checkLevels () {
@@ -161,12 +176,16 @@ export class ThemeService {
     this.data.isKaraoke = !this.data.isKaraoke;
     this.storage.setItem('isKaraokeActivated', this.data.isKaraoke);
   }
+  toggleMoreInfos () {
+    this.data.isMoreInfos = !this.data.isMoreInfos;
+    this.storage.setItem('isMoreInfosActivated', this.data.isMoreInfos);
+  }
 
   getCurrentLevel () {
-    // console.log('theme.services::getCurrentLevel');
+    console.log('theme.services::getCurrentLevel', this.data.learningLevel, this.data.levels.length);
     let items: Array<IThemeItem>;
-    if (this.data.learningLevel) {
-      items = this.data.items[this.data.learningTheme.uid].filter(item => item.themes.indexOf('lvl' + this.data.learningLevel) !== -1);
+    if (this.data.learningLevel < this.data.levels.length - 1) {
+      items = this.data.items[this.data.learningTheme.uid].filter(item => item.themes.indexOf('lvl' + (this.data.learningLevel)) !== -1);
     } else {
       items = this.data.items[this.data.learningTheme.uid];
     }

@@ -36,6 +36,13 @@ export class BlackboardComponent implements OnInit, OnDestroy {
     });
   }
 
+  /*
+  A getter to recalculate if the lao special font is needed
+ */
+  get isLaoLanguage () {
+    return this.cpntData.lang && this.cpntData.lang.currentLang === 'lo';
+  }
+
   ngOnInit () {
      this.route.params.subscribe(params => {
       if (params.uid) {

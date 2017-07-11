@@ -56,4 +56,7 @@ export class SubmenuComponent implements OnInit {
   toggleKaraoke () {
     this.themeService.toggleKaraoke();
   }
+  toggleMoreInfos () {
+    this.themeService.toggleMoreInfos();
+  }
 }

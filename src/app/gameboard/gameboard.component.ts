@@ -43,6 +43,15 @@ export class GameboardComponent implements OnInit, OnDestroy {
     });
   }
 
+  /*
+    A getter to recalculate if the lao special font is needed
+   */
+  get isLaoLanguage () {
+    return this.cpntData.lang && this.cpntData.theme &&
+    (this.cpntData.lang.currentLang === 'lo' && !this.cpntData.theme.isReversed) ||
+    (this.cpntData.lang.currentLang !== 'lo' && this.cpntData.theme.isReversed);
+  }
+
   ngOnInit () {
     this.route.params.subscribe(params => {
       if (params.uid) {

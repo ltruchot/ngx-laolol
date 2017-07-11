@@ -79,7 +79,7 @@
           <!-- end "i speak" ddl -->
           <!-- begin "i learn" ddl -->
           <div class="lang-block-container">
-            <div class="lang-block-content ddl-lang">
+            <div class="lang-block-content ddl-lang" [ngClass]="{'font-lao': cpntData.lang?.currentLang === 'lo'}">
               <span>{{ 'layout.iLearn' | translate }}</span>
               <div class="btn-group">
                 <button  id="btn-menu-lang" class="btn btn-secondary button-flag dropdown-toggle"
@@ -103,13 +103,14 @@
           <span class="glyphicon glyphicon-user"></span>
         </div> -->
         <div class="clickable-icons">
-          <a href="https://web.facebook.com/laolol/" target="_blank"><img src="/assets/img/logo-facebook.png"></a>
-          <a href="https://trello.com/b/L3XSHsjL/laolol" target="_blank"><img src="/assets/img/logo-trello.png"></a>
+          <a href="https://web.facebook.com/laolol/"><img src="/assets/img/logo-facebook.png"></a>
+          <a href="https://trello.com/b/L3XSHsjL/laolol"><img src="/assets/img/logo-trello.png"></a>
         </div>
       </div>
     </div>
     <!-- begin main menu navbar -->
-    <nav role="navigation" class="main-menu navbar navbar-default navbar-toggleable-sm navbar-light bg-faded">
+    <nav role="navigation" [ngClass]="{'font-lao': cpntData.lang?.currentLang === 'lo'}"
+      class="main-menu navbar navbar-default navbar-toggleable-sm navbar-light bg-faded">
       <button class="navbar-toggler navbar-toggler-right" type="button"
         data-toggle="collapse" data-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

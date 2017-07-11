@@ -51,7 +51,8 @@
     "level": "Level",
     "all": "All",
     "karaoke": "karaoke",
-    "reverse": "reverse"
+    "reverse": "reverse",
+    "moreInfos": "more infos"
   },
   "about": {
     "acknowledgements": "acknowledgements",

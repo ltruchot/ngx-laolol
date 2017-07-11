@@ -2,8 +2,7 @@
   "words": {
     "learn": "ຮຽນ",
     "or": "ຫຼື",
-    "and": "ແລະ",
-    "all": "all"
+    "and": "ແລະ"
   },
   "layout": {
     "blackboard": "ຫ້ອງຮຽນ",
@@ -20,7 +19,7 @@
     "nameLoic": "ໂລໂລ ທູຍໂສ",
     "nameXan": "ສານ ຮ່ໂລຕີນ",
     "nameLa": "ວິໄລວອນ \"ຫຼ້າ\" ສີສະຫວັດ",
-    "underConstruction": "Cette section du site est encore en construction.",
+    "underConstruction": "ພາກສວ່ນນີຂອງເວບໄຊແມ່ນກໍາລັງສາ້ງ",
     "iSpeak": "ຂ້ອຍເວົ້າ",
     "iLearn": "ຂ້ອຍຮຽນ"
   },
@@ -49,10 +48,11 @@
   "submenu": {
     "language": "ພາສາ",
     "topic": "ຫົວຂໍ້",
-    "level": "Level",
-    "all": "All",
+    "level": "ລະດັບ",
+    "all": "ທຸກລະດັບ",
     "karaoke": "ຄາລາໂອເກະ",
-    "reverse": "ຈັບຄູ່"
+    "reverse": "ຈັບຄູ່",
+    "moreInfos": "more infos"
   },
  "about": {
     "acknowledgements": "ຂອບໃຈ",

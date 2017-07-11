@@ -6,22 +6,19 @@ html {
 }
 body {
 	margin-bottom: 30px;
-	font-family:Phetsarath_OT !important;
-}
-footer {
-	height:30px;
-	font-style: italic;
-	position: absolute;
-  bottom: 0;
-  width: 100%;
-	img {
-		width: 30px;
-		margin-top:-3px;
+	font-family: Arial, Helvetica, sans-serif;
+	h2 {
+		font-size: 1.4rem;
 	}
-}
-button {
-	font-family:Phetsarath_OT !important;
-}
-h2 {
-	font-size: 1.4rem;
+	footer {
+		height:30px;
+		font-style: italic;
+		position: absolute;
+	  bottom: 0;
+	  width: 100%;
+		img {
+			width: 30px;
+			margin-top:-3px;
+		}
+	}
 }
