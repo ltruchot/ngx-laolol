@@ -12,7 +12,7 @@ export interface ILangItem {
   wrd: string;
   kk?: ILangKaraokeItem;
   ex?: string;
-  sound?: string;
+  snd?: string;
   meta?: any;
 };
 

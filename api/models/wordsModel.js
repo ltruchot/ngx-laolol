@@ -13,45 +13,59 @@ var WordSchema = new Schema({
 			Required: 'An english translation is needed.'
 		},
 		kk: {
-			en: String,
-			fr: String,
 			lo: String
 		},
 		ex: String,
-		sound: String
+		snd: String,
+		meta: {
+			plural: String,
+			classifier: String,
+			comment: String
+		}
 	},
 	fr: {
 		wrd: {
 			type: String,
-			Required: 'An english translation is needed.'
+			Required: 'A french translation is needed.'
 		},
 		kk: {
-			en: String,
-			fr: String,
 			lo: String
 		},
 		ex: String,
-		sound: String
+		snd: String,
+		meta: {
+			plural: String,
+			feminine: String,
+			masculine: String,
+			isMale: Boolean,
+			comment: String
+		}
 	},
 	lo: {
 		wrd: {
 			type: String,
-			Required: 'An english translation is needed.'
+			Required: 'A lao translation is needed.'
 		},
 		kk: {
 			en: String,
-			fr: String,
-			lo: String
+			fr: String
 		},
 		ex: String,
-		sound: String
+		snd: String,
+		meta: {
+			feminine: String,
+			masculine: String,
+			comment: String
+		}
 	},
 	themes: {
 		type: [String],
 		Required: 'At least one tag is required.'
 	},
+	img: String,
 	meta: {
-		contrary: String
+		contrary: String,
+		conflict: [String]
 	}
 });
 module.exports = mongoose.model('Word', WordSchema);

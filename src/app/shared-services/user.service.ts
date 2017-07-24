@@ -10,7 +10,8 @@ import { StorageService } from './storage.service';
 export class UserService {
   data = {
     isConnected: false,
-    infos: null
+    infos: null,
+    lastError: null
   };
   constructor (private apiService: ApiService, private storageService: StorageService) {}
 

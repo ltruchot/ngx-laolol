@@ -1,6 +1,6 @@
 {
   "name": "ngx-laolol",
-  "version": "0.1.3",
+  "version": "0.2.0",
   "license": "CC-BY-NC-4.0",
   "author": "Loïc TRUCHOT",
   "description": "Learn lao language while playing.",
@@ -43,7 +43,6 @@
     "laonetics": "^0.2.0",
     "mongoose": "^4.9.7",
     "morgan": "^1.8.1",
-    "ngx-modal": "0.0.29",
     "passport": "^0.3.2",
     "passport-jwt": "^2.2.1",
     "passport-local": "^1.0.0",
@@ -56,6 +55,7 @@
     "@angular/cli": "^1.1.2",
     "@angular/compiler-cli": "^4.0.0",
     "@types/jasmine": "2.5.38",
+    "@types/jquery": "^3.2.9",
     "@types/node": "~6.0.60",
     "codelyzer": "~2.0.0",
     "eslint": "^3.19.0",

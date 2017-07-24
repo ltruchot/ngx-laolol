@@ -1,29 +1,5 @@
 <div [hidden]= "!cpntData.loadingRoute && !(cpntData.lang?.isCurrentLoading) && !(cpntData.theme?.isCurrentLoading)" class="loading"></div>
-<!-- <modal #loginModal>
-  <modal-header>
-    <h2>Login</h2>
-  </modal-header>
-  <modal-content>
-    <div class="row">
-      <form *ngIf="!(cpntData.user?.isConnected)" class="col" name="form" (ngSubmit)="login(loginForm)" [formGroup]="loginForm">
-        <div class="form-group">
-          <input type="email" class="form-control input-lg" name="email" formControlName="email" placeholder="Email" required />
-        </div>
-        <div class="form-group">
-          <input type="password" class="form-control input-lg" name="password" formControlName="password" placeholder="Password" required />
-        </div>
-        <button type="submit" class="btn btn-primary btn-lg btn-block" [disabled]="loginForm.invalid">Log in</button>
-      </form>
-      <div class="col" *ngIf="cpntData.user?.isConnected">
-        <p>Connected as <strong>{{ cpntData.user.infos.firstName }} {{ cpntData.user.infos.lastName }}</strong></p>
-        <button type="submit" class="btn btn-danger btn-lg btn-block" (click)="logout()">Disconnect</button>
-      </div>
-    </div>
-  </modal-content>
-  <modal-footer>
-    <button class="btn btn-default" (click)="loginModal.close()">Cancel</button>
-  </modal-footer>
-</modal> -->
+<app-modal-login></app-modal-login>
 <div class="container app-container">
   <header>
     <div class="row">
@@ -39,6 +15,7 @@
       </div>
       <div class="col-7">
         <div class="avaiblable-lang-list">
+        <!-- begin "i speak" block -->
           <div class="lang-block-container">
             <div class="lang-block-content clearfix">
               <ul class="list-inline float-right">
@@ -52,31 +29,7 @@
               </ul>
             </div>
           </div>
-          <!-- begin "i speak" ddl -->
-<!--           <div class="lang-block-container">
-            <div class="lang-block-content">
-              <span class="text-small">{{ 'layout.iSpeak' | translate }}</span>
-              <div class="btn-group">
-                <button class="btn btn-secondary button-flag"
-                  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                   <span class="flag flag-{{ cpntData.lang.currentLangInfos?.flag }}"></span>
-                </button>
-                <button class="btn btn-secondary dropdown-toggle dropdown-toggle-split"
-                  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                </button>
-                <div class="dropdown-menu">
-                  <ng-container *ngFor="let lang of cpntData.availableLanguages">
-                    <a *ngIf="lang.code  !== cpntData.lang.currentLang" class="dropdown-item"
-                    title="{{ lang.label }}" (click)="changeCurrentLanguage(lang.code)">
-                      <span class="flag flag-{{lang.flag}}"></span>
-                      <span class="sr-only">{{ lang.label }}</span>
-                    </a>
-                  </ng-container>
-                </div>
-              </div>
-            </div>
-          </div> -->
-          <!-- end "i speak" ddl -->
+          <!-- end "i speak" block -->
           <!-- begin "i learn" ddl -->
           <div class="lang-block-container">
             <div class="lang-block-content ddl-lang" [ngClass]="{'font-lao': cpntData.lang?.currentLang === 'lo'}">
@@ -99,12 +52,10 @@
           </div>
           <!-- end "i learn" ddl -->
         </div>
-  <!--       <div (click)="loginModal.open()" class="clickable-icon" [ngClass]="{'text-success': cpntData.user.isConnected}">
-          <span class="glyphicon glyphicon-user"></span>
-        </div> -->
         <div class="clickable-icons">
           <a href="https://web.facebook.com/laolol/"><img src="/assets/img/logo-facebook.png"></a>
           <a href="https://trello.com/b/L3XSHsjL/laolol"><img src="/assets/img/logo-trello.png"></a>
+          <a data-toggle="modal" data-target="#loginModal" [ngClass]="cpntData.user.isConnected ? 'text-success icon-user-check' : 'icon-user'"></a>
         </div>
       </div>
     </div>

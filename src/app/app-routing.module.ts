@@ -4,7 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 // custom components
 import { HomeComponent } from './home/home.component';
 // custom services
-// import { AdminActivationService } from './shared-services/admin-activation.service';
+import { AdminActivationService } from './shared-services/admin-activation.service';
 
 
 const routes: Routes = [
@@ -14,7 +14,7 @@ const routes: Routes = [
   { path: 'blackboard/:uid', loadChildren: './blackboard/blackboard.module#BlackboardModule' },
   { path: 'exams', loadChildren: './exams/exams.module#ExamsModule' },
   { path: 'about', loadChildren: './about/about.module#AboutModule' },
-  // { path: 'admin', canActivate: [AdminActivationService], loadChildren: './admin/admin.module#AdminModule' },
+  { path: 'admin', canActivate: [AdminActivationService], loadChildren: './admin/admin.module#AdminModule' },
   { path: '404', loadChildren: './notfound/notfound.module#NotfoundModule' },
   { path: '**', redirectTo: '/404' }
 ];

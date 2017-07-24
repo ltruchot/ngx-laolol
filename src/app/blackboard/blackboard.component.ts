@@ -67,7 +67,7 @@ export class BlackboardComponent implements OnInit, OnDestroy {
     this.cpntData.items.push(...data);
     this.cpntData.items.forEach((item) => {
       this.cpntData.availableLang.forEach((avLang) => {
-        const sound = item[avLang.code].sound;
+        const sound = item[avLang.code].snd;
         if (sound) {
           item[avLang.code].audio = new Audio();
           item[avLang.code].audio.src = '/assets/medias/' + sound;

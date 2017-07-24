@@ -8,10 +8,10 @@ import { CommonModule } from '@angular/common';
 // npm dependencies
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-// import { ModalModule } from 'ngx-modal';
 
 // custom modules
 import { AppRoutingModule } from './app-routing.module';
+import { SharedModule } from './shared-components/shared.module';
 
 // custom components
 import { AppComponent } from './app.component';
@@ -22,8 +22,8 @@ import { LanguageService } from './shared-services/language.service';
 import { StorageService } from './shared-services/storage.service';
 import { ThemeService } from './shared-services/theme.service';
 import { ApiService } from './shared-services/api.service';
-// import { UserService } from './shared-services/user.service';
-// import { AdminActivationService } from './shared-services/admin-activation.service';
+import { UserService } from './shared-services/user.service';
+import { AdminActivationService } from './shared-services/admin-activation.service';
 
 
 // language export for AOT build
@@ -42,8 +42,8 @@ export function createTranslateLoader(http: Http) {
     ReactiveFormsModule,
     HttpModule,
     AppRoutingModule,
+    SharedModule,
     CommonModule,
-    // ModalModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
@@ -56,9 +56,9 @@ export function createTranslateLoader(http: Http) {
     ThemeService,
     LanguageService,
     StorageService,
-    ApiService
-    // UserService,
-    // AdminActivationService
+    ApiService,
+    UserService,
+    AdminActivationService
   ],
   bootstrap: [AppComponent]
 })

@@ -9,16 +9,11 @@ import {
     NavigationCancel,
     NavigationError
 } from '@angular/router';
-// import {
-//   FormBuilder,
-//   FormGroup,
-//   Validators
-// } from '@angular/forms';
 
 // custom services
 import { LanguageService } from './shared-services/language.service';
 import { ThemeService } from './shared-services/theme.service';
-// import { UserService } from './shared-services/user.service';
+import { UserService } from './shared-services/user.service';
 import { StorageService } from './shared-services/storage.service';
 
 @Component({
@@ -26,20 +21,17 @@ import { StorageService } from './shared-services/storage.service';
   templateUrl: './app.component.html'
 })
 export class AppComponent implements OnInit {
-  // @ViewChild('loginModal') loginModal;
-  // loginForm: FormGroup;
   cpntData = {
     availableLanguages: null,
     lang: null,
     user: null,
     theme: null,
     loadingRoute: true,
-    currentVersion: 'Beta version 0.1.3'
+    currentVersion: 'Beta version 0.2.0'
   };
   constructor (private languageService: LanguageService,
     public router: Router,
-    // private userService: UserService,
-    // private formBuilder: FormBuilder,
+    private userService: UserService,
     private themeService: ThemeService,
     private storageService: StorageService) {
     this.cpntData.theme =  this.themeService.data;
@@ -62,16 +54,10 @@ export class AppComponent implements OnInit {
     }
     this.languageService.initializeLanguages();
 
-    // init login form
-    // this.loginForm = this.formBuilder.group({
-    //   email: ['', Validators.required],
-    //   password: ['', Validators.required]
-    // });
-
     // init available data
     this.cpntData.availableLanguages = this.languageService.AVAILABLE_LANG;
     this.cpntData.lang = this.languageService.data;
-    // this.cpntData.user = this.userService.data;
+    this.cpntData.user = this.userService.data;
 
   }
 
@@ -94,18 +80,4 @@ export class AppComponent implements OnInit {
         this.cpntData.loadingRoute = false;
     }
   }
-
-  // login ({ value, valid }) {
-  //   if (valid) {
-  //     this.userService.login(value, () => {
-  //       this.loginModal.close();
-  //     });
-  //   }
-  // }
-
-  // logout () {
-  //   this.userService.logout(() => {
-  //     this.loginModal.close();
-  //   });
-  // }
 }
