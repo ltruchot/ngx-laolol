@@ -17,16 +17,9 @@ export class AdminActivationService implements CanActivate {
   }
 
   canActivate(): Observable<boolean> {
-    return this.apiService.get('isadmin/' + this.data.user.infos._id).map(success => {
+    return this.apiService.getResources('api/isadmin', true).map(success => {
       console.log('canActivate', success);
       return true;
     });
-  //       .subscribe(success => {
-  //       console.log(success);
-  //     });
-  //   }
   }
-    // isAdmin (): Observable<boolean> {
-
-  // }
 }

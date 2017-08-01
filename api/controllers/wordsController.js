@@ -12,13 +12,11 @@ exports.listWords = function (req, res) {
 };
 
 exports.createWord = function (req, res) {
-	var newWord = new Word(req.body);
-	newWord.save(function (err, word) {
-		if (err) {
-			res.send(err);
-		}
-		res.json(word);
+	req.body.forEach(item => {
+		item._userId = req.user._id;
 	});
+	const newWord = new Word(req.body[0]);
+	Word.insertMany(newWord).then(words => res.json(words), err => res.send(err));
 };
 
 exports.readWord = function (req, res) {

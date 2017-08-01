@@ -16,7 +16,9 @@ var UserSchema = new Schema({
 	},
 	profile: {
 		firstName: { type: String },
-		lastName: { type: String }
+		lastName: { type: String },
+		status: { type: Number, enum: [5, 14, 40, 100, 200] },
+		visible: { type: Boolean }
 	},
 	role: {
 		type: String,

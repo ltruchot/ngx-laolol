@@ -93,6 +93,12 @@
           data-toggle="collapse" data-target="#navbarSupportedContent.show">
             <a class="nav-link" routerLink="/about">{{ 'layout.about' | translate }}</a>
           </li>
+          <li *ngIf="cpntData.user && cpntData.user.isConnected &&
+            cpntData.user.infos && cpntData.user.infos.role === 'Admin'"
+            class="nav-item" routerLinkActive="active"
+            data-toggle="collapse" data-target="#navbarSupportedContent.show">
+            <a class="nav-link" routerLink="/admin">{{ 'layout.admin' | translate }}</a>
+          </li>
         </ul>
       </div>
     </nav>

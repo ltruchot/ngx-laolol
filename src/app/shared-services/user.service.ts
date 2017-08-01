@@ -1,7 +1,9 @@
 // ng dependencies
 import { Injectable } from '@angular/core';
+
 // npm dependencies
-import { Observable } from 'rxjs/Observable';
+// import { Observable } from 'rxjs/Observable';
+
 // custom services
 import { ApiService } from './api.service';
 import { StorageService } from './storage.service';
@@ -10,13 +12,19 @@ import { StorageService } from './storage.service';
 export class UserService {
   data = {
     isConnected: false,
-    infos: null,
-    lastError: null
+    infos: null
   };
-  constructor (private apiService: ApiService, private storageService: StorageService) {}
+  constructor (private apiService: ApiService, private storageService: StorageService) {
+    const authToken = this.storageService.getItem('authToken');
+    const userInfos = this.storageService.getItem('userInfos');
+    if (authToken && userInfos && userInfos.email) {
+      this.data.isConnected = true;
+      this.data.infos = userInfos;
+    }
+  }
 
   login (credentials, cb?: Function) {
-    this.apiService.post('api/login', {
+    this.apiService.postResources('api/login', {
       email: credentials.email,
       password: credentials.password
     }).subscribe(success => {

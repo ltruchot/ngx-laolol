@@ -1,6 +1,5 @@
 // ng dependencies
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
 
 // npm dependencies
 import { Subject } from 'rxjs/Subject';
@@ -153,9 +152,7 @@ export class ThemeService {
     levels: [],
     items: {}
   };
-  constructor (private http: Http,
-    private storage: StorageService,
-    private apiService: ApiService) {
+  constructor (private storage: StorageService, private apiService: ApiService) {
     const currentThemeIdx = this.storage.getItem('currentLearningThemeIdx');
     const isKaraokeActivated = this.storage.getItem('isKaraokeActivated');
     const isMoreInfosActivated = this.storage.getItem('isMoreInfosActivated');

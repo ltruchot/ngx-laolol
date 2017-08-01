@@ -66,6 +66,7 @@ var WordSchema = new Schema({
 	meta: {
 		contrary: String,
 		conflict: [String]
-	}
+	},
+	_userId: { type: Schema.Types.ObjectId, ref: 'User' }
 });
 module.exports = mongoose.model('Word', WordSchema);

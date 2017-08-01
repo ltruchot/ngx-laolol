@@ -18,13 +18,13 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 
 // custom services
+import { AdminActivationService } from './shared-services/admin-activation.service';
+import { ApiService } from './shared-services/api.service';
+import { ItemService } from './shared-services/item.service';
 import { LanguageService } from './shared-services/language.service';
 import { StorageService } from './shared-services/storage.service';
 import { ThemeService } from './shared-services/theme.service';
-import { ApiService } from './shared-services/api.service';
 import { UserService } from './shared-services/user.service';
-import { AdminActivationService } from './shared-services/admin-activation.service';
-
 
 // language export for AOT build
 export function createTranslateLoader(http: Http) {
@@ -53,12 +53,13 @@ export function createTranslateLoader(http: Http) {
     })
   ],
   providers: [
-    ThemeService,
+    AdminActivationService,
+    ApiService,
+    ItemService,
     LanguageService,
     StorageService,
-    ApiService,
-    UserService,
-    AdminActivationService
+    ThemeService,
+    UserService
   ],
   bootstrap: [AppComponent]
 })

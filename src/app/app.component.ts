@@ -1,5 +1,5 @@
 // ng dependencies
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {
     Router,
     // import as RouterEvent to avoid confusion with the DOM Event
@@ -15,6 +15,10 @@ import { LanguageService } from './shared-services/language.service';
 import { ThemeService } from './shared-services/theme.service';
 import { UserService } from './shared-services/user.service';
 import { StorageService } from './shared-services/storage.service';
+import { ItemService } from './shared-services/item.service';
+
+// custome interfaces
+// import { ReadHttpError } from './shared-interfaces/error.interfaces';
 
 @Component({
   selector: 'app-root',
@@ -33,7 +37,47 @@ export class AppComponent implements OnInit {
     public router: Router,
     private userService: UserService,
     private themeService: ThemeService,
-    private storageService: StorageService) {
+    private storageService: StorageService,
+    private itemService: ItemService) {
+
+    this.itemService.create$.subscribe(data => console.log('data', data));
+    this.itemService.error$.subscribe( error => console.error('error', error));
+    // this.itemService.create([{
+    //   en: {
+    //     wrd: 'dog',
+    //     ex: '',
+    //     kk: {
+    //       'lo': 'ດອກ'
+    //     }
+    //   },
+    //   fr: {
+    //     wrd: 'chien',
+    //     ex: '',
+    //     kk: {
+    //       lo: 'ຊຽງ'
+    //     },
+    //     snd: 'dog/dog_fr.mp3',
+    //     meta: {
+    //       'isMale': true
+    //     }
+    //   },
+    //   lo: {
+    //     wrd: 'ໝາ',
+    //     ex: '',
+    //     kk: {
+    //       en: 'ma:',
+    //       fr: 'ma:'
+    //     },
+    //     snd: 'dog/dog_lo.mp3'
+    //   },
+    //   themes: ['animals', 'lvl0'],
+    //   img: 'dog/dog.png'
+    // }]);
+
+    this.itemService.read$.subscribe(data => console.log('data', data));
+    this.itemService.error$.subscribe( error => console.error('error', error));
+    this.itemService.read();
+
     this.cpntData.theme =  this.themeService.data;
     router.events.subscribe((event: RouterEvent) => {
       this.navigationInterceptor(event);

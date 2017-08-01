@@ -78,22 +78,23 @@ exports.register = function (req, res, next) {
 };
 
 // Role authorization check
-exports.roleAuthorization = function (role) {
-	return function (req, res, next) {
-		User.findById(req.params.userId, function (err, foundUser) {
-			if (err) {
-				res.status(422).json({ error: 'No user was found.' });
-				return next(err);
-			}
+exports.roleAuthorization = function (role, req, res) {
+	let code = 501;
+	if (!req.user) {
+		code = 422;
+		res.status(422).json({ error: 'No user was found.' });
+	} else if (req.user.role === role) {
+		// If user is found, check role.
+		code = 201;
+	} else {
+		code = 401;
+		res.status(code).json(false);
+	}
+	return code;
+};
 
-			// If user is found, check role.
-			if (foundUser.role === role) {
-				res.status(201).json(true);
-				return next('Is ' + role);
-			}
-
-			res.status(401).json(false);
-			return next('Unauthorized');
-		});
-	};
+// Constants for role types
+exports.roles = {
+	REQUIRE_ADMIN: 'Admin',
+	REQUIRE_CLIENT: 'User'
 };

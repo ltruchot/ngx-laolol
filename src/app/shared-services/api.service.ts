@@ -4,7 +4,7 @@ import { Http, RequestOptions, Headers } from '@angular/http';
 
 // npm dependencies
 import { ReplaySubject } from 'rxjs/ReplaySubject';
-import { Observable } from 'rxjs/Observable';
+// import { Observable } from 'rxjs/Observable';
 
 // custom services
 import { StorageService } from './storage.service';
@@ -13,7 +13,9 @@ import { StorageService } from './storage.service';
 export class ApiService {
   private SERVER_URL = 'http://localhost:3000/'; // 'http://laolol.com/';
   private cachedObs = {};
+
   constructor(private http: Http, private storageService: StorageService) { }
+
   getData(resource, forceRefresh?: boolean) {
 
     // if no cache space exists, create it with new Subject
@@ -38,24 +40,41 @@ export class ApiService {
     }
     return dataObs$;
   }
-  get (url)  {
-    return this.http.get(this.SERVER_URL + url)
+
+  getResources (url: string, auth?: boolean)  {
+    const headers = new Headers({});
+    if (auth) { this.addAuth(headers); }
+    const options = new RequestOptions({headers: headers});
+    return this.http.get(this.SERVER_URL + url, options)
       .map(res => res.json());
   }
-  post (url, data) {
-    const body = new URLSearchParams();
-    for (const key in data) {
-      if (data.hasOwnProperty(key)) {
-        body.set(key, data[key]);
+
+  postResources (url: string, data: any, auth?: boolean) {
+    let body: any;
+    let contentType = 'application/json';
+    if (data instanceof Array) {
+      body = JSON.stringify(data);
+    } else {
+      contentType = 'application/x-www-form-urlencoded';
+      body = new URLSearchParams();
+      for (const key in data) {
+        if (data.hasOwnProperty(key)) {
+          body.set(key, data[key]);
+        }
       }
     }
 
     const headers = new Headers({
-      'Content-Type': 'application/x-www-form-urlencoded',
-      'Authorization': this.storageService.getItem('AuthToken')
+      'Content-Type': contentType,
     });
+    if (auth) { this.addAuth(headers); }
     const options = new RequestOptions({headers: headers});
     return this.http.post(this.SERVER_URL + url, body.toString(), options)
       .map(res => res.json());
+  }
+
+  addAuth (headers: Headers) {
+    const token = this.storageService.getItem('authToken');
+    headers.append('Authorization', token);
   }
 }
