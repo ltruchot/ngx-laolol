@@ -21,6 +21,7 @@
       "styles": [
         "assets/css/icomoon.css",
         "assets/css/flags.min.css",
+        "../node_modules/ngx-toastr/toastr.css",
         "styles.scss"
       ],
       "scripts": [

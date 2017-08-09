@@ -1,8 +1,11 @@
 {
   "words": {
+    "and": "ແລະ",
+    "languageEnglish": "ພາ​ສາ​ອັງ​ກິດ",
+    "languageFrench": "ພາສາຝຣັ່ງ",
+    "languageLao": "ພາສາລາວ",
     "learn": "ຮຽນ",
-    "or": "ຫຼື",
-    "and": "ແລະ"
+    "or": "ຫຼື"
   },
   "layout": {
     "blackboard": "ຫ້ອງຮຽນ",
@@ -29,10 +32,7 @@
     "intro2": "ແລະມັນສາມາດຊວ່ຍຄົນທີ່ເວົ້າພາສາຝະລັ່ງ ຫລື ພາສາອັງກິດຮຽນພາສາລາວໄດ້ ",
     "andNow": "ຫຼິ້ນ",
     "letsPlay": "ດຽວນີ້ !",
-    "wantLearn": "ຂ້ອຍ ຢາກ ຮຽນ",
-    "englishLanguage": "ພາ​ສາ​ອັງ​ກິດ",
-    "frenchLanguage": "ພາສາຝຣັ່ງ",
-    "laoLanguage": "ພາສາລາວ"
+    "wantLearn": "ຂ້ອຍ ຢາກ ຮຽນ"
   },
   "gameboard": {
     "findTranslation": "ຊອກຫາຄໍາແປທີ່ຖຶກຕ້ອງ",

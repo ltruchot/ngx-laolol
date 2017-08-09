@@ -3,9 +3,9 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var WordSchema = new Schema({
-	uid: {
-		type: String,
-		Required: 'An universal ID is needed.'
+	validated: {
+		type: Boolean,
+		Required: 'A "validated" param is needed.'
 	},
 	en: {
 		wrd: {
@@ -13,7 +13,8 @@ var WordSchema = new Schema({
 			Required: 'An english translation is needed.'
 		},
 		kk: {
-			lo: String
+			lo: String,
+			ipa: String
 		},
 		ex: String,
 		snd: String,
@@ -29,7 +30,8 @@ var WordSchema = new Schema({
 			Required: 'A french translation is needed.'
 		},
 		kk: {
-			lo: String
+			lo: String,
+			ipa: String
 		},
 		ex: String,
 		snd: String,
@@ -48,7 +50,8 @@ var WordSchema = new Schema({
 		},
 		kk: {
 			en: String,
-			fr: String
+			fr: String,
+			ipa: String
 		},
 		ex: String,
 		snd: String,

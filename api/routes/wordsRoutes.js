@@ -11,13 +11,22 @@ module.exports = function (app) {
 		.get(words.listWords)
 		.post(requireAuth, (req, res) => {
 			let code = users.roleAuthorization(users.roles.REQUIRE_ADMIN, req, res);
-			if (code === 201) {
+			if (code === 201 && req.body instanceof Array) {
 				words.createWord(req, res);
+			} else {
+				res.status('400').json({ error: 'Invalid data' });
 			}
 		});
 
 	app.route('/api/words/:wordId')
 		.get(words.readWord)
 		.put(requireAuth, words.updateWord)
-		.delete(requireAuth, words.deleteWord);
+		.delete(requireAuth, (req, res) => {
+			let code = users.roleAuthorization(users.roles.REQUIRE_ADMIN, req, res);
+			if (code === 201) {
+				words.deleteWord(req, res);
+			} else {
+				res.status('400').json({ error: 'Invalid ids' });
+			}
+		});
 };

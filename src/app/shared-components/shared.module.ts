@@ -9,11 +9,12 @@ import { TranslateModule } from '@ngx-translate/core';
 // custom components
 import { SubmenuComponent } from './submenu/submenu.component';
 import { LoginComponent } from './modals/login/login.component';
+import { ConfirmComponent } from './modals/confirm/confirm.component';
 
 @NgModule({
    imports: [CommonModule, TranslateModule, FormsModule, ReactiveFormsModule],
-   declarations: [SubmenuComponent, LoginComponent],
+   declarations: [SubmenuComponent, LoginComponent, ConfirmComponent],
    providers: [],
-   exports: [SubmenuComponent, LoginComponent],
+   exports: [SubmenuComponent, LoginComponent, ConfirmComponent],
 })
 export class SharedModule { }

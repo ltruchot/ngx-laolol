@@ -12,11 +12,12 @@ exports.listWords = function (req, res) {
 };
 
 exports.createWord = function (req, res) {
+	const docs = [];
 	req.body.forEach(item => {
 		item._userId = req.user._id;
+		docs.push(new Word(item));
 	});
-	const newWord = new Word(req.body[0]);
-	Word.insertMany(newWord).then(words => res.json(words), err => res.send(err));
+	Word.insertMany(docs).then(words => res.json(words), err => res.send(err));
 };
 
 exports.readWord = function (req, res) {
@@ -44,6 +45,6 @@ exports.deleteWord = function (req, res) {
 		if (err) {
 			res.send(err);
 		}
-		res.json({ message: 'Word successfully deleted' });
+		res.json({ message: 'Word successfully deleted', _id: req.params.wordId });
 	});
 };

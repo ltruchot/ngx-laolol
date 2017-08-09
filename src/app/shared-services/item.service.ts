@@ -1,6 +1,6 @@
 // ng dependencies
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
+// import { Http } from '@angular/http';
 
 // npm dependencies
 import { Observable } from 'rxjs/Observable';
@@ -13,30 +13,46 @@ import { ApiService } from './api.service';
 import { UserService } from './user.service';
 
 // custom models
-import { HttpError, ReadHttpError, CreateHttpError, ManagedCodeErrors } from '../shared-interfaces/error.interfaces';
-import { IItem } from '../shared-interfaces/item.models';
+import {
+  HttpError,
+  ReadHttpError,
+  CreateHttpError,
+  DeleteHttpError,
+  ManagedCodeErrors
+} from '../shared-models/error.models';
+import { IItem } from '../shared-models/item.models';
 
 @Injectable()
 export class ItemService {
   create$: Observable<any>;
   read$: Observable<any>;
   update$: Observable<void>;
-  delete$: Observable<void>;
+  delete$: Observable<any>;
   error$: Observable<HttpError>;
 
+  public items: Array<IItem> = [];
   protected createSubject: Subject<any>;
   protected readSubject: Subject<any>;
   protected updateSubject: Subject<void>;
-  protected deleteSubject: Subject<void>;
+  protected deleteSubject: Subject<any>;
   protected errorSubject: Subject<HttpError>;
-  private SERVER_URL = 'http://localhost:3000/'; // 'http://laolol.com/';
+  private basicUrl = 'api/words';
   private basicCodeErrors: ManagedCodeErrors;
 
-  constructor (private http: Http, private apiService: ApiService, private userService: UserService)  {
+  constructor (private apiService: ApiService, private userService: UserService)  {
+    // create
     this.createSubject = new Subject();
     this.create$ = this.createSubject.asObservable();
+
+    // read
     this.readSubject = new Subject();
     this.read$ = this.readSubject.asObservable();
+
+    // delete
+    this.deleteSubject = new Subject();
+    this.delete$ = this.deleteSubject.asObservable();
+
+    // errors
     this.errorSubject = new Subject();
     this.error$ = this.errorSubject.asObservable();
     this.basicCodeErrors = this.getBasicCodeErrors();
@@ -44,34 +60,49 @@ export class ItemService {
 
   getBasicCodeErrors (): ManagedCodeErrors  {
     return {
-      '401': () => {
+      '400': (): string => {
+        return 'Items format is invalid.';
+      },
+      '401': (): string => {
         this.userService.logout();
+        return 'User authentification failed. Please, try to reconnect.';
+      },
+      '500': (): string => {
+        return 'Server is probably down.';
       }
     };
   }
 
   create (words: Array<IItem>): void {
-    const url = 'api/words';
-    this.apiService.postResources(url, words, true)
-      .catch(error => {
-        return Observable.throw(new CreateHttpError(error, url, this.basicCodeErrors));
-      })
-      .subscribe(
-        data => this.readSubject.next(data),
-        readHttpError => this.errorSubject.next(readHttpError)
-      );
+    this.apiService.postResources(this.basicUrl, words, true).catch(error => {
+      return Observable.throw(new CreateHttpError(error, this.basicUrl, this.basicCodeErrors));
+    }).subscribe(data => {
+      this.items.push(...data);
+      return this.createSubject.next(data);
+    }, createHttpError => {
+      return this.errorSubject.next(createHttpError);
+    });
   }
 
   read (): void {
-    let url = this.SERVER_URL + 'api/words';
-    this.http.get(url)
-      .map(res => res.json())
-      .catch(error => {
-        return Observable.throw(new ReadHttpError(error, url, this.basicCodeErrors));
-      })
-      .subscribe(
-        data => this.readSubject.next(data),
-        readHttpError => this.errorSubject.next(readHttpError)
-      );
+    this.apiService.getResources(this.basicUrl).catch(error => {
+      return Observable.throw(new ReadHttpError(error, this.basicUrl, this.basicCodeErrors));
+    }).subscribe(data => {
+      this.items.push(...data);
+      return this.readSubject.next(data);
+    }, readHttpError => {
+      return this.errorSubject.next(readHttpError);
+    });
+  }
+
+  delete (id: string): void {
+    this.apiService.deleteResources(this.basicUrl + '/' + id, true).catch(error => {
+      return Observable.throw(new DeleteHttpError(error, this.basicUrl, this.basicCodeErrors));
+    }).subscribe(data => {
+      this.items.splice(this.items.findIndex(item => item._id === id), 1);
+      return this.deleteSubject.next(data);
+    }, deleteHttpError => {
+      return this.errorSubject.next(deleteHttpError);
+    });
   }
 }

@@ -10,7 +10,7 @@ import { StorageService } from './storage.service';
 import { ApiService } from './api.service';
 
 // custom interfaces
-import { IThemeItem } from './../shared-interfaces/theme.interfaces';
+import { IThemeItem } from './../shared-models/theme.interfaces';
 
 @Injectable()
 export class ThemeService {

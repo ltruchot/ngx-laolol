@@ -7,7 +7,7 @@ import { Subscription } from 'rxjs/Subscription';
 
 // custom interfaces
 import { GameboardCpntData } from './gameboard.interfaces';
-import { IThemeItem } from './../shared-interfaces/theme.interfaces';
+import { IThemeItem } from './../shared-models/theme.interfaces';
 
 // custom services
 import { ThemeService } from './../shared-services/theme.service';

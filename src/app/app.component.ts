@@ -10,15 +10,18 @@ import {
     NavigationError
 } from '@angular/router';
 
+// npm dependencies
+import 'rxjs/add/operator/filter';
+
 // custom services
 import { LanguageService } from './shared-services/language.service';
 import { ThemeService } from './shared-services/theme.service';
 import { UserService } from './shared-services/user.service';
 import { StorageService } from './shared-services/storage.service';
-import { ItemService } from './shared-services/item.service';
+// import { ItemService } from './shared-services/item.service';
 
 // custome interfaces
-// import { ReadHttpError } from './shared-interfaces/error.interfaces';
+// import { ReadHttpError } from './shared-models/error.models';
 
 @Component({
   selector: 'app-root',
@@ -34,62 +37,34 @@ export class AppComponent implements OnInit {
     currentVersion: 'Beta version 0.2.0'
   };
   constructor (private languageService: LanguageService,
-    public router: Router,
+    private router: Router,
     private userService: UserService,
     private themeService: ThemeService,
-    private storageService: StorageService,
-    private itemService: ItemService) {
-
-    this.itemService.create$.subscribe(data => console.log('data', data));
-    this.itemService.error$.subscribe( error => console.error('error', error));
-    // this.itemService.create([{
-    //   en: {
-    //     wrd: 'dog',
-    //     ex: '',
-    //     kk: {
-    //       'lo': 'ດອກ'
-    //     }
-    //   },
-    //   fr: {
-    //     wrd: 'chien',
-    //     ex: '',
-    //     kk: {
-    //       lo: 'ຊຽງ'
-    //     },
-    //     snd: 'dog/dog_fr.mp3',
-    //     meta: {
-    //       'isMale': true
-    //     }
-    //   },
-    //   lo: {
-    //     wrd: 'ໝາ',
-    //     ex: '',
-    //     kk: {
-    //       en: 'ma:',
-    //       fr: 'ma:'
-    //     },
-    //     snd: 'dog/dog_lo.mp3'
-    //   },
-    //   themes: ['animals', 'lvl0'],
-    //   img: 'dog/dog.png'
-    // }]);
-
-    this.itemService.read$.subscribe(data => console.log('data', data));
-    this.itemService.error$.subscribe( error => console.error('error', error));
-    this.itemService.read();
-
-    this.cpntData.theme =  this.themeService.data;
-    router.events.subscribe((event: RouterEvent) => {
-      this.navigationInterceptor(event);
-    });
+    private storageService: StorageService) {
   }
+
   changeCurrentLanguage (code) {
     this.languageService.chooseTranslation(code);
   }
+
   changeLearningLanguage (code) {
     this.languageService.chooseLearningLang(code);
   }
+
   ngOnInit () {
+
+    // get every words
+    // this.itemService.read$.subscribe(data => console.log('data', data));
+    // this.itemService.error$.filter(error => error instanceof ReadHttpError)
+    //   .subscribe(error => console.error('error', error));
+    // this.itemService.read();
+
+    // manage loading states
+    this.cpntData.theme =  this.themeService.data;
+    this.router.events.subscribe((event: RouterEvent) => {
+      this.navigationInterceptor(event);
+    });
+
     // clear store if it's a new version
     const version = this.storageService.getItem('version');
     if (version !== this.cpntData.currentVersion) {

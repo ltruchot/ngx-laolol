@@ -1,8 +1,8 @@
 // ng dependencies
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
-// npm dependencies
+// custim models
 declare const $: any;
 
 // custom services
@@ -13,7 +13,6 @@ import { UserService } from './../../../shared-services/user.service';
   templateUrl: './login.component.html'
 })
 export class LoginComponent implements OnInit {
-  @ViewChild('loginModal') loginModal;
   loginForm: FormGroup;
   cpntData = {
     user: null

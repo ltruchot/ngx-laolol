@@ -1,5 +1,37 @@
+<div class="view-admin">
+	<table class="table table-striped table-hover table-sm">
+		<thead>
+			<tr>
+				<th>{{ 'words.languageEnglish' | translate | capitalize }}</th>
+				<th>{{ 'words.languageFrench' | translate | capitalize }}</th>
+				<th>{{ 'words.languageLao' | translate | capitalize }}</th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr *ngFor="let item of cpntData.items; let i = index;" [ngClass]="{'table-success': item.validated}">
+				<td>{{ item.en.wrd }}</td>
+				<td>{{ item.fr.wrd }}</td>
+				<td><span class="font-lao">{{ item.lo.wrd }}</span></td>
+				<td>
+					<button (click)="confirmDelete(item._id)" id="btn-menu-lang" class="btn btn-sm btn-danger"
+						data-toggle="modal" data-target="#confirmModal" aria-haspopup="true" aria-expanded="false">
+           delete
+        	</button>
+        </td>
+			</tr>
+		</tbody>
+	</table>
+</div>
 <div class="row">
-  <div class="col">
-   	admin
-  </div>
+	<div class="col">
+		<form class="col" name="form" (ngSubmit)="createItems(adminForm)" [formGroup]="adminForm">
+				<div class="form-group">
+				<label for="json-textarea">Words in JSON format</label>
+				<textarea class="form-control" rows="20"
+				id="json-textarea"  name="json-textarea" formControlName="jsonTextarea" required></textarea>
+			</div>
+			<button type="submit" class="btn btn-primary btn-lg btn-block" [disabled]="adminForm.invalid">Create items</button>
+		</form>
+	</div>
 </div>

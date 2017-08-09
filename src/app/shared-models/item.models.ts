@@ -16,6 +16,7 @@ export interface IKaraokeItem {
   lo?: string;
   en?: string;
   fr?: string;
+  ipa?: string;
 };
 
 export interface ILangItem {
@@ -28,7 +29,8 @@ export interface ILangItem {
 };
 
 export interface IItem {
-  _id: string;
+  _id?: string;
+  validated?: boolean;
   en: ILangItem;
   fr: ILangItem;
   lo: ILangItem;

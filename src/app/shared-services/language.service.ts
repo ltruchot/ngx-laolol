@@ -8,16 +8,16 @@ import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
 import { StorageService } from './storage.service';
 
 // custom interfaces
-import { Language } from './../shared-interfaces/language.interfaces';
+import { Language } from './../shared-models/language.interfaces';
 
 @Injectable()
 export class LanguageService {
   DEFAULT_LANG = 'en';
   DEFAULT_LEARNING_LANG = 'lo';
   AVAILABLE_LANG: Array<Language> = [
-    { code: 'en', flag: 'us', learnCode: 'lo', label: 'english', tradLabel: 'home.englishLanguage' },
-    { code: 'fr', flag: 'fr', learnCode: 'lo', label: 'français', tradLabel: 'home.frenchLanguage' },
-    { code: 'lo', flag: 'la', learnCode: 'en', label: 'ພາສາລາວ', tradLabel: 'home.laoLanguage' }
+    { code: 'en', flag: 'us', learnCode: 'lo', label: 'english', tradLabel: 'words.languageEnglish' },
+    { code: 'fr', flag: 'fr', learnCode: 'lo', label: 'français', tradLabel: 'words.languageFrench' },
+    { code: 'lo', flag: 'la', learnCode: 'en', label: 'ພາສາລາວ', tradLabel: 'words.languageLao' }
   ];
   data = {
     currentLang: 'en',

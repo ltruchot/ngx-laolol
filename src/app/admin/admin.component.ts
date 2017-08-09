@@ -1,27 +1,113 @@
 // ng dependencies
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+// import { Router } from '@angular/router';
+
+// npm dependencies
+import { ToastrService } from 'ngx-toastr';
+import 'rxjs/add/operator/filter';
 
 // custom services
 import { ThemeService } from './../shared-services/theme.service';
 import { LanguageService } from './../shared-services/language.service';
+import { ItemService } from './../shared-services/item.service';
+import { ModalService } from './../shared-services/modal.service';
+
+// custom pipes
+// import { CapitalizePipe } from './../shared-pipes/capitalize.pipe';
+
+// custom models
+import { CreateHttpError, ReadHttpError, DeleteHttpError } from './../shared-models/error.models';
+import { IItem } from '../shared-models/item.models';
 
 @Component({
   selector: 'app-admin',
   templateUrl: './admin.component.html'
 })
 export class AdminComponent implements OnInit {
+  adminForm: FormGroup;
   cpntData = {
     lang: null,
     availableLang: null,
     theme: null,
-    availableTheme: null
+    availableTheme: null,
+    items: []
   };
-  constructor (private themeService: ThemeService, private languageService: LanguageService) { }
+
+  constructor (private themeService: ThemeService,
+    private languageService: LanguageService,
+    private itemService: ItemService,
+    private formBuilder: FormBuilder,
+    private toastrService: ToastrService,
+    private modalService: ModalService) {
+  }
 
   ngOnInit () {
+    // init shared data
     this.cpntData.lang =  this.languageService.data;
     this.cpntData.availableLang = this.languageService.AVAILABLE_LANG;
     this.cpntData.theme =  this.themeService.data;
     this.cpntData.availableTheme = this.themeService.AVAILABLE_THEMES;
+    this.cpntData.items = this.itemService.items;
+
+    // init CRUD subscriptions
+    // -- read
+    this.itemService.error$.filter(error => error instanceof ReadHttpError).subscribe(error => {
+      console.error('ReadHttpError', error);
+    });
+
+    // -- create
+    this.itemService.create$.subscribe(data => {
+      this.toastrService.success('Item created succesfully.');
+    });
+    this.itemService.error$.filter(error => error instanceof CreateHttpError)
+    .subscribe( error => {
+      if (error.code && error.toasterMessage) {
+        this.toastrService.error(error.toasterMessage, 'Error n°' + error.code);
+      }
+    });
+
+    // -- delete
+    this.itemService.delete$.subscribe(data => {
+      this.toastrService.success('Item succesfully deleted.');
+    });
+    this.itemService.error$.filter(error => error instanceof DeleteHttpError)
+    .subscribe( error => {
+      if (error.code && error.toasterMessage) {
+        this.toastrService.error(error.toasterMessage, 'Error n°' + error.code);
+      }
+    });
+
+    // init admin form
+    this.adminForm = this.formBuilder.group({
+      jsonTextarea: ['', Validators.required]
+    });
+
+    // get every words
+    this.readItems();
+
+  }
+
+  readItems () {
+    this.itemService.read();
+  }
+
+  createItems ({ value, valid }) {
+    console.log('admin.component::createItems', value);
+    if (valid) {
+      let items: Array<IItem>;
+      try {
+        items = JSON.parse(value.jsonTextarea);
+        this.itemService.create(items);
+      } catch (e) {
+        this.toastrService.error('codebeautify.org/jsonviewer', 'Invalid JSON Array, @see: ');
+      }
+    }
+  }
+
+  confirmDelete (id) {
+    this.modalService.setConfirmMethod(() => {
+      this.itemService.delete(id);
+    });
   }
 }

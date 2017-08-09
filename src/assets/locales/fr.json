@@ -1,8 +1,11 @@
 {
   "words": {
+    "and": "et",
+    "languageEnglish": "l'anglais",
+    "languageFrench": "french",
+    "languageLao": "le lao",
     "learn": "Apprendre",
-    "or": "ou",
-    "and": "et"
+    "or": "ou"
   },
   "layout": {
     "blackboard": "Salle de cours",
@@ -29,10 +32,7 @@
     "intro2": "Ce site peut aussi être utilisé par les laophones pour apprendre le français ou l'anglais.",
     "andNow": "Allez",
     "letsPlay": "c'est parti !",
-    "wantLearn": "Je veux apprendre ",
-    "englishLanguage": "l'anglais",
-    "frenchLanguage": "le français",
-    "laoLanguage": "le lao"
+    "wantLearn": "Je veux apprendre "
   },
   "gameboard": {
     "findTranslation": "Trouver la traduction de",

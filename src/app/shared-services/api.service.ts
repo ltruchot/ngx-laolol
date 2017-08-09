@@ -41,12 +41,20 @@ export class ApiService {
     return dataObs$;
   }
 
-  getResources (url: string, auth?: boolean)  {
+  getBasicOptions (auth: boolean) {
     const headers = new Headers({});
     if (auth) { this.addAuth(headers); }
-    const options = new RequestOptions({headers: headers});
-    return this.http.get(this.SERVER_URL + url, options)
-      .map(res => res.json());
+    return new RequestOptions({headers: headers});
+  }
+
+  getResources (url: string, auth?: boolean)  {
+    url = this.SERVER_URL + url;
+    return this.http.get(url, this.getBasicOptions(auth)).map(res => res.json());
+  }
+
+  deleteResources (url: string, auth?: boolean)  {
+    url = this.SERVER_URL + url;
+    return this.http.delete(url, this.getBasicOptions(auth)).map(res => res.json());
   }
 
   postResources (url: string, data: any, auth?: boolean) {
@@ -69,8 +77,7 @@ export class ApiService {
     });
     if (auth) { this.addAuth(headers); }
     const options = new RequestOptions({headers: headers});
-    return this.http.post(this.SERVER_URL + url, body.toString(), options)
-      .map(res => res.json());
+    return this.http.post(this.SERVER_URL + url, body.toString(), options).map(res => res.json());
   }
 
   addAuth (headers: Headers) {

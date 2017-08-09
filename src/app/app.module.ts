@@ -4,8 +4,10 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule, Http } from '@angular/http';
 import { CommonModule } from '@angular/common';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 // npm dependencies
+import { ToastrModule } from 'ngx-toastr';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
@@ -22,6 +24,7 @@ import { AdminActivationService } from './shared-services/admin-activation.servi
 import { ApiService } from './shared-services/api.service';
 import { ItemService } from './shared-services/item.service';
 import { LanguageService } from './shared-services/language.service';
+import { ModalService } from './shared-services/modal.service';
 import { StorageService } from './shared-services/storage.service';
 import { ThemeService } from './shared-services/theme.service';
 import { UserService } from './shared-services/user.service';
@@ -44,6 +47,10 @@ export function createTranslateLoader(http: Http) {
     AppRoutingModule,
     SharedModule,
     CommonModule,
+    BrowserAnimationsModule, // required by ToastrModule
+    ToastrModule.forRoot({
+      // timeOut: 100000
+    }),
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
@@ -57,6 +64,7 @@ export function createTranslateLoader(http: Http) {
     ApiService,
     ItemService,
     LanguageService,
+    ModalService,
     StorageService,
     ThemeService,
     UserService
