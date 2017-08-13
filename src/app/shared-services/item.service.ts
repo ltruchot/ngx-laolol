@@ -18,9 +18,9 @@ import {
   ReadHttpError,
   CreateHttpError,
   DeleteHttpError,
-  ManagedCodeErrors
+  ManagedCodeErrors,
 } from '../shared-models/error.models';
-import { IItem } from '../shared-models/item.models';
+import { Item, IItemServiceData } from '../shared-models/item.models';
 
 @Injectable()
 export class ItemService {
@@ -30,7 +30,10 @@ export class ItemService {
   delete$: Observable<any>;
   error$: Observable<HttpError>;
 
-  public items: Array<IItem> = [];
+  public data: IItemServiceData = {
+    current: new Item(),
+    all: []
+  };
   protected createSubject: Subject<any>;
   protected readSubject: Subject<any>;
   protected updateSubject: Subject<void>;
@@ -56,6 +59,7 @@ export class ItemService {
     this.errorSubject = new Subject();
     this.error$ = this.errorSubject.asObservable();
     this.basicCodeErrors = this.getBasicCodeErrors();
+    console.log('item', this.data.current);
   }
 
   getBasicCodeErrors (): ManagedCodeErrors  {
@@ -73,11 +77,11 @@ export class ItemService {
     };
   }
 
-  create (words: Array<IItem>): void {
+  create (words: Array<Item>): void {
     this.apiService.postResources(this.basicUrl, words, true).catch(error => {
       return Observable.throw(new CreateHttpError(error, this.basicUrl, this.basicCodeErrors));
     }).subscribe(data => {
-      this.items.push(...data);
+      this.data.all.push(...data);
       return this.createSubject.next(data);
     }, createHttpError => {
       return this.errorSubject.next(createHttpError);
@@ -88,7 +92,7 @@ export class ItemService {
     this.apiService.getResources(this.basicUrl).catch(error => {
       return Observable.throw(new ReadHttpError(error, this.basicUrl, this.basicCodeErrors));
     }).subscribe(data => {
-      this.items.push(...data);
+      this.data.all.push(...data);
       return this.readSubject.next(data);
     }, readHttpError => {
       return this.errorSubject.next(readHttpError);
@@ -99,7 +103,7 @@ export class ItemService {
     this.apiService.deleteResources(this.basicUrl + '/' + id, true).catch(error => {
       return Observable.throw(new DeleteHttpError(error, this.basicUrl, this.basicCodeErrors));
     }).subscribe(data => {
-      this.items.splice(this.items.findIndex(item => item._id === id), 1);
+      this.data.all.splice(this.data.all.findIndex(item => item._id === id), 1);
       return this.deleteSubject.next(data);
     }, deleteHttpError => {
       return this.errorSubject.next(deleteHttpError);

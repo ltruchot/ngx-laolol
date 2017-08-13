@@ -7,14 +7,16 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TranslateModule } from '@ngx-translate/core';
 
 // custom components
-import { SubmenuComponent } from './submenu/submenu.component';
-import { LoginComponent } from './modals/login/login.component';
 import { ConfirmComponent } from './modals/confirm/confirm.component';
+import { ItemComponent } from './modals/item/item.component';
+import { LoginComponent } from './modals/login/login.component';
+import { SubmenuComponent } from './submenu/submenu.component';
+
 
 @NgModule({
    imports: [CommonModule, TranslateModule, FormsModule, ReactiveFormsModule],
-   declarations: [SubmenuComponent, LoginComponent, ConfirmComponent],
+   declarations: [SubmenuComponent, LoginComponent, ConfirmComponent, ItemComponent],
    providers: [],
-   exports: [SubmenuComponent, LoginComponent, ConfirmComponent],
+   exports: [SubmenuComponent, LoginComponent, ConfirmComponent, ItemComponent],
 })
 export class SharedModule { }

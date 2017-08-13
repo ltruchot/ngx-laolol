@@ -7,6 +7,10 @@ var WordSchema = new Schema({
 		type: Boolean,
 		Required: 'A "validated" param is needed.'
 	},
+	uid: {
+		type: String,
+		Required: 'A unique ID is needed.'
+	},
 	en: {
 		wrd: {
 			type: String,

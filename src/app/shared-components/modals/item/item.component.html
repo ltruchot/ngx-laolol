@@ -1,0 +1,78 @@
+<div class="modal fade" id="itemModal" tabindex="-1" role="dialog"
+	aria-labelledby="itemModal" aria-hidden="true">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="itemModalLabel">Item</h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body">
+				<ul class="nav nav-tabs">
+					<li class="nav-item">
+						<a class="nav-link" [ngClass]="{'active': !cpntData.isJSON}"
+							(click)="cpntData.isJSON = false">Normal Mode</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" [ngClass]="{'active': cpntData.isJSON}"
+							(click)="cpntData.isJSON = true">JSON Mode</a>
+					</li>
+				</ul>
+				<div class="row">
+					<!-- begin form item -->
+					<form *ngIf="!cpntData.isJSON" class="col" name="form"
+						(ngSubmit)="createItems(itemForm)" [formGroup]="itemForm">
+						<div class="form-group">
+							<h3 class="pxt6" for="en">English :</h3>
+							<div class="form-group row">
+								<label for="uid" class="col-2 col-form-label col-form-label-sm">Unique ID: </label>
+								<div class="col-10">
+									<input type="text" class="form-control form-control-sm" id="uid"  name="uid"
+										formControlName="uid" [(ngModel)]="cpntData.items.current.uid" required />
+								</div>
+							</div>
+							<div class="form-group row">
+								<label for="en-wrd" class="col-2 col-form-label col-form-label-sm">Word: </label>
+								<div class="col-10">
+									<input type="text" class="form-control form-control-sm" id="en-wrd"  name="en-wrd"
+										formControlName="enWrd" [(ngModel)]="cpntData.items.current.en.wrd" required />
+								</div>
+							</div>
+							<div class="form-group row">
+								<label for="en-snd" class="col-2 col-form-label col-form-label-sm">Sound: </label>
+								<div class="col-10">
+									<input type="text" class="form-control form-control-sm" id="en-snd"  name="en-snd"
+										formControlName="enSnd" [(ngModel)]="cpntData.items.current.en.snd" />
+								</div>
+							</div>
+							<div class="form-group row">
+								<label for="en-kk-lo" class="col-2 col-form-label col-form-label-sm">Karaoke: </label>
+								<div class="col-10">
+									<input type="text" class="form-control form-control-sm" id="en-kk-lo"  name="en-kk-lo"
+										formControlName="enKkLo" [(ngModel)]="cpntData.items.current.en.kk.lo" />
+								</div>
+							</div>
+						</div>
+						<button type="submit" class="btn btn-primary btn-lg btn-block" [disabled]="itemForm.invalid">Create items</button>
+					</form>
+					<!-- end form item -->
+					<!-- begin form json -->
+					<form *ngIf="cpntData.isJSON" class="col" name="form"
+						(ngSubmit)="createItem(jsonForm)" [formGroup]="jsonForm">
+						<div class="form-group">
+							<label for="json-textarea">Should be items in JSON format <br />@see <a target="_blank" href="http://codebeautify.org/jsonviewer">jsonviewer</a></label>
+							<textarea class="form-control" rows="20"
+							id="json-textarea"  name="json-textarea" formControlName="jsonTextarea" required></textarea>
+						</div>
+						<button type="submit" class="btn btn-primary btn-lg btn-block" [disabled]="jsonForm.invalid">Create items</button>
+					</form>
+					<!-- end form json -->
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+			</div>
+		</div>
+	</div>
+</div>

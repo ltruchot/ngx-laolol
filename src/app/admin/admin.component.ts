@@ -1,6 +1,5 @@
 // ng dependencies
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 // import { Router } from '@angular/router';
 
 // npm dependencies
@@ -18,26 +17,23 @@ import { ModalService } from './../shared-services/modal.service';
 
 // custom models
 import { CreateHttpError, ReadHttpError, DeleteHttpError } from './../shared-models/error.models';
-import { IItem } from '../shared-models/item.models';
 
 @Component({
   selector: 'app-admin',
   templateUrl: './admin.component.html'
 })
 export class AdminComponent implements OnInit {
-  adminForm: FormGroup;
   cpntData = {
     lang: null,
     availableLang: null,
     theme: null,
     availableTheme: null,
-    items: []
+    items: null
   };
 
   constructor (private themeService: ThemeService,
     private languageService: LanguageService,
     private itemService: ItemService,
-    private formBuilder: FormBuilder,
     private toastrService: ToastrService,
     private modalService: ModalService) {
   }
@@ -48,7 +44,7 @@ export class AdminComponent implements OnInit {
     this.cpntData.availableLang = this.languageService.AVAILABLE_LANG;
     this.cpntData.theme =  this.themeService.data;
     this.cpntData.availableTheme = this.themeService.AVAILABLE_THEMES;
-    this.cpntData.items = this.itemService.items;
+    this.cpntData.items = this.itemService.data;
 
     // init CRUD subscriptions
     // -- read
@@ -78,11 +74,6 @@ export class AdminComponent implements OnInit {
       }
     });
 
-    // init admin form
-    this.adminForm = this.formBuilder.group({
-      jsonTextarea: ['', Validators.required]
-    });
-
     // get every words
     this.readItems();
 
@@ -90,19 +81,6 @@ export class AdminComponent implements OnInit {
 
   readItems () {
     this.itemService.read();
-  }
-
-  createItems ({ value, valid }) {
-    console.log('admin.component::createItems', value);
-    if (valid) {
-      let items: Array<IItem>;
-      try {
-        items = JSON.parse(value.jsonTextarea);
-        this.itemService.create(items);
-      } catch (e) {
-        this.toastrService.error('codebeautify.org/jsonviewer', 'Invalid JSON Array, @see: ');
-      }
-    }
   }
 
   confirmDelete (id) {
