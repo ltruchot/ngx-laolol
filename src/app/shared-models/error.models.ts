@@ -14,6 +14,16 @@ export abstract class HttpError {
     this.error = error;
     this.message = 'ERROR caught: ';
     this.message += '(status ' + (!isNaN(error.status) ? error.status : 'unkown') + ') ' + error.statusText;
+    if (error['_body']) {
+      try {
+        let body = JSON.parse(error['_body']);
+        if (body.message) {
+          this.message += ' (additionnal infos: ' + body.message + ')';
+        }
+      } catch (e) {
+        console.error('can not parse error _body');
+      }
+    }
     if (managedCodeError) {
       this.manageStatusError(managedCodeError);
     }

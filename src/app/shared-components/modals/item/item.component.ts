@@ -35,8 +35,14 @@ export class ItemComponent implements OnInit {
     this.itemForm = this.formBuilder.group({
       uid: ['', Validators.required],
       enWrd: ['', Validators.required],
+      enKkLo: [''],
       enSnd: [''],
-      enKkLo: ['']
+      enImg: [''],
+      enEx: [''],
+      enMetaPlural: [''],
+      enMetaFem: [''],
+      enMetaMasc: [''],
+      enMetaComment: ['']
     });
     this.jsonForm = this.formBuilder.group({
       jsonTextarea: ['', Validators.required]

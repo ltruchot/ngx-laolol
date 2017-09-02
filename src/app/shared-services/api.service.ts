@@ -1,6 +1,6 @@
 // ng dependencies
 import { Injectable } from '@angular/core';
-import { Http, RequestOptions, Headers } from '@angular/http';
+import { Http, RequestOptions, Headers, URLSearchParams } from '@angular/http';
 
 // npm dependencies
 import { ReplaySubject } from 'rxjs/ReplaySubject';
@@ -41,15 +41,19 @@ export class ApiService {
     return dataObs$;
   }
 
-  getBasicOptions (auth: boolean) {
+  getBasicOptions (auth: boolean, search?: URLSearchParams) {
     const headers = new Headers({});
     if (auth) { this.addAuth(headers); }
-    return new RequestOptions({headers: headers});
+    const options = new RequestOptions({ headers: headers });
+    if (search) {
+      options.search = search;
+    }
+    return options;
   }
 
-  getResources (url: string, auth?: boolean)  {
+  getResources (url: string, auth?: boolean, search?: URLSearchParams)  {
     url = this.SERVER_URL + url;
-    return this.http.get(url, this.getBasicOptions(auth)).map(res => res.json());
+    return this.http.get(url, this.getBasicOptions(auth, search)).map(res => res.json());
   }
 
   deleteResources (url: string, auth?: boolean)  {

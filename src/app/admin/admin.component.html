@@ -1,7 +1,16 @@
 <div class="view-admin">
+	<div>
+		<button type="button" class="btn btn-warning"
+			(click)="createEmptyTheme()"
+			data-toggle="modal" data-target="#themeModal">Create new theme</button>
+		<button type="button" class="btn btn-primary"
+			(click)="createEmptyItem()"
+			data-toggle="modal" data-target="#itemModal">Create new item</button>
+	</div>
 	<table class="table table-striped table-hover table-sm">
 		<thead>
 			<tr>
+				<th>UID</th>
 				<th>{{ 'words.languageEnglish' | translate | capitalize }}</th>
 				<th>{{ 'words.languageFrench' | translate | capitalize }}</th>
 				<th>{{ 'words.languageLao' | translate | capitalize }}</th>
@@ -9,14 +18,14 @@
 			</tr>
 		</thead>
 		<tbody>
-			<tr data-toggle="modal" data-target="#itemModal"
-			*ngFor="let item of cpntData.items.all; let i = index;"
+			<tr *ngFor="let item of cpntData.items.all; let i = index;"
 			[ngClass]="{'table-success': item.validated}" (click)="cpntData.items.current = item">
-				<td>{{ item.en.wrd }}</td>
-				<td>{{ item.fr.wrd }}</td>
-				<td><span class="font-lao">{{ item.lo.wrd }}</span></td>
+				<td data-toggle="modal" data-target="#itemModal">{{ item.uid }}</td>
+				<td data-toggle="modal" data-target="#itemModal">{{ item.en.wrd }}</td>
+				<td data-toggle="modal" data-target="#itemModal">{{ item.fr.wrd }}</td>
+				<td data-toggle="modal" data-target="#itemModal"><span class="font-lao">{{ item.lo.wrd }}</span></td>
 				<td>
-					<button (click)="confirmDelete(item._id)" id="btn-menu-lang" class="btn btn-sm btn-danger"
+					<button (click)="confirmDelete(item._id, $event)" id="btn-menu-lang" class="btn btn-sm btn-danger"
 						data-toggle="modal" data-target="#confirmModal" aria-haspopup="true" aria-expanded="false">
            delete
         	</button>

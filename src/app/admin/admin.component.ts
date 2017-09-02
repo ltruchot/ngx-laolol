@@ -17,6 +17,8 @@ import { ModalService } from './../shared-services/modal.service';
 
 // custom models
 import { CreateHttpError, ReadHttpError, DeleteHttpError } from './../shared-models/error.models';
+import { Item } from './../shared-models/item.models';
+import { Theme } from './../shared-models/theme.models';
 
 @Component({
   selector: 'app-admin',
@@ -25,10 +27,8 @@ import { CreateHttpError, ReadHttpError, DeleteHttpError } from './../shared-mod
 export class AdminComponent implements OnInit {
   cpntData = {
     lang: null,
-    availableLang: null,
-    theme: null,
-    availableTheme: null,
-    items: null
+    items: null,
+    themes: null
   };
 
   constructor (private themeService: ThemeService,
@@ -41,9 +41,7 @@ export class AdminComponent implements OnInit {
   ngOnInit () {
     // init shared data
     this.cpntData.lang =  this.languageService.data;
-    this.cpntData.availableLang = this.languageService.AVAILABLE_LANG;
-    this.cpntData.theme =  this.themeService.data;
-    this.cpntData.availableTheme = this.themeService.AVAILABLE_THEMES;
+    this.cpntData.themes = this.themeService.data;
     this.cpntData.items = this.itemService.data;
 
     // init CRUD subscriptions
@@ -74,16 +72,22 @@ export class AdminComponent implements OnInit {
       }
     });
 
-    // get every words
-    this.readItems();
-
-  }
-
-  readItems () {
+    // get every themes
     this.itemService.read();
+
+    // get every words
+    this.themeService.read();
   }
 
-  confirmDelete (id) {
+  createEmptyTheme () {
+    this.cpntData.themes.current = new Theme();
+  }
+
+  createEmptyItem () {
+    this.cpntData.items.current = new Item();
+  }
+
+  confirmDelete (id: string, event) {
     this.modalService.setConfirmMethod(() => {
       this.itemService.delete(id);
     });

@@ -7,8 +7,8 @@ import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
 // custom services
 import { StorageService } from './storage.service';
 
-// custom interfaces
-import { Language } from './../shared-models/language.interfaces';
+// custom models
+import { Language } from './../shared-models/language.models';
 
 @Injectable()
 export class LanguageService {

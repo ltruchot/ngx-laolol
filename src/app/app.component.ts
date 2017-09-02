@@ -20,7 +20,7 @@ import { UserService } from './shared-services/user.service';
 import { StorageService } from './shared-services/storage.service';
 // import { ItemService } from './shared-services/item.service';
 
-// custome interfaces
+// custome models
 // import { ReadHttpError } from './shared-models/error.models';
 
 @Component({
@@ -39,6 +39,7 @@ export class AppComponent implements OnInit {
   constructor (private languageService: LanguageService,
     private router: Router,
     private userService: UserService,
+    // private itemService: ItemService,
     private themeService: ThemeService,
     private storageService: StorageService) {
   }
@@ -58,6 +59,7 @@ export class AppComponent implements OnInit {
     // this.itemService.error$.filter(error => error instanceof ReadHttpError)
     //   .subscribe(error => console.error('error', error));
     // this.itemService.read();
+    this.themeService.read();
 
     // manage loading states
     this.cpntData.theme =  this.themeService.data;

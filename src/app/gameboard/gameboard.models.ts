@@ -1,12 +1,11 @@
-import { IThemeItem } from './../shared-models/theme.interfaces';
+import { Item } from './../shared-models/item.models';
 export interface GameboardCpntData {
   winItemIdx: number;
-  items: Array<IThemeItem>;
+  items: Array<Item>;
   clickedIdx: number;
   lang: any;
   availableLang: any;
   theme: any;
-  availableTheme: any;
   currentQuestionTimer: string;
   isCheckingAnswer: boolean;
 };

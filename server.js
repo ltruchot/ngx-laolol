@@ -5,14 +5,15 @@ const http = require('http');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const logger = require('morgan');
-var compression = require('compression')
+var compression = require('compression');
 
 // get local dependencies
 const CONFIG = require('./api/config');
 
 // mongoose models & controllers
-const Word = require('./api/models/wordsModel');
 const User = require('./api/models/usersModel');
+const Theme = require('./api/models/themesModel');
+const Item = require('./api/models/itemsModel');
 
 const app = express();
 // Prepare mongodb connexion
@@ -31,9 +32,11 @@ app.use(express.static(path.join(__dirname, 'dist')));
 
 // Set our api routes
 var usersRoutes = require('./api/routes/usersRoutes');
-var wordsRoutes = require('./api/routes/wordsRoutes');
-wordsRoutes(app);
+var itemsRoutes = require('./api/routes/themesRoutes');
+var themesRoutes = require('./api/routes/itemsRoutes');
 usersRoutes(app);
+itemsRoutes(app);
+themesRoutes(app);
 
 // Catch all other routes and return the index file
 app.get('*', (req, res) => {

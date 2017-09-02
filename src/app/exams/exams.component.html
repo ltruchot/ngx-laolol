@@ -4,7 +4,7 @@
       <em>{{ 'layout.underConstruction' | translate }}</em>
     </div>
   </div>
-  <div class="row mxb10" *ngFor="let theme of cpntData.availableTheme; let i = index;">
+  <div class="row mxb10" *ngFor="let theme of cpntData.themes.all; let i = index;">
     <div class="col-5 col-sm-4  col-md-3  pxr0">
     	<button type="button" class="btn btn-info btn-block text-medium">
     		{{ theme[cpntData.lang.currentLang].short || theme[cpntData.lang.currentLang].wrd }}

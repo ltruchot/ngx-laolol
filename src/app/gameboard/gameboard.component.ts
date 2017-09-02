@@ -5,9 +5,9 @@ import { Router, ActivatedRoute } from '@angular/router';
 // npm dependencies
 import { Subscription } from 'rxjs/Subscription';
 
-// custom interfaces
-import { GameboardCpntData } from './gameboard.interfaces';
-import { IThemeItem } from './../shared-models/theme.interfaces';
+// custom models
+import { GameboardCpntData } from './gameboard.models';
+import { Item } from './../shared-models/item.models';
 
 // custom services
 import { ThemeService } from './../shared-services/theme.service';
@@ -27,11 +27,10 @@ export class GameboardComponent implements OnInit, OnDestroy {
     lang: null,
     availableLang: null,
     theme: null,
-    availableTheme: null,
     isCheckingAnswer: false
   };
   last3Answers: Array<string> = [];
-  allItems: Array<IThemeItem> = [];
+  allItems: Array<Item> = [];
   questionTimer: number = null;
   QUESTION_TIMER_DURATION = 8;
   constructor (private themeService: ThemeService,
@@ -55,11 +54,10 @@ export class GameboardComponent implements OnInit, OnDestroy {
   ngOnInit () {
     this.route.params.subscribe(params => {
       if (params.uid) {
-        if (this.themeService.changeLearningThemeByUid(params.uid)) {
+        if (this.themeService.changeLearningTheme(params.uid)) {
           this.cpntData.lang =  this.languageService.data;
           this.cpntData.availableLang = this.languageService.AVAILABLE_LANG;
           this.cpntData.theme =  this.themeService.data;
-          this.cpntData.availableTheme = this.themeService.AVAILABLE_THEMES;
           this.themeService.getCurrentTheme();
            } else {
           this.router.navigate(['404']);

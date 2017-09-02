@@ -1,6 +1,6 @@
 // ng dependencies
 import { Injectable } from '@angular/core';
-// import { Http } from '@angular/http';
+import { URLSearchParams } from '@angular/http';
 
 // npm dependencies
 import { Observable } from 'rxjs/Observable';
@@ -39,7 +39,7 @@ export class ItemService {
   protected updateSubject: Subject<void>;
   protected deleteSubject: Subject<any>;
   protected errorSubject: Subject<HttpError>;
-  private basicUrl = 'api/words';
+  private basicUrl = 'api/items';
   private basicCodeErrors: ManagedCodeErrors;
 
   constructor (private apiService: ApiService, private userService: UserService)  {
@@ -59,7 +59,6 @@ export class ItemService {
     this.errorSubject = new Subject();
     this.error$ = this.errorSubject.asObservable();
     this.basicCodeErrors = this.getBasicCodeErrors();
-    console.log('item', this.data.current);
   }
 
   getBasicCodeErrors (): ManagedCodeErrors  {
@@ -84,14 +83,20 @@ export class ItemService {
       this.data.all.push(...data);
       return this.createSubject.next(data);
     }, createHttpError => {
+      console.error('createHttpError', createHttpError.message);
       return this.errorSubject.next(createHttpError);
     });
   }
 
-  read (): void {
-    this.apiService.getResources(this.basicUrl).catch(error => {
+  read (themeUid?: string): void {
+    let searchParams = new URLSearchParams();
+    if (themeUid) {
+      searchParams.set('include', themeUid);
+    }
+    this.apiService.getResources(this.basicUrl, false, searchParams).catch(error => {
       return Observable.throw(new ReadHttpError(error, this.basicUrl, this.basicCodeErrors));
     }).subscribe(data => {
+      console.log(data);
       this.data.all.push(...data);
       return this.readSubject.next(data);
     }, readHttpError => {
@@ -103,6 +108,7 @@ export class ItemService {
     this.apiService.deleteResources(this.basicUrl + '/' + id, true).catch(error => {
       return Observable.throw(new DeleteHttpError(error, this.basicUrl, this.basicCodeErrors));
     }).subscribe(data => {
+      this.data.current = new Item();
       this.data.all.splice(this.data.all.findIndex(item => item._id === id), 1);
       return this.deleteSubject.next(data);
     }, deleteHttpError => {

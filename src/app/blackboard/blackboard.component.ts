@@ -20,7 +20,6 @@ export class BlackboardComponent implements OnInit, OnDestroy {
     lang: null,
     availableLang: null,
     theme: null,
-    availableTheme: null,
     vowels: {
       fr: /[aeiouyAEIOUYàèìòùÀÈÌÒÙáéíóúâêîôûäëïöüÿÄËÏÖÜŸÆæœ]/,
       en: /[aeiou]/
@@ -44,13 +43,12 @@ export class BlackboardComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit () {
+    this.cpntData.availableLang = this.languageService.AVAILABLE_LANG;
      this.route.params.subscribe(params => {
       if (params.uid) {
-        if (this.themeService.changeLearningThemeByUid(params.uid)) {
+        if (this.themeService.changeLearningTheme(params.uid)) {
             this.cpntData.lang =  this.languageService.data;
-            this.cpntData.availableLang = this.languageService.AVAILABLE_LANG;
             this.cpntData.theme =  this.themeService.data;
-            this.cpntData.availableTheme = this.themeService.AVAILABLE_THEMES;
             this.themeService.getCurrentTheme();
         } else {
           this.router.navigate(['404']);

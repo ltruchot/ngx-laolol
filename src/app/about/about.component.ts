@@ -13,8 +13,7 @@ export class AboutComponent implements OnInit {
   cpntData = {
     lang: null,
     availableLang: null,
-    theme: null,
-    availableTheme: null
+    theme: null
   };
   constructor (private themeService: ThemeService, private languageService: LanguageService) { }
 
@@ -22,6 +21,5 @@ export class AboutComponent implements OnInit {
     this.cpntData.lang =  this.languageService.data;
     this.cpntData.availableLang = this.languageService.AVAILABLE_LANG;
     this.cpntData.theme =  this.themeService.data;
-    this.cpntData.availableTheme = this.themeService.AVAILABLE_THEMES;
   }
 }

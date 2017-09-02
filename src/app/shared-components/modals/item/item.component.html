@@ -21,45 +21,69 @@
 				</ul>
 				<div class="row">
 					<!-- begin form item -->
-					<form *ngIf="!cpntData.isJSON" class="col" name="form"
+					<form *ngIf="!cpntData.isJSON" class="col pxt6" name="form"
 						(ngSubmit)="createItems(itemForm)" [formGroup]="itemForm">
-						<div class="form-group">
-							<h3 class="pxt6" for="en">English :</h3>
-							<div class="form-group row">
-								<label for="uid" class="col-2 col-form-label col-form-label-sm">Unique ID: </label>
-								<div class="col-10">
-									<input type="text" class="form-control form-control-sm" id="uid"  name="uid"
-										formControlName="uid" [(ngModel)]="cpntData.items.current.uid" required />
-								</div>
+						<div class="form-group row mxb0">
+							<label for="uid" class="col-3 col-form-label col-form-label-sm">Unique ID: </label>
+							<div class="col-9">
+								<input type="text" class="form-control form-control-sm" id="uid"  name="uid"
+									formControlName="uid" [(ngModel)]="cpntData.items.current.uid" required />
 							</div>
+						</div>
+						<h6><strong>English</strong></h6>
+						<div class="form-group row mxb0">
+							<label for="en-wrd" class="col-3 col-form-label col-form-label-sm">Word: </label>
+							<div class="col-9">
+								<input type="text" class="form-control form-control-sm" id="en-wrd"  name="en-wrd"
+									formControlName="enWrd" [(ngModel)]="cpntData.items.current.en.wrd" required />
+							</div>
+						</div>
+						<a data-toggle="collapse" href="#enOptions"
+							aria-expanded="false" aria-controls="enOptions">English optional parameters</a>
+						<div class="collapse" id="enOptions">
 							<div class="form-group row">
-								<label for="en-wrd" class="col-2 col-form-label col-form-label-sm">Word: </label>
+								<label for="en-kk-lo" class="col-2 col-form-label col-form-label-sm">Karaoke: </label>
 								<div class="col-10">
-									<input type="text" class="form-control form-control-sm" id="en-wrd"  name="en-wrd"
-										formControlName="enWrd" [(ngModel)]="cpntData.items.current.en.wrd" required />
+									<input type="text" class="form-control form-control-sm" id="en-kk-lo" name="en-kk-lo"
+										formControlName="enKkLo" [(ngModel)]="cpntData.items.current.en.kk.lo" />
 								</div>
 							</div>
 							<div class="form-group row">
 								<label for="en-snd" class="col-2 col-form-label col-form-label-sm">Sound: </label>
 								<div class="col-10">
-									<input type="text" class="form-control form-control-sm" id="en-snd"  name="en-snd"
+									<input type="text" class="form-control form-control-sm" id="en-snd" name="en-snd"
 										formControlName="enSnd" [(ngModel)]="cpntData.items.current.en.snd" />
 								</div>
 							</div>
 							<div class="form-group row">
-								<label for="en-kk-lo" class="col-2 col-form-label col-form-label-sm">Karaoke: </label>
+								<label for="en-img" class="col-2 col-form-label col-form-label-sm">Image: </label>
 								<div class="col-10">
-									<input type="text" class="form-control form-control-sm" id="en-kk-lo"  name="en-kk-lo"
-										formControlName="enKkLo" [(ngModel)]="cpntData.items.current.en.kk.lo" />
+									<input type="text" class="form-control form-control-sm" id="en-img" name="en-img"
+										formControlName="enImg" [(ngModel)]="cpntData.items.current.en.img" />
+								</div>
+							</div>
+							<div class="form-group row">
+								<label for="en-ex" class="col-2 col-form-label col-form-label-sm">Example: </label>
+								<div class="col-10">
+									<input type="text" class="form-control form-control-sm" id="en-ex" name="en-ex"
+										formControlName="enEx" [(ngModel)]="cpntData.items.current.en.ex" />
+								</div>
+							</div>
+							<div class="form-group row">
+								<label for="en-meta-plural" class="col-2 col-form-label col-form-label-sm">Example: </label>
+								<div class="col-10">
+									<input type="text" class="form-control form-control-sm" id="en-meta-plural" name="en-meta-plural"
+										formControlName="enMetaPlural" [(ngModel)]="cpntData.items.current.en.meta.plural" />
 								</div>
 							</div>
 						</div>
+						<h6><strong>French</strong></h6>
 						<button type="submit" class="btn btn-primary btn-lg btn-block" [disabled]="itemForm.invalid">Create items</button>
 					</form>
 					<!-- end form item -->
 					<!-- begin form json -->
 					<form *ngIf="cpntData.isJSON" class="col" name="form"
-						(ngSubmit)="createItem(jsonForm)" [formGroup]="jsonForm">
+						(ngSubmit)="createItems(jsonForm)" [formGroup]="jsonForm">
 						<div class="form-group">
 							<label for="json-textarea">Should be items in JSON format <br />@see <a target="_blank" href="http://codebeautify.org/jsonviewer">jsonviewer</a></label>
 							<textarea class="form-control" rows="20"

@@ -1,171 +1,99 @@
 // ng dependencies
 import { Injectable } from '@angular/core';
+// import { Http } from '@angular/http';
 
 // npm dependencies
+import { Observable } from 'rxjs/Observable';
 import { Subject } from 'rxjs/Subject';
+import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
+import 'rxjs/add/observable/throw';
 
 // custom services
-import { StorageService } from './storage.service';
 import { ApiService } from './api.service';
+import { UserService } from './user.service';
+import { StorageService } from './storage.service';
+import { ItemService } from './item.service';
 
-// custom interfaces
-import { IThemeItem } from './../shared-models/theme.interfaces';
+// custom models
+import {
+  HttpError,
+  ReadHttpError,
+  CreateHttpError,
+  DeleteHttpError,
+  ManagedCodeErrors,
+} from '../shared-models/error.models';
+import { Theme, IThemeServiceData } from '../shared-models/theme.models';
+import { Item } from './../shared-models/item.models';
 
 @Injectable()
 export class ThemeService {
+  create$: Observable<any>;
+  read$: Observable<any>;
+  update$: Observable<void>;
+  delete$: Observable<any>;
+  error$: Observable<HttpError>;
   private currenThemeSource = new Subject<any>();
   currentTheme$ = this.currenThemeSource.asObservable();
-  themeOptions: Array<string> = [
-    'hasCapital',
-    'hasImages',
-    'hasSpecialExample',
-    'levels',
-    'noArticle',
-    'noKaraoke',
-    'noPlural',
-  ];
-  AVAILABLE_THEMES = [{
-    'uid': 'consonants',
-    'noPlural': true, 'noArticle': true, 'hasImages': true, 'hasSpecialExample': true, 'hasCapital': true,
-    'en': { 'wrd': 'Consonants' },
-    'fr': { 'wrd': 'Les consonnes', 'short': 'Consonnes'
-    },
-    'lo': {
-      'wrd': 'ພະຍັນຊະນະ'
-    }
-  }, {
-    'uid': 'vowels',
-    'noKaraoke': true,
-    'noPlural': true,
-    'noArticle': true,
-    'hasCapital': true,
-    'levels': 3,
-    'en': {
-      'wrd': 'Vowels'
-    },
-    'fr': {
-      'wrd': 'Les voyelles',
-      'short': 'Voyelles'
-    },
-    'lo': {
-      'wrd': 'ສະຫຼະ'
-    }
-  }, {
-    'uid': 'syllables',
-    'noKaraoke': true, 'noPlural': true, 'noArticle': true, 'hasCapital': true,
-    'levels': 2,
-    'en': { 'wrd': 'Syllables' },
-    'fr': { 'wrd': 'Les syllabes', 'short': 'Syllabes' },
-    'lo': {
-      'wrd': 'ພະຍາງ'
-    }
-  }, {
-    'uid': 'politness',
-    'noPlural': true, 'noArticle': true,
-    'en': { 'wrd': 'Politness' },
-    'fr': { 'wrd': 'La politesse', 'short': 'Politesse' },
-    'lo': { 'wrd': 'ຄວາມສຸພາບ' }
-  }, {
-    'uid': 'family',
-    'hasCapital': true,
-    'levels': 2,
-    'en': { 'wrd': 'Family' },
-    'fr': { 'wrd': 'La famille', 'short': 'Famille' },
-    'lo': { 'wrd': 'ຄອບຄົວ' }
-  }, {
-    'uid': 'animals',
-    'hasImages': true, 'hasCapital': true,
-    'en': { 'wrd': 'Animals', 'short': 'Animals' },
-    'fr': { 'wrd': 'Les animaux', 'short': 'Animaux' },
-    'lo': {
-      'wrd': 'ສັດ',
-      'kk': {'en': 'sad', 'fr': 'sat' },
-      'meta': {
-        'classifier': 'ໂຕ',
-        'cl_kk': { 'fr': 'to:', 'en': 'to:' }
-      }
-    }
-  }, {
-    'uid': 'adj-with-contrary',
-    'noPlural': true, 'noArticle': true,
-    'en': { 'wrd': 'Adjectives & contratry', 'short': 'Adj. & contrary' },
-    'fr': { 'wrd': 'Adjectifs & contraires', 'short': 'Adj. contraires' },
-    'lo': { 'wrd': 'ຄໍາຄູນນາມກົງກັນຂາ້ມ' }
-  }, {
-    'uid': 'professions',
-    'levels': 3,
-    'noPlural': true, 'noArticle': true,
-    'en': {
-      'wrd': 'Professions',
-      'desc': ['', '']
-    },
-    'fr': {
-      'wrd': 'Les métiers',
-      'short': 'Métiers',
-      'desc': [
-        'En lao, pour certains métiers on distingue le masculin du féminin en utilisant "ພໍ່" et "ແມ່", littéralement "père" et "mère".',
-        'En lao, la plupart des métiers techniques commence par le mot"ຊ່າງ" (sâ:ng), littéralement "technicien", ou encore "ຊ່າງແປງ", "le réparateur".',
-        'En lao, les métiers artistiques ou nécessitant un talent particulier commence souvent par le mot "ນັກ", littéralement "expert".'
-      ]
-    },
-    'lo': { 'wrd': 'ອາຊີບ' }
-  }
-  // { code: 'plants', trad: 'theme.plants' },
-  // {
-  //   code: 'days',
-  //   trad: 'theme.days',
-  //   en: 'Week days',
-  //   fr: 'Les jours',
-  //   lo: 'ວັນ'
-  // },
-  // {
-  //   code: 'family',
-  //   trad: 'theme.family',
-  //   en: 'Family',
-  //   fr: 'La famille',
-  //   lo: 'ຄອບຄົວ'
-  // },
-  // {
-  //   code: 'human_body',
-  //   trad: 'theme.human_body',
-  //   en: 'Human body',
-  //   fr: 'Le corps humain',
-  //   lo: 'ຮ່າງກາຍຂອງຄົນ'
-  // },
-  // {
-  //   code: 'head',
-  //   trad: 'theme.head',
-  //   en: 'Head',
-  //   fr: 'La tête',
-  //   lo: 'ຫົວ'
-  // }
-  ];
-  data = {
-    learningThemeIdx: 0,
-    learningTheme: null,
+  public data: IThemeServiceData = {
+    current: new Theme(),
+    all: [],
+    learningUid: '',
+    learning: null,
     isKaraoke: true,
     isReversed: false,
     isMoreInfos: false,
     isCurrentLoading: false,
     learningLevel: 0,
     levels: [],
-    items: {}
+    items: []
   };
-  constructor (private storage: StorageService, private apiService: ApiService) {
-    const currentThemeIdx = this.storage.getItem('currentLearningThemeIdx');
+  private defaultLearningUid = 'animals';
+  protected createSubject: Subject<any>;
+  protected readSubject: Subject<any>;
+  protected updateSubject: Subject<void>;
+  protected deleteSubject: Subject<any>;
+  protected errorSubject: Subject<HttpError>;
+  private basicUrl = 'api/themes';
+  private basicCodeErrors: ManagedCodeErrors;
+
+  constructor (private apiService: ApiService, private userService: UserService,
+    private storage: StorageService, private itemService: ItemService)  {
+    // create
+    this.createSubject = new Subject();
+    this.create$ = this.createSubject.asObservable();
+
+    // read
+    this.readSubject = new Subject();
+    this.read$ = this.readSubject.asObservable();
+
+    // delete
+    this.deleteSubject = new Subject();
+    this.delete$ = this.deleteSubject.asObservable();
+
+    // errors
+    this.errorSubject = new Subject();
+    this.error$ = this.errorSubject.asObservable();
+    this.basicCodeErrors = this.getBasicCodeErrors();
+
+    const currentThemeUid = this.storage.getItem('currentLearningThemeUid');
     const isKaraokeActivated = this.storage.getItem('isKaraokeActivated');
     const isMoreInfosActivated = this.storage.getItem('isMoreInfosActivated');
-    this.data.learningThemeIdx = !isNaN(currentThemeIdx) ? currentThemeIdx : 5;
-    this.data.learningTheme = this.AVAILABLE_THEMES[this.data.learningThemeIdx];
+    const allThemes = this.storage.getItem('allThemes');
+    if (allThemes) {
+      this.data.all.push(...allThemes);
+    } else {
+      this.read();
+    }
+    this.data.learningUid = !isNaN(currentThemeUid) ? currentThemeUid : this.defaultLearningUid;
     this.data.isKaraoke = typeof isKaraokeActivated !== 'undefined' ? isKaraokeActivated : true;
     this.data.isMoreInfos = typeof isMoreInfosActivated !== 'undefined' ? isMoreInfosActivated : true;
-    this.checkLevels();
   }
+
   checkLevels () {
-    // console.log('submenu.component::checkLevels', this.data.learningTheme);
+    // console.log('submenu.component::checkLevels', this.data.learning);
     this.data.learningLevel = 0;
-    const levels = this.data.learningTheme.levels;
+    const levels = this.data.learning.levels;
     this.data.levels = levels ? Array.from(Array(levels + 1).keys()) : [];
   }
 
@@ -173,66 +101,106 @@ export class ThemeService {
     this.data.isKaraoke = !this.data.isKaraoke;
     this.storage.setItem('isKaraokeActivated', this.data.isKaraoke);
   }
+
   toggleMoreInfos () {
     this.data.isMoreInfos = !this.data.isMoreInfos;
     this.storage.setItem('isMoreInfosActivated', this.data.isMoreInfos);
   }
 
   getCurrentLevel () {
-    console.log('theme.services::getCurrentLevel', this.data.learningLevel, this.data.levels.length);
-    let items: Array<IThemeItem>;
+    // console.log('theme.services::getCurrentLevel', this.data.learningLevel, this.data.levels.length);
+    let items: Array<Item>;
     if (this.data.learningLevel < this.data.levels.length - 1) {
-      items = this.data.items[this.data.learningTheme.uid].filter(item => item.themes.indexOf('lvl' + (this.data.learningLevel)) !== -1);
+      items = this.data.items[this.data.learning.uid]
+        .find({lvl: this.data.learningLevel});
     } else {
-      items = this.data.items[this.data.learningTheme.uid];
+      items = this.data.items[this.data.learning.uid];
     }
     return items;
   }
 
   getCurrentTheme () {
     this.data.isCurrentLoading = true;
-    if (this.data.items[this.data.learningTheme.uid]) {
+    if (this.data.items[this.data.learning.uid]) {
       this.currenThemeSource.next(this.getCurrentLevel());
       this.data.isCurrentLoading = false;
     } else {
-      this.apiService
-        .getData(`assets/themes/${this.data.learningTheme.uid}.json`)
-        .map((res: Response): any => {
-          return res.json();
-        })
-        .subscribe((parsedRes: Array<IThemeItem>) => {
-          if (parsedRes && parsedRes.length && parsedRes.length >= 4) {
-            this.data.items[this.data.learningTheme.uid] = parsedRes;
-            this.currenThemeSource.next(this.getCurrentLevel());
-          } else {
-            throw new Error(`/themes/${this.data.learningTheme.uid}.json wasn't parsed correctly.
-              Check if fils exists ans is correctly formed and with at least 7 items`);
-          }
-          this.data.isCurrentLoading = false;
+      this.itemService.read$.subscribe((parsedRes: Array<Item>) => {
+        if (parsedRes && parsedRes.length && parsedRes.length >= 4) {
+          this.data.items[this.data.learning.uid] = parsedRes;
+          this.currenThemeSource.next(this.getCurrentLevel());
+        } else {
+          throw new Error(`/themes/${this.data.learning.uid}.json wasn't parsed correctly.
+            Check if fils exists ans is correctly formed and with at least 7 items`);
+        }
+        this.data.isCurrentLoading = false;
       });
+      this.itemService.read(this.data.learning.uid);
     }
   }
 
-  changeLearningTheme (idx: number) {
-    if ((!isNaN(idx)) && (idx !== this.data.learningThemeIdx)) {
-      this.data.learningThemeIdx = idx;
-      this.data.learningTheme = this.AVAILABLE_THEMES[idx];
+  changeLearningTheme (uid: string) {
+    if (uid !== this.data.learningUid) {
+      this.data.learningUid = uid;
+      this.data.learning = this.data.all[uid];
       this.checkLevels();
-      this.storage.setItem('currentLearningThemeIdx', idx);
+      this.storage.setItem('currentLearningThemeUid', uid);
       this.getCurrentTheme();
     }
+    return !!this.data.learning;
   }
 
-  changeLearningThemeByUid (uid: string) {
-    let idx = -1;
-    const availableTheme = this.AVAILABLE_THEMES.find((item, itemIdx) => {
-      idx = itemIdx;
-      return item.uid === uid;
+  getBasicCodeErrors (): ManagedCodeErrors  {
+    return {
+      '400': (): string => {
+        return 'Items format is invalid.';
+      },
+      '401': (): string => {
+        this.userService.logout();
+        return 'User authentification failed. Please, try to reconnect.';
+      },
+      '500': (): string => {
+        return 'Server is probably down.';
+      }
+    };
+  }
+
+  create (words: Array<Theme>): void {
+    this.apiService.postResources(this.basicUrl, words, true).catch(error => {
+      return Observable.throw(new CreateHttpError(error, this.basicUrl, this.basicCodeErrors));
+    }).subscribe(data => {
+      this.data.all.push(...data);
+      return this.createSubject.next(data);
+    }, createHttpError => {
+      return this.errorSubject.next(createHttpError);
     });
-    if (availableTheme && idx !== -1) {
-      this.changeLearningTheme(idx);
-    }
-    return !!availableTheme;
   }
 
+  read (): void {
+    this.data.isCurrentLoading = true;
+    this.apiService.getResources(this.basicUrl).catch(error => {
+      return Observable.throw(new ReadHttpError(error, this.basicUrl, this.basicCodeErrors));
+    }).subscribe(data => {
+      console.log(data);
+      this.data.all.push(...data);
+      this.data.learning = this.data.all.find(item => item.uid === this.data.learningUid);
+      this.checkLevels();
+      this.data.isCurrentLoading = false;
+      return this.readSubject.next(data);
+    }, readHttpError => {
+      return this.errorSubject.next(readHttpError);
+    });
+  }
+
+  delete (id: string): void {
+    this.apiService.deleteResources(this.basicUrl + '/' + id, true).catch(error => {
+      return Observable.throw(new DeleteHttpError(error, this.basicUrl, this.basicCodeErrors));
+    }).subscribe(data => {
+      this.data.current = new Theme();
+      this.data.all.splice(this.data.all.findIndex(item => item._id === id), 1);
+      return this.deleteSubject.next(data);
+    }, deleteHttpError => {
+      return this.errorSubject.next(deleteHttpError);
+    });
+  }
 }

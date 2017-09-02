@@ -2,6 +2,7 @@
 <app-modal-login></app-modal-login>
 <app-modal-confirm></app-modal-confirm>
 <app-modal-item></app-modal-item>
+<app-modal-theme></app-modal-theme>
 <div class="container app-container">
   <header>
     <div class="row">
@@ -77,13 +78,13 @@
           </li>
           <li class="nav-item" [class.active]="router.url.split('/')[1] === 'gameboard'"
             data-toggle="collapse" data-target="#navbarSupportedContent.show">
-            <a class="nav-link" [routerLink]="['/gameboard/'+ cpntData.theme?.learningTheme?.uid]">
+            <a class="nav-link" [routerLink]="['/gameboard/'+ cpntData.theme?.learning?.uid]">
               {{ 'layout.gameboard' | translate }}
             </a>
           </li>
           <li class="nav-item" [class.active]="router.url.split('/')[1] === 'blackboard'"
             data-toggle="collapse" data-target="#navbarSupportedContent.show">
-            <a class="nav-link" [routerLink]="['/blackboard/'+ cpntData.theme?.learningTheme?.uid]">
+            <a class="nav-link" [routerLink]="['/blackboard/'+ cpntData.theme?.learning?.uid]">
               {{ 'layout.blackboard' | translate }}
             </a>
           </li>

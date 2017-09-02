@@ -6,20 +6,32 @@ export class Item {
   fr: LangItem;
   lo: LangItem;
   themes: Array<string>;
+  lvl: number;
   img?: string;
   meta?: IItemMeta;
   _userId?: string;
   constructor () {
-    this._id = '';
     this.uid = '';
-    this.validated = false;
     this.en = new LangItem();
     this.fr = new LangItem();
     this.lo = new LangItem();
     this.themes = [];
-    this.img = '';
+    this.lvl = 0;
     this.meta = <IItemMeta>{};
-    this._userId = '';
+  }
+};
+
+export class LangItem {
+  wrd: string;
+  kk: IKaraokeItem;
+  ex?: string;
+  img?: string;
+  snd?: string;
+  meta: ILangItemMeta;
+   constructor () {
+    this.wrd = '';
+    this.kk = <IKaraokeItem>{};
+    this.meta = <ILangItemMeta>{};
   }
 };
 
@@ -35,6 +47,8 @@ export interface ILangItemMeta {
 export interface IItemMeta {
   contrary?: string;
   conflict?: Array<string>;
+  owner?: string;
+  ownerResource?: string;
 };
 
 export interface IKaraokeItem {
@@ -42,23 +56,6 @@ export interface IKaraokeItem {
   en?: string;
   fr?: string;
   ipa?: string;
-};
-
-export class LangItem {
-  wrd: string;
-  kk: IKaraokeItem;
-  ex?: string;
-  img?: string;
-  snd?: string;
-  meta?: ILangItemMeta;
-   constructor () {
-    this.wrd = '';
-    this.kk = <IKaraokeItem>{};
-    this.ex = '';
-    this.img = '';
-    this.snd = '';
-    this.meta = <ILangItemMeta>{};
-  }
 };
 
 export interface IItemServiceData {

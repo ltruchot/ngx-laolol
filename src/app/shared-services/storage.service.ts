@@ -4,9 +4,10 @@ import { Injectable } from '@angular/core';
 export class StorageService {
   store: any = null;
   authorizedData = [
+    'allThemes',
     'authToken',
     'currentLanguage',
-    'currentLearningThemeIdx',
+    'currentLearningThemeUid',
     'isKaraokeActivated',
     'isMoreInfosActivated',
     'learningLanguage',
