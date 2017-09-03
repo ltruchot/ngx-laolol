@@ -25,7 +25,6 @@ export class GameboardComponent implements OnInit, OnDestroy {
     currentQuestionTimer: '0',
     items: [],
     lang: null,
-    availableLang: null,
     theme: null,
     isCheckingAnswer: false
   };
@@ -52,16 +51,11 @@ export class GameboardComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit () {
+    this.cpntData.lang =  this.languageService.data;
+    this.cpntData.theme =  this.themeService.data;
     this.route.params.subscribe(params => {
-      if (params.uid) {
-        if (this.themeService.changeLearningTheme(params.uid)) {
-          this.cpntData.lang =  this.languageService.data;
-          this.cpntData.availableLang = this.languageService.AVAILABLE_LANG;
-          this.cpntData.theme =  this.themeService.data;
-          this.themeService.getCurrentTheme();
-           } else {
-          this.router.navigate(['404']);
-        }
+      if (params.uid && this.cpntData.theme.all.find(item => item.uid === params.uid)) {
+        this.themeService.changeLearningTheme(params.uid);
       } else {
         this.router.navigate(['404']);
       }
@@ -117,11 +111,12 @@ export class GameboardComponent implements OnInit, OnDestroy {
     this.changeDisplayedItems();
   }
 
-  resetTheme (data) {
+  resetTheme (items: Array<Item>) {
+    // console.log('gameboard.component::resetTheme', items);
     this.cpntData.clickedIdx = null;
     this.cpntData.winItemIdx = null;
     this.allItems.length = 0;
-    this.allItems.push(...data);
+    this.allItems.push(...items);
     this.cpntData.items.length = 0;
     this.changeDisplayedItems();
   }

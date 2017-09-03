@@ -3,7 +3,17 @@ var mongoose = require('mongoose');
 var Item = mongoose.model('Item');
 
 exports.listItems = function (req, res) {
-	Item.find({}, function (err, item) {
+	var filter = {};
+	for (var k in req.query) {
+		if ((/^[a-z0-9|,|-]+$/i).test(req.query[k])) {
+			if (k === 'includes' && req.query[k] !== 'all') {
+				filter['themes'] = { '$in': req.query[k].split(',') };
+			} else if (k === 'excludes') {
+
+			}
+		}
+	}
+	Item.find(filter, function (err, item) {
 		if (err) {
 			res.send(err);
 		}
@@ -18,7 +28,6 @@ exports.createItem = function (req, res) {
 		docs.push(new Item(item));
 	});
 	Item.insertMany(docs).then(items => {
-		console.log('no error', items);
 		res.json(items);
 	}, err => {
 		console.log('error', err);

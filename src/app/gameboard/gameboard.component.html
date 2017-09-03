@@ -26,10 +26,10 @@
 <div class="row game-buttons-container">
 	<div *ngFor="let item of cpntData.items; let i = index;" class="col-6 col-md-3">
 		<div class="pxtb5 h-100" >
-			<button class="btn btn-secondary btn-lg btn-block no-transition h-100" (click)="checkAnswer(i)"
+			<button class="btn btn-lg btn-block no-transition h-100" (click)="checkAnswer(i)"
 			[disabled]="cpntData.clickedIdx !== null && (cpntData.clickedIdx !== i)"
 			[ngClass]="{
-				'btn-default': cpntData.clickedIdx === null || (cpntData.clickedIdx === -1),
+				'btn-light': cpntData.clickedIdx === null || (cpntData.clickedIdx === -1),
 				'btn-success': i === cpntData.winItemIdx && cpntData.isCheckingAnswer,
 				'btn-danger': i === cpntData.clickedIdx && cpntData.clickedIdx !== cpntData.winItemIdx,
 				'disabled': cpntData.clickedIdx !== null && (cpntData.clickedIdx !== i)
@@ -42,7 +42,11 @@
 				</em>
 				<ng-template [ngIf]="cpntData.theme.isKaraoke && !cpntData.theme.learning.noKaraoke && item[cpntData.lang.learningLang].kk && !cpntData.theme.isReversed">
 					<br />
-					<em class="text-primary" [ngClass]="{ 'font-lao': isLaoLanguage }">
+					<em [ngClass]="{
+						'text-primary': cpntData.clickedIdx === null || (cpntData.clickedIdx === -1),
+						'text-dark': cpntData.clickedIdx > 0,
+						'font-lao': isLaoLanguage
+					}">
 						{{ item[cpntData.lang.learningLang].kk[cpntData.lang.currentLang] }}
 					</em>
 				</ng-template>

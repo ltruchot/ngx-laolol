@@ -4,7 +4,6 @@ export interface GameboardCpntData {
   items: Array<Item>;
   clickedIdx: number;
   lang: any;
-  availableLang: any;
   theme: any;
   currentQuestionTimer: string;
   isCheckingAnswer: boolean;

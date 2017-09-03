@@ -1,5 +1,6 @@
 [{
   "uid": "mother1",
+  "lvl": 0,
   "en": {
     "wrd": "mother"
   },
@@ -13,9 +14,10 @@
     "wrd": "ແມ່",
     "kk": { "en": "mae:", "fr": "mè:" }
   },
-  "themes": ["family", "lvl0"]
+  "themes": ["family"]
 }, {
   "uid": "father1",
+  "lvl": 0,
   "en": {
     "wrd": "father"
   },
@@ -29,9 +31,10 @@
     "wrd": "ພໍ່",
     "kk": { "en": "phɔ:", "fr": "phɔ:" }
   },
-  "themes": ["family", "lvl0"]
+  "themes": ["family"]
 }, {
   "uid": "child1",
+  "lvl": 0,
   "en": {
     "wrd": "child",
     "meta": {
@@ -48,9 +51,10 @@
     "wrd": "ລູກ",
     "kk": { "en": "loo:k", "fr": "lou:k" }
   },
-  "themes": ["family", "lvl0"]
+  "themes": ["family"]
 }, {
   "uid": "son1",
+  "lvl": 0,
   "en": {
     "wrd": "son"
   },
@@ -65,9 +69,10 @@
     "wrd": "ລູກຊາຍ",
     "kk": { "en": "loo:k sa:i", "fr": "lou:k sa:y" }
   },
-  "themes": ["family", "lvl0"]
+  "themes": ["family"]
 }, {
   "uid": "daughter1",
+  "lvl": 0,
   "en": {
     "wrd": "daughter"
   },
@@ -81,9 +86,10 @@
     "wrd": "ລູກສາວ",
     "kk": { "en": "loo:k sa:o", "fr": "lou:k sa:o" }
   },
-  "themes": ["family", "lvl0"]
+  "themes": ["family"]
 }, {
   "uid": "grandfather1",
+  "lvl": 0,
   "en": {
     "wrd": "grandfather"
   },
@@ -97,9 +103,10 @@
     "wrd": "ພໍ່ຕູ້",
     "kk": { "en": "phɔ: too", "fr": "phɔ: tou" }
   },
-  "themes": ["family", "lvl0"]
+  "themes": ["family"]
 }, {
   "uid": "grandmother1",
+  "lvl": 0,
   "en": {
     "wrd": "grandmother"
   },
@@ -113,9 +120,10 @@
     "wrd": "ແມ່ຕູ້",
     "kk": { "en": "mae: tou", "fr": "mè: tou" }
   },
-  "themes": ["family", "lvl0"]
+  "themes": ["family"]
 }, {
   "uid": "grandchild1",
+  "lvl": 0,
   "en": {
     "wrd": "grandchild",
     "plural": "grandchildren"
@@ -131,9 +139,10 @@
     "wrd": "ຫລານ",
     "kk": { "en": "mae: la:n", "fr": "mè: lâ:nh" }
   },
-  "themes": ["family", "lvl0"]
+  "themes": ["family"]
 }, {
   "uid": "uncle1",
+  "lvl": 0,
   "en": {
     "wrd": "uncle"
   },
@@ -147,9 +156,10 @@
     "wrd": "ລຸງ",
     "kk": { "en": "loong", "fr": "loung" }
   },
-  "themes": ["family", "lvl0"]
+  "themes": ["family"]
 }, {
   "uid": "aunt1",
+  "lvl": 0,
   "en": {
     "wrd": "aunt"
   },
@@ -163,9 +173,10 @@
     "wrd": "ປ້າ",
     "kk": { "en": "pa:", "fr": "pa:" }
   },
-  "themes": ["family", "lvl0"]
+  "themes": ["family"]
 }, {
   "uid": "oldersister1",
+  "lvl": 1,
   "en": {
     "wrd": "older sister"
   },
@@ -180,9 +191,10 @@
     "wrd": "ເອື້ອຍ",
     "kk": { "en": "ue ai", "fr": "eu ay" }
   },
-  "themes": ["family", "lvl1"]
+  "themes": ["family"]
 }, {
   "uid": "olderbrother1",
+  "lvl": 1,
   "en": {
     "wrd": "older brother"
   },
@@ -197,9 +209,10 @@
     "wrd": "ອ້າຍ",
     "kk": { "en": "ai:", "fr": "ay:" }
   },
-  "themes": ["family", "lvl1"]
+  "themes": ["family"]
 }, {
   "uid": "youngersister1",
+  "lvl": 1,
   "en": {
     "wrd": "younger sister"
   },
@@ -214,9 +227,10 @@
     "wrd": "ນອ້ງສາວ",
     "kk": { "en": "nɔng saw", "fr": "nɔng sao" }
   },
-  "themes": ["family", "lvl1"]
+  "themes": ["family"]
 }, {
   "uid": "youngerbrother1",
+  "lvl": 1,
   "en": {
     "wrd": "younger brother"
   },
@@ -231,5 +245,5 @@
     "wrd": "ນ້ອງຊາຍ",
     "kk": { "en": "nɔng sai", "fr": "nɔng say" }
   },
-  "themes": ["family", "lvl1"]
+  "themes": ["family"]
 }]

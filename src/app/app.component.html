@@ -64,13 +64,13 @@
     </div>
     <!-- begin main menu navbar -->
     <nav role="navigation" [ngClass]="{'font-lao': cpntData.lang?.currentLang === 'lo'}"
-      class="main-menu navbar navbar-default navbar-toggleable-sm navbar-light bg-faded">
+      class="main-menu navbar navbar-default navbar-expand-sm navbar-light bg-light">
       <button class="navbar-toggler navbar-toggler-right" type="button"
         data-toggle="collapse" data-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <a class="navbar-brand hidden-md-up"><em>{{ 'layout.menu' | translate }}</em></a>
+      <a class="navbar-brand d-md-none"><em>{{ 'layout.menu' | translate }}</em></a>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mx-auto">
           <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" data-toggle="collapse" data-target="#navbarSupportedContent.show">
@@ -78,13 +78,13 @@
           </li>
           <li class="nav-item" [class.active]="router.url.split('/')[1] === 'gameboard'"
             data-toggle="collapse" data-target="#navbarSupportedContent.show">
-            <a class="nav-link" [routerLink]="['/gameboard/'+ cpntData.theme?.learning?.uid]">
+            <a class="nav-link" [routerLink]="'/gameboard/'+ cpntData.theme?.learningUid">
               {{ 'layout.gameboard' | translate }}
             </a>
           </li>
           <li class="nav-item" [class.active]="router.url.split('/')[1] === 'blackboard'"
             data-toggle="collapse" data-target="#navbarSupportedContent.show">
-            <a class="nav-link" [routerLink]="['/blackboard/'+ cpntData.theme?.learning?.uid]">
+            <a class="nav-link" [routerLink]="'/blackboard/'+ cpntData.theme?.learningUid">
               {{ 'layout.blackboard' | translate }}
             </a>
           </li>
@@ -111,7 +111,7 @@
     <router-outlet></router-outlet>
   </div>
 </div>
-<footer class="px5 text-small-r bg-faded">
+<footer class="px5 text-small-r bg-light">
   <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">
     <img src="/assets/img/lisence.png" />
   </a>

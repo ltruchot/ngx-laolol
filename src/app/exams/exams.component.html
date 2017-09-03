@@ -4,8 +4,8 @@
       <em>{{ 'layout.underConstruction' | translate }}</em>
     </div>
   </div>
-  <div class="row mxb10" *ngFor="let theme of cpntData.themes.all; let i = index;">
-    <div class="col-5 col-sm-4  col-md-3  pxr0">
+  <div class="row mxb10" *ngFor="let theme of cpntData.theme?.all">
+    <div class="col-5 col-sm-4 col-md-3 pxr0">
     	<button type="button" class="btn btn-info btn-block text-medium">
     		{{ theme[cpntData.lang.currentLang].short || theme[cpntData.lang.currentLang].wrd }}
     	</button>
@@ -13,8 +13,10 @@
     <div class="col-7 col-sm-8 col-md-9">
    		<div class="progress progress-big">
   			<div class="progress-bar no-transition" role="progressbar"
-  			aria-valuenow="0%" aria-valuemin="0" aria-valuemax="100"
-  			[style.width]="'0%'"><span>0 / 20</span></div>
+  			 aria-valuenow="0%" aria-valuemin="0" aria-valuemax="100"
+  			 [style.width]="'0%'">
+          <span>0 / 20</span>
+        </div>
   		</div>
   	</div>
   </div>

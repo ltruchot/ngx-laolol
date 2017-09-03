@@ -79,21 +79,34 @@ export class ThemeService {
     const currentThemeUid = this.storage.getItem('currentLearningThemeUid');
     const isKaraokeActivated = this.storage.getItem('isKaraokeActivated');
     const isMoreInfosActivated = this.storage.getItem('isMoreInfosActivated');
-    const allThemes = this.storage.getItem('allThemes');
-    if (allThemes) {
-      this.data.all.push(...allThemes);
-    } else {
-      this.read();
-    }
-    this.data.learningUid = !isNaN(currentThemeUid) ? currentThemeUid : this.defaultLearningUid;
+
+    this.data.learningUid = currentThemeUid ? currentThemeUid : this.defaultLearningUid;
     this.data.isKaraoke = typeof isKaraokeActivated !== 'undefined' ? isKaraokeActivated : true;
     this.data.isMoreInfos = typeof isMoreInfosActivated !== 'undefined' ? isMoreInfosActivated : true;
+
+    this.read();
+    this.itemService.read$.subscribe((data: Array<Item>) => {
+      this.data.items.length = 0;
+      if (data && data.length && data.length >= 4) {
+        this.data.items.length = 0;
+        this.data.items.push(...data);
+        this.currenThemeSource.next(this.getCurrentLevel());
+      } else {
+        if (this.data.learning && this.data.learning.uid) {
+          throw new Error(`Theme "${this.data.learning.uid}" wasn't loaded correctly.
+          Check if theme exists ans is correctly populated with at least 4 items`);
+        } else {
+          throw new Error(`No valid learning found. Check db & request`);
+        }
+      }
+      this.data.isCurrentLoading = false;
+    });
   }
 
   checkLevels () {
     // console.log('submenu.component::checkLevels', this.data.learning);
     this.data.learningLevel = 0;
-    const levels = this.data.learning.levels;
+    const levels = this.data.learning && this.data.learning.levels;
     this.data.levels = levels ? Array.from(Array(levels + 1).keys()) : [];
   }
 
@@ -111,40 +124,31 @@ export class ThemeService {
     // console.log('theme.services::getCurrentLevel', this.data.learningLevel, this.data.levels.length);
     let items: Array<Item>;
     if (this.data.learningLevel < this.data.levels.length - 1) {
-      items = this.data.items[this.data.learning.uid]
-        .find({lvl: this.data.learningLevel});
+      items = this.data.items.filter(item => {
+        return item.lvl === this.data.learningLevel;
+      });
     } else {
-      items = this.data.items[this.data.learning.uid];
+      items = this.data.items;
     }
     return items;
   }
 
   getCurrentTheme () {
+    // console.log('theme.service::getCurrentTheme');
     this.data.isCurrentLoading = true;
-    if (this.data.items[this.data.learning.uid]) {
-      this.currenThemeSource.next(this.getCurrentLevel());
-      this.data.isCurrentLoading = false;
-    } else {
-      this.itemService.read$.subscribe((parsedRes: Array<Item>) => {
-        if (parsedRes && parsedRes.length && parsedRes.length >= 4) {
-          this.data.items[this.data.learning.uid] = parsedRes;
-          this.currenThemeSource.next(this.getCurrentLevel());
-        } else {
-          throw new Error(`/themes/${this.data.learning.uid}.json wasn't parsed correctly.
-            Check if fils exists ans is correctly formed and with at least 7 items`);
-        }
-        this.data.isCurrentLoading = false;
-      });
-      this.itemService.read(this.data.learning.uid);
-    }
+    this.itemService.read(this.data.learningUid);
   }
 
   changeLearningTheme (uid: string) {
+    // console.log('theme.service::changeLearningTheme', uid);
     if (uid !== this.data.learningUid) {
       this.data.learningUid = uid;
-      this.data.learning = this.data.all[uid];
-      this.checkLevels();
+      this.data.learning = this.data.all.find(item => item.uid === uid);
       this.storage.setItem('currentLearningThemeUid', uid);
+      this.checkLevels();
+      this.getCurrentTheme();
+    } else  {
+      this.checkLevels();
       this.getCurrentTheme();
     }
     return !!this.data.learning;
@@ -176,20 +180,34 @@ export class ThemeService {
     });
   }
 
+  populateThemes (themes: Array<Theme>) {
+    // console.log('theme.service::populateThemes', themes);
+    this.data.all.length = 0;
+    this.data.all.push(...themes);
+    this.data.learning = this.data.all.find(item => item.uid === this.data.learningUid);
+    this.checkLevels();
+    this.data.isCurrentLoading = false;
+  }
+
   read (): void {
+    // console.log('theme.service::read');
     this.data.isCurrentLoading = true;
-    this.apiService.getResources(this.basicUrl).catch(error => {
-      return Observable.throw(new ReadHttpError(error, this.basicUrl, this.basicCodeErrors));
-    }).subscribe(data => {
-      console.log(data);
-      this.data.all.push(...data);
-      this.data.learning = this.data.all.find(item => item.uid === this.data.learningUid);
-      this.checkLevels();
-      this.data.isCurrentLoading = false;
-      return this.readSubject.next(data);
-    }, readHttpError => {
-      return this.errorSubject.next(readHttpError);
-    });
+    const allThemes = this.storage.getItem('allThemes');
+    if (allThemes && allThemes.length) {
+      this.populateThemes(allThemes);
+      return this.readSubject.next(allThemes);
+    } else {
+      this.apiService.getResources(this.basicUrl).catch(error => {
+        return Observable.throw(new ReadHttpError(error, this.basicUrl, this.basicCodeErrors));
+      }).subscribe(res => {
+        this.populateThemes(res);
+        this.storage.setItem('allThemes', this.data.all);
+        return this.readSubject.next(res);
+      }, readHttpError => {
+        this.data.isCurrentLoading = false;
+        return this.errorSubject.next(readHttpError);
+      });
+    }
   }
 
   delete (id: string): void {

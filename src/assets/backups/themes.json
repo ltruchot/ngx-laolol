@@ -4,6 +4,7 @@
   "en": { "wrd": "Consonants" },
   "fr": { "wrd": "Les consonnes", "short": "Consonnes"
   },
+  "levels": 3,
   "lo": {
     "wrd": "ພະຍັນຊະນະ"
   }
@@ -26,17 +27,18 @@
   }
 }, {
   "uid": "syllables",
-  "noKaraoke": true, "noPlural": true, "noArticle": true, "hasCapital": true,
   "levels": 2,
+  "noKaraoke": true, "noPlural": true, "noArticle": true, "hasCapital": true,
   "en": { "wrd": "Syllables" },
   "fr": { "wrd": "Les syllabes", "short": "Syllabes" },
   "lo": {
     "wrd": "ພະຍາງ"
   }
 }, {
-  "uid": "politness",
+  "uid": "politeness",
+  "levels": 1,
   "noPlural": true, "noArticle": true,
-  "en": { "wrd": "Politness" },
+  "en": { "wrd": "Politeness" },
   "fr": { "wrd": "La politesse", "short": "Politesse" },
   "lo": { "wrd": "ຄວາມສຸພາບ" }
 }, {
@@ -48,6 +50,7 @@
   "lo": { "wrd": "ຄອບຄົວ" }
 }, {
   "uid": "animals",
+  "levels": 2,
   "hasImages": true, "hasCapital": true,
   "en": { "wrd": "Animals", "short": "Animals" },
   "fr": { "wrd": "Les animaux", "short": "Animaux" },
@@ -84,33 +87,3 @@
   },
   "lo": { "wrd": "ອາຊີບ" }
 }]
-
-  // { code: "plants", trad: "theme.plants" },
-  // {
-  //   code: "days",
-  //   trad: "theme.days",
-  //   en: "Week days",
-  //   fr: "Les jours",
-  //   lo: "ວັນ"
-  // },
-  // {
-  //   code: "family",
-  //   trad: "theme.family",
-  //   en: "Family",
-  //   fr: "La famille",
-  //   lo: "ຄອບຄົວ"
-  // },
-  // {
-  //   code: "human_body",
-  //   trad: "theme.human_body",
-  //   en: "Human body",
-  //   fr: "Le corps humain",
-  //   lo: "ຮ່າງກາຍຂອງຄົນ"
-  // },
-  // {
-  //   code: "head",
-  //   trad: "theme.head",
-  //   en: "Head",
-  //   fr: "La tête",
-  //   lo: "ຫົວ"
-  // }

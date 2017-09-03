@@ -11,6 +11,7 @@ import 'rxjs/add/observable/throw';
 // custom services
 import { ApiService } from './api.service';
 import { UserService } from './user.service';
+import { StorageService } from './storage.service';
 
 // custom models
 import {
@@ -42,7 +43,8 @@ export class ItemService {
   private basicUrl = 'api/items';
   private basicCodeErrors: ManagedCodeErrors;
 
-  constructor (private apiService: ApiService, private userService: UserService)  {
+  constructor (private apiService: ApiService, private userService: UserService,
+    private storage: StorageService)  {
     // create
     this.createSubject = new Subject();
     this.create$ = this.createSubject.asObservable();
@@ -59,6 +61,12 @@ export class ItemService {
     this.errorSubject = new Subject();
     this.error$ = this.errorSubject.asObservable();
     this.basicCodeErrors = this.getBasicCodeErrors();
+
+    // populate data with storage
+    let items = this.storage.getItem('allItems');
+    if (items && items.length) {
+      this.pushAndSortItems(items);
+    }
   }
 
   getBasicCodeErrors (): ManagedCodeErrors  {
@@ -75,33 +83,78 @@ export class ItemService {
       }
     };
   }
+  /*
+   * @desc push items in global object and re-sort it by alphanumerical order
+   */
+
+  pushAndSortItems (data: Array<Item>) {
+    this.data.all.push(...data);
+    this.data.all.sort(function(a, b) {
+      return (a.uid > b.uid) ? 1 : ((b.uid > a.uid) ? -1 : 0);
+    });
+    this.storage.setItem('allItems', this.data.all);
+  }
 
   create (words: Array<Item>): void {
     this.apiService.postResources(this.basicUrl, words, true).catch(error => {
       return Observable.throw(new CreateHttpError(error, this.basicUrl, this.basicCodeErrors));
     }).subscribe(data => {
-      this.data.all.push(...data);
+      this.pushAndSortItems(data);
       return this.createSubject.next(data);
     }, createHttpError => {
       console.error('createHttpError', createHttpError.message);
       return this.errorSubject.next(createHttpError);
     });
   }
-
+  /*
+   *  @desc modify stream of the read$ Observable.
+   *  If theme exist in dataset 'all', send it as "next"
+   *  It not, do the server request, excluding already loaded themes
+   */
   read (themeUid?: string): void {
-    let searchParams = new URLSearchParams();
-    if (themeUid) {
-      searchParams.set('include', themeUid);
+    // console.log('item.service::read', themeUid);
+    // get list of already loaded themes
+    let excludeList = this.storage.getItem('loadedThemes') || '';
+
+    // if current themes (or all themes) is already loaded
+    if (excludeList && (excludeList === 'all' || excludeList.split(',').indexOf(themeUid) !== -1)) {
+      // return a filtered set by uid
+      if (themeUid) {
+        return this.readSubject.next(this.data.all.filter(item => {
+          return item.themes.indexOf(themeUid) !== -1;
+        }));
+      // or the complete set if no uid specified
+      } else {
+        return this.readSubject.next(this.data.all);
+      }
+    // if needed, prepare exclude list as param
+    } else {
+      // prepare GET params ?includes=theme&excludes=theme
+      let searchParams = new URLSearchParams();
+      searchParams.set('includes', themeUid ? themeUid : 'all');
+      if (excludeList) {
+        searchParams.set('excludes', excludeList);
+      }
+
+      // launch GET request
+      this.apiService.getResources(this.basicUrl, false, searchParams).catch(error => {
+        return Observable.throw(new ReadHttpError(error, this.basicUrl, this.basicCodeErrors));
+      }).subscribe(data => {
+        // store and sort items;
+        this.pushAndSortItems(data);
+        // store new theme in exclude list
+        if (themeUid) {
+          this.storage.setItem('loadedThemes', excludeList ? excludeList + ',' + themeUid : themeUid);
+        } else {
+          this.storage.setItem('loadedThemes', 'all');
+        }
+        // return current data set
+        return this.readSubject.next(data);
+      }, readHttpError => {
+        console.error('readHttpError', readHttpError.message);
+        return this.errorSubject.next(readHttpError);
+      });
     }
-    this.apiService.getResources(this.basicUrl, false, searchParams).catch(error => {
-      return Observable.throw(new ReadHttpError(error, this.basicUrl, this.basicCodeErrors));
-    }).subscribe(data => {
-      console.log(data);
-      this.data.all.push(...data);
-      return this.readSubject.next(data);
-    }, readHttpError => {
-      return this.errorSubject.next(readHttpError);
-    });
   }
 
   delete (id: string): void {

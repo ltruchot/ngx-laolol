@@ -1,5 +1,6 @@
 [{
   "uid": "yes1",
+  "lvl": 0,
   "en": {
     "wrd": "yes",
     "kk": { "lo": "ແຢສ" }
@@ -12,9 +13,10 @@
     "wrd": "ເຈົ້າ",
     "kk": { "en": "chao", "fr": "tjao" }
   },
-  "themes": ["politeness", "lvl0"]
+  "themes": ["politeness"]
 },{
   "uid": "no1",
+  "lvl": 0,
   "en": {
     "wrd": "no",
     "kk": { "lo": "ໂນ" }
@@ -27,9 +29,10 @@
     "wrd": "ບໍ່",
     "kk": { "en": "bɔ:", "fr": "bɔ:" }
   },
-  "themes": ["politeness", "lvl0"]
+  "themes": ["politeness"]
 },{
   "uid": "thankyou1",
+  "lvl": 0,
   "en": {
     "wrd": "thank you",
     "kk": { "lo": "ແທງຄີວ" }
@@ -43,9 +46,10 @@
     "wrd": "ຂອບໃຈ",
     "kk": { "en": "khɔbchai", "fr": "khɔptjay" }
   },
-  "themes": ["politeness", "lvl0"]
+  "themes": ["politeness"]
 }, {
   "uid": "hello1",
+  "lvl": 0,
   "en": {
     "wrd": "hello",
     "kk": { "lo": "ແຮໂລ" },
@@ -60,9 +64,10 @@
     "wrd": "ສະບາຍດີ",
     "kk": { "en": "sabaidee", "fr": "sabaydi" }
   },
-  "themes": ["politeness", "lvl0"]
+  "themes": ["politeness"]
 }, {
   "uid": "excuseme1",
+  "lvl": 0,
   "en": {
     "wrd": "excuse me / sorry",
     "kk": { "lo": "ເອກສຄີວມີ / ຊໍຣີ" }
@@ -75,9 +80,10 @@
     "wrd": "ຂໍໂທດ",
     "kk": { "en": "khɔ:tho:d", "fr": "khɔ:tho:d" }
   },
-  "themes": ["politeness", "lvl0"]
+  "themes": ["politeness"]
 }, {
   "uid": "please1",
+  "lvl": 0,
   "en": {
     "wrd": "please",
     "kk": { "lo": "ຟີສ" },
@@ -99,9 +105,10 @@
       "description": "ຂໍ ອັນໃດໜື່ງ"
     }
   },
-  "themes": ["politeness", "lvl0"]
+  "themes": ["politeness"]
 }, {
   "uid": "goodbye1",
+  "lvl": 0,
   "en": {
     "wrd": "good bye",
     "kk": { "lo": "ກູດບາຍ" }
@@ -114,9 +121,10 @@
     "wrd": "ລາກອ່ນ",
     "kk": { "en": "la:kɔn", "fr": "la:kɔne" }
   },
-  "themes": ["politeness", "lvl0"]
+  "themes": ["politeness"]
 }, {
   "uid": "goodluck1",
+  "lvl": 0,
   "en": {
     "wrd": "good luck",
     "kk": { "lo": "ກູດລັກ" }
@@ -129,9 +137,10 @@
     "wrd": "ໂຊກດີ",
     "kk": { "en": "sok dee", "fr": "sok di" }
   },
-  "themes": ["politeness", "lvl0"]
+  "themes": ["politeness"]
 }, {
   "uid": "goodnight1",
+  "lvl": 0,
   "en": {
     "wrd": "good night",
     "kk": { "lo": "ກູດໃນ" }
@@ -144,9 +153,10 @@
     "wrd": "ນອນລັບຝັນດີ",
     "kk": { "en": "nɔn lap fan dee", "fr": "nɔn lap fân di" }
   },
-  "themes": ["politeness", "lvl0"]
+  "themes": ["politeness"]
 }, {
   "uid": "nicetomeatyou1",
+  "lvl": 0,
   "en": {
     "wrd": "nice to meet you",
     "kk": { "lo": "ໃນທູມີດຢູ" }
@@ -159,5 +169,5 @@
     "wrd": "ຍິນ​ດີ​ທີ່​ໄດ້ຮູ້ຈັກ​",
     "kk": { "en": "nyindee thee dai hoochak", "fr": "nyindi thi day houtjak" }
   },
-  "themes": ["politeness", "lvl0"]
+  "themes": ["politeness"]
 }]

@@ -54,13 +54,6 @@ export class AppComponent implements OnInit {
 
   ngOnInit () {
 
-    // get every words
-    // this.itemService.read$.subscribe(data => console.log('data', data));
-    // this.itemService.error$.filter(error => error instanceof ReadHttpError)
-    //   .subscribe(error => console.error('error', error));
-    // this.itemService.read();
-    this.themeService.read();
-
     // manage loading states
     this.cpntData.theme =  this.themeService.data;
     this.router.events.subscribe((event: RouterEvent) => {

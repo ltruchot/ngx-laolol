@@ -72,11 +72,8 @@ export class AdminComponent implements OnInit {
       }
     });
 
-    // get every themes
+    // finally, retrieve all items
     this.itemService.read();
-
-    // get every words
-    this.themeService.read();
   }
 
   createEmptyTheme () {

@@ -18,7 +18,6 @@ exports.createThemes = function (req, res) {
 		docs.push(new Theme(theme));
 	});
 	Theme.insertMany(docs).then(themes => {
-		console.log('no error', themes);
 		res.json(themes);
 	}, err => {
 		console.log('error', err);

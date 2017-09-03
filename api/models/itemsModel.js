@@ -52,6 +52,7 @@ var ItemsSchema = new Schema({
 		snd: String,
 		meta: Schema.Types.Mixed
 	},
+	img: String,
 	themes: {
 		type: [String],
 		ref: 'Theme',

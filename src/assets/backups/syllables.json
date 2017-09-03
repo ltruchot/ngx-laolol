@@ -1,241 +1,281 @@
 [{
   "uid": "ka1",
+  "lvl": 0,
   "en": { "wrd": "ka" },
   "fr":{ "wrd": "ka" },
   "lo": { "wrd": "ກະ" },
-  "themes": ["syllables", "lvl0"]
+  "themes": ["syllables"]
 }, {
   "uid": "ka2",
+  "lvl": 0,
   "en": { "wrd": "ka:" },
   "fr":{ "wrd": "ka:" },
   "lo": { "wrd": "ກາ" },
-  "themes": ["syllables", "lvl0"]
+  "themes": ["syllables"]
 },{
   "uid": "ki1",
+  "lvl": 0,
   "en": { "wrd": "ki" },
   "fr":{ "wrd": "ki" },
   "lo": { "wrd": "ກິ" },
-  "themes": ["syllables", "lvl0"]
+  "themes": ["syllables"]
 }, {
   "uid": "ki2",
+  "lvl": 0,
   "en": { "wrd": "ki:" },
   "fr":{ "wrd": "ki:" },
   "lo": { "wrd": "ກີ" },
-  "themes": ["syllables", "lvl0"]
+  "themes": ["syllables"]
 }, {
   "uid": "kue1",
+  "lvl": 0,
   "en": { "wrd": "kue" },
   "fr":{ "wrd": "kü" },
   "lo": { "wrd": "ກຶ" },
-  "themes": ["syllables", "lvl0"]
+  "themes": ["syllables"]
 }, {
   "uid": "kue2",
+  "lvl": 0,
   "en": { "wrd": "kue:" },
   "fr":{ "wrd": "kü:" },
   "lo": { "wrd": "ກື" },
-  "themes": ["syllables", "lvl0"]
+  "themes": ["syllables"]
 }, {
   "uid": "ko1",
+  "lvl": 0,
   "en": { "wrd": "ko" },
   "fr":{ "wrd": "kô" },
   "lo": { "wrd": "ໂກະ" },
-  "themes": ["syllables", "lvl0"]
+  "themes": ["syllables"]
 }, {
   "uid": "ko2",
+  "lvl": 0,
   "en": { "wrd": "ko:" },
   "fr":{ "wrd": "kô:" },
   "lo": { "wrd": "ໂກ" },
-  "themes": ["syllables", "lvl0"]
+  "themes": ["syllables"]
 },{
   "uid": "ta1",
+  "lvl": 0,
   "en": { "wrd": "ta" },
   "fr":{ "wrd": "ta" },
   "lo": { "wrd": "ຕະ" },
-  "themes": ["syllables", "lvl0"]
+  "themes": ["syllables"]
 }, {
   "uid": "ta2",
+  "lvl": 0,
   "en": { "wrd": "ta:" },
   "fr":{ "wrd": "ta:" },
   "lo": { "wrd": "ຕາ" },
-  "themes": ["syllables", "lvl0"]
+  "themes": ["syllables"]
 },{
   "uid": "ti1",
+  "lvl": 0,
   "en": { "wrd": "ti" },
   "fr":{ "wrd": "ti" },
   "lo": { "wrd": "ຕິ" },
-  "themes": ["syllables", "lvl0"]
+  "themes": ["syllables"]
 }, {
   "uid": "ti2",
+  "lvl": 0,
   "en": { "wrd": "ti:" },
   "fr":{ "wrd": "ti:" },
   "lo": { "wrd": "ຕີ" },
-  "themes": ["syllables", "lvl0"]
+  "themes": ["syllables"]
 }, {
   "uid": "tue1",
+  "lvl": 0,
   "en": { "wrd": "tue" },
   "fr":{ "wrd": "tü" },
   "lo": { "wrd": "ຕຶ" },
-  "themes": ["syllables", "lvl0"]
+  "themes": ["syllables"]
 }, {
   "uid": "tue2",
+  "lvl": 0,
   "en": { "wrd": "tue:" },
   "fr":{ "wrd": "tü:" },
   "lo": { "wrd": "ຕື" },
-  "themes": ["syllables", "lvl0"]
+  "themes": ["syllables"]
 }, {
   "uid": "to1",
+  "lvl": 0,
   "en": { "wrd": "to" },
   "fr":{ "wrd": "tô" },
   "lo": { "wrd": "ໂຕະ" },
-  "themes": ["syllables", "lvl0"]
+  "themes": ["syllables"]
 }, {
   "uid": "to2",
+  "lvl": 0,
   "en": { "wrd": "to:" },
   "fr":{ "wrd": "tô:" },
   "lo": { "wrd": "ໂຕ" },
-  "themes": ["syllables", "lvl0"]
+  "themes": ["syllables"]
 }, {
   "uid": "pa1",
+  "lvl": 0,
   "en": { "wrd": "pa" },
   "fr":{ "wrd": "pa" },
   "lo": { "wrd": "ປະ" },
-  "themes": ["syllables", "lvl0"]
+  "themes": ["syllables"]
 }, {
   "uid": "pa2",
+  "lvl": 0,
   "en": { "wrd": "pa:" },
   "fr":{ "wrd": "pa:" },
   "lo": { "wrd": "ປາ" },
-  "themes": ["syllables", "lvl0"]
+  "themes": ["syllables"]
 },{
   "uid": "pi1",
+  "lvl": 0,
   "en": { "wrd": "pi" },
   "fr":{ "wrd": "pi" },
   "lo": { "wrd": "ປິ" },
-  "themes": ["syllables", "lvl0"]
+  "themes": ["syllables"]
 }, {
   "uid": "pi2",
+  "lvl": 0,
   "en": { "wrd": "pi:" },
   "fr":{ "wrd": "pi:" },
   "lo": { "wrd": "ປີ" },
-  "themes": ["syllables", "lvl0"]
+  "themes": ["syllables"]
 }, {
   "uid": "pue1",
+  "lvl": 0,
   "en": { "wrd": "pue" },
   "fr":{ "wrd": "pü" },
   "lo": { "wrd": "ປຶ" },
-  "themes": ["syllables", "lvl0"]
+  "themes": ["syllables"]
 }, {
   "uid": "pue2",
+  "lvl": 0,
   "en": { "wrd": "pue:" },
   "fr":{ "wrd": "pü:" },
   "lo": { "wrd": "ປື" },
-  "themes": ["syllables", "lvl0"]
+  "themes": ["syllables"]
 }, {
   "uid": "po1",
+  "lvl": 0,
   "en": { "wrd": "po" },
   "fr":{ "wrd": "pô" },
   "lo": { "wrd": "ໂປະ" },
-  "themes": ["syllables", "lvl0"]
+  "themes": ["syllables"]
 }, {
   "uid": "po2",
+  "lvl": 0,
   "en": { "wrd": "po:" },
   "fr":{ "wrd": "pô:" },
   "lo": { "wrd": "ໂປ" },
-  "themes": ["syllables", "lvl0"]
+  "themes": ["syllables"]
 }, {
   "uid": "na1",
+  "lvl": 0,
   "en": { "wrd": "na" },
   "fr":{ "wrd": "na" },
   "lo": { "wrd": "ນະ" },
-  "themes": ["syllables", "lvl0"]
+  "themes": ["syllables"]
 }, {
   "uid": "na2",
+  "lvl": 0,
   "en": { "wrd": "na:" },
   "fr":{ "wrd": "na:" },
   "lo": { "wrd": "ນາ" },
-  "themes": ["syllables", "lvl0"]
+  "themes": ["syllables"]
 },{
   "uid": "ni1",
+  "lvl": 0,
   "en": { "wrd": "ni" },
   "fr":{ "wrd": "ni" },
   "lo": { "wrd": "ນິ" },
-  "themes": ["syllables", "lvl0"]
+  "themes": ["syllables"]
 }, {
   "uid": "ni2",
+  "lvl": 0,
   "en": { "wrd": "ni:" },
   "fr":{ "wrd": "ni:" },
   "lo": { "wrd": "ນີ" },
-  "themes": ["syllables", "lvl0"]
+  "themes": ["syllables"]
 }, {
   "uid": "nue1",
+  "lvl": 0,
   "en": { "wrd": "nue" },
   "fr":{ "wrd": "nü" },
   "lo": { "wrd": "ນຶ" },
-  "themes": ["syllables", "lvl0"]
+  "themes": ["syllables"]
 }, {
   "uid": "nue2",
+  "lvl": 0,
   "en": { "wrd": "nue:" },
   "fr":{ "wrd": "nü:" },
   "lo": { "wrd": "ນື" },
-  "themes": ["syllables", "lvl0"]
+  "themes": ["syllables"]
 }, {
-  "uid": "no1",
+  "uid": "no3",
+  "lvl": 0,
   "en": { "wrd": "no" },
   "fr":{ "wrd": "nô" },
   "lo": { "wrd": "ໂນະ" },
-  "themes": ["syllables", "lvl0"]
+  "themes": ["syllables"]
 }, {
   "uid": "no2",
+  "lvl": 0,
   "en": { "wrd": "no:" },
   "fr":{ "wrd": "nô:" },
   "lo": { "wrd": "ໂນ" },
-  "themes": ["syllables", "lvl0"]
+  "themes": ["syllables"]
 }, {
   "uid": "me1",
+  "lvl": 1,
   "en": { "wrd": "me" },
   "fr":{ "wrd": "mé" },
   "lo": { "wrd": "ເມະ" },
-  "themes": ["syllables", "lvl1"]
+  "themes": ["syllables"]
 }, {
   "uid": "me2",
+  "lvl": 1,
   "en": { "wrd": "me:" },
   "fr":{ "wrd": "mé:" },
   "lo": { "wrd": "ເມ" },
-  "themes": ["syllables", "lvl1"]
+  "themes": ["syllables"]
 }, {
   "uid": "mae1",
+  "lvl": 1,
   "en": { "wrd": "mae" },
   "fr":{ "wrd": "mè" },
   "lo": { "wrd": "ແມະ" },
-  "themes": ["syllables", "lvl1"]
+  "themes": ["syllables"]
 }, {
   "uid": "mae2",
+  "lvl": 1,
   "en": { "wrd": "mae:" },
   "fr":{ "wrd": "mè:" },
   "lo": { "wrd": "ແມ" },
-  "themes": ["syllables", "lvl1"]
+  "themes": ["syllables"]
 }, {
   "uid": "mɔ1",
+  "lvl": 1,
   "en": { "wrd": "mɔ" },
   "fr":{ "wrd": "mɔ" },
   "lo": { "wrd": "ເມາະ" },
-  "themes": ["syllables", "lvl1"]
+  "themes": ["syllables"]
 }, {
   "uid": "mɔ2",
+  "lvl": 1,
   "en": { "wrd": "mɔ:" },
   "fr":{ "wrd": "mɔ:" },
   "lo": { "wrd": "ມໍ" },
-  "themes": ["syllables", "lvl1"]
+  "themes": ["syllables"]
 }, {
   "uid": "moe1",
+  "lvl": 1,
   "en": { "wrd": "moe" },
   "fr":{ "wrd": "meu" },
   "lo": { "wrd": "ເມິ" },
-  "themes": ["syllables", "lvl1"]
+  "themes": ["syllables"]
 }, {
   "uid": "moe2",
+  "lvl": 1,
   "en": { "wrd": "moe:" },
   "fr":{ "wrd": "meu:" },
   "lo": { "wrd": "ເມີ" },
-  "themes": ["syllables", "lvl1"]
+  "themes": ["syllables"]
 }]

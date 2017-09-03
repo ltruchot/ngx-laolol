@@ -1,5 +1,6 @@
 [{
   "uid": "k1",
+  "lvl": 0,
   "en": {
     "wrd": "k"
   },
@@ -11,10 +12,11 @@
     "kk": { "en": "kɔ", "fr": "kɔ" },
     "ex": "ໄກ່"
   },
-  "themes": ["consonants, lvl1"],
+  "themes": ["consonants"],
   "img": "chicken/chicken.png"
 }, {
   "uid": "kh1",
+  "lvl": 0,
   "en": {
     "wrd": "kh",
     "meta": {
@@ -31,12 +33,13 @@
     "wrd": "ຂ",
     "kk": { "en": "khɔ", "fr": "khɔ" }
   },
-  "themes": ["consonants, lvl1"],
+  "themes": ["consonants"],
   "meta": {
     "conflict": ["kh2"]
   }
 }, {
   "uid": "kh2",
+  "lvl": 0,
   "en": {
     "wrd": "kh",
     "meta": {
@@ -54,13 +57,14 @@
     "kk": { "en": "khɔ", "fr": "khɔ" },
     "ex": "ຄວາຍ"
   },
-  "themes": ["consonants, lvl1"],
+  "themes": ["consonants"],
   "img": "buffalo/buffalo.png",
   "meta": {
     "conflict": ["kh1"]
   }
 }, {
   "uid": "ng1",
+  "lvl": 0,
   "en": {
     "wrd": "ng"
   },
@@ -72,10 +76,11 @@
     "kk": { "en": "ngɔ", "fr": "ngɔ" },
     "ex": "ງົວ"
   },
-  "themes": ["consonants, lvl1"],
+  "themes": ["consonants"],
   "img": "cow/cow.png"
 }, {
   "uid": "ch1",
+  "lvl": 0,
   "en": {
     "wrd": "tj"
   },
@@ -86,9 +91,10 @@
     "wrd": "ຈ",
     "kk": { "en": "chɔ", "fr": "tjɔ" }
   },
-  "themes": ["consonants, lvl1"]
+  "themes": ["consonants"]
 }, {
   "uid": "s1",
+  "lvl": 0,
   "en": {
     "wrd": "s",
     "meta": {
@@ -106,13 +112,14 @@
     "kk": { "en": "sɔ", "fr": "sɔ" },
     "ex": "ເສືອ"
   },
-  "themes": ["consonants, lvl1"],
+  "themes": ["consonants"],
   "img": "tiger/tiger.png",
   "meta": {
     "conflict": ["s2"]
   }
 }, {
   "uid": "s2",
+  "lvl": 0,
   "en": {
     "wrd": "s",
     "meta": {
@@ -130,13 +137,14 @@
     "kk": { "en": "sɔ", "fr": "sɔ" },
     "ex": "ຊ້າງ"
   },
-  "themes": ["consonants, lvl1"],
+  "themes": ["consonants"],
   "img": "elephant/elephant.png",
   "meta": {
     "conflict": ["s1"]
   }
 }, {
   "uid": "ny1",
+  "lvl": 1,
   "en": {
     "wrd": "ny"
   },
@@ -147,9 +155,10 @@
     "wrd": "ຍ",
     "kk": { "en": "nyɔ", "fr": "nyɔ" }
   },
-  "themes": ["consonants, lvl1"]
+  "themes": ["consonants"]
 }, {
   "uid": "d1",
+  "lvl": 1,
   "en": {
     "wrd": "d"
   },
@@ -160,9 +169,10 @@
     "wrd": "ດ",
     "kk": { "en": "dɔ", "fr": "dɔ" }
   },
-  "themes": ["consonants, lvl1"]
+  "themes": ["consonants"]
 }, {
   "uid": "t1",
+  "lvl": 1,
   "en": {
     "wrd": "t"
   },
@@ -173,9 +183,10 @@
     "wrd": "ຕ",
     "kk": { "en": "tɔ", "fr": "tɔ" }
   },
-  "themes": ["consonants, lvl1"]
+  "themes": ["consonants"]
 }, {
   "uid": "th1",
+  "lvl": 1,
   "en": {
     "wrd": "th",
     "meta": {
@@ -192,12 +203,13 @@
     "wrd": "ຖ",
     "kk": { "en": "thɔ", "fr": "thɔ" }
   },
-  "themes": ["consonants, lvl1"],
+  "themes": ["consonants"],
   "meta": {
     "conflict": ["th2"]
   }
 }, {
   "uid": "th2",
+  "lvl": 1,
   "en": {
     "wrd": "th",
     "meta": {
@@ -214,12 +226,13 @@
     "wrd": "ທ",
     "kk": { "en": "thɔ", "fr": "thɔ" }
   },
-  "themes": ["consonants, lvl1"],
+  "themes": ["consonants"],
   "meta": {
     "conflict": ["th1"]
   }
 }, {
   "uid": "n1",
+  "lvl": 1,
   "en": {
     "wrd": "n"
   },
@@ -231,10 +244,11 @@
     "kk": { "en": "nɔ", "fr": "nɔ" },
     "ex": "ນົກ"
   },
-  "themes": ["consonants, lvl1"],
+  "themes": ["consonants"],
   "img": "bird/bird.png"
 }, {
   "uid": "b1",
+  "lvl": 1,
   "en": {
     "wrd": "b"
   },
@@ -246,10 +260,11 @@
     "kk": { "en": "bɔ", "fr": "bɔ" },
     "ex": "ແບ້"
   },
-  "themes": ["consonants, lvl1"],
+  "themes": ["consonants"],
   "img": "goat/goat.png"
 }, {
   "uid": "p1",
+  "lvl": 1,
   "en": {
     "wrd": "p"
   },
@@ -261,10 +276,11 @@
     "kk": { "en": "pɔ", "fr": "pɔ" },
     "ex": "ປາ"
   },
-  "themes": ["consonants, lvl1"],
+  "themes": ["consonants"],
   "img": "fish/fish.png"
 }, {
   "uid": "ph1",
+  "lvl": 2,
   "en": {
     "wrd": "ph",
     "meta": {
@@ -281,12 +297,13 @@
     "wrd": "ຜ",
     "kk": { "en": "phɔ", "fr": "phɔ" }
   },
-  "themes": ["consonants, lvl1"],
+  "themes": ["consonants"],
   "meta": {
     "conflict": ["ph2"]
   }
 }, {
   "uid": "f1",
+  "lvl": 2,
   "en": {
     "wrd": "f",
     "meta": {
@@ -303,12 +320,13 @@
     "wrd": "ຝ",
     "kk": { "en": "fɔ", "fr": "fɔ" }
   },
-  "themes": ["consonants, lvl1"],
+  "themes": ["consonants"],
   "meta": {
     "conflict": ["f2"]
   }
 }, {
   "uid": "ph2",
+  "lvl": 2,
   "en": {
     "wrd": "ph",
     "meta": {
@@ -325,12 +343,13 @@
     "wrd": "ພ",
     "kk": { "en": "phɔ", "fr": "phɔ" }
   },
-  "themes": ["consonants, lvl1"],
+  "themes": ["consonants"],
   "meta": {
     "conflict": ["ph1"]
   }
 }, {
   "uid": "f2",
+  "lvl": 2,
   "en": {
     "wrd": "f",
     "meta": {
@@ -347,12 +366,13 @@
     "wrd": "ຟ",
     "kk": { "en": "fɔ", "fr": "fɔ" }
   },
-  "themes": ["consonants, lvl1"],
+  "themes": ["consonants"],
   "meta": {
     "conflict": ["f1"]
   }
 }, {
   "uid": "m1",
+  "lvl": 2,
   "en": {
     "wrd": "m"
   },
@@ -364,10 +384,11 @@
     "kk": { "en": "mɔ", "fr": "mɔ" },
     "ex": "ແມວ"
   },
-  "themes": ["consonants, lvl1"],
+  "themes": ["consonants"],
   "img": "cat/cat.png"
 }, {
   "uid": "y1",
+  "lvl": 2,
   "en": {
     "wrd": "y"
   },
@@ -378,9 +399,10 @@
     "wrd": "ຢ",
     "kk": { "en": "yɔ", "fr": "yɔ" }
   },
-  "themes": ["consonants, lvl1"]
+  "themes": ["consonants"]
 }, {
   "uid": "l1",
+  "lvl": 2,
   "en": {
     "wrd": "l"
   },
@@ -391,12 +413,13 @@
     "wrd": "ຣ",
     "kk": { "en": "lɔ", "fr": "rɔ" }
   },
-  "themes": ["consonants, lvl1"],
+  "themes": ["consonants"],
   "meta": {
     "conflict": ["l2"]
   }
 }, {
   "uid": "l2",
+  "lvl": 2,
   "en": {
     "wrd": "l"
   },
@@ -408,13 +431,14 @@
     "kk": { "en": "lɔ", "fr": "lɔ" },
     "ex": "ລິງ"
   },
-  "themes": ["consonants, lvl1"],
+  "themes": ["consonants"],
   "img": "monkey/monkey.png",
   "meta": {
     "conflict": ["l1"]
   }
 }, {
   "uid": "v1",
+  "lvl": 2,
   "en": {
     "wrd": "v"
   },
@@ -425,9 +449,10 @@
     "wrd": "ວ",
     "kk": { "en": "vɔ", "fr": "vɔ" }
   },
-  "themes": ["consonants, lvl1"]
+  "themes": ["consonants"]
 }, {
   "uid": "h1",
+  "lvl": 2,
   "en": {
     "wrd": "h",
     "meta": {
@@ -444,12 +469,13 @@
     "wrd": "ຫ",
     "kk": { "en": "hɔ", "fr": "hɔ" }
   },
-  "themes": ["consonants, lvl1"],
+  "themes": ["consonants"],
   "meta": {
     "conflict": ["h2"]
   }
 }, {
   "uid": "cv1",
+  "lvl": 2,
   "en": {
     "wrd": "-",
     "meta": {
@@ -466,9 +492,10 @@
     "wrd": "ອ",
     "kk": { "en": "ɔ", "fr": "ɔ" }
   },
-  "themes": ["consonants, lvl1"]
+  "themes": ["consonants"]
 }, {
   "uid": "h2",
+  "lvl": 2,
   "en": {
     "wrd": "h",
     "meta": {
@@ -485,7 +512,7 @@
     "wrd": "ຮ",
     "kk": { "en": "hɔ", "fr": "hɔ" }
   },
-  "themes": ["consonants, lvl1"],
+  "themes": ["consonants"],
   "meta": {
     "conflict": ["h1"]
   }
