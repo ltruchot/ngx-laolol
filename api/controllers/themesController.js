@@ -8,7 +8,7 @@ exports.listThemes = function (req, res) {
 			res.send(err);
 		}
 		res.json(theme);
-	});
+	}).cache();
 };
 
 exports.createThemes = function (req, res) {

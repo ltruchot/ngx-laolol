@@ -1,0 +1,96 @@
+[{
+  "uid": "hospital1",
+  "lvl": 0,
+  "en": {
+    "wrd": "hospital",
+    "kk": {}
+  },
+  "fr":{
+    "wrd": "hôpital",
+    "kk": {},
+    "meta": {
+      "isMale": true
+    }
+  },
+  "lo": {
+    "wrd": "ໂຮງຫມໍ",
+    "ex": "",
+    "kk": {
+    	"en": "ho:ng mɔ:",
+    	"fr": "hô:ng mɔ:",
+    	"ipa": "hoːŋ mɔː"
+    }
+  },
+  "themes": ["places", "health"]
+}, {
+  "uid": "library1",
+  "lvl": 0,
+  "en": {
+    "wrd": "library",
+    "kk": {}
+  },
+  "fr":{
+    "wrd": "bibliothèque",
+    "kk": {},
+    "meta": {
+      "isMale": false
+    }
+  },
+  "lo": {
+    "wrd": "ຫ້ອງສະຫມຸດ",
+    "kk": {
+      "en": "hɔ:ng sa mood",
+      "fr": "hɔ:ng sâ mout",
+      "ipa": "hɔːŋ sa mud"
+    }
+  },
+  "themes": ["places"]
+}, {
+  "uid": "school1",
+  "lvl": 0,
+  "en": {
+    "wrd": "school",
+    "kk": {}
+  },
+  "fr":{
+    "wrd": "école",
+    "kk": {},
+    "meta": {
+      "isMale": false
+    }
+  },
+  "lo": {
+    "wrd": "ໂຮງຮຽນ",
+    "kk": {
+      "en": "ho:ng hi:an",
+      "fr": "hô:ng hy:ân",
+      "ipa": "hoːŋ hiːən"
+    }
+  },
+  "themes": ["places"]
+}, {
+  "uid": "hotel1",
+  "lvl": 0,
+  "en": {
+    "wrd": "hotel",
+    "kk": {}
+  },
+  "fr":{
+    "wrd": "hôtel",
+    "kk": {},
+    "meta": {
+      "isMale": true
+    }
+  },
+  "lo": {
+    "wrd": "ໂຮງແຮມ",
+    "kk": {
+      "en": "ho:ng hae:m",
+      "fr": "hô:ng hè:m",
+      "ipa": "hoːŋ hɛːm"
+    }
+  },
+  "themes": ["places"]
+}]
+
+

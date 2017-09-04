@@ -170,4 +170,24 @@
     "kk": { "en": "nyindee thee dai hoochak", "fr": "nyindi thi day houtjak" }
   },
   "themes": ["politeness"]
+}, {
+  "uid": "howareyou1",
+  "lvl": 0,
+  "en": {
+    "wrd": "How are you ?",
+    "kk": {}
+  },
+  "fr":{
+    "wrd": "Comment ça va ?",
+    "kk": {}
+  },
+  "lo": {
+    "wrd": "ສະ​ບາຍ​ດີ​ບໍ​",
+    "kk": {
+      "en": "sa - ba:i - dee: - bɔ:",
+      "fr": "sâ - bâ:y - di: - bɔ:",
+      "ipa": "sa - baːɲ - diː - bɔː"
+    }
+  },
+  "themes": ["politeness", "health"]
 }]

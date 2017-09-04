@@ -9,7 +9,8 @@ exports.listItems = function (req, res) {
 			if (k === 'includes' && req.query[k] !== 'all') {
 				filter['themes'] = { '$in': req.query[k].split(',') };
 			} else if (k === 'excludes') {
-
+				filter['themes'] = filter['themes'] || {};
+				filter['themes'].$nin = req.query[k].split(',');
 			}
 		}
 	}
@@ -18,7 +19,7 @@ exports.listItems = function (req, res) {
 			res.send(err);
 		}
 		res.json(item);
-	});
+	}).cache();
 };
 
 exports.createItem = function (req, res) {

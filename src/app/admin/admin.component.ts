@@ -28,7 +28,8 @@ export class AdminComponent implements OnInit {
   cpntData = {
     lang: null,
     items: null,
-    themes: null
+    themes: null,
+    isItemSection: true
   };
 
   constructor (private themeService: ThemeService,

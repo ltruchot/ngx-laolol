@@ -64,6 +64,7 @@
   }
 }, {
   "uid": "adj-with-contrary",
+  "levels": 2,
   "noPlural": true, "noArticle": true,
   "en": { "wrd": "Adjectives & contratry", "short": "Adj. & contrary" },
   "fr": { "wrd": "Adjectifs & contraires", "short": "Adj. contraires" },
@@ -86,4 +87,44 @@
     ]
   },
   "lo": { "wrd": "ອາຊີບ" }
+}, {
+  "uid": "health",
+  "levels": 1,
+  "en": {
+    "wrd": "Health",
+    "desc": []
+  },
+  "fr": {
+    "wrd": "La santé",
+    "short": "Santé",
+    "desc": []
+  },
+  "lo": {
+    "wrd": "ສຸຂະພາບ",
+    "kk": {
+      "en": "soo - kha - pha:b",
+      "fr": "sou - khâ - phâ:p",
+      "ipa": "su - kʰa - pʰaːb"
+    }
+  }
+}, {
+  "uid": "places",
+  "levels": 1,
+  "en": {
+    "wrd": "Places",
+    "desc": []
+  },
+  "fr": {
+    "wrd": "Les lieux",
+    "short": "Lieux",
+    "desc": []
+  },
+  "lo": {
+    "wrd": "ບ່ອນ",
+    "kk": {
+      "en": "bɔ:n",
+      "fr": "bɔ:n",
+      "ipa": "bɔːn"
+    }
+  }
 }]

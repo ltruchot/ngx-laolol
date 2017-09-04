@@ -35,7 +35,7 @@
     "ex": "",
     "kk": { "en": "mɔ:", "fr": "mɔ:" }
   },
-  "themes": ["professions"]
+  "themes": ["professions", "health"]
 }, {
   "uid": "policeman1",
   "lvl": 0,
@@ -73,7 +73,7 @@
     "ex": "",
     "kk": { "en": "phania:ba:n", "fr": "phanya:ba:n" }
   },
-  "themes": ["professions"]
+  "themes": ["professions", "health"]
 }, {
   "uid": "engineer1",
   "lvl": 0,

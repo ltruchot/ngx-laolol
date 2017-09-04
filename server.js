@@ -3,6 +3,12 @@ const express = require('express');
 const path = require('path');
 const http = require('http');
 const mongoose = require('mongoose');
+var cacheOpts = {
+	max: Infinity,
+	maxAge: 1000 // 1000 * 60 * 60 * 24 // 24h
+};
+require('mongoose-cache').install(mongoose, cacheOpts);
+
 const bodyParser = require('body-parser');
 const logger = require('morgan');
 var compression = require('compression');
