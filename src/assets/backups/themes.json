@@ -102,9 +102,9 @@
   "lo": {
     "wrd": "ສຸຂະພາບ",
     "kk": {
-      "en": "soo - kha - pha:b",
-      "fr": "sou - khâ - phâ:p",
-      "ipa": "su - kʰa - pʰaːb"
+      "en": "soo kha pha:b",
+      "fr": "sou khâ phâ:p",
+      "ipa": "su kʰa pʰaːb"
     }
   }
 }, {
@@ -125,6 +125,27 @@
       "en": "bɔ:n",
       "fr": "bɔ:n",
       "ipa": "bɔːn"
+    }
+  }
+}, {
+  "uid": "verbs",
+  "noPlural": true, "noArticle": true,
+  "levels": 1,
+  "en": {
+    "wrd": "verbs",
+    "desc": []
+  },
+  "fr": {
+    "wrd": "Les verbes",
+    "short": "verbes",
+    "desc": []
+  },
+  "lo": {
+    "wrd": "ຄໍາກິລິຢາ",
+    "kk": {
+      "en": "kham kee lee ya:",
+      "fr": "khâm ki li yâ:",
+      "ipa": "kʰam ki li jaː"
     }
   }
 }]

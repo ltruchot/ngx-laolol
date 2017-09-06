@@ -9,6 +9,15 @@ var ItemsSchema = new Schema({
 		unique: true
 	},
 	validated: Boolean,
+	img: String,
+	imgAuthor: String,
+	imgResource: String,
+	themes: {
+		type: [String],
+		ref: 'Theme',
+		required: 'At least one tag is required.'
+	},
+	lvl: Number,
 	en: {
 		wrd: {
 			type: String,
@@ -52,13 +61,6 @@ var ItemsSchema = new Schema({
 		snd: String,
 		meta: Schema.Types.Mixed
 	},
-	img: String,
-	themes: {
-		type: [String],
-		ref: 'Theme',
-		required: 'At least one tag is required.'
-	},
-	lvl: Number,
 	meta: {
 		contrary: String,
 		conflict: [String],

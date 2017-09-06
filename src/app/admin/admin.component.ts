@@ -16,7 +16,7 @@ import { ModalService } from './../shared-services/modal.service';
 // import { CapitalizePipe } from './../shared-pipes/capitalize.pipe';
 
 // custom models
-import { CreateHttpError, ReadHttpError, DeleteHttpError } from './../shared-models/error.models';
+import { CreateHttpError, ReadHttpError, UpdateHttpError, DeleteHttpError } from './../shared-models/error.models';
 import { Item } from './../shared-models/item.models';
 import { Theme } from './../shared-models/theme.models';
 
@@ -56,6 +56,17 @@ export class AdminComponent implements OnInit {
       this.toastrService.success('Item created succesfully.');
     });
     this.itemService.error$.filter(error => error instanceof CreateHttpError)
+    .subscribe( error => {
+      if (error.code && error.toasterMessage) {
+        this.toastrService.error(error.toasterMessage, 'Error n°' + error.code);
+      }
+    });
+
+        // -- create
+    this.itemService.update$.subscribe(data => {
+      this.toastrService.success('Item updated succesfully.');
+    });
+    this.itemService.error$.filter(error => error instanceof UpdateHttpError)
     .subscribe( error => {
       if (error.code && error.toasterMessage) {
         this.toastrService.error(error.toasterMessage, 'Error n°' + error.code);

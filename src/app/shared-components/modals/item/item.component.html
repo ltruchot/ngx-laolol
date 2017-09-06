@@ -22,63 +22,319 @@
 				<div class="row">
 					<!-- begin form item -->
 					<form *ngIf="!cpntData.isJSON" class="col pxt6" name="form"
-						(ngSubmit)="createItems(itemForm)" [formGroup]="itemForm">
-						<div class="form-group row mxb0">
+						(ngSubmit)="createOrModify(itemForm)" [formGroup]="itemForm">
+						<div class="form-group row">
 							<label for="uid" class="col-3 col-form-label col-form-label-sm">Unique ID: </label>
 							<div class="col-9">
 								<input type="text" class="form-control form-control-sm" id="uid"  name="uid"
 									formControlName="uid" [(ngModel)]="cpntData.items.current.uid" required />
 							</div>
 						</div>
+						<div class="form-group row">
+							<label for="lvl" class="col-3 col-form-label col-form-label-sm">Level:</label>
+							<div class="col-9">
+								<input type="text" class="form-control form-control-sm" id="lvl"  name="lvl"
+									formControlName="lvl" [(ngModel)]="cpntData.items.current.lvl" />
+							</div>
+						</div>
+						<div class="form-group row">
+							<label for="img" class="col-3 col-form-label col-form-label-sm">Image: </label>
+							<div class="col-9">
+								<input type="text" class="form-control form-control-sm" id="img"  name="img"
+									formControlName="img" [(ngModel)]="cpntData.items.current.img" />
+							</div>
+						</div>
+						<div class="form-group row">
+							<label for="img-author" class="col-3 col-form-label col-form-label-sm">Image author: </label>
+							<div class="col-9">
+								<input type="text" class="form-control form-control-sm" id="img-author" name="img-author"
+									formControlName="imgAuthor" [(ngModel)]="cpntData.items.current.imgAuthor" />
+							</div>
+						</div>
+						<div class="form-group row">
+							<label for="img-auth-res" class="col-3 col-form-label col-form-label-sm">Img resource: </label>
+							<div class="col-9">
+								<input type="text" class="form-control form-control-sm" id="img-auth-res"  name="img-auth-res"
+									formControlName="imgResource" [(ngModel)]="cpntData.items.current.imgResource" />
+							</div>
+						</div>
+						 <div class="form-group">
+					    <label for="select-themes" class="text-standard-2">Themes ([ctrl] + [left click] for multi-choice)</label>
+					    <select #selectThemes class="form-control form-control-sm"
+					    	(change)="changeThemes($event.target.options)"
+					    	id="select-themes" multiple>
+					      <option *ngFor="let theme of cpntData.themes.all" [value]="theme.uid">
+					      	{{ theme.uid }}
+					      </option>
+					    </select>
+					  </div>
 						<h6><strong>English</strong></h6>
-						<div class="form-group row mxb0">
+						<div class="form-group row mxb0" formGroupName="en">
 							<label for="en-wrd" class="col-3 col-form-label col-form-label-sm">Word: </label>
 							<div class="col-9">
 								<input type="text" class="form-control form-control-sm" id="en-wrd"  name="en-wrd"
-									formControlName="enWrd" [(ngModel)]="cpntData.items.current.en.wrd" required />
+									formControlName="wrd" [(ngModel)]="cpntData.items.current.en.wrd" required />
 							</div>
 						</div>
-						<a data-toggle="collapse" href="#enOptions"
+						<a data-toggle="collapse" href="#enOptions" class="form-text mxb10"
 							aria-expanded="false" aria-controls="enOptions">English optional parameters</a>
-						<div class="collapse" id="enOptions">
-							<div class="form-group row">
-								<label for="en-kk-lo" class="col-2 col-form-label col-form-label-sm">Karaoke: </label>
-								<div class="col-10">
+						<div class="collapse" id="enOptions" formGroupName="en">
+							<div class="form-group row" formGroupName="kk">
+								<label for="en-kk-lo" class="col-3 col-form-label col-form-label-sm">Karaoke Lao: </label>
+								<div class="col-9">
+								{{ cpntData.items.current.en.kk.lo }}
 									<input type="text" class="form-control form-control-sm" id="en-kk-lo" name="en-kk-lo"
-										formControlName="enKkLo" [(ngModel)]="cpntData.items.current.en.kk.lo" />
+										formControlName="lo" [(ngModel)]="cpntData.items.current.en.kk.lo" />
+								</div>
+							</div>
+							<div class="form-group row" formGroupName="kk">
+								<label for="en-kk-ipa" class="col-3 col-form-label col-form-label-sm">Karaoke IPA: </label>
+								<div class="col-9">
+									<input type="text" class="form-control form-control-sm" id="en-kk-ipa" name="en-kk-ipa"
+										formControlName="ipa" [(ngModel)]="cpntData.items.current.en.kk.ipa" />
 								</div>
 							</div>
 							<div class="form-group row">
-								<label for="en-snd" class="col-2 col-form-label col-form-label-sm">Sound: </label>
-								<div class="col-10">
+								<label for="en-snd" class="col-3 col-form-label col-form-label-sm">Sound: </label>
+								<div class="col-9">
 									<input type="text" class="form-control form-control-sm" id="en-snd" name="en-snd"
-										formControlName="enSnd" [(ngModel)]="cpntData.items.current.en.snd" />
+										formControlName="snd" [(ngModel)]="cpntData.items.current.en.snd" />
 								</div>
 							</div>
 							<div class="form-group row">
-								<label for="en-img" class="col-2 col-form-label col-form-label-sm">Image: </label>
-								<div class="col-10">
+								<label for="en-img" class="col-3 col-form-label col-form-label-sm">Image: </label>
+								<div class="col-9">
 									<input type="text" class="form-control form-control-sm" id="en-img" name="en-img"
-										formControlName="enImg" [(ngModel)]="cpntData.items.current.en.img" />
+										formControlName="img" [(ngModel)]="cpntData.items.current.en.img" />
 								</div>
 							</div>
 							<div class="form-group row">
-								<label for="en-ex" class="col-2 col-form-label col-form-label-sm">Example: </label>
-								<div class="col-10">
+								<label for="en-ex" class="col-3 col-form-label col-form-label-sm">Example: </label>
+								<div class="col-9">
 									<input type="text" class="form-control form-control-sm" id="en-ex" name="en-ex"
-										formControlName="enEx" [(ngModel)]="cpntData.items.current.en.ex" />
+										formControlName="ex" [(ngModel)]="cpntData.items.current.en.ex" />
 								</div>
 							</div>
-							<div class="form-group row">
-								<label for="en-meta-plural" class="col-2 col-form-label col-form-label-sm">Example: </label>
-								<div class="col-10">
+							<div class="form-group row" formGroupName="meta">
+								<label for="en-meta-plural" class="col-3 col-form-label col-form-label-sm">Pural: </label>
+								<div class="col-9">
 									<input type="text" class="form-control form-control-sm" id="en-meta-plural" name="en-meta-plural"
-										formControlName="enMetaPlural" [(ngModel)]="cpntData.items.current.en.meta.plural" />
+										formControlName="plural" [(ngModel)]="cpntData.items.current.en.meta.plural" />
+								</div>
+							</div>
+							<div class="form-group row" formGroupName="meta">
+								<label for="en-meta-feminine" class="col-3 col-form-label col-form-label-sm">Feminine: </label>
+								<div class="col-9">
+									<input type="text" class="form-control form-control-sm" id="en-meta-feminine"
+										name="en-meta-feminine" formControlName="feminine"
+										[(ngModel)]="cpntData.items.current.en.meta.feminine" />
+								</div>
+							</div>
+							<div class="form-group row" formGroupName="meta">
+								<label for="en-meta-masculine" class="col-3 col-form-label col-form-label-sm">Masculine: </label>
+								<div class="col-9">
+									<input type="text" class="form-control form-control-sm" id="en-meta-masculine"
+										name="en-meta-masculine" formControlName="masculine"
+										[(ngModel)]="cpntData.items.current.en.meta.masculine" />
+								</div>
+							</div>
+							<div class="form-group row" formGroupName="meta">
+								<label for="en-meta-comment" class="col-3 col-form-label col-form-label-sm">Comment: </label>
+								<div class="col-9">
+									<input type="text" class="form-control form-control-sm" id="en-meta-comment"
+										name="en-meta-comment" formControlName="comment"
+										[(ngModel)]="cpntData.items.current.en.meta.comment" />
 								</div>
 							</div>
 						</div>
 						<h6><strong>French</strong></h6>
-						<button type="submit" class="btn btn-primary btn-lg btn-block" [disabled]="itemForm.invalid">Create items</button>
+						<div class="form-group row mxb0" formGroupName="fr">
+							<label for="fr-wrd" class="col-3 col-form-label col-form-label-sm">Word: </label>
+							<div class="col-9">
+								<input type="text" class="form-control form-control-sm" id="fr-wrd"  name="fr-wrd"
+									formControlName="wrd" [(ngModel)]="cpntData.items.current.fr.wrd" required />
+							</div>
+						</div>
+						<a data-toggle="collapse" href="#frOptions" class="form-text mxb10"
+							aria-expanded="false" aria-controls="frOptions">French optional parameters</a>
+						<div class="collapse" id="frOptions" formGroupName="fr">
+							<div class="form-group row" formGroupName="meta">
+								<div class="form-check col-12 mxb0">
+									<label for="fr-meta-ismale" class="form-check-label text-standard-2">
+										<input type="checkbox" class="form-check-input text-standard-2" id="fr-meta-ismale"
+											name="fr-meta-ismale" formControlName="isMale"
+											[(ngModel)]="cpntData.items.current.fr.meta.isMale" />
+											Is male
+									</label>
+								</div>
+							</div>
+							<div class="form-group row" formGroupName="kk">
+								<label for="fr-kk-lo" class="col-3 col-form-label col-form-label-sm">Karaoke Lao: </label>
+								<div class="col-9">
+									<input type="text" class="form-control form-control-sm" id="fr-kk-lo" name="fr-kk-lo"
+										formControlName="lo" [(ngModel)]="cpntData.items.current.fr.kk.lo" />
+								</div>
+							</div>
+							<div class="form-group row" formGroupName="kk">
+								<label for="fr-kk-ipa" class="col-3 col-form-label col-form-label-sm">Karaoke IPA: </label>
+								<div class="col-9">
+									<input type="text" class="form-control form-control-sm" id="fr-kk-ipa" name="fr-kk-ipa"
+										formControlName="ipa" [(ngModel)]="cpntData.items.current.fr.kk.ipa" />
+								</div>
+							</div>
+							<div class="form-group row">
+								<label for="fr-snd" class="col-3 col-form-label col-form-label-sm">Sound: </label>
+								<div class="col-9">
+									<input type="text" class="form-control form-control-sm" id="fr-snd" name="fr-snd"
+										formControlName="snd" [(ngModel)]="cpntData.items.current.fr.snd" />
+								</div>
+							</div>
+							<div class="form-group row">
+								<label for="fr-img" class="col-3 col-form-label col-form-label-sm">Image: </label>
+								<div class="col-9">
+									<input type="text" class="form-control form-control-sm" id="fr-img" name="fr-img"
+										formControlName="img" [(ngModel)]="cpntData.items.current.fr.img" />
+								</div>
+							</div>
+							<div class="form-group row">
+								<label for="fr-ex" class="col-3 col-form-label col-form-label-sm">Example: </label>
+								<div class="col-9">
+									<input type="text" class="form-control form-control-sm" id="fr-ex" name="fr-ex"
+										formControlName="ex" [(ngModel)]="cpntData.items.current.fr.ex" />
+								</div>
+							</div>
+							<div class="form-group row" formGroupName="meta">
+								<label for="fr-meta-plural" class="col-3 col-form-label col-form-label-sm">Pural: </label>
+								<div class="col-9">
+									<input type="text" class="form-control form-control-sm" id="fr-meta-plural" name="fr-meta-plural"
+										formControlName="plural" [(ngModel)]="cpntData.items.current.fr.meta.plural" />
+								</div>
+							</div>
+							<div class="form-group row" formGroupName="meta">
+								<label for="fr-meta-feminine" class="col-3 col-form-label col-form-label-sm">Feminine: </label>
+								<div class="col-9">
+									<input type="text" class="form-control form-control-sm" id="fr-meta-feminine"
+										name="fr-meta-feminine" formControlName="feminine"
+										[(ngModel)]="cpntData.items.current.fr.meta.feminine" />
+								</div>
+							</div>
+							<div class="form-group row" formGroupName="meta">
+								<label for="fr-meta-masculine" class="col-3 col-form-label col-form-label-sm">Masculine: </label>
+								<div class="col-9">
+									<input type="text" class="form-control form-control-sm" id="fr-meta-masculine"
+										name="fr-meta-masculine" formControlName="masculine"
+										[(ngModel)]="cpntData.items.current.fr.meta.masculine" />
+								</div>
+							</div>
+							<div class="form-group row" formGroupName="meta">
+								<label for="fr-meta-comment" class="col-3 col-form-label col-form-label-sm">Comment: </label>
+								<div class="col-9">
+									<input type="text" class="form-control form-control-sm" id="fr-meta-comment"
+										name="fr-meta-comment" formControlName="comment"
+										[(ngModel)]="cpntData.items.current.fr.meta.comment" />
+								</div>
+							</div>
+						</div>
+						<h6><strong>Lao</strong></h6>
+						<div class="form-group row mxb0"  formGroupName="lo">
+							<label for="lo-wrd" class="col-3 col-form-label col-form-label-sm">Word: </label>
+							<div class="col-9">
+								<input type="text" class="form-control form-control-sm" id="lo-wrd"  name="lo-wrd"
+									formControlName="wrd" [(ngModel)]="cpntData.items.current.lo.wrd" required />
+							</div>
+						</div>
+						<a data-toggle="collapse" href="#loOptions" class="form-text mxb10"
+							aria-expanded="false" aria-controls="loOptions">Lao optional parameters</a>
+						<div class="collapse" id="loOptions"  formGroupName="lo">
+						<a data-toggle="collapse" (click)="generateLaonetics()" class="form-text mxb10"
+							aria-expanded="false" aria-controls="loOptions">Generate Laonetics</a>
+							<div class="form-group row" formGroupName="kk">
+								<label for="lo-kk-fr" class="col-3 col-form-label col-form-label-sm">Karaoke Fr: </label>
+								<div class="col-9">
+									<input type="text" class="form-control form-control-sm" id="lo-kk-fr" name="lo-kk-fr"
+										formControlName="fr" [(ngModel)]="cpntData.items.current.lo.kk.fr" />
+								</div>
+							</div>
+							<div class="form-group row" formGroupName="kk">
+								<label for="lo-kk-en" class="col-3 col-form-label col-form-label-sm">Karaoke En: </label>
+								<div class="col-9">
+									<input type="text" class="form-control form-control-sm" id="lo-kk-en" name="lo-kk-en"
+										formControlName="en" [(ngModel)]="cpntData.items.current.lo.kk.en" />
+								</div>
+							</div>
+							<div class="form-group row" formGroupName="kk">
+								<label for="lo-kk-ipa" class="col-3 col-form-label col-form-label-sm">Karaoke IPA: </label>
+								<div class="col-9">
+									<input type="text" class="form-control form-control-sm" id="lo-kk-ipa" name="lo-kk-ipa"
+										formControlName="ipa" [(ngModel)]="cpntData.items.current.lo.kk.ipa" />
+								</div>
+							</div>
+							<div class="form-group row">
+								<label for="lo-snd" class="col-3 col-form-label col-form-label-sm">Sound: </label>
+								<div class="col-9">
+									<input type="text" class="form-control form-control-sm" id="lo-snd" name="lo-snd"
+										formControlName="snd" [(ngModel)]="cpntData.items.current.lo.snd" />
+								</div>
+							</div>
+							<div class="form-group row">
+								<label for="lo-img" class="col-3 col-form-label col-form-label-sm">Image: </label>
+								<div class="col-9">
+									<input type="text" class="form-control form-control-sm" id="lo-img" name="lo-img"
+										formControlName="img" [(ngModel)]="cpntData.items.current.lo.img" />
+								</div>
+							</div>
+							<div class="form-group row">
+								<label for="lo-ex" class="col-3 col-form-label col-form-label-sm">Example: </label>
+								<div class="col-9">
+									<input type="text" class="form-control form-control-sm" id="lo-ex" name="lo-ex"
+										formControlName="ex" [(ngModel)]="cpntData.items.current.lo.ex" />
+								</div>
+							</div>
+							<div class="form-group row" formGroupName="meta">
+								<label for="lo-meta-feminine" class="col-3 col-form-label col-form-label-sm">Feminine: </label>
+								<div class="col-9">
+									<input type="text" class="form-control form-control-sm" id="lo-meta-feminine"
+										name="lo-meta-feminine" formControlName="feminine"
+										[(ngModel)]="cpntData.items.current.lo.meta.feminine" />
+								</div>
+							</div>
+							<div class="form-group row" formGroupName="meta">
+								<label for="lo-meta-masculine" class="col-3 col-form-label col-form-label-sm">Masculine: </label>
+								<div class="col-9">
+									<input type="text" class="form-control form-control-sm" id="lo-meta-masculine"
+										name="lo-meta-masculine" formControlName="masculine"
+										[(ngModel)]="cpntData.items.current.lo.meta.masculine" />
+								</div>
+							</div>
+							<div class="form-group row" formGroupName="meta">
+								<label for="lo-meta-classifier" class="col-3 col-form-label col-form-label-sm">Classifier: </label>
+								<div class="col-9">
+									<input type="text" class="form-control form-control-sm" id="lo-meta-classifier"
+										name="lo-meta-classifier" formControlName="classifier"
+										[(ngModel)]="cpntData.items.current.lo.meta.classifier" />
+								</div>
+							</div>
+							<div class="form-group row" formGroupName="meta">
+								<label for="lo-meta-comment" class="col-3 col-form-label col-form-label-sm">Comment: </label>
+								<div class="col-9">
+									<input type="text" class="form-control form-control-sm" id="lo-meta-comment"
+										name="lo-meta-comment" formControlName="comment"
+										[(ngModel)]="cpntData.items.current.lo.meta.comment" />
+								</div>
+							</div>
+						</div>
+						<div class="form-group row">
+							<div class="form-check col-12 mxb0">
+								<label for="validated" class="form-check-label text-standard-2">
+									<input type="checkbox" class="form-check-input text-standard-2" id="validated"
+										name="validated" formControlName="validated"
+										[(ngModel)]="cpntData.items.current.validated" />
+										Validated (only if every fields are perfect)
+								</label>
+							</div>
+						</div>
+						<button type="submit" class="btn btn-primary btn-lg btn-block"
+							[disabled]="itemForm.invalid">{{ cpntData.items.current._id ? "Update" : "Create" }} item</button>
 					</form>
 					<!-- end form item -->
 					<!-- begin form json -->
@@ -89,7 +345,8 @@
 							<textarea class="form-control" rows="20"
 							id="json-textarea"  name="json-textarea" formControlName="jsonTextarea" required></textarea>
 						</div>
-						<button type="submit" class="btn btn-primary btn-lg btn-block" [disabled]="jsonForm.invalid">Create items</button>
+						<button type="submit" class="btn btn-primary btn-lg btn-block"
+							[disabled]="jsonForm.invalid">Create item(s)</button>
 					</form>
 					<!-- end form json -->
 				</div>

@@ -84,6 +84,16 @@ export class ApiService {
     return this.http.post(this.SERVER_URL + url, body.toString(), options).map(res => res.json());
   }
 
+  putResources (url: string, data: any, auth?: boolean) {
+    let body = JSON.stringify(data);
+    const headers = new Headers({
+      'Content-Type': 'application/json',
+    });
+    if (auth) { this.addAuth(headers); }
+    const options = new RequestOptions({headers: headers});
+    return this.http.put(this.SERVER_URL + url, body.toString(), options).map(res => res.json());
+  }
+
   addAuth (headers: Headers) {
     const token = this.storageService.getItem('authToken');
     headers.append('Authorization', token);

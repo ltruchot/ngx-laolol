@@ -16,8 +16,9 @@ import { StorageService } from './storage.service';
 // custom models
 import {
   HttpError,
-  ReadHttpError,
   CreateHttpError,
+  ReadHttpError,
+  UpdateHttpError,
   DeleteHttpError,
   ManagedCodeErrors,
 } from '../shared-models/error.models';
@@ -37,7 +38,7 @@ export class ItemService {
   };
   protected createSubject: Subject<any>;
   protected readSubject: Subject<any>;
-  protected updateSubject: Subject<void>;
+  protected updateSubject: Subject<any>;
   protected deleteSubject: Subject<any>;
   protected errorSubject: Subject<HttpError>;
   private basicUrl = 'api/items';
@@ -52,6 +53,10 @@ export class ItemService {
     // read
     this.readSubject = new Subject();
     this.read$ = this.readSubject.asObservable();
+
+    // update
+    this.updateSubject = new Subject();
+    this.update$ = this.updateSubject.asObservable();
 
     // delete
     this.deleteSubject = new Subject();
@@ -88,22 +93,58 @@ export class ItemService {
    */
 
   pushAndSortItems (data: Array<Item>) {
+    data.forEach(item => {
+      // compensate lack of data for some old items
+      item.meta = item.meta || {};
+      item.lo.kk = item.lo.kk || {};
+      item.lo.meta = item.lo.meta || {};
+      item.fr.kk = item.fr.kk || {};
+      item.fr.meta = item.fr.meta || {};
+      item.en.kk = item.en.kk || {};
+      item.en.meta = item.en.meta || {};
+    });
     this.data.all.push(...data);
+    this.sortAndSaveItems();
+  }
+
+  modifyAndSortItems (data: Item) {
+    let modifiedItem = this.data.all.find(item => {
+      return item._id === data._id;
+    });
+    if (modifiedItem) {
+      modifiedItem = data;
+    }
+    this.sortAndSaveItems();
+  }
+
+  sortAndSaveItems () {
     this.data.all.sort(function(a, b) {
       return (a.uid > b.uid) ? 1 : ((b.uid > a.uid) ? -1 : 0);
     });
     this.storage.setItem('allItems', this.data.all);
   }
 
-  create (words: Array<Item>): void {
-    this.apiService.postResources(this.basicUrl, words, true).catch(error => {
+  create (items: Array<Item>): void {
+    this.apiService.postResources(this.basicUrl, items, true).catch(error => {
       return Observable.throw(new CreateHttpError(error, this.basicUrl, this.basicCodeErrors));
-    }).subscribe(data => {
+    }).subscribe((data: Array<Item>) => {
       this.pushAndSortItems(data);
       return this.createSubject.next(data);
     }, createHttpError => {
       console.error('createHttpError', createHttpError.message);
       return this.errorSubject.next(createHttpError);
+    });
+  }
+
+  update (items: Array<Item>): void {
+    this.apiService.putResources(this.basicUrl + `/${items[0]._id}`, items[0], true).catch(error => {
+      return Observable.throw(new UpdateHttpError(error, this.basicUrl, this.basicCodeErrors));
+    }).subscribe((data: Item) => {
+      this.modifyAndSortItems(data);
+      return this.updateSubject.next(data);
+    }, updateHttpError => {
+      console.error('updateHttpError', updateHttpError.message);
+      return this.errorSubject.next(updateHttpError);
     });
   }
   /*

@@ -46,7 +46,8 @@ exports.readItem = function (req, res) {
 };
 
 exports.updateItem = function (req, res) {
-	Item.findOneAndUpdate(req.params.itemId, req.body, {new: true}, function (err, item) {
+	delete req.body._id;
+	Item.findOneAndUpdate({ _id: req.params.itemId }, req.body, {new: true}, function (err, item) {
 		if (err) {
 			res.send(err);
 		}

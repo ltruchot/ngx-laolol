@@ -46,4 +46,7 @@ export class ReadHttpError extends HttpError {
 export class DeleteHttpError extends HttpError {
   public action = 'DELETE';
 }
+export class UpdateHttpError extends HttpError {
+  public action = 'DELETE';
+}
 

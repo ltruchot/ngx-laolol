@@ -8,6 +8,8 @@ export class Item {
   themes: Array<string>;
   lvl: number;
   img?: string;
+  imgAuthor?: string;
+  imgResource?: string;
   meta?: IItemMeta;
   _userId?: string;
   constructor () {

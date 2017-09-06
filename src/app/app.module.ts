@@ -2,8 +2,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpModule, Http } from '@angular/http';
 import { CommonModule } from '@angular/common';
+import { HttpModule } from '@angular/http';
+import { HttpClientModule, HttpClient} from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 // npm dependencies
@@ -30,8 +31,8 @@ import { ThemeService } from './shared-services/theme.service';
 import { UserService } from './shared-services/user.service';
 
 // language export for AOT build
-export function createTranslateLoader(http: Http) {
-    return new TranslateHttpLoader(http, './assets/locales/', '.json');
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http);
 }
 
 @NgModule({
@@ -44,6 +45,7 @@ export function createTranslateLoader(http: Http) {
     FormsModule,
     ReactiveFormsModule,
     HttpModule,
+    HttpClientModule,
     AppRoutingModule,
     SharedModule,
     CommonModule,
@@ -51,11 +53,11 @@ export function createTranslateLoader(http: Http) {
     ToastrModule.forRoot({
       // timeOut: 100000
     }),
-    TranslateModule.forRoot({
+   TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
-        useFactory: (createTranslateLoader),
-        deps: [Http]
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
       }
     })
   ],
