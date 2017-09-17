@@ -1,0 +1,23 @@
+[{
+  "uid": "entity1",
+  "lvl": 0,
+  "en": {
+    "wrd": "entity",
+    "ex": "",
+    "kk": {}
+  },
+  "fr":{
+    "wrd": "entité",
+    "kk": {}
+  },
+  "lo": {
+    "wrd": "ໂຕ",
+    "ex": "",
+    "kk": {
+      "en": "to:",
+      "fr": "tô:",
+      "ipa": "toː"
+    }
+  },
+  "themes": ["themes", "classifiers"]
+}]

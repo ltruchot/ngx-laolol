@@ -4,9 +4,11 @@ import { Component, OnInit } from '@angular/core';
 
 // npm dependencies
 import { ToastrService } from 'ngx-toastr';
+import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/filter';
 
 // custom services
+import { ApiService } from './../shared-services/api.service';
 import { ThemeService } from './../shared-services/theme.service';
 import { LanguageService } from './../shared-services/language.service';
 import { ItemService } from './../shared-services/item.service';
@@ -25,18 +27,20 @@ import { Theme } from './../shared-models/theme.models';
   templateUrl: './admin.component.html'
 })
 export class AdminComponent implements OnInit {
+  private versionUrl = 'api/version';
   cpntData = {
     lang: null,
     items: null,
     themes: null,
-    isItemSection: true
+    tabSection: 0
   };
 
   constructor (private themeService: ThemeService,
     private languageService: LanguageService,
     private itemService: ItemService,
     private toastrService: ToastrService,
-    private modalService: ModalService) {
+    private modalService: ModalService,
+    private apiService: ApiService) {
   }
 
   ngOnInit () {
@@ -99,6 +103,34 @@ export class AdminComponent implements OnInit {
   confirmDelete (id: string, event) {
     this.modalService.setConfirmMethod(() => {
       this.itemService.delete(id);
+    });
+  }
+
+  createVersion () {
+    this.apiService.postResources(this.versionUrl, null, true).catch(error => {
+      return Observable.throw(new Error());
+    }).subscribe((version: any) => {
+      console.log(version);
+    }, err => {
+      console.error('createVersion ERROR:', err);
+    });
+  }
+  updateVersion () {
+    this.apiService.putResources(this.versionUrl, null, true).catch(error => {
+      return Observable.throw(new Error());
+    }).subscribe((version: any) => {
+      console.log(version);
+    }, err => {
+      console.error('updateVersion ERROR:', err);
+    });
+  }
+  deleteVersion () {
+    this.apiService.deleteResources(this.versionUrl, true).catch(error => {
+      return Observable.throw(new Error());
+    }).subscribe((version: any) => {
+      console.log(version);
+    }, err => {
+      console.error('updateVersion ERROR:', err);
     });
   }
 }

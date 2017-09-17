@@ -35,7 +35,7 @@
   },
   "themes": ["consonants"],
   "meta": {
-    "conflict": ["kh2"]
+    "conflicts": ["kh2"]
   }
 }, {
   "uid": "kh2",
@@ -60,7 +60,7 @@
   "themes": ["consonants"],
   "img": "buffalo/buffalo.png",
   "meta": {
-    "conflict": ["kh1"]
+    "conflicts": ["kh1"]
   }
 }, {
   "uid": "ng1",
@@ -115,7 +115,7 @@
   "themes": ["consonants"],
   "img": "tiger/tiger.png",
   "meta": {
-    "conflict": ["s2"]
+    "conflicts": ["s2"]
   }
 }, {
   "uid": "s2",
@@ -140,7 +140,7 @@
   "themes": ["consonants"],
   "img": "elephant/elephant.png",
   "meta": {
-    "conflict": ["s1"]
+    "conflicts": ["s1"]
   }
 }, {
   "uid": "ny1",
@@ -205,7 +205,7 @@
   },
   "themes": ["consonants"],
   "meta": {
-    "conflict": ["th2"]
+    "conflicts": ["th2"]
   }
 }, {
   "uid": "th2",
@@ -228,7 +228,7 @@
   },
   "themes": ["consonants"],
   "meta": {
-    "conflict": ["th1"]
+    "conflicts": ["th1"]
   }
 }, {
   "uid": "n1",
@@ -299,7 +299,7 @@
   },
   "themes": ["consonants"],
   "meta": {
-    "conflict": ["ph2"]
+    "conflicts": ["ph2"]
   }
 }, {
   "uid": "f1",
@@ -322,7 +322,7 @@
   },
   "themes": ["consonants"],
   "meta": {
-    "conflict": ["f2"]
+    "conflicts": ["f2"]
   }
 }, {
   "uid": "ph2",
@@ -345,7 +345,7 @@
   },
   "themes": ["consonants"],
   "meta": {
-    "conflict": ["ph1"]
+    "conflicts": ["ph1"]
   }
 }, {
   "uid": "f2",
@@ -368,7 +368,7 @@
   },
   "themes": ["consonants"],
   "meta": {
-    "conflict": ["f1"]
+    "conflicts": ["f1"]
   }
 }, {
   "uid": "m1",
@@ -415,7 +415,7 @@
   },
   "themes": ["consonants"],
   "meta": {
-    "conflict": ["l2"]
+    "conflicts": ["l2"]
   }
 }, {
   "uid": "l2",
@@ -434,7 +434,7 @@
   "themes": ["consonants"],
   "img": "monkey/monkey.png",
   "meta": {
-    "conflict": ["l1"]
+    "conflicts": ["l1"]
   }
 }, {
   "uid": "v1",
@@ -471,7 +471,7 @@
   },
   "themes": ["consonants"],
   "meta": {
-    "conflict": ["h2"]
+    "conflicts": ["h2"]
   }
 }, {
   "uid": "cv1",
@@ -514,6 +514,6 @@
   },
   "themes": ["consonants"],
   "meta": {
-    "conflict": ["h1"]
+    "conflicts": ["h1"]
   }
 }]

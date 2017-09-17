@@ -10,12 +10,10 @@ var ItemsSchema = new Schema({
 	},
 	validated: Boolean,
 	img: String,
-	imgAuthor: String,
-	imgResource: String,
 	themes: {
 		type: [String],
 		ref: 'Theme',
-		required: 'At least one tag is required.'
+		required: 'Themes Array should exist.'
 	},
 	lvl: Number,
 	en: {
@@ -62,8 +60,10 @@ var ItemsSchema = new Schema({
 		meta: Schema.Types.Mixed
 	},
 	meta: {
+		imgAuthor: String,
+		imgResource: String,
 		contrary: String,
-		conflict: [String],
+		conflicts: [String],
 		owner: String,
 		ownerResource: String
 	},

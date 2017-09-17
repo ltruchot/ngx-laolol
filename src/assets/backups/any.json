@@ -1,0 +1,96 @@
+[{
+  "uid": "politeness1",
+  "lvl": 0,
+  "en": {
+    "wrd": "politeness",
+    "kk": {}
+  },
+  "fr":{
+    "wrd": "politesse",
+    "kk": {}
+  },
+  "lo": {
+    "wrd": "ຄວາມສຸພາບ",
+    "kk": {}
+  },
+  "themes": ["themes"]
+}, {
+  "uid": "family1",
+  "lvl": 0,
+  "en": {
+    "wrd": "family",
+    "kk": {}
+  },
+  "fr":{
+    "wrd": "famille",
+    "kk": {}
+  },
+  "lo": {
+    "wrd": "ຄອບຄົວ",
+    "kk": {}
+  },
+  "themes": ["themes"]
+}, {
+  "uid": "profession1",
+  "lvl": 0,
+  "en": {
+    "wrd": "profession",
+    "kk": {}
+  },
+  "fr":{
+    "wrd": "métier",
+    "kk": {},
+    "meta": {
+      "isMale": true
+    }
+  },
+  "lo": {
+    "wrd": "ອາຊີບ",
+    "kk": {}
+  },
+  "themes": ["themes"]
+}, {
+  "uid": "health1",
+  "lvl": 0,
+  "en": {
+    "wrd": "health",
+    "kk": {}
+  },
+  "fr":{
+    "wrd": "santé",
+    "kk": {}
+  },
+  "lo": {
+    "wrd": "ສຸຂະພາບ",
+    "kk": {
+      "en": "soo kha pha:b",
+      "fr": "sou khâ phâ:p",
+      "ipa": "su kʰa pʰaːb"
+    }
+  },
+  "themes": ["themes"]
+}, {
+  "uid": "place1",
+  "lvl": 0,
+  "en": {
+    "wrd": "place",
+    "kk": {}
+  },
+  "fr":{
+    "wrd": "lieu",
+    "kk": {},
+    "meta": {
+      "plural": "lieux",
+      "isMale": true
+    }
+  },
+  "lo": {
+    "wrd": "ບ່ອນ",
+    "kk": {
+      "en": "bɔ:n",
+      "fr": "bɔ:n",
+      "ipa": "bɔːn"
+    }
+  },
+  "themes": ["themes"]
+}]

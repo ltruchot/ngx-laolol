@@ -8,8 +8,6 @@ export class Item {
   themes: Array<string>;
   lvl: number;
   img?: string;
-  imgAuthor?: string;
-  imgResource?: string;
   meta?: IItemMeta;
   _userId?: string;
   constructor () {
@@ -48,9 +46,11 @@ export interface ILangItemMeta {
 
 export interface IItemMeta {
   contrary?: string;
-  conflict?: Array<string>;
+  conflicts?: Array<string>;
   owner?: string;
   ownerResource?: string;
+  imgAuthor?: string;
+  imgResource?: string;
 };
 
 export interface IKaraokeItem {

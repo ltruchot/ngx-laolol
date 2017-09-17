@@ -28,6 +28,7 @@ import { LanguageService } from './shared-services/language.service';
 import { ModalService } from './shared-services/modal.service';
 import { StorageService } from './shared-services/storage.service';
 import { ThemeService } from './shared-services/theme.service';
+import { TongueService } from './shared-services/tongue.service';
 import { UserService } from './shared-services/user.service';
 
 // language export for AOT build
@@ -69,6 +70,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     ModalService,
     StorageService,
     ThemeService,
+    TongueService,
     UserService
   ],
   bootstrap: [AppComponent]

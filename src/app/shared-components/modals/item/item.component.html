@@ -12,16 +12,16 @@
 				<ul class="nav nav-tabs">
 					<li class="nav-item">
 						<a class="nav-link" [ngClass]="{'active': !cpntData.isJSON}"
-							(click)="cpntData.isJSON = false">Normal Mode</a>
+							(click)="changeTab(false)">Normal Mode</a>
 					</li>
 					<li class="nav-item">
 						<a class="nav-link" [ngClass]="{'active': cpntData.isJSON}"
-							(click)="cpntData.isJSON = true">JSON Mode</a>
+							(click)="changeTab(true)">JSON Mode</a>
 					</li>
 				</ul>
 				<div class="row">
 					<!-- begin form item -->
-					<form *ngIf="!cpntData.isJSON" class="col pxt6" name="form"
+					<form [hidden]="cpntData.isJSON" class="col pxt6" name="form"
 						(ngSubmit)="createOrModify(itemForm)" [formGroup]="itemForm">
 						<div class="form-group row">
 							<label for="uid" class="col-3 col-form-label col-form-label-sm">Unique ID: </label>
@@ -37,37 +37,67 @@
 									formControlName="lvl" [(ngModel)]="cpntData.items.current.lvl" />
 							</div>
 						</div>
-						<div class="form-group row">
-							<label for="img" class="col-3 col-form-label col-form-label-sm">Image: </label>
-							<div class="col-9">
-								<input type="text" class="form-control form-control-sm" id="img"  name="img"
-									formControlName="img" [(ngModel)]="cpntData.items.current.img" />
+						<app-multiselect #selectThemes title="Themes" id="select-themes" [list]="cpntData.themes.all"
+						displayedProp="uid" (onMultiselectChange)="changeThemes($event)">
+						</app-multiselect>
+						<h6 class="form-text mxb10"><strong>Common optional parameters</strong></h6>
+						<div>
+							<div class="form-group row">
+								<label for="img" class="col-3 col-form-label col-form-label-sm">Image: </label>
+								<div class="col-9">
+									<input type="text" class="form-control form-control-sm" id="img"  name="img"
+										formControlName="img" [(ngModel)]="cpntData.items.current.img" />
+								</div>
 							</div>
-						</div>
-						<div class="form-group row">
-							<label for="img-author" class="col-3 col-form-label col-form-label-sm">Image author: </label>
-							<div class="col-9">
-								<input type="text" class="form-control form-control-sm" id="img-author" name="img-author"
-									formControlName="imgAuthor" [(ngModel)]="cpntData.items.current.imgAuthor" />
+							<div class="form-group row" formGroupName="meta">
+								<label for="meta-img-author" class="col-3 col-form-label col-form-label-sm">Image author: </label>
+								<div class="col-9">
+									<input type="text" class="form-control form-control-sm" id="meta-img-author" name="meta-img-author"
+										formControlName="imgAuthor" [(ngModel)]="cpntData.items.current.meta.imgAuthor" />
+								</div>
 							</div>
-						</div>
-						<div class="form-group row">
-							<label for="img-auth-res" class="col-3 col-form-label col-form-label-sm">Img resource: </label>
-							<div class="col-9">
-								<input type="text" class="form-control form-control-sm" id="img-auth-res"  name="img-auth-res"
-									formControlName="imgResource" [(ngModel)]="cpntData.items.current.imgResource" />
+							<div class="form-group row" formGroupName="meta">
+								<label for="meta-img-auth-res" class="col-3 col-form-label col-form-label-sm">Img resource: </label>
+								<div class="col-9">
+									<input type="text" class="form-control form-control-sm" id="meta-img-auth-res"  name="meta-img-auth-res"
+										formControlName="imgResource" [(ngModel)]="cpntData.items.current.meta.imgResource" />
+								</div>
 							</div>
+							<div class="form-group row" formGroupName="meta">
+								<label for="meta-owner" class="col-3 col-form-label col-form-label-sm">Owner: </label>
+								<div class="col-9">
+									<input type="text" class="form-control form-control-sm" id="meta-owner" name="meta-owner"
+										formControlName="owner" [(ngModel)]="cpntData.items.current.meta.owner" />
+								</div>
+							</div>
+							<div class="form-group row" formGroupName="meta">
+								<label for="meta-owner-res" class="col-3 col-form-label col-form-label-sm">Owner res: </label>
+								<div class="col-9">
+									<input type="text" class="form-control form-control-sm" id="meta-owner-res" name="meta-owner-res"
+										formControlName="ownerResource" [(ngModel)]="cpntData.items.current.meta.ownerResource" />
+								</div>
+							</div>
+							<div class="form-group row" formGroupName="meta">
+								<label for="meta-contraty" class="col-3 col-form-label col-form-label-sm">Contrary UID: </label>
+								<div class="col-9">
+									<input type="text" class="form-control form-control-sm" id="meta-contraty" name="meta-contraty"
+										formControlName="contrary" [(ngModel)]="cpntData.items.current.meta.contrary" />
+								</div>
+							</div>
+							<app-multiselect #selectConflicts title="Conflicts" id="select-conflicts" displayedProp="uid"
+								[list]="sameThemeItems" (onMultiselectChange)="changeConflicts($event)">
+							</app-multiselect>
+							<!-- <div class="form-group">
+						    <label for="select-conflicts" class="text-standard-2">Conflicts ([ctrl] + [left click] for multi-choice)</label>
+						    <select #selectConflicts class="form-control form-control-sm"
+						    	(change)="changeConflicts($event.target.options)"
+						    	id="select-themes" multiple>
+						      <option *ngFor="let item of cpntData.sameThemesItems" [value]="item.uid">
+						      	{{ item.uid }}
+						      </option>
+						    </select>
+						  </div> -->
 						</div>
-						 <div class="form-group">
-					    <label for="select-themes" class="text-standard-2">Themes ([ctrl] + [left click] for multi-choice)</label>
-					    <select #selectThemes class="form-control form-control-sm"
-					    	(change)="changeThemes($event.target.options)"
-					    	id="select-themes" multiple>
-					      <option *ngFor="let theme of cpntData.themes.all" [value]="theme.uid">
-					      	{{ theme.uid }}
-					      </option>
-					    </select>
-					  </div>
 						<h6><strong>English</strong></h6>
 						<div class="form-group row mxb0" formGroupName="en">
 							<label for="en-wrd" class="col-3 col-form-label col-form-label-sm">Word: </label>
@@ -246,8 +276,7 @@
 						<a data-toggle="collapse" href="#loOptions" class="form-text mxb10"
 							aria-expanded="false" aria-controls="loOptions">Lao optional parameters</a>
 						<div class="collapse" id="loOptions"  formGroupName="lo">
-						<a data-toggle="collapse" (click)="generateLaonetics()" class="form-text mxb10"
-							aria-expanded="false" aria-controls="loOptions">Generate Laonetics</a>
+						<button type="button" (click)="generateLaonetics()" class="btn btn-primary">Generate Laonetics</button>
 							<div class="form-group row" formGroupName="kk">
 								<label for="lo-kk-fr" class="col-3 col-form-label col-form-label-sm">Karaoke Fr: </label>
 								<div class="col-9">
@@ -338,7 +367,7 @@
 					</form>
 					<!-- end form item -->
 					<!-- begin form json -->
-					<form *ngIf="cpntData.isJSON" class="col" name="form"
+					<form [hidden]="!cpntData.isJSON" class="col" name="form"
 						(ngSubmit)="createItems(jsonForm)" [formGroup]="jsonForm">
 						<div class="form-group">
 							<label for="json-textarea">Should be items in JSON format <br />@see <a target="_blank" href="http://codebeautify.org/jsonviewer">jsonviewer</a></label>

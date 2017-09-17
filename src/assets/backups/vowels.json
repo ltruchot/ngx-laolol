@@ -5,7 +5,7 @@
   "fr":{ "wrd": "a" },
   "lo": { "wrd": "xະ" },
   "themes": ["vowels"],
-  "meta": { "conflict": ["a2"] }
+  "meta": { "conflicts": ["a2"] }
 }, {
   "uid": "a2",
   "lvl": 0,
@@ -13,7 +13,7 @@
   "fr":{ "wrd": "a:" },
   "lo": { "wrd": "xາ" },
   "themes": ["vowels"],
-  "meta": { "conflict": ["a1"] }
+  "meta": { "conflicts": ["a1"] }
 }, {
   "uid": "i1",
   "lvl": 0,
@@ -21,7 +21,7 @@
   "fr":{ "wrd": "i" },
   "lo": { "wrd": "xິ" },
   "themes": ["vowels"],
-  "meta": { "conflict": ["i2"] }
+  "meta": { "conflicts": ["i2"] }
 }, {
   "uid": "i2",
   "lvl": 0,
@@ -29,7 +29,7 @@
   "fr":{ "wrd": "i:" },
   "lo": { "wrd": "xີ" },
   "themes": ["vowels"],
-  "meta": { "conflict": ["i1"] }
+  "meta": { "conflicts": ["i1"] }
 }, {
   "uid": "ue1",
   "lvl": 0,
@@ -37,7 +37,7 @@
   "fr":{ "wrd": "ü" },
   "lo": { "wrd": "xຶ" },
   "themes": ["vowels"],
-  "meta": { "conflict": ["u2"] }
+  "meta": { "conflicts": ["u2"] }
 }, {
   "uid": "ue2",
   "lvl": 0,
@@ -45,7 +45,7 @@
   "fr":{ "wrd": "ü:" },
   "lo": { "wrd": "xື" },
   "themes": ["vowels"],
-  "meta": { "conflict": ["u1"] }
+  "meta": { "conflicts": ["u1"] }
 }, {
   "uid": "oo1",
   "lvl": 0,
@@ -53,7 +53,7 @@
   "fr":{ "wrd": "ou" },
   "lo": { "wrd": "xຸ" },
   "themes": ["vowels"],
-  "meta": { "conflict": ["oo2"] }
+  "meta": { "conflicts": ["oo2"] }
 }, {
   "uid": "oo2",
   "lvl": 0,
@@ -61,7 +61,7 @@
   "fr":{ "wrd": "ou:" },
   "lo": { "wrd": "xູ" },
   "themes": ["vowels"],
-  "meta": { "conflict": ["oo1"] }
+  "meta": { "conflicts": ["oo1"] }
 }, {
   "uid": "o",
   "lvl": 0,
@@ -69,7 +69,7 @@
   "fr":{ "wrd": "ô" },
   "lo": { "wrd": "ໂxະ" },
   "themes": ["vowels"],
-  "meta": { "conflict": ["o2"] }
+  "meta": { "conflicts": ["o2"] }
 }, {
   "uid": "o2",
   "lvl": 0,
@@ -77,7 +77,7 @@
   "fr":{ "wrd": "ô:" },
   "lo": { "wrd": "ໂx" },
   "themes": ["vowels"],
-  "meta": { "conflict": ["o1"] }
+  "meta": { "conflicts": ["o1"] }
 }, {
   "uid": "e1",
   "lvl": 1,
@@ -85,7 +85,7 @@
   "fr":{ "wrd": "é" },
   "lo": { "wrd": "ເxະ" },
   "themes": ["vowels"],
-  "meta": { "conflict": ["e2"] }
+  "meta": { "conflicts": ["e2"] }
 }, {
   "uid": "e2",
   "lvl": 1,
@@ -93,7 +93,7 @@
   "fr":{ "wrd": "é:" },
   "lo": { "wrd": "ເx" },
   "themes": ["vowels"],
-  "meta": { "conflict": ["e1"] }
+  "meta": { "conflicts": ["e1"] }
 }, {
   "uid": "ae1",
   "lvl": 1,
@@ -101,7 +101,7 @@
   "fr":{ "wrd": "è" },
   "lo": { "wrd": "ແxະ" },
   "themes": ["vowels"],
-  "meta": { "conflict": ["ae2"] }
+  "meta": { "conflicts": ["ae2"] }
 }, {
   "uid": "ae2",
   "lvl": 1,
@@ -109,7 +109,7 @@
   "fr":{ "wrd": "è:" },
   "lo": { "wrd": "ແx" },
   "themes": ["vowels"],
-  "meta": { "conflict": ["ae1"] }
+  "meta": { "conflicts": ["ae1"] }
 }, {
   "uid": "ɔ1",
   "lvl": 1,
@@ -117,7 +117,7 @@
   "fr":{ "wrd": "ɔ" },
   "lo": { "wrd": "ເxາະ" },
   "themes": ["vowels"],
-  "meta": { "conflict": ["ɔ2"] }
+  "meta": { "conflicts": ["ɔ2"] }
 }, {
   "uid": "ɔ2",
   "lvl": 1,
@@ -125,7 +125,7 @@
   "fr":{ "wrd": "ɔ:" },
   "lo": { "wrd": "xໍ" },
   "themes": ["vowels"],
-  "meta": { "conflict": ["ɔ1"] }
+  "meta": { "conflicts": ["ɔ1"] }
 }, {
   "uid": "oe1",
   "lvl": 1,
@@ -133,7 +133,7 @@
   "fr":{ "wrd": "eu" },
   "lo": { "wrd": "ເxິ" },
   "themes": ["vowels"],
-  "meta": { "conflict": ["oe2"] }
+  "meta": { "conflicts": ["oe2"] }
 }, {
   "uid": "oe2",
   "lvl": 1,
@@ -141,7 +141,7 @@
   "fr":{ "wrd": "eu:" },
   "lo": { "wrd": "ເxີ" },
   "themes": ["vowels"],
-  "meta": { "conflict": ["oe1"] }
+  "meta": { "conflicts": ["oe1"] }
 }, {
   "uid": "ia1",
   "lvl": 2,
@@ -149,7 +149,7 @@
   "fr":{ "wrd": "iya", "meta": { "comment": "version de l'ancien régime" } },
   "lo": { "wrd": "ເxັຽ", "meta": { "comment": "ໄຊ້ກ່ອນການປຽ່ນແປງການປົກຄອງ" } },
   "themes": ["vowels"],
-  "meta": { "conflict": ["ia2", "ia3", "ia4"] }
+  "meta": { "conflicts": ["ia2", "ia3", "ia4"] }
 }, {
   "uid": "ia2",
   "lvl": 2,
@@ -157,7 +157,7 @@
   "fr":{ "wrd": "i:ya", "meta": { "comment": "version de l'ancien régime" } },
   "lo": { "wrd": "ເxຽ", "meta": { "comment": "ໄຊ້ກ່ອນການປຽ່ນແປງການປົກຄອງ" } },
   "themes": ["vowels"],
-  "meta": { "conflict": ["ia1", "ia3", "ia4"] }
+  "meta": { "conflicts": ["ia1", "ia3", "ia4"] }
 }, {
   "uid": "ia3",
   "lvl": 2,
@@ -165,7 +165,7 @@
   "fr":{ "wrd": "iya", "meta": { "comment": "version du nouveau régime" } },
   "lo": { "wrd": "ເxັຍ", "meta": { "comment": "ໄຊ້ຫລັງການປຽ່ນແປງການປົກຄອງ" } },
   "themes": ["vowels"],
-  "meta": { "conflict": ["ia1", "ia2", "ia4"] }
+  "meta": { "conflicts": ["ia1", "ia2", "ia4"] }
 }, {
   "uid": "ia4",
   "lvl": 2,
@@ -173,7 +173,7 @@
   "fr":{ "wrd": "i:ya", "meta": { "comment": "version du nouveau régime" } },
   "lo": { "wrd": "ເxຍ", "meta": { "comment": "ໄຊ້ຫລັງການປຽ່ນແປງການປົກຄອງ" } },
   "themes": ["vowels"],
-  "meta": { "conflict": ["ia1", "ia2", "ia3"] }
+  "meta": { "conflicts": ["ia1", "ia2", "ia3"] }
 }, {
   "uid": "ooa1",
   "lvl": 2,
@@ -181,7 +181,7 @@
   "fr":{ "wrd": "oua" },
   "lo": { "wrd": "xົວະ" },
   "themes": ["vowels"],
-  "meta": { "conflict": ["ooa2"] }
+  "meta": { "conflicts": ["ooa2"] }
 }, {
   "uid": "ooa2",
   "lvl": 2,
@@ -189,7 +189,7 @@
   "fr":{ "wrd": "oua:" },
   "lo": { "wrd": "xົວ" },
   "themes": ["vowels"],
-  "meta": { "conflict": ["ooa1"] }
+  "meta": { "conflicts": ["ooa1"] }
 }, {
   "uid": "ua1",
   "lvl": 2,
@@ -197,7 +197,7 @@
   "fr":{ "wrd": "üa" },
   "lo": { "wrd": "ເxຶອ" },
   "themes": ["vowels"],
-  "meta": { "conflict": ["ua2"] }
+  "meta": { "conflicts": ["ua2"] }
 }, {
   "uid": "ua2",
   "lvl": 2,
@@ -205,7 +205,7 @@
   "fr":{ "wrd": "üa:" },
   "lo": { "wrd": "ເxືອ" },
   "themes": ["vowels"],
-  "meta": { "conflict": ["ua1"] }
+  "meta": { "conflicts": ["ua1"] }
 }, {
   "uid": "ai1",
   "lvl": 2,
@@ -213,7 +213,7 @@
   "fr":{ "wrd": "ay" },
   "lo": { "wrd": "ໄx" },
   "themes": ["vowels"],
-  "meta": { "conflict": ["ai1"] }
+  "meta": { "conflicts": ["ai1"] }
 }, {
   "uid": "ai2",
   "lvl": 2,
@@ -221,7 +221,7 @@
   "fr":{ "wrd": "ay" },
   "lo": { "wrd": "ໃx" },
   "themes": ["vowels"],
-  "meta": { "conflict": ["ai1"] }
+  "meta": { "conflicts": ["ai1"] }
 }, {
   "uid": "ao1",
   "lvl": 2,

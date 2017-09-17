@@ -1,114 +1,92 @@
 [{
   "uid": "consonants",
-  "noPlural": true, "noArticle": true, "hasImages": true, "hasSpecialExample": true, "hasCapital": true,
-  "en": { "wrd": "Consonants" },
-  "fr": { "wrd": "Les consonnes", "short": "Consonnes"
-  },
-  "levels": 3,
-  "lo": {
-    "wrd": "ພະຍັນຊະນະ"
-  }
+  "linkUid": "consonant1",
+  "displayPlural": true,
+  "isBasic": true,
+  "noPlural": true, "noArticle": true,
+  "hasImages": true, "hasSpecialExample": true,
+  "en": {},
+  "fr": {},
+  "lo": {},
+  "levels": 3
 }, {
   "uid": "vowels",
-  "noKaraoke": true,
-  "noPlural": true,
-  "noArticle": true,
-  "hasCapital": true,
+  "linkUid": "vowel1",
+  "displayPlural": true,
+  "isBasic": true,
+  "noKaraoke": true, "noPlural": true, "noArticle": true,
   "levels": 3,
-  "en": {
-    "wrd": "Vowels"
-  },
-  "fr": {
-    "wrd": "Les voyelles",
-    "short": "Voyelles"
-  },
-  "lo": {
-    "wrd": "ສະຫຼະ"
-  }
+  "en": {},
+  "fr": {},
+  "lo": {}
 }, {
   "uid": "syllables",
+  "linkUid": "syllable1",
+  "displayPlural": true,
+  "isBasic": true,
   "levels": 2,
-  "noKaraoke": true, "noPlural": true, "noArticle": true, "hasCapital": true,
-  "en": { "wrd": "Syllables" },
-  "fr": { "wrd": "Les syllabes", "short": "Syllabes" },
-  "lo": {
-    "wrd": "ພະຍາງ"
-  }
+  "noKaraoke": true, "noPlural": true, "noArticle": true,
+  "en": {},
+  "fr": {},
+  "lo": {}
 }, {
   "uid": "politeness",
+  "linkUid": "politeness1",
   "levels": 1,
   "noPlural": true, "noArticle": true,
-  "en": { "wrd": "Politeness" },
-  "fr": { "wrd": "La politesse", "short": "Politesse" },
-  "lo": { "wrd": "ຄວາມສຸພາບ" }
+  "en": {},
+  "fr": {},
+  "lo": {}
 }, {
   "uid": "family",
-  "hasCapital": true,
+  "linkUid": "family1",
   "levels": 2,
-  "en": { "wrd": "Family" },
-  "fr": { "wrd": "La famille", "short": "Famille" },
-  "lo": { "wrd": "ຄອບຄົວ" }
+  "en": {},
+  "fr": {},
+  "lo": {}
 }, {
   "uid": "animals",
+  "linkUid": "animal1",
   "levels": 2,
-  "hasImages": true, "hasCapital": true,
-  "en": { "wrd": "Animals", "short": "Animals" },
-  "fr": { "wrd": "Les animaux", "short": "Animaux" },
-  "lo": {
-    "wrd": "ສັດ",
-    "kk": {"en": "sad", "fr": "sat" },
-    "meta": {
-      "classifier": "ໂຕ",
-      "cl_kk": { "fr": "to:", "en": "to:" }
-    }
-  }
+  "hasImages": true,
+  "en": {},
+  "fr": {},
+  "lo": {},
+  "laoClassifierUid": "entity1"
 }, {
-  "uid": "adj-with-contrary",
+  "uid": "adjectives",
+  "linkUid": "adjective1",
   "levels": 2,
   "noPlural": true, "noArticle": true,
-  "en": { "wrd": "Adjectives & contratry", "short": "Adj. & contrary" },
-  "fr": { "wrd": "Adjectifs & contraires", "short": "Adj. contraires" },
-  "lo": { "wrd": "ຄໍາຄູນນາມກົງກັນຂາ້ມ" }
+  "en": {},
+  "fr": {},
+  "lo": {}
 }, {
   "uid": "professions",
+  "linkUid": "profession1",
+  "displayPlural": true,
   "levels": 3,
   "noPlural": true, "noArticle": true,
-  "en": {
-    "wrd": "Professions",
-    "desc": ["", ""]
-  },
+  "en": {"desc": ["", ""]},
   "fr": {
-    "wrd": "Les métiers",
-    "short": "Métiers",
     "desc": [
       "En lao, pour certains métiers on distingue le masculin du féminin en utilisant \"ພໍ່\" et \"ແມ່\", littéralement \"père\" et \"mère\".",
       "En lao, la plupart des métiers techniques commence par le mot \"ຊ່າງ\" (sâ:ng), littéralement \"technicien\", ou encore \"ຊ່າງແປງ\", \"le réparateur\".",
       "En lao, les métiers artistiques ou nécessitant un talent particulier commence souvent par le mot \"ນັກ\", littéralement \"expert\"."
     ]
   },
-  "lo": { "wrd": "ອາຊີບ" }
+  "lo": {}
 }, {
   "uid": "health",
+  "linkUid": "health1",
   "levels": 1,
-  "en": {
-    "wrd": "Health",
-    "desc": []
-  },
-  "fr": {
-    "wrd": "La santé",
-    "short": "Santé",
-    "desc": []
-  },
-  "lo": {
-    "wrd": "ສຸຂະພາບ",
-    "kk": {
-      "en": "soo kha pha:b",
-      "fr": "sou khâ phâ:p",
-      "ipa": "su kʰa pʰaːb"
-    }
-  }
+  "en": {},
+  "fr": {},
+  "lo": {}
 }, {
   "uid": "places",
+  "linkUid": "place1",
+  "displayPlural": true,
   "levels": 1,
   "en": {
     "wrd": "Places",
@@ -129,23 +107,11 @@
   }
 }, {
   "uid": "verbs",
+  "linkUid": "verb1",
+  "displayPlural": true,
   "noPlural": true, "noArticle": true,
   "levels": 1,
-  "en": {
-    "wrd": "verbs",
-    "desc": []
-  },
-  "fr": {
-    "wrd": "Les verbes",
-    "short": "verbes",
-    "desc": []
-  },
-  "lo": {
-    "wrd": "ຄໍາກິລິຢາ",
-    "kk": {
-      "en": "kham kee lee ya:",
-      "fr": "khâm ki li yâ:",
-      "ipa": "kʰam ki li jaː"
-    }
-  }
+  "en": {},
+  "fr": {},
+  "lo": {}
 }]

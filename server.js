@@ -20,6 +20,7 @@ const CONFIG = require('./api/config');
 const User = require('./api/models/usersModel');
 const Theme = require('./api/models/themesModel');
 const Item = require('./api/models/itemsModel');
+const Version = require('./api/models/versionsModel');
 
 const app = express();
 // Prepare mongodb connexion
@@ -40,9 +41,11 @@ app.use(express.static(path.join(__dirname, 'dist')));
 var usersRoutes = require('./api/routes/usersRoutes');
 var itemsRoutes = require('./api/routes/themesRoutes');
 var themesRoutes = require('./api/routes/itemsRoutes');
+var versionsRoutes = require('./api/routes/versionsRoutes');
 usersRoutes(app);
 itemsRoutes(app);
 themesRoutes(app);
+versionsRoutes(app);
 
 // Catch all other routes and return the index file
 app.get('*', (req, res) => {

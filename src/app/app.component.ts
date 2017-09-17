@@ -11,6 +11,7 @@ import {
 } from '@angular/router';
 
 // npm dependencies
+import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/filter';
 
 // custom services
@@ -18,7 +19,8 @@ import { LanguageService } from './shared-services/language.service';
 import { ThemeService } from './shared-services/theme.service';
 import { UserService } from './shared-services/user.service';
 import { StorageService } from './shared-services/storage.service';
-// import { ItemService } from './shared-services/item.service';
+import { ApiService } from './shared-services/api.service';
+import { ItemService } from './shared-services/item.service';
 
 // custome models
 // import { ReadHttpError } from './shared-models/error.models';
@@ -39,9 +41,10 @@ export class AppComponent implements OnInit {
   constructor (private languageService: LanguageService,
     private router: Router,
     private userService: UserService,
-    // private itemService: ItemService,
+    private itemService: ItemService,
     private themeService: ThemeService,
-    private storageService: StorageService) {
+    private storageService: StorageService,
+    private apiService: ApiService) {
   }
 
   changeCurrentLanguage (code) {
@@ -60,12 +63,27 @@ export class AppComponent implements OnInit {
       this.navigationInterceptor(event);
     });
 
-    // clear store if it's a new version
-    const version = this.storageService.getItem('version');
-    if (version !== this.cpntData.currentVersion) {
+    // clear store if it's a new app version
+    const appVersion = this.storageService.getItem('appVersion');
+    if (appVersion !== this.cpntData.currentVersion) {
       this.storageService.clear();
-      this.storageService.setItem('version', this.cpntData.currentVersion);
+      this.storageService.setItem('appVersion', this.cpntData.currentVersion);
     }
+    const itemsVersion = this.storageService.getItem('itemsVersion');
+    this.apiService.getResources('api/version').catch(error => {
+      return Observable.throw(new Error());
+    }).subscribe((version: any) => {
+      if (itemsVersion !== version.current) {
+        this.itemService.resetItems();
+        this.themeService.resetThemes();
+        this.storageService.setItem('itemsVersion', version.current);
+      }
+    }, err => {
+      console.error('updateVersion ERROR:', err);
+    });
+
+
+    // clear item store if it's a new items version
     this.languageService.initializeLanguages();
 
     // init available data

@@ -1,0 +1,28 @@
+[{
+  "uid": "animal1",
+  "lvl": 0,
+  "en": {
+    "wrd": "animal",
+    "ex": "",
+    "kk": {}
+  },
+  "fr":{
+    "wrd": "animal",
+    "ex": "Cet animal vit dans la forêt.",
+    "kk": {},
+    "meta": {
+      "plural": "animaux",
+      "isMale": true
+    }
+  },
+  "lo": {
+    "wrd": "ສັດ",
+    "ex": "",
+    "kk": {
+      "en": "sad",
+      "fr": "sât",
+      "ipa": "sad"
+    }
+  },
+  "themes": ["themes", "nature"]
+}]

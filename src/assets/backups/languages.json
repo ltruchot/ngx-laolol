@@ -1,0 +1,103 @@
+[{
+  "uid": "adjective1",
+  "lvl": 0,
+  "en": {
+    "wrd": "adjective",
+    "ex": "",
+    "kk": {}
+  },
+  "fr":{
+    "wrd": "adjectif",
+    "kk": {},
+    "meta": {
+      "isMale": true
+    }
+  },
+  "lo": {
+    "wrd": "ຄົນສັບ",
+    "ex": "",
+    "kk": {
+      "en": "khon sab",
+      "fr": "khôn sâp",
+      "ipa": "kʰon sab"
+    }
+  },
+  "themes": ["themes"]
+}, {
+  "uid": "consonant1",
+  "lvl": 0,
+  "en": {
+    "wrd": "consonant",
+    "ex": "",
+    "kk": {}
+  },
+  "fr":{
+    "wrd": "consonne",
+    "kk": {}
+  },
+  "lo": {
+    "wrd": "ພະຍັນຊະນະ",
+    "ex": "",
+    "kk": {}
+  },
+  "themes": ["themes"]
+}, {
+  "uid": "vowel1",
+  "lvl": 0,
+  "en": {
+    "wrd": "vowel",
+    "ex": "",
+    "kk": {}
+  },
+  "fr":{
+    "wrd": "voyelle",
+    "kk": {}
+  },
+  "lo": {
+    "wrd": "ສະຫຼະ",
+    "ex": "",
+    "kk": {}
+  },
+  "themes": ["themes"]
+}, {
+  "uid": "syllable1",
+  "lvl": 0,
+  "en": {
+    "wrd": "syllable",
+    "ex": "",
+    "kk": {}
+  },
+  "fr":{
+    "wrd": "syllabe",
+    "kk": {}
+  },
+  "lo": {
+    "wrd": "ພະຍາງ",
+    "ex": "",
+    "kk": {}
+  },
+  "themes": ["themes"]
+}, {
+  "uid": "verb1",
+  "lvl": 0,
+  "en": {
+    "wrd": "verb",
+    "kk": {}
+  },
+  "fr":{
+    "wrd": "verbe",
+    "kk": {},
+    "meta": {
+      "isMale": true
+    }
+  },
+  "lo": {
+    "wrd": "ຄໍາກິລິຢາ",
+    "kk": {
+      "en": "kham kee lee ya:",
+      "fr": "khâm ki li yâ:",
+      "ipa": "kʰam ki li jaː"
+    }
+  },
+  "themes": ["themes"]
+}]

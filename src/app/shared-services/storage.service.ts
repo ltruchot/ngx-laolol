@@ -6,15 +6,16 @@ export class StorageService {
   authorizedData = [
     'allItems',
     'allThemes',
+    'appVersion',
     'authToken',
     'currentLanguage',
     'currentLearningThemeUid',
     'isKaraokeActivated',
     'isMoreInfosActivated',
+    'itemsVersion',
     'learningLanguage',
     'loadedThemes',
-    'userInfos',
-    'version'
+    'userInfos'
   ];
   constructor () {
     this.store = window.localStorage;

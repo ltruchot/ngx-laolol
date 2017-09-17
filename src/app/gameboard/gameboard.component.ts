@@ -71,12 +71,12 @@ export class GameboardComponent implements OnInit, OnDestroy {
     for (let i = 0; i < ITEM_DISPLAYED_NBR; i++) {
       let randomItemIdx = Math.floor(Math.random() * items.length);
       while (items[randomItemIdx].meta &&
-        items[randomItemIdx].meta.conflict &&
+        items[randomItemIdx].meta.conflicts &&
         this.cpntData.items.find((item) => {
-          // if (items[randomItemIdx].meta.conflict.indexOf(item.uid) !== -1) {
+          // if (items[randomItemIdx].meta.conflicts.indexOf(item.uid) !== -1) {
           //   console.log('changeDisplayedItems conflict:', item.uid, items[randomItemIdx].uid);
           // }
-          return items[randomItemIdx].meta.conflict.indexOf(item.uid) !== -1;
+          return items[randomItemIdx].meta.conflicts.indexOf(item.uid) !== -1;
         })) {
         randomItemIdx = Math.floor(Math.random() * items.length);
       }
@@ -86,7 +86,7 @@ export class GameboardComponent implements OnInit, OnDestroy {
     // choose the good answer then put in template
     let winIdx = Math.floor(Math.random() * ITEM_DISPLAYED_NBR);
     while (this.last3Answers.indexOf(this.cpntData.items[winIdx].uid) !== -1) {
-      // console.log('winIdx conflict', this.cpntData.items[winIdx].uid, this.last3Answers);
+      // console.log('winIdx conflicts', this.cpntData.items[winIdx].uid, this.last3Answers);
       winIdx = Math.floor(Math.random() * ITEM_DISPLAYED_NBR);
     }
     this.cpntData.winItemIdx = winIdx;

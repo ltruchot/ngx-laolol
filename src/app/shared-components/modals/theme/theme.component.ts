@@ -19,16 +19,48 @@ import { Theme } from '../../../shared-models/theme.models';
   templateUrl: './theme.component.html'
 })
 export class ThemeComponent implements OnInit {
+  themeForm: FormGroup;
   jsonForm: FormGroup;
   cpntData = {
-    themes: null
+    themes: null,
+    isJson: false
   };
   constructor(private formBuilder: FormBuilder,
     private toastrService: ToastrService,
     private themeService: ThemeService) { }
 
   ngOnInit() {
-    // init themes forms
+    // init theme form
+    this.themeForm = this.formBuilder.group({
+      uid: ['', Validators.required],
+      itemUid: ['', Validators.required],
+      // theme?: Array<string>; - done appart
+      en: this.formBuilder.group({
+        desc1: [''],
+        desc2: [''],
+        desc3: ['']
+      }),
+      fr: this.formBuilder.group({
+        desc1: [''],
+        desc2: [''],
+        desc3: ['']
+      }),
+      lo: this.formBuilder.group({
+        desc1: [''],
+        desc2: [''],
+        desc3: ['']
+      }),
+      isBasic: [false],
+      hasImages: [false],
+      hasSpecialExample: [false],
+      noCapital: [false],
+      noArticle: [false],
+      noKaraoke: [false],
+      noPlural: [false],
+      levels: [0],
+      laoClassifierUid: ['']
+    });
+    // init themes json form
     this.jsonForm = this.formBuilder.group({
       jsonTextarea: ['', Validators.required]
     });

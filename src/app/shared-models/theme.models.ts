@@ -2,44 +2,32 @@ import { Item } from './../shared-models/item.models';
 export class Theme {
   _id?: string;
   uid: string;
-  en: ThemeLangItem;
-  fr: ThemeLangItem;
-  lo: ThemeLangItem;
-  hasCapital?: boolean;
+  linkUid: string;
+  link?: Item;
+  en: IThemeLangItem;
+  fr: IThemeLangItem;
+  lo: IThemeLangItem;
+  displayPlural?: boolean;
+  isBasic?: boolean;
   hasImages?: boolean;
   hasSpecialExample?: boolean;
+  noCapital?: boolean;
   noArticle?: boolean;
   noKaraoke?: boolean;
   noPlural?: boolean;
   levels?: number;
-  laoClassifier: string;
-  laoClassifierKk: IThemeKaraokeItem;
-  laoClassifierSnd: string;
+  laoClassifierUid: string;
   _userId?: string;
   constructor () {
     this.uid = '';
-    this.en = new ThemeLangItem();
-    this.fr = new ThemeLangItem();
-    this.lo = new ThemeLangItem();
+    this.en = new IThemeLangItem();
+    this.fr = new IThemeLangItem();
+    this.lo = new IThemeLangItem();
   }
 };
 
-export class ThemeLangItem {
-  wrd: string;
-  short?: string;
-  kk: IThemeKaraokeItem;
-  desc?: Array<string>;
-   constructor () {
-    this.wrd = '';
-    this.kk = <IThemeKaraokeItem>{};
-  }
-};
-
-export interface IThemeKaraokeItem {
-  lo?: string;
-  en?: string;
-  fr?: string;
-  ipa?: string;
+export class IThemeLangItem {
+  desc: Array<string>;
 };
 
 export interface IThemeServiceData {

@@ -66,7 +66,7 @@ export class ApiService {
     let contentType = 'application/json';
     if (data instanceof Array) {
       body = JSON.stringify(data);
-    } else {
+    } else if (data) {
       contentType = 'application/x-www-form-urlencoded';
       body = new URLSearchParams();
       for (const key in data) {
@@ -81,7 +81,7 @@ export class ApiService {
     });
     if (auth) { this.addAuth(headers); }
     const options = new RequestOptions({headers: headers});
-    return this.http.post(this.SERVER_URL + url, body.toString(), options).map(res => res.json());
+    return this.http.post(this.SERVER_URL + url, data ? body.toString() : {}, options).map(res => res.json());
   }
 
   putResources (url: string, data: any, auth?: boolean) {
@@ -91,7 +91,7 @@ export class ApiService {
     });
     if (auth) { this.addAuth(headers); }
     const options = new RequestOptions({headers: headers});
-    return this.http.put(this.SERVER_URL + url, body.toString(), options).map(res => res.json());
+    return this.http.put(this.SERVER_URL + url, data ? body.toString() : {}, options).map(res => res.json());
   }
 
   addAuth (headers: Headers) {

@@ -147,6 +147,11 @@ export class ItemService {
       return this.errorSubject.next(updateHttpError);
     });
   }
+
+  resetItems () {
+    this.data.all.length = 0;
+    this.storage.removeItem('allItems');
+  }
   /*
    *  @desc modify stream of the read$ Observable.
    *  If theme exist in dataset 'all', send it as "next"

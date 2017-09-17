@@ -84,23 +84,36 @@ export class ThemeService {
     this.data.isKaraoke = typeof isKaraokeActivated !== 'undefined' ? isKaraokeActivated : true;
     this.data.isMoreInfos = typeof isMoreInfosActivated !== 'undefined' ? isMoreInfosActivated : true;
 
-    this.read();
-    this.itemService.read$.subscribe((data: Array<Item>) => {
-      this.data.items.length = 0;
-      if (data && data.length && data.length >= 4) {
+    // get all themes and all items linked
+    const subThemesItems = this.itemService.read$.subscribe((themeItems: Array<Item>) => {
+      subThemesItems.unsubscribe();
+      this.read();
+      // then subscribe to item to prepare management of individual theme loading in app
+      this.itemService.read$.subscribe((data: Array<Item>) => {
         this.data.items.length = 0;
-        this.data.items.push(...data);
-        this.currenThemeSource.next(this.getCurrentLevel());
-      } else {
-        if (this.data.learning && this.data.learning.uid) {
-          throw new Error(`Theme "${this.data.learning.uid}" wasn't loaded correctly.
-          Check if theme exists ans is correctly populated with at least 4 items`);
+        if (data && data.length && data.length >= 4) {
+          this.data.items.length = 0;
+          this.data.items.push(...data);
+          this.currenThemeSource.next(this.getCurrentLevel());
         } else {
-          throw new Error(`No valid learning found. Check db & request`);
+          if (this.data.learning && this.data.learning.uid) {
+            throw new Error(`Theme "${this.data.learning.uid}" wasn't loaded correctly.
+            Check if theme exists ans is correctly populated with at least 4 items`);
+          } else {
+            throw new Error(`No valid learning found. Check db & request`);
+          }
         }
-      }
-      this.data.isCurrentLoading = false;
+        this.data.isCurrentLoading = false;
+      });
     });
+    this.itemService.read('themes');
+
+  }
+
+  resetThemes () {
+    this.storage.removeItem('allThemes');
+    this.storage.removeItem('loadedThemes');
+    this.read();
   }
 
   checkLevels () {
@@ -173,6 +186,7 @@ export class ThemeService {
     this.apiService.postResources(this.basicUrl, words, true).catch(error => {
       return Observable.throw(new CreateHttpError(error, this.basicUrl, this.basicCodeErrors));
     }).subscribe(data => {
+      this.enhanceThemeWithLink(data);
       this.data.all.push(...data);
       return this.createSubject.next(data);
     }, createHttpError => {
@@ -182,11 +196,23 @@ export class ThemeService {
 
   populateThemes (themes: Array<Theme>) {
     // console.log('theme.service::populateThemes', themes);
+    themes.forEach(theme => {
+      this.enhanceThemeWithLink(theme);
+    });
     this.data.all.length = 0;
     this.data.all.push(...themes);
     this.data.learning = this.data.all.find(item => item.uid === this.data.learningUid);
     this.checkLevels();
     this.data.isCurrentLoading = false;
+  }
+
+  enhanceThemeWithLink (theme: Theme) {
+   const linkedItem = this.itemService.data.all.find(item => item.uid === theme.linkUid);
+    if (linkedItem) {
+      theme.link = linkedItem;
+    } else {
+      console.error(`Theme ${theme.uid} error: linked item ${theme.linkUid} not found.`);
+    }
   }
 
   read (): void {
@@ -200,8 +226,8 @@ export class ThemeService {
       this.apiService.getResources(this.basicUrl).catch(error => {
         return Observable.throw(new ReadHttpError(error, this.basicUrl, this.basicCodeErrors));
       }).subscribe(res => {
-        this.populateThemes(res);
         this.storage.setItem('allThemes', this.data.all);
+        this.populateThemes(res);
         return this.readSubject.next(res);
       }, readHttpError => {
         this.data.isCurrentLoading = false;
