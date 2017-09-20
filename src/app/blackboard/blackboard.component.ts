@@ -6,8 +6,11 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs/Subscription';
 
 // custom services
-import { ThemeService } from './../shared-services/theme.service';
-import { LanguageService } from './../shared-services/language.service';
+import { ThemeService } from './../shared/services/theme.service';
+import { LanguageService } from './../shared/services/language.service';
+
+// custome models
+import { Theme } from './../shared/models/theme.models';
 
 @Component({
   selector: 'app-blackboard',
@@ -47,12 +50,23 @@ export class BlackboardComponent implements OnInit, OnDestroy {
     this.cpntData.lang =  this.languageService.data;
     this.cpntData.theme =  this.themeService.data;
     this.route.params.subscribe(params => {
-      if (params.uid && this.cpntData.theme.all.find(item => item.uid === params.uid)) {
-        this.themeService.changeLearningTheme(params.uid);
+      if (!this.cpntData.theme.all.length) {
+        const sub = this.themeService.read$.subscribe(themes => {
+          sub.unsubscribe();
+          this.checkRouteParams(params.uid, themes);
+        })
       } else {
-        this.router.navigate(['404']);
+        this.checkRouteParams(params.uid, this.cpntData.theme.all);
       }
     });
+  }
+
+   checkRouteParams (uid: string, allThemes: Array<Theme>) {
+    if (uid && this.cpntData.theme.all.find(item => item.uid === uid)) {
+      this.themeService.changeLearningTheme(uid);
+    } else {
+      this.router.navigate(['404']);
+    }
   }
 
   resetTheme (data) {

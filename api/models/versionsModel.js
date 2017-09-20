@@ -4,7 +4,8 @@ var Schema = mongoose.Schema;
 
 var VersionSchema = new Schema({
 	current: {
-		type: Number,
+		type: String,
+		unique: true,
 		required: true
 	},
 	checkUniqueDoc: {

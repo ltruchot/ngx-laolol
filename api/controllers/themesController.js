@@ -35,7 +35,8 @@ exports.readTheme = function (req, res) {
 };
 
 exports.updateTheme = function (req, res) {
-	Theme.findOneAndUpdate(req.params.themeId, req.body, {new: true}, function (err, theme) {
+	delete req.body._id;
+	Theme.findOneAndUpdate({ _id: req.params.themeId }, req.body, {new: true}, function (err, theme) {
 		if (err) {
 			res.send(err);
 		}

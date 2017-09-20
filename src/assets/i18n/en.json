@@ -49,7 +49,7 @@
   "submenu": {
     "language": "Language",
     "topic": "Topic",
-    "level": "Level",
+    "level": "level",
     "all": "All",
     "karaoke": "karaoke",
     "reverse": "reverse",

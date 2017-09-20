@@ -4,9 +4,7 @@ import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TranslateModule } from '@ngx-translate/core';
 
-import { SharedModule } from './../shared-components/shared.module';
-
-import { CapitalizePipe } from './../shared-pipes/capitalize.pipe';
+import { SharedModule } from './../shared/shared.module';
 
 import { AdminComponent } from './admin.component';
 
@@ -21,6 +19,6 @@ import { AdminComponent } from './admin.component';
       { path: '', component: AdminComponent, pathMatch: 'full'}
     ])
   ],
-  declarations: [AdminComponent, CapitalizePipe]
+  declarations: [AdminComponent]
 })
 export class AdminModule { }

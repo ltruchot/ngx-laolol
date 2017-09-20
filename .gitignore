@@ -45,3 +45,4 @@ Thumbs.db
 # db
 create_mongodb
 /api/config.js
+/api/backups

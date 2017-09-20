@@ -8,7 +8,11 @@ var ThemesSchema = new Schema({
 		required: 'A unique ID is needed.',
 		unique: true
 	},
-	linkUid: String,
+	linkUid: {
+		type: String,
+		required: 'A unique link UID is needed.',
+		unique: true
+	},
 	displayPlural: Boolean,
 	en: {
 		desc: [String]
@@ -19,6 +23,7 @@ var ThemesSchema = new Schema({
 	lo: {
 		desc: [String]
 	},
+	isVisible: Boolean,
 	isBasic: Boolean,
 	hasCapital: Boolean,
 	hasImages: Boolean,
@@ -28,6 +33,7 @@ var ThemesSchema = new Schema({
 	noPlural: Boolean,
 	levels: Number,
 	laoClassifierUid: String,
+	validated: Boolean,
 	_userId: { type: Schema.Types.ObjectId, ref: 'User' }
 });
 module.exports = mongoose.model('Theme', ThemesSchema);

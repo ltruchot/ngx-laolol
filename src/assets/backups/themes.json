@@ -47,6 +47,7 @@
 }, {
   "uid": "animals",
   "linkUid": "animal1",
+  "displayPlural": true,
   "levels": 2,
   "hasImages": true,
   "en": {},
@@ -56,6 +57,7 @@
 }, {
   "uid": "adjectives",
   "linkUid": "adjective1",
+  "displayPlural": true,
   "levels": 2,
   "noPlural": true, "noArticle": true,
   "en": {},

@@ -1,0 +1,234 @@
+<div class="modal fade" id="themeModal" tabindex="-1" role="dialog"
+	aria-labelledby="themeModal" aria-hidden="true">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="themeModalLabel">Theme</h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body">
+				<ul class="nav nav-tabs">
+					<li class="nav-item">
+						<a class="nav-link" [ngClass]="{'active': !cpntData.isJSON}"
+							(click)="cpntData.isJSON = false">Normal Mode</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" [ngClass]="{'active': cpntData.isJSON}"
+							(click)="cpntData.isJSON = true">JSON Mode</a>
+					</li>
+				</ul>
+				<div class="row">
+					<form [hidden]="cpntData.isJSON" class="col pxt6" name="form"
+						(ngSubmit)="createOrModify(themeForm)" [formGroup]="themeForm">
+						<div class="form-group row">
+							<label for="uid" class="col-3 col-form-label col-form-label-sm">Unique ID: </label>
+							<div class="col-9">
+								<input type="text" class="form-control form-control-sm" id="uid"  name="uid"
+									formControlName="uid" [(ngModel)]="cpntData.themes.current.uid" required />
+							</div>
+						</div>
+						<div class="form-group row">
+							<label for="theme-link-uid" class="col-3 col-form-label col-form-label-sm">Link UID: </label>
+							<div class="col-9">
+								<input type="text" class="form-control form-control-sm" id="theme-link-uid"  name="theme-link-uid"
+									formControlName="linkUid" [(ngModel)]="cpntData.themes.current.linkUid" required />
+							</div>
+						</div>
+						<div class="form-group row">
+							<label for="theme-classifier-uid" class="col-3 col-form-label col-form-label-sm">Classifier UID: </label>
+							<div class="col-9">
+								<input type="text" class="form-control form-control-sm" id="theme-classifier-uid"
+									name="theme-classifier-uid" formControlName="laoClassifierUid"
+									[(ngModel)]="cpntData.themes.current.laoClassifierUid" />
+							</div>
+						</div>
+						<div class="form-group row">
+							<label for="theme-levels" class="col-4 col-form-label col-form-label-sm">Number of levels</label>
+							<div class="col-8">
+								<select class="form-control form-control-sm" id="theme-levels" name="theme-levels" formControlName="levels"
+								[(ngModel)]="cpntData.themes.current.levels">
+									<option [ngValue]="1">1</option>
+									<option [ngValue]="2">2</option>
+									<option [ngValue]="3">3</option>
+								</select>
+							</div>
+						</div>
+						<div class="form-group row">
+							<div class="form-check col-12 mxb0">
+								<label for="theme-display-plural" class="form-check-label text-standard-2">
+									<input type="checkbox" class="form-check-input text-standard-2" id="theme-display-plural"
+										name="theme-display-plural" formControlName="displayPlural"
+										[(ngModel)]="cpntData.themes.current.displayPlural" />
+										display plural (theme displayed as plural of link; animal1 => animals)
+								</label>
+							</div>
+						</div>
+						<div class="form-group row">
+							<div class="form-check col-12 mxb0">
+								<label for="theme-is-basic" class="form-check-label text-standard-2">
+									<input type="checkbox" class="form-check-input text-standard-2" id="theme-is-basic"
+										name="theme-is-basic" formControlName="isBasic"
+										[(ngModel)]="cpntData.themes.current.isBasic" />
+										is basic ("not a word" items like vowels, consonants, etc.)
+								</label>
+							</div>
+						</div>
+						<div class="form-group row">
+							<div class="form-check col-12 mxb0">
+								<label for="theme-has-images" class="form-check-label text-standard-2">
+									<input type="checkbox" class="form-check-input text-standard-2" id="theme-has-images"
+										name="theme-has-images" formControlName="hasImages"
+										[(ngModel)]="cpntData.themes.current.hasImages" />
+										has images (every items linked has image)
+								</label>
+							</div>
+						</div>
+						<div class="form-group row">
+							<div class="form-check col-12 mxb0">
+								<label for="theme-no-article" class="form-check-label text-standard-2">
+									<input type="checkbox" class="form-check-input text-standard-2" id="theme-no-article"
+										name="theme-no-article" formControlName="noArticle"
+										[(ngModel)]="cpntData.themes.current.noArticle" />
+										no article (don't display article like "the", "les", etc)
+								</label>
+							</div>
+						</div>
+						<div class="form-group row">
+							<div class="form-check col-12 mxb0">
+								<label for="theme-no-karaoke" class="form-check-label text-standard-2">
+									<input type="checkbox" class="form-check-input text-standard-2" id="theme-no-karaoke"
+										name="theme-no-karaoke" formControlName="noKaraoke"
+										[(ngModel)]="cpntData.themes.current.noKaraoke" />
+										no karaoke (don't display karaoke)
+								</label>
+							</div>
+						</div>
+						<div class="form-group row">
+							<div class="form-check col-12 mxb0">
+								<label for="theme-no-plural" class="form-check-label text-standard-2">
+									<input type="checkbox" class="form-check-input text-standard-2" id="theme-no-plural"
+										name="theme-no-plural" formControlName="noPlural"
+										[(ngModel)]="cpntData.themes.current.noPlural" />
+										no plural (don't display plural of items)
+								</label>
+							</div>
+						</div>
+						<a data-toggle="collapse" href="#en-theme-ops" class="form-text mxb10"
+							aria-expanded="false" aria-controls="en-theme-ops">English descriptions by level</a>
+						<div class="collapse" id="en-theme-ops" formGroupName="en">
+							<div class="form-group row">
+								<label for="en-desc-0" class="col-3 col-form-label col-form-label-sm">Level 1: </label>
+								<div class="col-9">
+									<input type="text" class="form-control form-control-sm" id="en-desc-0"  name="en-desc-0"
+										formControlName="desc0" [(ngModel)]="cpntData.themes.current.en.desc[0]" />
+								</div>
+							</div>
+							<div class="form-group row">
+								<label for="en-desc-1" class="col-3 col-form-label col-form-label-sm">Level 2: </label>
+								<div class="col-9">
+									<input type="text" class="form-control form-control-sm" id="en-desc-1"  name="en-desc-1"
+										formControlName="desc1" [(ngModel)]="cpntData.themes.current.en.desc[1]" />
+								</div>
+							</div>
+							<div class="form-group row">
+								<label for="en-desc-2" class="col-3 col-form-label col-form-label-sm">Level 3: </label>
+								<div class="col-9">
+									<input type="text" class="form-control form-control-sm" id="en-desc-2"  name="en-desc-2"
+										formControlName="desc2" [(ngModel)]="cpntData.themes.current.en.desc[2]" />
+								</div>
+							</div>
+						</div>
+						<a data-toggle="collapse" href="#fr-theme-ops" class="form-text mxb10"
+							aria-expanded="false" aria-controls="fr-theme-ops">French descriptions by level</a>
+						<div class="collapse" id="fr-theme-ops" formGroupName="fr">
+							<div class="form-group row">
+								<label for="fr-desc-0" class="col-3 col-form-label col-form-label-sm">Level 1: </label>
+								<div class="col-9">
+									<input type="text" class="form-control form-control-sm" id="fr-desc-0"  name="fr-desc-0"
+										formControlName="desc0" [(ngModel)]="cpntData.themes.current.fr.desc[0]" />
+								</div>
+							</div>
+							<div class="form-group row">
+								<label for="fr-desc-1" class="col-3 col-form-label col-form-label-sm">Level 2: </label>
+								<div class="col-9">
+									<input type="text" class="form-control form-control-sm" id="fr-desc-1"  name="fr-desc-1"
+										formControlName="desc1" [(ngModel)]="cpntData.themes.current.fr.desc[1]" />
+								</div>
+							</div>
+							<div class="form-group row">
+								<label for="fr-desc-2" class="col-3 col-form-label col-form-label-sm">Level 3: </label>
+								<div class="col-9">
+									<input type="text" class="form-control form-control-sm" id="fr-desc-2"  name="fr-desc-2"
+										formControlName="desc2" [(ngModel)]="cpntData.themes.current.fr.desc[2]" />
+								</div>
+							</div>
+						</div>
+						<a data-toggle="collapse" href="#lo-theme-ops" class="form-text mxb10"
+							aria-expanded="false" aria-controls="lo-theme-ops">Lao descriptions by level</a>
+						<div class="collapse" id="lo-theme-ops" formGroupName="lo">
+							<div class="form-group row">
+								<label for="lo-desc-0" class="col-3 col-form-label col-form-label-sm">Level 1: </label>
+								<div class="col-9">
+									<input type="text" class="form-control form-control-sm" id="lo-desc-0"  name="lo-desc-0"
+										formControlName="desc0" [(ngModel)]="cpntData.themes.current.lo.desc[0]" />
+								</div>
+							</div>
+							<div class="form-group row">
+								<label for="lo-desc-1" class="col-3 col-form-label col-form-label-sm">Level 2: </label>
+								<div class="col-9">
+									<input type="text" class="form-control form-control-sm" id="lo-desc-1"  name="lo-desc-1"
+										formControlName="desc1" [(ngModel)]="cpntData.themes.current.lo.desc[1]" />
+								</div>
+							</div>
+							<div class="form-group row">
+								<label for="lo-desc-2" class="col-3 col-form-label col-form-label-sm">Level 3: </label>
+								<div class="col-9">
+									<input type="text" class="form-control form-control-sm" id="lo-desc-2"  name="lo-desc-2"
+										formControlName="desc2" [(ngModel)]="cpntData.themes.current.lo.desc[2]" />
+								</div>
+							</div>
+						</div>
+						<div class="form-group row">
+							<div class="form-check col-12 mxb0">
+								<label for="theme-is-visible" class="form-check-label text-standard-2">
+									<input type="checkbox" class="form-check-input text-standard-2" id="theme-is-visible"
+										name="theme-is-visible" formControlName="isVisible"
+										[(ngModel)]="cpntData.themes.current.isVisible" />
+										is visible (learnable & playable)
+								</label>
+							</div>
+						</div>
+						<div class="form-group row">
+							<div class="form-check col-12 mxb0">
+								<label for="theme-is-validated" class="form-check-label text-standard-2">
+									<input type="checkbox" class="form-check-input text-standard-2" id="theme-is-validated"
+										name="theme-is-validated" formControlName="validated"
+										[(ngModel)]="cpntData.themes.current.validated" />
+										validated (only if every fields are perfect)
+								</label>
+							</div>
+						</div>
+						<button type="submit" class="btn btn-primary btn-lg btn-block"
+							[disabled]="themeForm.invalid">{{ cpntData.themes.current._id ? "Update" : "Create" }} theme</button>
+					</form>
+					<!-- begin form json -->
+					<form [hidden]="!cpntData.isJSON" class="col" name="form"
+						(ngSubmit)="createThemes(jsonForm)" [formGroup]="jsonForm">
+						<div class="form-group">
+							<label for="json-textarea">Should be themes in JSON format <br />@see <a target="_blank" href="http://codebeautify.org/jsonviewer">jsonviewer</a></label>
+							<textarea class="form-control" rows="20"
+							id="json-textarea"  name="json-textarea" formControlName="jsonTextarea" required></textarea>
+						</div>
+						<button type="submit" class="btn btn-primary btn-lg btn-block" [disabled]="jsonForm.invalid">Create themes</button>
+					</form>
+					<!-- end form json -->
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+			</div>
+		</div>
+	</div>
+</div>

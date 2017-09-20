@@ -4,30 +4,27 @@ import { Component, OnInit } from '@angular/core';
 
 // npm dependencies
 import { ToastrService } from 'ngx-toastr';
-import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/filter';
 
 // custom services
-import { ApiService } from './../shared-services/api.service';
-import { ThemeService } from './../shared-services/theme.service';
-import { LanguageService } from './../shared-services/language.service';
-import { ItemService } from './../shared-services/item.service';
-import { ModalService } from './../shared-services/modal.service';
-
-// custom pipes
-// import { CapitalizePipe } from './../shared-pipes/capitalize.pipe';
+import { ApiService } from './../shared/services/api.service';
+import { ThemeService } from './../shared/services/theme.service';
+import { LanguageService } from './../shared/services/language.service';
+import { ItemService } from './../shared/services/item.service';
+import { ModalService } from './../shared/services/modal.service';
+import { VersionService } from './../shared/services/version.service';
 
 // custom models
-import { CreateHttpError, ReadHttpError, UpdateHttpError, DeleteHttpError } from './../shared-models/error.models';
-import { Item } from './../shared-models/item.models';
-import { Theme } from './../shared-models/theme.models';
+import { CreateHttpError, ReadHttpError, UpdateHttpError, DeleteHttpError } from './../shared/models/error.models';
+import { Item } from './../shared/models/item.models';
+import { Theme } from './../shared/models/theme.models';
+declare const $: any;
 
 @Component({
   selector: 'app-admin',
   templateUrl: './admin.component.html'
 })
 export class AdminComponent implements OnInit {
-  private versionUrl = 'api/version';
   cpntData = {
     lang: null,
     items: null,
@@ -40,7 +37,8 @@ export class AdminComponent implements OnInit {
     private itemService: ItemService,
     private toastrService: ToastrService,
     private modalService: ModalService,
-    private apiService: ApiService) {
+    private apiService: ApiService,
+    private versionService: VersionService) {
   }
 
   ngOnInit () {
@@ -57,39 +55,60 @@ export class AdminComponent implements OnInit {
 
     // -- create
     this.itemService.create$.subscribe(data => {
-      this.toastrService.success('Item created succesfully.');
+      this.displaySuccess('Item created', true);
     });
     this.itemService.error$.filter(error => error instanceof CreateHttpError)
-    .subscribe( error => {
-      if (error.code && error.toasterMessage) {
-        this.toastrService.error(error.toasterMessage, 'Error n°' + error.code);
-      }
+    .subscribe(this.displayBasicError);
+    this.themeService.create$.subscribe(data => {
+      this.displaySuccess('Theme created', false);
     });
+    this.themeService.error$.filter(error => error instanceof CreateHttpError)
+    .subscribe(this.displayBasicError);
 
-        // -- create
+    // -- update
     this.itemService.update$.subscribe(data => {
-      this.toastrService.success('Item updated succesfully.');
+      this.displaySuccess('Item updated', true);
     });
     this.itemService.error$.filter(error => error instanceof UpdateHttpError)
-    .subscribe( error => {
-      if (error.code && error.toasterMessage) {
-        this.toastrService.error(error.toasterMessage, 'Error n°' + error.code);
-      }
+    .subscribe(this.displayBasicError);
+    this.themeService.update$.subscribe(data => {
+      this.displaySuccess('Theme updated', true);
     });
+    this.themeService.error$.filter(error => error instanceof UpdateHttpError)
+    .subscribe(this.displayBasicError);
 
     // -- delete
     this.itemService.delete$.subscribe(data => {
       this.toastrService.success('Item succesfully deleted.');
     });
     this.itemService.error$.filter(error => error instanceof DeleteHttpError)
-    .subscribe( error => {
-      if (error.code && error.toasterMessage) {
-        this.toastrService.error(error.toasterMessage, 'Error n°' + error.code);
-      }
+    .subscribe(this.displayBasicError);
+    this.themeService.delete$.subscribe(data => {
+      this.toastrService.success('Theme succesfully deleted.');
     });
+    this.itemService.error$.filter(error => error instanceof DeleteHttpError)
+    .subscribe(this.displayBasicError);
 
     // finally, retrieve all items
     this.itemService.read();
+  }
+
+  restoreVersion () {
+    this.apiService.getResources('api/version/restore', true).subscribe((data) => {
+      console.log(data);
+    });
+  }
+
+  displayBasicError (error: any) {
+    if (error.code && error.toasterMessage) {
+      this.toastrService.error(error.toasterMessage, 'Error n°' + error.code);
+    }
+  }
+
+  displaySuccess (msg: string, isItem: boolean) {
+    this.toastrService.success(msg + ' successfully.');
+    $(isItem ? '#itemModal' : '#themeModal').modal('hide');
+    this[isItem  ? 'itemService' : 'themeService'].data.current = isItem ? new Item() : new Theme();
   }
 
   createEmptyTheme () {
@@ -100,37 +119,26 @@ export class AdminComponent implements OnInit {
     this.cpntData.items.current = new Item();
   }
 
-  confirmDelete (id: string, event) {
+  confirmDeleteItem (id: string, event) {
     this.modalService.setConfirmMethod(() => {
       this.itemService.delete(id);
     });
   }
+  confirmDeleteTheme (id: string, event) {
+    this.modalService.setConfirmMethod(() => {
+      this.themeService.delete(id);
+    });
+  }
 
   createVersion () {
-    this.apiService.postResources(this.versionUrl, null, true).catch(error => {
-      return Observable.throw(new Error());
-    }).subscribe((version: any) => {
-      console.log(version);
-    }, err => {
-      console.error('createVersion ERROR:', err);
-    });
+    this.versionService.create();
   }
+
   updateVersion () {
-    this.apiService.putResources(this.versionUrl, null, true).catch(error => {
-      return Observable.throw(new Error());
-    }).subscribe((version: any) => {
-      console.log(version);
-    }, err => {
-      console.error('updateVersion ERROR:', err);
-    });
+    this.versionService.update();
   }
+
   deleteVersion () {
-    this.apiService.deleteResources(this.versionUrl, true).catch(error => {
-      return Observable.throw(new Error());
-    }).subscribe((version: any) => {
-      console.log(version);
-    }, err => {
-      console.error('updateVersion ERROR:', err);
-    });
+    this.versionService.delete();
   }
 }

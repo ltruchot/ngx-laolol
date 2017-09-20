@@ -2,8 +2,8 @@
 import { Component, OnInit } from '@angular/core';
 
 // custom services
-import { ThemeService } from './../shared-services/theme.service';
-import { LanguageService } from './../shared-services/language.service';
+import { ThemeService } from './../shared/services/theme.service';
+import { LanguageService } from './../shared/services/language.service';
 
 @Component({
   selector: 'app-exams',

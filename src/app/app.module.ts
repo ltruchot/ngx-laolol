@@ -14,22 +14,23 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 // custom modules
 import { AppRoutingModule } from './app-routing.module';
-import { SharedModule } from './shared-components/shared.module';
+import { SharedModule } from './shared/shared.module';
 
 // custom components
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 
 // custom services
-import { AdminActivationService } from './shared-services/admin-activation.service';
-import { ApiService } from './shared-services/api.service';
-import { ItemService } from './shared-services/item.service';
-import { LanguageService } from './shared-services/language.service';
-import { ModalService } from './shared-services/modal.service';
-import { StorageService } from './shared-services/storage.service';
-import { ThemeService } from './shared-services/theme.service';
-import { TongueService } from './shared-services/tongue.service';
-import { UserService } from './shared-services/user.service';
+import { AdminActivationService } from './shared/services/admin-activation.service';
+import { ApiService } from './shared/services/api.service';
+import { ItemService } from './shared/services/item.service';
+import { LanguageService } from './shared/services/language.service';
+import { ModalService } from './shared/services/modal.service';
+import { StorageService } from './shared/services/storage.service';
+import { ThemeService } from './shared/services/theme.service';
+import { TongueService } from './shared/services/tongue.service';
+import { UserService } from './shared/services/user.service';
+import { VersionService } from './shared/services/version.service';
 
 // language export for AOT build
 export function HttpLoaderFactory(http: HttpClient) {
@@ -71,7 +72,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     StorageService,
     ThemeService,
     TongueService,
-    UserService
+    UserService,
+    VersionService
   ],
   bootstrap: [AppComponent]
 })

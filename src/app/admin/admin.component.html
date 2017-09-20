@@ -24,13 +24,17 @@
 			data-toggle="modal" data-target="#themeModal">Create new theme</button>
 	</div>
 	<div *ngIf="cpntData.tabSection === 2" class="mxtb10">
-
-			<button type="button" class="btn btn-primary" [style.marginRight]="'50px'"
-				(click)="updateVersion()">Update version</button>
-			<button type="button" class="btn btn-danger"
-				(click)="createVersion()">Create new version</button>
-			<button type="button" class="btn btn-danger"
-				(click)="deleteVersion()">Delete version</button>
+		<p>When you create/update/modify/delete any theme or item, you're the only on to see modifications. <br />
+			<strong>Update the version</strong> to apply modifications for everyone.<br /> <br />
+			<strong>Never use the other buttons</strong>, except in case of fresh start of Laolol</p>
+		<button type="button" class="btn btn-primary" [style.marginRight]="'50px'"
+			(click)="updateVersion()">Update version</button>
+		<button type="button" class="btn btn-danger"
+			(click)="createVersion()">Create new version</button>
+		<button type="button" class="btn btn-danger"
+			(click)="deleteVersion()">Delete version</button>
+		<button type="button" class="btn btn-danger"
+			(click)="restoreVersion()">Restore version</button>
 
 	</div>
 	<table *ngIf="cpntData.tabSection === 0" class="table table-striped table-hover table-sm">
@@ -51,7 +55,7 @@
 				<td data-toggle="modal" data-target="#itemModal">{{ item.fr.wrd }}</td>
 				<td data-toggle="modal" data-target="#itemModal"><span class="font-lao">{{ item.lo.wrd }}</span></td>
 				<td>
-					<button (click)="confirmDelete(item._id, $event)" id="btn-menu-lang" class="btn btn-sm btn-danger"
+					<button (click)="confirmDeleteItem(item._id, $event)" id="btn-menu-lang" class="btn btn-sm btn-danger"
 						data-toggle="modal" data-target="#confirmModal" aria-haspopup="true" aria-expanded="false">
            delete
         	</button>
@@ -71,15 +75,22 @@
 			</tr>
 		</thead>
 		<tbody>
-			<tr *ngFor="let theme of cpntData.themes.all; let i = index;"
-			 (click)="cpntData.themes.current = theme">
+			<tr *ngFor="let theme of cpntData.themes.all;" (click)="cpntData.themes.current = theme">
 				<td data-toggle="modal" data-target="#themeModal">{{ theme.uid }}</td>
-				<td data-toggle="modal" data-target="#themeModal">{{ theme.link.en.wrd }}</td>
-				<td data-toggle="modal" data-target="#themeModal">{{ theme.link.fr.wrd }}</td>
-				<td data-toggle="modal" data-target="#themeModal"><span class="font-lao">{{ theme.link.lo.wrd }}</span></td>
+				<td data-toggle="modal" data-target="#themeModal">
+					{{ theme.displayPlural ? theme.link.en.tongue.plural : theme.link.en.wrd }}
+				</td>
+				<td data-toggle="modal" data-target="#themeModal">
+					{{ theme.displayPlural ? theme.link.fr.tongue.plural : theme.link.fr.wrd }}
+				</td>
+				<td data-toggle="modal" data-target="#themeModal">
+					<span class="font-lao">
+						{{ theme.displayPlural ? theme.link.lo.tongue.plural : theme.link.lo.wrd }}
+					</span>
+				</td>
 				<td data-toggle="modal" data-target="#themeModal">{{ theme.levels }}</td>
 				<td>
-					<button (click)="confirmDelete(theme._id, $event)" id="btn-menu-lang" class="btn btn-sm btn-danger"
+					<button (click)="confirmDeleteTheme(theme._id, $event)" id="btn-menu-lang" class="btn btn-sm btn-danger"
 						data-toggle="modal" data-target="#confirmModal" aria-haspopup="true" aria-expanded="false">
            delete
         	</button>

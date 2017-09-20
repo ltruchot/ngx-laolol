@@ -3,8 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 // custom dependencies
-import { LanguageService } from './../shared-services/language.service';
-import { ThemeService } from './../shared-services/theme.service';
+import { LanguageService } from './../shared/services/language.service';
+import { ThemeService } from './../shared/services/theme.service';
 
 @Component({
   selector: 'app-home',

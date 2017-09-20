@@ -27,4 +27,11 @@ module.exports = function (app) {
 				versions.deleteVersion(req, res);
 			}
 		});
+	app.route('api/version/restore')
+		.get(requireAuth, (req, res) => {
+			let code = users.roleAuthorization(users.roles.REQUIRE_ADMIN, req, res);
+			if (code === 201) {
+				versions.restoreVersion(req, res);
+			}
+		});
 };

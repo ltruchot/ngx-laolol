@@ -7,7 +7,7 @@ import { RouterModule } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
 
 // custom modules
-import { SharedModule } from './../shared-components/shared.module';
+import { SharedModule } from './../shared/shared.module';
 
 // custom components
 import { GameboardComponent } from './gameboard.component';

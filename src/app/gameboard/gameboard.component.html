@@ -9,8 +9,8 @@
 				{{ cpntData.items[cpntData.winItemIdx][cpntData.theme.isReversed ? cpntData.lang.learningLang : cpntData.lang.currentLang].wrd }}
 			</span>
 			<ng-template [ngIf]="cpntData.theme?.isReversed &&
-				cpntData.theme.isKaraoke &&
-				!cpntData.theme.learning.noKaraoke &&
+				cpntData.theme.displayKaraoke &&
+				!cpntData.theme.learning?.noKaraoke &&
 				cpntData.items[cpntData.winItemIdx] &&
 				cpntData.items[cpntData.winItemIdx][cpntData.lang.learningLang].kk[cpntData.lang.currentLang]">
 				<em class="text-primary" [ngClass]="{'font-lao': !isLaoLanguage}">({{ cpntData.items[cpntData.winItemIdx][cpntData.lang.learningLang].kk[cpntData.lang.currentLang] }})</em>
@@ -40,7 +40,7 @@
 					item[cpntData.lang.currentLang].meta?.tone">
 					({{ item[cpntData.lang.currentLang].meta?.tone }})
 				</em>
-				<ng-template [ngIf]="cpntData.theme.isKaraoke && !cpntData.theme.learning.noKaraoke && item[cpntData.lang.learningLang].kk && !cpntData.theme.isReversed">
+				<ng-template [ngIf]="cpntData.theme.displayKaraoke && !cpntData.theme.learning.noKaraoke && item[cpntData.lang.learningLang].kk && !cpntData.theme.isReversed">
 					<br />
 					<em [ngClass]="{
 						'text-primary': cpntData.clickedIdx === null || (cpntData.clickedIdx === -1),

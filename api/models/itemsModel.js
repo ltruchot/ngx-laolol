@@ -12,8 +12,7 @@ var ItemsSchema = new Schema({
 	img: String,
 	themes: {
 		type: [String],
-		ref: 'Theme',
-		required: 'Themes Array should exist.'
+		ref: 'Theme'
 	},
 	lvl: Number,
 	en: {

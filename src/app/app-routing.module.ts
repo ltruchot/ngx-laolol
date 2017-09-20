@@ -4,7 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 // custom components
 import { HomeComponent } from './home/home.component';
 // custom services
-import { AdminActivationService } from './shared-services/admin-activation.service';
+import { AdminActivationService } from './shared/services/admin-activation.service';
 
 
 const routes: Routes = [

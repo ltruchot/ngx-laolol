@@ -20,7 +20,14 @@ module.exports = function (app) {
 
 	app.route('/api/items/:itemId')
 		.get(items.readItem)
-		.put(requireAuth, items.updateItem)
+		.put(requireAuth, requireAuth, (req, res) => {
+			let code = users.roleAuthorization(users.roles.REQUIRE_ADMIN, req, res);
+			if (code === 201) {
+				items.updateItem(req, res);
+			} else {
+				res.status('400').json({ error: 'Invalid ids' });
+			}
+		})
 		.delete(requireAuth, (req, res) => {
 			let code = users.roleAuthorization(users.roles.REQUIRE_ADMIN, req, res);
 			if (code === 201) {

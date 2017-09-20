@@ -15,15 +15,15 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/filter';
 
 // custom services
-import { LanguageService } from './shared-services/language.service';
-import { ThemeService } from './shared-services/theme.service';
-import { UserService } from './shared-services/user.service';
-import { StorageService } from './shared-services/storage.service';
-import { ApiService } from './shared-services/api.service';
-import { ItemService } from './shared-services/item.service';
+import { LanguageService } from './shared/services/language.service';
+import { ThemeService } from './shared/services/theme.service';
+import { UserService } from './shared/services/user.service';
+import { StorageService } from './shared/services/storage.service';
+import { ApiService } from './shared/services/api.service';
+import { ItemService } from './shared/services/item.service';
 
 // custome models
-// import { ReadHttpError } from './shared-models/error.models';
+// import { ReadHttpError } from './shared/models/error.models';
 
 @Component({
   selector: 'app-root',
@@ -36,7 +36,7 @@ export class AppComponent implements OnInit {
     user: null,
     theme: null,
     loadingRoute: true,
-    currentVersion: 'Beta version 0.2.0'
+    currentVersion: 'Version 1.0.0'
   };
   constructor (private languageService: LanguageService,
     private router: Router,
@@ -78,6 +78,8 @@ export class AppComponent implements OnInit {
         this.themeService.resetThemes();
         this.storageService.setItem('itemsVersion', version.current);
       }
+      this.itemService.initialize();
+      this.themeService.initialize();
     }, err => {
       console.error('updateVersion ERROR:', err);
     });
