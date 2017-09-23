@@ -1,9 +1,10 @@
 // ng dependencies
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 // import { Router } from '@angular/router';
 
 // npm dependencies
 import { ToastrService } from 'ngx-toastr';
+import { Subscription } from 'rxjs/Subscription';
 import 'rxjs/add/operator/filter';
 
 // custom services
@@ -15,130 +16,157 @@ import { ModalService } from './../shared/services/modal.service';
 import { VersionService } from './../shared/services/version.service';
 
 // custom models
-import { CreateHttpError, ReadHttpError, UpdateHttpError, DeleteHttpError } from './../shared/models/error.models';
+import {
+	CreateHttpError,
+	DeleteHttpError,
+	HttpError,
+	ReadHttpError,
+	UpdateHttpError
+} from './../shared/models/error.models';
 import { Item } from './../shared/models/item.models';
 import { Theme } from './../shared/models/theme.models';
 declare const $: any;
 
 @Component({
-  selector: 'app-admin',
-  templateUrl: './admin.component.html'
+	selector: 'app-admin',
+	templateUrl: './admin.component.html'
 })
-export class AdminComponent implements OnInit {
-  cpntData = {
-    lang: null,
-    items: null,
-    themes: null,
-    tabSection: 0
-  };
+export class AdminComponent implements OnInit, OnDestroy {
+	cpntData = {
+		lang: null,
+		items: null,
+		themes: null,
+		tabSection: 0,
+		selectedFilter: 'all'
+	};
+	subscriptions: Subscription[] = [];
 
-  constructor (private themeService: ThemeService,
-    private languageService: LanguageService,
-    private itemService: ItemService,
-    private toastrService: ToastrService,
-    private modalService: ModalService,
-    private apiService: ApiService,
-    private versionService: VersionService) {
-  }
+	constructor (private themeService: ThemeService,
+		private languageService: LanguageService,
+		private itemService: ItemService,
+		private toastrService: ToastrService,
+		private modalService: ModalService,
+		private apiService: ApiService,
+		private versionService: VersionService) {
+	}
 
-  ngOnInit () {
-    // init shared data
-    this.cpntData.lang =  this.languageService.data;
-    this.cpntData.themes = this.themeService.data;
-    this.cpntData.items = this.itemService.data;
+	ngOnInit () {
+		// init shared data
+		this.cpntData.lang =  this.languageService.data;
+		this.cpntData.themes = this.themeService.data;
+		this.cpntData.items = this.itemService.data;
 
-    // init CRUD subscriptions
-    // -- read
-    this.itemService.error$.filter(error => error instanceof ReadHttpError).subscribe(error => {
-      console.error('ReadHttpError', error);
-    });
+		// init CRUD subscriptions
+		const initialSubscriptions = [
+			// -- read
+			this.itemService.error$
+				.filter((error: HttpError)  => error instanceof ReadHttpError)
+				.subscribe((error: ReadHttpError) => console.error('ReadHttpError', error)),
 
-    // -- create
-    this.itemService.create$.subscribe(data => {
-      this.displaySuccess('Item created', true);
-    });
-    this.itemService.error$.filter(error => error instanceof CreateHttpError)
-    .subscribe(this.displayBasicError);
-    this.themeService.create$.subscribe(data => {
-      this.displaySuccess('Theme created', false);
-    });
-    this.themeService.error$.filter(error => error instanceof CreateHttpError)
-    .subscribe(this.displayBasicError);
+			// -- create
+			this.itemService.create$.subscribe(() => this.displaySuccess('Item created', true)),
+			this.itemService.error$
+				.filter((error: HttpError) => error instanceof CreateHttpError)
+				.subscribe(this.displayBasicError),
+			this.themeService.create$.subscribe(() => this.displaySuccess('Theme created', false)),
+			this.themeService.error$
+				.filter((error: HttpError)  => error instanceof CreateHttpError)
+				.subscribe(this.displayBasicError),
 
-    // -- update
-    this.itemService.update$.subscribe(data => {
-      this.displaySuccess('Item updated', true);
-    });
-    this.itemService.error$.filter(error => error instanceof UpdateHttpError)
-    .subscribe(this.displayBasicError);
-    this.themeService.update$.subscribe(data => {
-      this.displaySuccess('Theme updated', true);
-    });
-    this.themeService.error$.filter(error => error instanceof UpdateHttpError)
-    .subscribe(this.displayBasicError);
+			// -- update
+			this.itemService.update$.subscribe(() => this.displaySuccess('Item updated', true)),
+			this.itemService.error$
+				.filter((error: HttpError) => error instanceof UpdateHttpError)
+				.subscribe(this.displayBasicError),
+			this.themeService.update$.subscribe(() => this.displaySuccess('Theme updated', true)),
+			this.themeService.error$
+				.filter((error: HttpError) => error instanceof UpdateHttpError)
+				.subscribe(this.displayBasicError),
 
-    // -- delete
-    this.itemService.delete$.subscribe(data => {
-      this.toastrService.success('Item succesfully deleted.');
-    });
-    this.itemService.error$.filter(error => error instanceof DeleteHttpError)
-    .subscribe(this.displayBasicError);
-    this.themeService.delete$.subscribe(data => {
-      this.toastrService.success('Theme succesfully deleted.');
-    });
-    this.itemService.error$.filter(error => error instanceof DeleteHttpError)
-    .subscribe(this.displayBasicError);
+			// -- delete
+			this.itemService.delete$.subscribe(() => this.toastrService.success('Item succesfully deleted.')),
+			this.itemService.error$
+				.filter((error: HttpError) => error instanceof DeleteHttpError)
+				.subscribe(this.displayBasicError),
+			this.themeService.delete$.subscribe(() => this.toastrService.success('Theme succesfully deleted.')),
+			this.itemService.error$
+				.filter((error: HttpError) => error instanceof DeleteHttpError)
+				.subscribe(this.displayBasicError)
+		];
+		this.subscriptions.push(...initialSubscriptions);
 
-    // finally, retrieve all items
-    this.itemService.read();
-  }
+		// finally, retrieve all items
+		this.itemService.read();
+	}
 
-  restoreVersion () {
-    this.apiService.getResources('api/version/restore', true).subscribe((data) => {
-      console.log(data);
-    });
-  }
+	ngOnDestroy () {
+		this.subscriptions.forEach((sub: Subscription) => sub.unsubscribe());
+	}
 
-  displayBasicError (error: any) {
-    if (error.code && error.toasterMessage) {
-      this.toastrService.error(error.toasterMessage, 'Error n°' + error.code);
-    }
-  }
+	get filteredItems () {
+		// console.log('admin.service::get filteredItems', this.cpntData.selectedFilter)
+		if (this.cpntData.selectedFilter === 'all') {
+			return this.cpntData.items.all;
+		} else if (this.cpntData.selectedFilter === 'none') {
+			return this.cpntData.items.all.filter((item) => {
+			return item.themes.length === 0;
+		});
+		}
+		return this.cpntData.items.all.filter((item) => {
+			return item.themes.indexOf(this.cpntData.selectedFilter) !== -1;
+		});
+	}
 
-  displaySuccess (msg: string, isItem: boolean) {
-    this.toastrService.success(msg + ' successfully.');
-    $(isItem ? '#itemModal' : '#themeModal').modal('hide');
-    this[isItem  ? 'itemService' : 'themeService'].data.current = isItem ? new Item() : new Theme();
-  }
+	changeFilter (val: string) {
+		this.cpntData.selectedFilter = val;
+	}
 
-  createEmptyTheme () {
-    this.cpntData.themes.current = new Theme();
-  }
+	restoreVersion () {
+		this.apiService.getResources('api/version/restore', true).subscribe((data) => {
+			console.log(data);
+		});
+	}
 
-  createEmptyItem () {
-    this.cpntData.items.current = new Item();
-  }
+	displayBasicError (error: any) {
+		if (error.code && error.toasterMessage) {
+			this.toastrService.error(error.toasterMessage, 'Error n°' + error.code);
+		}
+	}
 
-  confirmDeleteItem (id: string, event) {
-    this.modalService.setConfirmMethod(() => {
-      this.itemService.delete(id);
-    });
-  }
-  confirmDeleteTheme (id: string, event) {
-    this.modalService.setConfirmMethod(() => {
-      this.themeService.delete(id);
-    });
-  }
+	displaySuccess (msg: string, isItem: boolean) {
+		this.toastrService.success(msg + ' successfully.');
+		$(isItem ? '#itemModal' : '#themeModal').modal('hide');
+		this[isItem  ? 'itemService' : 'themeService'].data.current = isItem ? new Item() : new Theme();
+	}
 
-  createVersion () {
-    this.versionService.create();
-  }
+	createEmptyTheme () {
+		this.cpntData.themes.current = new Theme();
+	}
 
-  updateVersion () {
-    this.versionService.update();
-  }
+	createEmptyItem () {
+		this.cpntData.items.current = new Item();
+	}
 
-  deleteVersion () {
-    this.versionService.delete();
-  }
+	confirmDeleteItem (id: string, event) {
+		this.modalService.setConfirmMethod(() => {
+			this.itemService.delete(id);
+		});
+	}
+	confirmDeleteTheme (id: string, event) {
+		this.modalService.setConfirmMethod(() => {
+			this.themeService.delete(id);
+		});
+	}
+
+	createVersion () {
+		this.versionService.create();
+	}
+
+	updateVersion () {
+		this.versionService.update();
+	}
+
+	deleteVersion () {
+		this.versionService.delete();
+	}
 }

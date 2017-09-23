@@ -14,6 +14,18 @@ var ThemesSchema = new Schema({
 		unique: true
 	},
 	displayPlural: Boolean,
+	hasCapital: Boolean,
+	hasImages: Boolean,
+	hasSpecialExample: Boolean,
+	isBasic: Boolean,
+	isLaoAlphabet: Boolean,
+	isVisible: Boolean,
+	noArticle: Boolean,
+	noKaraoke: Boolean,
+	noPlural: Boolean,
+	validated: Boolean,
+	laoClassifierUid: String,
+	levels: Number,
 	en: {
 		desc: [String]
 	},
@@ -23,17 +35,6 @@ var ThemesSchema = new Schema({
 	lo: {
 		desc: [String]
 	},
-	isVisible: Boolean,
-	isBasic: Boolean,
-	hasCapital: Boolean,
-	hasImages: Boolean,
-	hasSpecialExample: Boolean,
-	noArticle: Boolean,
-	noKaraoke: Boolean,
-	noPlural: Boolean,
-	levels: Number,
-	laoClassifierUid: String,
-	validated: Boolean,
 	_userId: { type: Schema.Types.ObjectId, ref: 'User' }
 });
 module.exports = mongoose.model('Theme', ThemesSchema);

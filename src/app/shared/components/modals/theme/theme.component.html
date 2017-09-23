@@ -77,6 +77,16 @@
 						</div>
 						<div class="form-group row">
 							<div class="form-check col-12 mxb0">
+								<label for="theme-is-laoalphabet" class="form-check-label text-standard-2">
+									<input type="checkbox" class="form-check-input text-standard-2" id="theme-is-laoalphabet"
+										name="theme-is-laoalphabet" formControlName="isLaoAlphabet"
+										[(ngModel)]="cpntData.themes.current.isLaoAlphabet" />
+										is lao alphabet (some themes need to be sorted by lao alphabetical order)
+								</label>
+							</div>
+						</div>
+						<div class="form-group row">
+							<div class="form-check col-12 mxb0">
 								<label for="theme-has-images" class="form-check-label text-standard-2">
 									<input type="checkbox" class="form-check-input text-standard-2" id="theme-has-images"
 										name="theme-has-images" formControlName="hasImages"

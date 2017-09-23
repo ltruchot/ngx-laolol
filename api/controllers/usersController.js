@@ -5,7 +5,7 @@ const config = require('./../config');
 
 function generateToken (user) {
 	return jwt.sign(user, config.secretJWT, {
-		expiresIn: 10080 // in seconds
+		expiresIn: '7d'
 	});
 }
 

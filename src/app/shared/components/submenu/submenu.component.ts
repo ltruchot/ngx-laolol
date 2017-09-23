@@ -39,7 +39,6 @@ export class SubmenuComponent implements OnInit {
   }
 
   changeLearningTheme(uid: string) {
-    console.log(uid);
     this.router.parseUrl(this.router.url);
     if (this.cpntData.currentUrl) {
       this.router.navigate([this.cpntData.currentUrl + '/' + uid]);
