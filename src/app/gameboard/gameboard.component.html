@@ -13,7 +13,7 @@
 				!cpntData.theme.learning?.noKaraoke &&
 				cpntData.items[cpntData.winItemIdx] &&
 				cpntData.items[cpntData.winItemIdx][cpntData.lang.learningLang].kk[cpntData.lang.currentLang]">
-				<em class="text-primary" [ngClass]="{'font-lao': !isLaoLanguage}">({{ cpntData.items[cpntData.winItemIdx][cpntData.lang.learningLang].kk[cpntData.lang.currentLang] }})</em>
+				<em class="text-primary" [ngClass]="{'font-lao': !isLaoLanguage}" innerHTML="{{ cpntData.items[cpntData.winItemIdx][cpntData.lang.learningLang].kk[cpntData.lang.currentLang] | unbreakable }}"></em>
 			</ng-template>
 			<em *ngIf="(cpntData.lang?.currentLang === 'fr' || cpntData.lang?.currentLang === 'en') &&
 			!cpntData.theme.isReversed && cpntData.items[cpntData.winItemIdx] &&
@@ -46,8 +46,7 @@
 						'text-primary': cpntData.clickedIdx === null || (cpntData.clickedIdx === -1),
 						'text-dark': cpntData.clickedIdx > 0,
 						'font-lao': isLaoLanguage
-					}">
-						{{ item[cpntData.lang.learningLang].kk[cpntData.lang.currentLang] }}
+					}" innerHTML="{{ item[cpntData.lang.learningLang].kk[cpntData.lang.currentLang] | unbreakable }}">
 					</em>
 				</ng-template>
 			</button>

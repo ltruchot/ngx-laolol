@@ -5,6 +5,7 @@ import { RouterModule } from '@angular/router';
 
 // npm dependencies
 import { TranslateModule } from '@ngx-translate/core';
+import { LocalizeRouterModule } from 'localize-router';
 
 // custom modules
 import { SharedModule } from './../shared/shared.module';
@@ -12,15 +13,16 @@ import { SharedModule } from './../shared/shared.module';
 // custom components
 import { BlackboardComponent } from './blackboard.component';
 
+const routes =  [{ path: '', component: BlackboardComponent, pathMatch: 'full'}];
+
 @NgModule({
-  imports: [
-    CommonModule,
-    TranslateModule,
-    SharedModule,
-    RouterModule.forChild([
-      { path: '', component: BlackboardComponent, pathMatch: 'full'}
-    ])
-  ],
-  declarations: [BlackboardComponent]
+	imports: [
+		CommonModule,
+		TranslateModule,
+		SharedModule,
+		RouterModule.forChild(routes),
+		LocalizeRouterModule.forChild(routes)
+	],
+	declarations: [BlackboardComponent]
 })
 export class BlackboardModule { }

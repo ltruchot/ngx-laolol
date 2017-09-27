@@ -4,15 +4,14 @@
 			id="btn-submenu-theme" class="btn btn-warning dropdown-toggle btn-sm"
 			data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 			{{
-				cpntData.theme.learning.displayPlural ?
+				(cpntData.theme.learning.displayPlural ?
 				cpntData.theme.learning.link[cpntData.lang.currentLang].tongue.plural :
-				cpntData.theme.learning.link[cpntData.lang.currentLang].wrd
+				cpntData.theme.learning.link[cpntData.lang.currentLang].wrd) | truncate:[7]
 			}}
 		</button>
 		<div class="dropdown-menu" aria-labelledby="btn-submenu-theme" *ngIf="cpntData.theme?.all?.length">
 			<ng-container *ngFor="let theme of cpntData.theme.all; let i = index;">
-					<a *ngIf="theme.isVisible" class="dropdown-item" [ngClass]="{'active': theme.uid  === cpntData.theme.learningUid}"
-						(click)="changeLearningTheme(theme.uid)">
+					<a *ngIf="theme.isVisible" class="dropdown-item" [ngClass]="{'active': theme.uid  === cpntData.theme.learningUid}" [routerLink]="[cpntData.currentUrl, theme.uid] | localize">
 						{{
 							theme.displayPlural ?
 							theme.link[cpntData.lang.currentLang].tongue.plural :
@@ -23,7 +22,7 @@
 			</ng-container>
 		</div>
 	</div>
-	<div class="btn-group btn-sm" role="group" *ngIf="cpntData.theme?.levels?.length">
+	<div class="btn-group btn-sm" role="group" *ngIf="cpntData.theme?.learning?.levels > 1">
 		<button id="btn-submenu-level" class="btn btn-danger dropdown-toggle btn-sm"
 			data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 				<span *ngIf="cpntData.theme.learningLevel === cpntData.theme.levels.length - 1; else realLvl">{{ 'submenu.all' | translate }}</span>

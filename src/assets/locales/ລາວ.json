@@ -1,4 +1,10 @@
 {
+  "localizeRouter": {
+    "home": "ໜ້າຫຼັກ",
+    "404": "404",
+    "blackboard": "ຫ້ອງຮຽນ",
+    "gameboard": "ຫ້ອງເກມ"
+  },
   "words": {
     "and": "ແລະ",
     "languageEnglish": "ພາ​ສາ​ອັງ​ກິດ",
@@ -12,7 +18,7 @@
     "chooseLang": "ເລືອກ ພາສາ",
     "exams": "ປະເມີນຜົນ",
     "gameboard": "ຫ້ອງເກມ",
-    "home": " ໜ້າຫຼັກ",
+    "home": "ໜ້າຫຼັກ",
     "lao": "ລາວ",
     "lol": "555",
     "menu": "ລາຍການ",

@@ -1,19 +1,19 @@
-<div class="view-home" [ngClass]="{'font-lao': cpntData.lang?.currentLang === 'lo'}">
+<div class="view-home" [ngClass]="{'font-lao': isCurrentLangLao}">
 	<p>
 	  {{ 'home.intro1' | translate }}<br />
 	  {{ 'home.intro2' | translate }}
 	</p>
 	<p>{{ 'home.andNow' | translate }}, {{ 'home.letsPlay' | translate }}<br/>
 		{{ 'home.wantLearn' | translate }}:
-			<a *ngIf="cpntData.lang?.currentLang !== 'lo'"
+			<a *ngIf="!isCurrentLangLao"
 				[routerLink]="'/gameboard/' + cpntData.theme?.learning?.uid"
 				(click)="changeLearningLang('lo')">{{ 'words.languageLao' | translate }}</a>
-			<ng-template [ngIf]="cpntData.lang?.currentLang === 'fr' || cpntData.lang?.currentLang === 'en'">{{ 'words.or' | translate }}</ng-template>
-			<a *ngIf="cpntData.lang?.currentLang !== 'fr'"
+			<ng-template [ngIf]="isCurrentLangLao">{{ 'words.or' | translate }}</ng-template>
+			<a *ngIf="langData.currentLangInfos?.code !== 'fr'"
 				[routerLink]="'/gameboard/' + cpntData.theme?.learning?.uid"
 				(click)="changeLearningLang('fr')">{{ 'words.languageFrench' | translate }}</a><!--
-		--><ng-template [ngIf]="cpntData.lang?.currentLang === 'lo'"> {{ 'words.or' | translate }} </ng-template><!--
-		--><a *ngIf="cpntData.lang?.currentLang !== 'en'"
+		--><ng-template [ngIf]="isCurrentLangLao"> {{ 'words.or' | translate }} </ng-template><!--
+		--><a *ngIf="langData.currentLangInfos?.code !== 'en'"
 				[routerLink]="'/gameboard/' + cpntData.theme?.learning?.uid"
 				(click)="changeLearningLang('en')">{{ 'words.languageEnglish' | translate }}</a>.
 	</p>

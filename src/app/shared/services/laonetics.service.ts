@@ -4,20 +4,22 @@ import { Injectable } from '@angular/core';
 // npm dependencies
 import {
 	ISlicedSyllables,
-	LaoneticsSorter
+	LaoneticsSorter,
+	LaoneticsTranslater,
 } from 'laonetics';
 
 // custom models
 import { Item } from './../models/item.models';
-// import { Language } from './../models/language.models';
+// import { ILanguage } from './../models/language.models';
 
 @Injectable()
 export class LaoneticsService {
 	sorter: LaoneticsSorter = new LaoneticsSorter();
+	translater: LaoneticsTranslater = new LaoneticsTranslater();
 	constructor () {
 	}
 	getKaraoke (word: string): ISlicedSyllables {
-		return this.sorter.getKaraoke(word, [
+		return this.translater.getKaraoke(word, [
 			'fr', 'en', 'ph'
 		]);
 	}

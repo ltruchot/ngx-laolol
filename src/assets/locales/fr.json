@@ -1,4 +1,10 @@
 {
+  "localizeRouter": {
+    "home": "accueil",
+    "404": "404",
+    "blackboard": "salle-de-cours",
+    "gameboard": "salle-de-jeu"
+  },
   "words": {
     "and": "et",
     "languageEnglish": "l'anglais",

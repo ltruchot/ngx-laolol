@@ -1,18 +1,22 @@
 // ng dependencies
 import { Component, OnInit } from '@angular/core';
 import {
-    Router,
-    // import as RouterEvent to avoid confusion with the DOM Event
-    Event as RouterEvent,
-    NavigationStart,
-    NavigationEnd,
-    NavigationCancel,
-    NavigationError
+		Router,
+		// import as RouterEvent to avoid confusion with the DOM Event
+		Event as RouterEvent,
+		NavigationStart,
+		NavigationEnd,
+		NavigationCancel,
+		NavigationError
 } from '@angular/router';
 
 // npm dependencies
 import { Observable } from 'rxjs/Observable';
+import { LocalizeRouterService } from 'localize-router';
 import 'rxjs/add/operator/filter';
+
+// custom modules
+import { ROUTES_CONFIG } from './shared/values/routes.values';
 
 // custom services
 import { LanguageService } from './shared/services/language.service';
@@ -25,93 +29,108 @@ import { ItemService } from './shared/services/item.service';
 // custome models
 // import { ReadHttpError } from './shared/models/error.models';
 
+// custom components
+import { LaololComponent } from './shared/components/abstract/laolol.component';
+
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html'
+	selector: 'app-root',
+	templateUrl: './app.component.html'
 })
-export class AppComponent implements OnInit {
-  cpntData = {
-    availableLanguages: null,
-    lang: null,
-    user: null,
-    theme: null,
-    loadingRoute: true,
-    currentVersion: 'Version 1.0.0'
-  };
-  constructor (private languageService: LanguageService,
-    private router: Router,
-    private userService: UserService,
-    private itemService: ItemService,
-    private themeService: ThemeService,
-    private storageService: StorageService,
-    private apiService: ApiService) {
-  }
+export class AppComponent extends LaololComponent implements OnInit {
+	cpntData = {
+		availableLanguages: null,
+		user: null,
+		theme: null,
+		loadingRoute: true,
+		currentVersion: 'Version 1.0.0',
+		currentUrl: ''
+	};
+	constructor (private router: Router, private userService: UserService,
+		private itemService: ItemService, private themeService: ThemeService,
+		private storageService: StorageService, private apiService: ApiService,
+		private localize: LocalizeRouterService, languageService: LanguageService) {
+		super(languageService);
+	}
 
-  changeCurrentLanguage (code) {
-    this.languageService.chooseTranslation(code);
-  }
+	ngOnInit () {
+		this.changeCurrentLanguage(this.localize.parser.currentLang, true);
+		// this.localize.routerEvents.subscribe((lang: string) => {
+		// 	this.languageService.changeTranslation(lang);
+		// });
 
-  changeLearningLanguage (code) {
-    this.languageService.chooseLearningLang(code);
-  }
+		// manage loading states
+		this.cpntData.theme =  this.themeService.data;
+		this.router.events.subscribe((event: RouterEvent) => {
+			this.navigationInterceptor(event);
+		});
 
-  ngOnInit () {
+		// clear store if it's a new app version
+		const appVersion = this.storageService.getItem('appVersion');
+		if (appVersion !== this.cpntData.currentVersion) {
+			this.storageService.clear();
+			this.storageService.setItem('appVersion', this.cpntData.currentVersion);
+		}
+		const itemsVersion = this.storageService.getItem('itemsVersion');
+		this.apiService.getResources('api/version').catch(error => {
+			return Observable.throw(new Error());
+		}).subscribe((version: any) => {
+			if (itemsVersion !== version.current) {
+				this.itemService.resetItems();
+				this.themeService.resetThemes();
+				this.storageService.setItem('itemsVersion', version.current);
+			}
+			this.itemService.initialize();
+			this.themeService.initialize();
+		}, err => {
+			console.error('updateVersion ERROR:', err);
+			this.itemService.resetItems();
+			this.themeService.resetThemes();
+		});
 
-    // manage loading states
-    this.cpntData.theme =  this.themeService.data;
-    this.router.events.subscribe((event: RouterEvent) => {
-      this.navigationInterceptor(event);
-    });
+		// init available data
+		this.cpntData.availableLanguages = this.languageService.AVAILABLE_LANG;
+		this.cpntData.user = this.userService.data;
+	}
 
-    // clear store if it's a new app version
-    const appVersion = this.storageService.getItem('appVersion');
-    if (appVersion !== this.cpntData.currentVersion) {
-      this.storageService.clear();
-      this.storageService.setItem('appVersion', this.cpntData.currentVersion);
-    }
-    const itemsVersion = this.storageService.getItem('itemsVersion');
-    this.apiService.getResources('api/version').catch(error => {
-      return Observable.throw(new Error());
-    }).subscribe((version: any) => {
-      if (itemsVersion !== version.current) {
-        this.itemService.resetItems();
-        this.themeService.resetThemes();
-        this.storageService.setItem('itemsVersion', version.current);
-      }
-      this.itemService.initialize();
-      this.themeService.initialize();
-    }, err => {
-      console.error('updateVersion ERROR:', err);
-    });
+	changeCurrentLanguage (code: string, init: boolean) {
+		// this.localize.changeLanguage(code);
+		this.languageService.changeTranslation(code);
+		let i18nRoute: string;
+		ROUTES_CONFIG.some((route: any) => {
+				for (const key in route.paths) {
+					if (route.paths.hasOwnProperty(key)) {
+						if (route.paths[key] === this.cpntData.currentUrl) {
+							i18nRoute = route.paths[code];
+							return true;
+						}
+					}
+				}
+		});
+		if (!init && i18nRoute) {
+			// setTimeout(() => {
+				this.router.navigate([code, i18nRoute]);
+			// });
+		}
+	}
 
+	// Shows and hides the loading spinner during RouterEvent changes
+	navigationInterceptor (event: RouterEvent): void {
+		if (event instanceof NavigationStart) {
+			this.cpntData.loadingRoute = true;
+		}
+		if (event instanceof NavigationEnd) {
+			this.cpntData.currentUrl = decodeURIComponent(event.urlAfterRedirects.split('/')[2]);
+			this.cpntData.loadingRoute = false;
+			ga('set', 'page', event.urlAfterRedirects);
+			ga('send', 'pageview');
+		}
 
-    // clear item store if it's a new items version
-    this.languageService.initializeLanguages();
-
-    // init available data
-    this.cpntData.availableLanguages = this.languageService.AVAILABLE_LANG;
-    this.cpntData.lang = this.languageService.data;
-    this.cpntData.user = this.userService.data;
-
-  }
-
-  // Shows and hides the loading spinner during RouterEvent changes
-  navigationInterceptor(event: RouterEvent): void {
-    if (event instanceof NavigationStart) {
-        this.cpntData.loadingRoute = true;
-    }
-    if (event instanceof NavigationEnd) {
-        this.cpntData.loadingRoute = false;
-        ga('set', 'page', event.urlAfterRedirects);
-        ga('send', 'pageview');
-    }
-
-    // Set loading state to false in both of the below events to hide the spinner in case a request fails
-    if (event instanceof NavigationCancel) {
-        this.cpntData.loadingRoute = false;
-    }
-    if (event instanceof NavigationError) {
-        this.cpntData.loadingRoute = false;
-    }
-  }
+		// Set loading state to false in both of the below events to hide the spinner in case a request fails
+		if (event instanceof NavigationCancel) {
+			this.cpntData.loadingRoute = false;
+		}
+		if (event instanceof NavigationError) {
+			this.cpntData.loadingRoute = false;
+		}
+	}
 }

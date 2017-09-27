@@ -110,10 +110,14 @@ export class ThemeService {
 			if (res.theme !== 'all' && res.theme !== 'themes') {
 
 				// all other cases
-				const data: Item[] = res.data;
+				const data: Item[] = this.itemService.data.all.filter((item: Item) => {
+					return item.themes.indexOf(res.theme) !== -1;
+				});
+
 				if (this.data.learning.isLaoAlphabet) {
 					this.laoneticsService.sortLaoItems(data);
 				}
+
 				this.data.items.length = 0;
 				if (data && data.length && data.length >= 4) {
 					this.data.items.length = 0;
@@ -158,8 +162,8 @@ export class ThemeService {
 	getCurrentLevel () {
 		// console.log('theme.services::getCurrentLevel', this.data.learningLevel, this.data.levels.length);
 		let items: Item[];
-		if (this.data.learningLevel < this.data.levels.length - 1) {
-			items = this.data.items.filter(item => {
+		if (this.data.learning.levels > 1 && this.data.learningLevel < this.data.levels.length - 1) {
+			items = this.data.items.filter((item: Item) => {
 				return item.lvl === this.data.learningLevel;
 			});
 		} else {

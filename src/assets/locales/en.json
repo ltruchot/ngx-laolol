@@ -1,4 +1,10 @@
 {
+  "localizeRouter": {
+    "home": "home",
+    "404": "404",
+    "blackboard": "blackboard",
+    "gameboard": "gameboard"
+  },
   "words": {
     "and": "and",
     "languageEnglish": "english",
