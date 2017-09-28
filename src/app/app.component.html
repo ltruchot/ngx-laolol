@@ -23,7 +23,7 @@
             <div class="lang-block-content clearfix">
               <ul class="list-inline float-right">
                 <li class="list-inline-item" *ngFor="let lang of langData.availableLanguages; let i = index;">
-                  <div class="avaiblable-lang" [ngClass]="{ 'chosen-lang': langData.currentLangInfos?.code === lang.code }">
+                  <div class="avaiblable-lang" [ngClass]="{ 'chosen-lang': langData.current?.code === lang.code }">
                     <a (click)="changeCurrentLanguage(lang.urlCode)" class="flag flag-{{lang.flag}}" title="{{ lang.label }}">
                       <span class="sr-only">{{ lang.label }}</span>
                     </a>
@@ -40,11 +40,11 @@
               <div class="btn-group">
                 <button  id="btn-menu-lang" class="btn btn-secondary button-flag dropdown-toggle"
                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                   {{ langData.learningLangInfos?.tradLabel | translate }}
+                   {{ langData.learning?.tradLabel | translate }}
                 </button>
                 <div class="dropdown-menu"  aria-labelledby="btn-menu-lang">
                   <ng-container *ngFor="let lang of langData.availableLanguages">
-                    <a *ngIf="lang.code !== langData.currentLangInfos?.code && lang.code !== langData.learningLang"
+                    <a *ngIf="lang.code !== langData.current?.code && lang.code !== langData.learning.code"
                       class="dropdown-item" (click)="changeLearningLanguage(lang.code)">
                        {{ lang.tradLabel | translate }}
                     </a>
@@ -77,14 +77,14 @@
             <a [routerLink]="'/' + ('localizeRouter.home' | translate) | localize"
               class="nav-link">{{ 'layout.home' | translate }}</a>
           </li>
-          <li class="nav-item" [class.active]="router.url.split('/')[1] === 'gameboard'"
+          <li class="nav-item" [class.active]="router.url.split('/')[2] === ('localizeRouter.gameboard' | translate)"
             data-toggle="collapse" data-target="#navbarSupportedContent.show">
             <a [routerLink]=" '/' + ('localizeRouter.gameboard' | translate) +'/' + themeData?.learningUid | localize"
               class="nav-link">{{ 'layout.gameboard' | translate }}</a>
           </li>
-          <li class="nav-item" [class.active]="router.url.split('/')[1] === 'blackboard'"
+          <li class="nav-item" [class.active]="router.url.split('/')[2] === ('localizeRouter.blackboard' | translate)"
             data-toggle="collapse" data-target="#navbarSupportedContent.show">
-            <a [routerLink]=" '/' + ('localizeRouter.gameboard' | translate) +'/' + themeData?.learningUid | localize" class="nav-link">{{ 'layout.blackboard' | translate }}</a>
+            <a [routerLink]=" '/' + ('localizeRouter.blackboard' | translate) +'/' + themeData?.learningUid | localize" class="nav-link">{{ 'layout.blackboard' | translate }}</a>
           </li>
           <li class="nav-item" routerLinkActive="active"
           data-toggle="collapse" data-target="#navbarSupportedContent.show">

@@ -21,8 +21,8 @@ export class LanguageService {
 	data: ILanguageServiceData = {
 		isCurrentLoading: false,
 		isLearningLoading: true,
-		currentLangInfos: null,
-		learningLangInfos: null,
+		current: null,
+		learning: null,
 		availableLanguages: AVAILABLE_LANGUAGES
 	};
 	constructor (private storage: StorageService/*, private translate: TranslateService,
@@ -37,7 +37,7 @@ export class LanguageService {
 
 	chooseTranslation (code: string) {
 		this.data.isCurrentLoading = true;
-		this.data.currentLangInfos = this.getLangInfos(code);
+		this.data.current = this.getLangInfos(code);
 		this.storage.setItem('currentLanguage', code);
 		this.data.isCurrentLoading = false;
 	}
@@ -45,7 +45,7 @@ export class LanguageService {
 	chooseLearningLang (code: string) {
 		this.data.isLearningLoading = true;
 		code = (code || this.defaultLearningLang);
-		this.data.learningLangInfos = this.getLangInfos(code);
+		this.data.learning = this.getLangInfos(code);
 		this.storage.setItem('learningLanguage', code);
 		this.data.isLearningLoading = false;
 	}

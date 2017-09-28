@@ -26,6 +26,6 @@ export abstract class LaololComponent {
 		A getter to recalculate if the lao special font is needed
  */
 	get isCurrentLangLao () {
-		return this.langData.currentLangInfos && this.langData.currentLangInfos.code === 'lo';
+		return this.langData.current && this.langData.current.code === 'lo';
 	}
 }

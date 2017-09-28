@@ -91,25 +91,34 @@ export class AppComponent extends LaololComponent implements OnInit, OnDestroy {
 		this.cpntData.user = this.userService.data;
 	}
 
+	get urlParam () {
+		return (this.themeData.learning && this.themeData.learning.uid) || '';
+	}
+
 	changeCurrentLanguage (code: string, init: boolean) {
-		// this.localize.changeLanguage(code);
+		let needParam = false;
 		this.languageService.changeTranslation(code);
 		let i18nRoute: string;
 		ROUTES_CONFIG.some((route: any) => {
-				for (const key in route.paths) {
-					if (route.paths.hasOwnProperty(key)) {
-						if (route.paths[key] === this.cpntData.currentUrl) {
-							i18nRoute = route.paths[code];
-							return true;
-						}
+			for (const key in route.paths) {
+				if (route.paths.hasOwnProperty(key)) {
+					if (route.paths[key] === this.cpntData.currentUrl) {
+						needParam = !!route.urlParam;
+						i18nRoute = route.paths[code];
+						return true;
 					}
 				}
+			}
 		});
 		if (!init && i18nRoute) {
-			// setTimeout(() => {
-				this.router.navigate([code, i18nRoute]);
-			// });
+			const urlTree = [code, i18nRoute];
+			if (needParam && this.urlParam) { urlTree.push(this.urlParam); }
+			this.router.navigate(urlTree);
 		}
+	}
+
+	changeLearningLanguage (code: string) {
+		this.languageService.chooseLearningLang(code);
 	}
 
 	// Shows and hides the loading spinner during RouterEvent changes
@@ -118,7 +127,8 @@ export class AppComponent extends LaololComponent implements OnInit, OnDestroy {
 			this.cpntData.loadingRoute = true;
 		}
 		if (event instanceof NavigationEnd) {
-			this.cpntData.currentUrl = decodeURIComponent(event.urlAfterRedirects.split('/')[2]);
+			const urlParts = event.urlAfterRedirects.split('/');
+			this.cpntData.currentUrl = decodeURIComponent(urlParts[2] || urlParts[1]);
 			this.cpntData.loadingRoute = false;
 			ga('set', 'page', event.urlAfterRedirects);
 			ga('send', 'pageview');

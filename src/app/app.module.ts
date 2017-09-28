@@ -25,7 +25,6 @@ import { AdminActivationService } from './shared/services/admin-activation.servi
 import { ApiService } from './shared/services/api.service';
 import { ItemService } from './shared/services/item.service';
 import { LanguageService } from './shared/services/language.service';
-import { LaoneticsService } from './shared/services/laonetics.service';
 import { ModalService } from './shared/services/modal.service';
 import { SeoService } from './shared/services/seo.service';
 import { StorageService } from './shared/services/storage.service';
@@ -72,7 +71,6 @@ export function HttpLoaderFactory (http: HttpClient) {
 		ApiService,
 		ItemService,
 		LanguageService,
-		LaoneticsService,
 		ModalService,
 		SeoService,
 		StorageService,

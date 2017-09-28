@@ -14,7 +14,7 @@ import { ApiService } from './api.service';
 import { UserService } from './user.service';
 import { StorageService } from './storage.service';
 import { ItemService } from './item.service';
-import { LaoneticsService } from './laonetics.service';
+import { TongueService } from './tongue.service';
 
 // custom models
 import {
@@ -62,7 +62,7 @@ export class ThemeService {
 
 	constructor (private apiService: ApiService, private userService: UserService,
 		private storage: StorageService, private itemService: ItemService,
-		private laoneticsService: LaoneticsService)  {
+		private tongueService: TongueService)  {
 
 		// create
 		this.createSubject = new Subject();
@@ -116,7 +116,7 @@ export class ThemeService {
 				});
 
 				if (this.data.learning.isLaoAlphabet) {
-					this.laoneticsService.sortLaoItems(data);
+					this.tongueService.sortLaoItems(data);
 				}
 
 				this.data.items.length = 0;
@@ -183,7 +183,7 @@ export class ThemeService {
 		// console.log('theme.service::changeLearningTheme', uid);
 		if (uid !== this.data.learningUid) {
 			this.data.learningUid = uid;
-			this.data.learning = this.data.all.find(item => item.uid === uid);
+			this.data.learning = this.data.all.find((theme: Theme) => theme.uid === uid);
 			this.storage.setItem('currentLearningThemeUid', uid);
 			this.checkLevels();
 			this.getCurrentTheme();
@@ -209,11 +209,11 @@ export class ThemeService {
 		};
 	}
 
-	create (words: Array<Theme>): void {
-		this.apiService.postResources(this.basicUrl, words, true).catch(error => {
+	create (themes: Theme[]): void {
+		this.apiService.postResources(this.basicUrl, themes, true).catch(error => {
 			return Observable.throw(new CreateHttpError(error, this.basicUrl, this.basicCodeErrors));
-		}).subscribe(data => {
-			data.forEach(theme => {
+		}).subscribe((data: Theme[]) => {
+			data.forEach((theme: Theme) => {
 				this.enhanceThemeWithLink(theme);
 			});
 			this.data.all.push(...data);
@@ -225,13 +225,13 @@ export class ThemeService {
 	}
 
 	modifyThemes (data: Theme) {
-		let modifiedTheme = this.data.all.find(theme => theme._id === data._id);
+		let modifiedTheme = this.data.all.find((theme: Theme) => theme._id === data._id);
 		if (modifiedTheme) {
 			modifiedTheme = data;
 		}
 	}
 
-	update (themes: Array<Theme>): void {
+	update (themes: Theme[]): void {
 		this.apiService.putResources(this.basicUrl + `/${themes[0]._id}`, themes[0], true).catch(error => {
 			return Observable.throw(new UpdateHttpError(error, this.basicUrl, this.basicCodeErrors));
 		}).subscribe((data: Theme) => {
@@ -244,22 +244,24 @@ export class ThemeService {
 		});
 	}
 
-	populateThemes (themes: Array<Theme>) {
+	populateThemes (themes: Theme[]) {
 		// console.log('theme.service::populateThemes', themes);
-		themes.forEach(theme => {
+		themes.forEach((theme: Theme) => {
 			this.enhanceThemeWithLink(theme);
 		});
 		this.data.all.length = 0;
 		this.data.all.push(...themes);
-		this.data.learning = this.data.all.find(item => item.uid === this.data.learningUid);
+		this.data.learning = this.data.all.find((theme: Theme) => theme.uid === this.data.learningUid);
 		this.checkLevels();
 		this.data.isCurrentLoading = false;
 	}
 
 	enhanceThemeWithLink (theme: Theme) {
-	 // console.log('theme.service::enhanceThemeWithLink', theme)
-	 const linkedItem = this.itemService.data.all.find(item => item.uid === theme.linkUid);
+		// console.log('theme.service::enhanceThemeWithLink', theme)
+		const linkedItem = this.itemService.data.all.find((item: Item) => item.uid === theme.linkUid);
 		if (linkedItem) {
+			this.tongueService.addSlugs(linkedItem, theme.displayPlural);
+			console.log(linkedItem);
 			theme.link = linkedItem;
 		} else {
 			console.error(`Theme ${theme.uid} error: linked item ${theme.linkUid} not found.`);
@@ -288,7 +290,7 @@ export class ThemeService {
 	}
 
 	delete (id: string): void {
-		console.log('theme.service::delete')
+		// console.log('theme.service::delete');
 		this.apiService.deleteResources(this.basicUrl + '/' + id, true).catch(error => {
 			return Observable.throw(new DeleteHttpError(error, this.basicUrl, this.basicCodeErrors));
 		}).subscribe(data => {

@@ -15,8 +15,7 @@ import { LaololComponent } from './../shared/components/abstract/laolol.componen
 })
 export class AboutComponent extends LaololComponent implements OnInit {
 	cpntData = {};
-	constructor (
-		itemService: ItemService, languageService: LanguageService, themeService: ThemeService) {
+	constructor (itemService: ItemService, languageService: LanguageService, themeService: ThemeService) {
 		super(itemService, languageService, themeService);
 	}
 

@@ -42,6 +42,7 @@ export interface ILangItemMeta {
 
 export class TongueData {
 	plural = '';
+	slug?: string;
 }
 
 export interface IItemMeta {

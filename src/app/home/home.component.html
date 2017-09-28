@@ -9,11 +9,11 @@
 				[routerLink]="'/gameboard/' + themeData?.learning?.uid"
 				(click)="changeLearningLang('lo')">{{ 'words.languageLao' | translate }}</a>
 			<ng-template [ngIf]="isCurrentLangLao">{{ 'words.or' | translate }}</ng-template>
-			<a *ngIf="langData.currentLangInfos?.code !== 'fr'"
+			<a *ngIf="langData.current?.code !== 'fr'"
 				[routerLink]="'/gameboard/' + themeData?.learning?.uid"
 				(click)="changeLearningLang('fr')">{{ 'words.languageFrench' | translate }}</a><!--
 		--><ng-template [ngIf]="isCurrentLangLao"> {{ 'words.or' | translate }} </ng-template><!--
-		--><a *ngIf="langData.currentLangInfos?.code !== 'en'"
+		--><a *ngIf="langData.current?.code !== 'en'"
 				[routerLink]="'/gameboard/' + themeData?.learning?.uid"
 				(click)="changeLearningLang('en')">{{ 'words.languageEnglish' | translate }}</a>.
 	</p>

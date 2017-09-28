@@ -1,16 +1,15 @@
 import { DefaultUrlSerializer, UrlSerializer, UrlTree } from '@angular/router';
 
 export class CustomUrlSerializer implements UrlSerializer {
-parse (url: any): UrlTree {
+parse (url: string): UrlTree {
 	const dus = new DefaultUrlSerializer();
-	return dus.parse(url);
+	const urlTree = dus.parse(url);
+	return urlTree;
 }
 
-serialize (tree: UrlTree): any {
+serialize (tree: UrlTree): string {
 	const dus = new DefaultUrlSerializer();
 	const path = dus.serialize(tree);
-	// use your regex to replace as per your requirement.
-	// console.log(decodeURIComponent(path));
 	return decodeURIComponent(path);
 	}
 }

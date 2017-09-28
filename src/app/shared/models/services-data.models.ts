@@ -10,8 +10,8 @@ export interface ISeoServiceData {
 export interface ILanguageServiceData {
 	isCurrentLoading: boolean;
 	isLearningLoading: boolean;
-	currentLangInfos: ILanguage;
-	learningLangInfos: ILanguage;
+	current: ILanguage;
+	learning: ILanguage;
 	availableLanguages: ILanguage[];
 }
 

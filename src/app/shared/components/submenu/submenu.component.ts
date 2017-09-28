@@ -8,27 +8,27 @@ import { Router } from '@angular/router';
 // custom services
 import { ThemeService } from './../../services/theme.service';
 import { LanguageService } from './../../services/language.service';
+import { ItemService } from './../../services/item.service';
+
+// custom components
+import { LaololComponent } from './../../components/abstract/laolol.component';
 
 @Component({
 	selector: 'app-submenu',
 	templateUrl: './submenu.component.html'
 })
-export class SubmenuComponent implements OnInit {
+export class SubmenuComponent extends LaololComponent implements OnInit {
 	cpntData = {
-		lang: null,
-		theme: null,
 		currentUrl: '',
 		levels: []
 	};
-	constructor (private themeService: ThemeService,
-		private languageService: LanguageService,
-		public router: Router) {
+	constructor (public router: Router,
+		itemService: ItemService, languageService: LanguageService, themeService: ThemeService) {
+		super(itemService, languageService, themeService);
 	}
 
 	ngOnInit () {
 		this.cpntData.currentUrl = '/' + this.router.url.split('/')[2];
-		this.cpntData.lang =  this.languageService.data;
-		this.cpntData.theme =  this.themeService.data;
 	}
 
 	changeLearningTheme (uid: string) {
@@ -39,7 +39,7 @@ export class SubmenuComponent implements OnInit {
 	}
 	changeLearningLevel (lvl: number) {
 		// console.log('submenu.component::changeLearningThemeLvl');
-		this.cpntData.theme.learningLevel = lvl;
+		this.themeData.learningLevel = lvl;
 		this.themeService.getCurrentTheme();
 	}
 	toggleKaraoke () {

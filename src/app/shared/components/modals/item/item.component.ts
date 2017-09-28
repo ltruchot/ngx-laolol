@@ -14,7 +14,7 @@ declare const $: any;
 // custom services
 import { ItemService } from './../../../services/item.service';
 import { ThemeService } from './../../../services/theme.service';
-import { LaoneticsService } from './../../../services/laonetics.service';
+import { TongueService } from './../../../services/tongue.service';
 
 // custom models
 import { Item } from '../../../models/item.models';
@@ -39,7 +39,7 @@ export class ItemComponent implements OnInit, OnDestroy, AfterViewInit {
 	};
 	constructor (private formBuilder: FormBuilder, private toastrService: ToastrService,
 		private itemService: ItemService, private themeService: ThemeService,
-		private appRef: ApplicationRef, private laoneticsService: LaoneticsService) {
+		private appRef: ApplicationRef, private tongueService: TongueService) {
 	}
 
 	ngOnInit () {
@@ -118,7 +118,7 @@ export class ItemComponent implements OnInit, OnDestroy, AfterViewInit {
 	generateLaonetics () {
 		const lo = this.cpntData.items.current.lo;
 		if (lo.wrd) {
-			const slicedSyllables: ISlicedSyllables = this.laoneticsService.getKaraoke(lo.wrd);
+			const slicedSyllables: ISlicedSyllables = this.tongueService.getKaraoke(lo.wrd);
 			lo.kk.fr = slicedSyllables.roms[0].join(' ');
 			lo.kk.en = slicedSyllables.roms[1].join(' ');
 			lo.kk.ipa = slicedSyllables.roms[2].join(' ');
@@ -201,4 +201,4 @@ export class ItemComponent implements OnInit, OnDestroy, AfterViewInit {
 			this.selectConflictsRef.updateSelectList(this.cpntData.selectedConflicts);
 		}
 	}
-};
+}

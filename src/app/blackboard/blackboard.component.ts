@@ -13,6 +13,7 @@ import { LanguageService } from './../shared/services/language.service';
 // custome models
 import { Theme } from './../shared/models/theme.models';
 import { Item } from './../shared/models/item.models';
+import { ILanguage } from './../shared/models/language.models';
 
 // custom components
 import { LaololComponent } from './../shared/components/abstract/laolol.component';
@@ -46,27 +47,27 @@ export class BlackboardComponent extends LaololComponent implements OnInit, OnDe
 			if (!this.themeData.all.length) {
 				const sub = this.themeService.read$.subscribe(() => {
 					sub.unsubscribe();
-					this.checkRouteParams(params.uid);
+					this.checkRouteParams(params.themeUid);
 				});
 			} else {
-				this.checkRouteParams(params.uid);
+				this.checkRouteParams(params.themeUid);
 			}
 		});
 	}
 
-	checkRouteParams (uid: string) {
-		if (uid && this.themeData.all.find((theme: Theme) => theme.uid === uid)) {
-			this.themeService.changeLearningTheme(uid);
+	checkRouteParams (themeUid: string) {
+		if (themeUid && this.themeData.all.find((theme: Theme) => theme.uid === themeUid)) {
+			this.themeService.changeLearningTheme(themeUid);
 		} else {
-			this.router.navigate(['404']);
+			this.router.navigate(['notfound']);
 		}
 	}
 
 	resetTheme (data) {
 		this.cpntData.items.length = 0;
 		this.cpntData.items.push(...data);
-		this.cpntData.items.forEach((item) => {
-			this.langData.availableLanguages.forEach((avLang) => {
+		this.cpntData.items.forEach((item: Item) => {
+			this.langData.availableLanguages.forEach((avLang: ILanguage) => {
 				const sound = item[avLang.code].snd;
 				if (sound) {
 					item[avLang.code].audio = new Audio();
@@ -87,7 +88,7 @@ export class BlackboardComponent extends LaololComponent implements OnInit, OnDe
 	}
 
 	playsound (index: string) {
-		const lang = this.langData.learningLangInfos.code;
+		const lang = this.langData.learning.code;
 		if (this.cpntData.items[index][lang].audio) {
 			this.cpntData.items[index][lang].audio.play();
 		}

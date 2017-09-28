@@ -1,6 +1,14 @@
 // ng dependencies
 import { Injectable } from '@angular/core';
 
+// npm dependencies
+import * as slug from 'slug';
+import {
+	ISlicedSyllables,
+	LaoneticsSorter,
+	LaoneticsTranslater,
+} from 'laonetics';
+
 // custom services
 import { LanguageService } from './../services/language.service';
 
@@ -10,6 +18,8 @@ import { ILanguage } from './../models/language.models';
 
 @Injectable()
 export class TongueService {
+	sorter: LaoneticsSorter = new LaoneticsSorter();
+	translater: LaoneticsTranslater = new LaoneticsTranslater();
 	constructor (private languageService: LanguageService) {
 	}
 
@@ -23,12 +33,34 @@ export class TongueService {
 	}
 
 	getPlural (item: Item, languageCode: string) {
-		if (languageCode === 'en' || languageCode === 'fr' ) {
+		if (languageCode !== 'lo') {
 			return item[languageCode].meta && item[languageCode].meta.plural ?
 				item[languageCode].meta.plural :
 				item[languageCode].wrd + 's';
 		} else {
 			return item[languageCode].wrd;
 		}
+	}
+
+	addSlugs (item: Item, plural?: boolean) {
+		const allLangages: ILanguage[] = this.languageService.data.availableLanguages;
+		allLangages.forEach((language: ILanguage) => {
+			const wrdToSlug = plural ? item[language.code].tongue.plural : item[language.code].wrd;
+			if (language.code !== 'lo') {
+				item[language.code].tongue.slug = slug(wrdToSlug);
+			} else {
+				item[language.code].tongue.slug = wrdToSlug.replace(/\s/g, '');
+			}
+		});
+	}
+
+	getKaraoke (word: string): ISlicedSyllables {
+		return this.translater.getKaraoke(word, [
+			'fr', 'en', 'ph'
+		]);
+	}
+
+	sortLaoItems (items: Item[]) {
+		this.sorter.sortArrayByConsonant(items, 'lo.wrd');
 	}
 }

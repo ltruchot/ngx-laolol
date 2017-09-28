@@ -49,10 +49,10 @@ export class GameboardComponent extends LaololComponent implements OnInit, OnDes
 			if (!this.themeData.all.length) {
 				const sub = this.themeService.read$.subscribe(() => {
 					sub.unsubscribe();
-					this.checkRouteParams(params.uid);
+					this.checkRouteParams(params.themeUid);
 				});
 			} else {
-				this.checkRouteParams(params.uid);
+				this.checkRouteParams(params.themeUid);
 			}
 		});
 	}
@@ -65,11 +65,11 @@ export class GameboardComponent extends LaololComponent implements OnInit, OnDes
 		(!this.isCurrentLangLao && this.themeData.isReversed);
 	}
 
-	checkRouteParams (uid: string) {
-		if (uid && this.themeData.all.find((theme: Theme) => theme.uid === uid)) {
-			this.themeService.changeLearningTheme(uid);
+	checkRouteParams (themeUid: string) {
+		if (themeUid && this.themeData.all.find((theme: Theme) => theme.uid === themeUid)) {
+			this.themeService.changeLearningTheme(themeUid);
 		} else {
-			this.router.navigate(['404']);
+			this.router.navigate(['notfound']);
 		}
 	}
 

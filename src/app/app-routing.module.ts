@@ -16,11 +16,11 @@ import { AdminActivationService } from './shared/services/admin-activation.servi
 import { ROUTES_CONFIG } from './shared/values/routes.values';
 
 const routes: Routes = [
-	{ path: '', redirectTo: 'home', pathMatch: 'full' },
+	{ path: '', redirectTo: '/home', pathMatch: 'full' },
 	{ path: 'about', loadChildren: './about/about.module#AboutModule' },
-	{ path: 'blackboard/:uid', loadChildren: './blackboard/blackboard.module#BlackboardModule' },
+	{ path: 'blackboard/:themeUid', loadChildren: './blackboard/blackboard.module#BlackboardModule' },
 	{ path: 'exams', loadChildren: './exams/exams.module#ExamsModule' },
-	{ path: 'gameboard/:uid', loadChildren: './gameboard/gameboard.module#GameboardModule' },
+	{ path: 'gameboard/:themeUid', loadChildren: './gameboard/gameboard.module#GameboardModule' },
 	{ path: 'home', loadChildren: './home/home.module#HomeModule' },
 	{
 		path: 'admin',
@@ -28,21 +28,20 @@ const routes: Routes = [
 		loadChildren: './admin/admin.module#AdminModule',
 		data: { skipRouteLocalization: true }
 	},
-	{ path: '404', loadChildren: './notfound/notfound.module#NotfoundModule' }
+	{ path: 'notfound', loadChildren: './notfound/notfound.module#NotfoundModule' },
+	{ path: '**', redirectTo: '/notfound' }
 ];
 
 ROUTES_CONFIG.forEach((route: any) => {
 	for (const key in route.paths) {
 		if (route.paths.hasOwnProperty(key)) {
 			if (route.name !== route.paths[key]) {
-				const urlParama = route.urlParama ? '/:' + route.urlParama : '';
-				routes.push({ path: route.paths[key] + urlParama, loadChildren: route.module });
+				const urlParam = route.urlParam ? '/:' + route.urlParam : '';
+				routes.push({ path: route.paths[key] + urlParam, loadChildren: route.module });
 			}
 		}
 	}
 });
-console.log(routes);
-routes.push({ path: '**', redirectTo: '/404' });
 
 // language export for AOT build
 export function HttpLoaderFactory (translate: TranslateService, location: Location,
