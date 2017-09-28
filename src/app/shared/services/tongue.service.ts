@@ -14,12 +14,11 @@ export class TongueService {
 	}
 
 	enhanceItem (item: Item) {
-		const allLangages: ILanguage[] = this.languageService.AVAILABLE_LANG;
+		const allLangages: ILanguage[] = this.languageService.data.availableLanguages;
 
 		allLangages.forEach((language: ILanguage) => {
 			item[language.code].tongue = new TongueData();
 			item[language.code].tongue.plural = this.getPlural(item, language.code);
-			// this.formatKaraoke(item[language.code]);
 		});
 	}
 
@@ -32,20 +31,4 @@ export class TongueService {
 			return item[languageCode].wrd;
 		}
 	}
-
-	// formatKaraoke (langItem: LangItem) {
-	// 	if (langItem.kk) {
-	// 		const allKK: string[] = ['en', 'fr', 'lo', 'ipa'];
-	// 		allKK.forEach((kkLang: string) => {
-	// 			if (langItem.kk[kkLang]) {
-	// 				if (kkLang === 'ipa') {
-	// 					langItem.kk[kkLang] = '/' + langItem.kk[kkLang] + '/';
-	// 				} else {
-	// 					langItem.kk[kkLang] = langItem.kk[kkLang].replace(/\s/g, '&nbsp;');
-	// 				}
-	// 			}
-	// 			console.log(langItem.kk[kkLang]);
-	// 		});
-	// 	}
-	// }
 }

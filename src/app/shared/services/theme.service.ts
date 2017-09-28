@@ -25,8 +25,9 @@ import {
 	ReadHttpError,
 	UpdateHttpError
 } from '../models/error.models';
-import { IThemeServiceData, Theme } from '../models/theme.models';
-import { IItemsResponse, Item } from './../models/item.models';
+import { Theme } from '../models/theme.models';
+import { Item } from './../models/item.models';
+import { IItemsResponse, IThemeServiceData } from './../models/services-data.models';
 
 @Injectable()
 export class ThemeService {

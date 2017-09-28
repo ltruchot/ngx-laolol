@@ -1,20 +1,27 @@
+// ng dependencies
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { NotfoundComponent } from './notfound.component';
+import { RouterModule } from '@angular/router';
 
-// npm modules
+// npm dependencies
 import { TranslateModule } from '@ngx-translate/core';
+import { LocalizeRouterModule } from 'localize-router';
 
 // custom modules
 import { SharedModule } from './../shared/shared.module';
-import { NotfoundRoutingModule } from './notfound.routing-module';
+
+// custom components
+import { NotfoundComponent } from './notfound.component';
+
+const routes = [{ path: '', component: NotfoundComponent}];
 
 @NgModule({
 	imports: [
 		CommonModule,
 		TranslateModule,
 		SharedModule,
-		NotfoundRoutingModule
+		RouterModule.forChild(routes),
+		LocalizeRouterModule.forChild(routes)
 	],
 	declarations: [NotfoundComponent]
 })

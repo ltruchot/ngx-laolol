@@ -24,7 +24,8 @@ import {
 	UpdateHttpError
 
 } from '../models/error.models';
-import { IItemServiceData, IItemsResponse, Item } from '../models/item.models';
+import {  Item } from '../models/item.models';
+import { IItemServiceData, IItemsResponse } from '../models/services-data.models';
 
 @Injectable()
 export class ItemService {

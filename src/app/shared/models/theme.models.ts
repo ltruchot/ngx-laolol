@@ -31,17 +31,3 @@ export class Theme {
 export class ThemeLangItem {
 	desc: string[] = [];
 }
-
-export interface IThemeServiceData {
-	all: Theme[];
-	current: Theme;
-	learningUid: string;
-	learning: Theme;
-	displayKaraoke: boolean;
-	isReversed: boolean;
-	isMoreInfos: boolean;
-	isCurrentLoading: boolean;
-	learningLevel: number;
-	levels: number[];
-	items: Item[];
-}

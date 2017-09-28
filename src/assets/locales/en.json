@@ -1,9 +1,11 @@
 {
   "localizeRouter": {
-    "home": "home",
-    "404": "404",
+    "about": "about",
     "blackboard": "blackboard",
-    "gameboard": "gameboard"
+    "exams": "exams",
+    "gameboard": "gameboard",
+    "home": "home",
+    "404": "404"
   },
   "words": {
     "and": "and",

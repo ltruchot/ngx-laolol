@@ -1,9 +1,11 @@
 {
   "localizeRouter": {
-    "home": "accueil",
-    "404": "404",
+    "about": "a-propos",
     "blackboard": "salle-de-cours",
-    "gameboard": "salle-de-jeu"
+    "exams": "examens",
+    "gameboard": "salle-de-jeu",
+    "home": "accueil",
+    "404": "404"
   },
   "words": {
     "and": "et",

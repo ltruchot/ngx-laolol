@@ -1,5 +1,5 @@
 // ng dependencies
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import {
 		Router,
 		// import as RouterEvent to avoid confusion with the DOM Event
@@ -12,6 +12,7 @@ import {
 
 // npm dependencies
 import { Observable } from 'rxjs/Observable';
+import { Subscription } from 'rxjs/Subscription';
 import { LocalizeRouterService } from 'localize-router';
 import 'rxjs/add/operator/filter';
 
@@ -36,20 +37,19 @@ import { LaololComponent } from './shared/components/abstract/laolol.component';
 	selector: 'app-root',
 	templateUrl: './app.component.html'
 })
-export class AppComponent extends LaololComponent implements OnInit {
+export class AppComponent extends LaololComponent implements OnInit, OnDestroy {
+	routeSubscription: Subscription;
 	cpntData = {
-		availableLanguages: null,
 		user: null,
-		theme: null,
 		loadingRoute: true,
 		currentVersion: 'Version 1.0.0',
 		currentUrl: ''
 	};
 	constructor (private router: Router, private userService: UserService,
-		private itemService: ItemService, private themeService: ThemeService,
 		private storageService: StorageService, private apiService: ApiService,
-		private localize: LocalizeRouterService, languageService: LanguageService) {
-		super(languageService);
+		private localize: LocalizeRouterService,
+		itemService: ItemService, languageService: LanguageService, themeService: ThemeService) {
+		super(itemService, languageService, themeService);
 	}
 
 	ngOnInit () {
@@ -59,8 +59,8 @@ export class AppComponent extends LaololComponent implements OnInit {
 		// });
 
 		// manage loading states
-		this.cpntData.theme =  this.themeService.data;
-		this.router.events.subscribe((event: RouterEvent) => {
+		this.themeData =  this.themeService.data;
+		this.routeSubscription = this.router.events.subscribe((event: RouterEvent) => {
 			this.navigationInterceptor(event);
 		});
 
@@ -88,7 +88,6 @@ export class AppComponent extends LaololComponent implements OnInit {
 		});
 
 		// init available data
-		this.cpntData.availableLanguages = this.languageService.AVAILABLE_LANG;
 		this.cpntData.user = this.userService.data;
 	}
 
@@ -132,5 +131,9 @@ export class AppComponent extends LaololComponent implements OnInit {
 		if (event instanceof NavigationError) {
 			this.cpntData.loadingRoute = false;
 		}
+	}
+
+	ngOnDestroy () {
+		this.routeSubscription.unsubscribe();
 	}
 }

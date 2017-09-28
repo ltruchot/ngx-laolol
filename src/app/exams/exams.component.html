@@ -1,16 +1,16 @@
-<div [ngClass]="{'font-lao': cpntData.lang?.currentLang === 'lo'}">
+<div [ngClass]="{'font-lao': isCurrentLangLao}">
   <div class="row">
     <div class="col text-center">
       <em>{{ 'layout.underConstruction' | translate }}</em>
     </div>
   </div>
-  <div class="row mxb10" *ngFor="let theme of cpntData.theme?.all">
+  <div class="row mxb10" *ngFor="let theme of themeData.all">
     <div class="col-5 col-sm-4 col-md-3 pxr0">
     	<button type="button" class="btn btn-info btn-block text-medium">
       	{{
           (theme.displayPlural ?
-          theme.link[cpntData.lang.currentLang].tongue.plural :
-          theme.link[cpntData.lang.currentLang].wrd) | capitalize
+          theme.link[langData.currentLangInfos.code].tongue.plural :
+          theme.link[langData.currentLangInfos.code].wrd) | capitalize
         }}
     	</button>
     </div>

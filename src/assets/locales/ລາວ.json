@@ -1,9 +1,11 @@
 {
   "localizeRouter": {
-    "home": "ໜ້າຫຼັກ",
-    "404": "404",
+    "about": "ກຽ່ວກັບ",
     "blackboard": "ຫ້ອງຮຽນ",
-    "gameboard": "ຫ້ອງເກມ"
+    "exams": "ປະເມີນຜົນ",
+    "gameboard": "ຫ້ອງເກມ",
+    "home": "ໜ້າຫຼັກ",
+    "404": "404"
   },
   "words": {
     "and": "ແລະ",

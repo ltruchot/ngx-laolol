@@ -12,19 +12,18 @@ import { StorageService } from './storage.service';
 import { ILanguageServiceData } from './../models/services-data.models';
 import { ILanguage } from './../models/language.models';
 
+// custom values
+import { AVAILABLE_LANGUAGES } from './../values/languages.values';
+
 @Injectable()
 export class LanguageService {
-	DEFAULT_LEARNING_LANG = 'lo';
-	AVAILABLE_LANG: ILanguage[] = [
-		{ urlCode: 'en', code: 'en', flag: 'us', learnCode: 'lo', label: 'english', tradLabel: 'words.languageEnglish' },
-		{ urlCode: 'fr', code: 'fr', flag: 'fr', learnCode: 'lo', label: 'français', tradLabel: 'words.languageFrench' },
-		{ urlCode: 'ລາວ', code: 'lo', flag: 'la', learnCode: 'en', label: 'ພາສາລາວ', tradLabel: 'words.languageLao', noPlural: true }
-	];
+	defaultLearningLang = 'lo';
 	data: ILanguageServiceData = {
 		isCurrentLoading: false,
 		isLearningLoading: true,
 		currentLangInfos: null,
-		learningLangInfos: null
+		learningLangInfos: null,
+		availableLanguages: AVAILABLE_LANGUAGES
 	};
 	constructor (private storage: StorageService/*, private translate: TranslateService,
 		private localize: LocalizeRouterService*/) {
@@ -45,13 +44,13 @@ export class LanguageService {
 
 	chooseLearningLang (code: string) {
 		this.data.isLearningLoading = true;
-		code = (code || this.DEFAULT_LEARNING_LANG);
+		code = (code || this.defaultLearningLang);
 		this.data.learningLangInfos = this.getLangInfos(code);
 		this.storage.setItem('learningLanguage', code);
 		this.data.isLearningLoading = false;
 	}
 
 	getLangInfos (code: string): ILanguage {
-		return this.AVAILABLE_LANG.find(lang => lang.code === code || lang.urlCode === code);
+		return this.data.availableLanguages.find((lang: ILanguage) => lang.code === code || lang.urlCode === code);
 	}
 }

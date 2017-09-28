@@ -17,22 +17,27 @@ import { ROUTES_CONFIG } from './shared/values/routes.values';
 
 const routes: Routes = [
 	{ path: '', redirectTo: 'home', pathMatch: 'full' },
-	{ path: 'home', loadChildren: './home/home.module#HomeModule' },
-	{ path: 'gameboard/:uid', loadChildren: './gameboard/gameboard.module#GameboardModule' },
+	{ path: 'about', loadChildren: './about/about.module#AboutModule' },
 	{ path: 'blackboard/:uid', loadChildren: './blackboard/blackboard.module#BlackboardModule' },
 	{ path: 'exams', loadChildren: './exams/exams.module#ExamsModule' },
-	{ path: 'about', loadChildren: './about/about.module#AboutModule' },
-	{ path: 'admin', canActivate: [AdminActivationService], loadChildren: './admin/admin.module#AdminModule' },
+	{ path: 'gameboard/:uid', loadChildren: './gameboard/gameboard.module#GameboardModule' },
+	{ path: 'home', loadChildren: './home/home.module#HomeModule' },
+	{
+		path: 'admin',
+		canActivate: [AdminActivationService],
+		loadChildren: './admin/admin.module#AdminModule',
+		data: { skipRouteLocalization: true }
+	},
 	{ path: '404', loadChildren: './notfound/notfound.module#NotfoundModule' }
 ];
 
 ROUTES_CONFIG.forEach((route: any) => {
 	for (const key in route.paths) {
 		if (route.paths.hasOwnProperty(key)) {
-			// if (route.name !== route.paths[key]) {
-				const param = route.param ? '/' + route.param : '';
-				routes.push({ path: route.paths[key] + param, loadChildren: route.module });
-			// }
+			if (route.name !== route.paths[key]) {
+				const urlParama = route.urlParama ? '/:' + route.urlParama : '';
+				routes.push({ path: route.paths[key] + urlParama, loadChildren: route.module });
+			}
 		}
 	}
 });

@@ -25,7 +25,7 @@
 				<div class="col-9">
 					<select (change)="changeFilter($event.target.value)" class="form-control" id="select-themes-filter" name="select-themes-filter">
 						<option value="all">all</option>
-						<option *ngFor="let theme of cpntData.themes.all" [ngValue]="theme.uid">{{ theme.uid }}</option>
+						<option *ngFor="let theme of themeData.all" [ngValue]="theme.uid">{{ theme.uid }}</option>
 						<option value="none">none</option>
 					</select>
 				</div>
@@ -63,13 +63,13 @@
 		</thead>
 		<tbody>
 			<tr *ngFor="let item of filteredItems; let i = index;"
-			[ngClass]="{'table-success': item.validated}" (click)="cpntData.items.current = item">
+			[ngClass]="{'table-success': item.validated}" (click)="itemData.current = item">
 				<td data-toggle="modal" data-target="#itemModal">{{ item.uid }}</td>
 				<td data-toggle="modal" data-target="#itemModal">{{ item.en.wrd }}</td>
 				<td data-toggle="modal" data-target="#itemModal">{{ item.fr.wrd }}</td>
 				<td data-toggle="modal" data-target="#itemModal"><span class="font-lao">{{ item.lo.wrd }}</span></td>
 				<td>
-					<button (click)="confirmDeleteItem(item._id, $event)" id="btn-menu-lang" class="btn btn-sm btn-danger"
+					<button (click)="confirmDeleteItem(item._id)" id="btn-menu-lang" class="btn btn-sm btn-danger"
 						data-toggle="modal" data-target="#confirmModal" aria-haspopup="true" aria-expanded="false">
            delete
         	</button>
@@ -90,7 +90,7 @@
 			</tr>
 		</thead>
 		<tbody>
-			<tr *ngFor="let theme of cpntData.themes.all;" (click)="cpntData.themes.current = theme">
+			<tr *ngFor="let theme of themeData.all;" (click)="themeData.current = theme">
 				<td data-toggle="modal" data-target="#themeModal">{{ theme.uid }}</td>
 				<td data-toggle="modal" data-target="#themeModal">
 					{{ theme.displayPlural ? theme.link.en.tongue.plural : theme.link.en.wrd }}
@@ -105,7 +105,7 @@
 				</td>
 				<td data-toggle="modal" data-target="#themeModal">{{ theme.levels }}</td>
 				<td>
-					<button (click)="confirmDeleteTheme(theme._id, $event)" id="btn-menu-lang" class="btn btn-sm btn-danger"
+					<button (click)="confirmDeleteTheme(theme._id)" id="btn-menu-lang" class="btn btn-sm btn-danger"
 						data-toggle="modal" data-target="#confirmModal" aria-haspopup="true" aria-expanded="false">
            delete
         	</button>

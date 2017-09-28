@@ -2,7 +2,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
-// custom dependencies
+// custom services
+import { ItemService } from './../shared/services/item.service';
 import { LanguageService } from './../shared/services/language.service';
 import { ThemeService } from './../shared/services/theme.service';
 
@@ -14,17 +15,13 @@ import { LaololComponent } from './../shared/components/abstract/laolol.componen
 	templateUrl: './home.component.html'
 })
 export class HomeComponent extends LaololComponent implements OnInit {
-	cpntData = {
-		theme: null
-	};
-	constructor (public router: Router, private themeService: ThemeService,
-		languageService: LanguageService) {
-		super(languageService);
+	cpntData = {};
+	constructor (public router: Router,
+		itemService: ItemService, languageService: LanguageService, themeService: ThemeService) {
+		super(itemService, languageService, themeService);
 	}
 
-	ngOnInit () {
-		this.cpntData.theme = this.themeService.data;
-	}
+	ngOnInit () {}
 
 	changeLearningLang (code: string) {
 		this.languageService.chooseLearningLang(code);

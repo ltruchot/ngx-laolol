@@ -1,4 +1,4 @@
-<div [hidden]= "!cpntData.loadingRoute && !(langData?.isCurrentLoading) && !(cpntData.theme?.isCurrentLoading)" class="loading"></div>
+<div [hidden]= "!cpntData.loadingRoute && !langData.isLearningLaoding && !langData.isCurrentLoading && !themeData.isCurrentLoading" class="loading"></div>
 <app-modal-login></app-modal-login>
 <app-modal-confirm></app-modal-confirm>
 <app-modal-item></app-modal-item>
@@ -22,8 +22,8 @@
           <div class="lang-block-container">
             <div class="lang-block-content clearfix">
               <ul class="list-inline float-right">
-                <li class="list-inline-item" *ngFor="let lang of cpntData.availableLanguages; let i = index;">
-                  <div class="avaiblable-lang" [ngClass]="{ 'chosen-lang': langData.currentLangInfos?.code === lang.urlCode }">
+                <li class="list-inline-item" *ngFor="let lang of langData.availableLanguages; let i = index;">
+                  <div class="avaiblable-lang" [ngClass]="{ 'chosen-lang': langData.currentLangInfos?.code === lang.code }">
                     <a (click)="changeCurrentLanguage(lang.urlCode)" class="flag flag-{{lang.flag}}" title="{{ lang.label }}">
                       <span class="sr-only">{{ lang.label }}</span>
                     </a>
@@ -43,7 +43,7 @@
                    {{ langData.learningLangInfos?.tradLabel | translate }}
                 </button>
                 <div class="dropdown-menu"  aria-labelledby="btn-menu-lang">
-                  <ng-container *ngFor="let lang of cpntData.availableLanguages">
+                  <ng-container *ngFor="let lang of langData.availableLanguages">
                     <a *ngIf="lang.code !== langData.currentLangInfos?.code && lang.code !== langData.learningLang"
                       class="dropdown-item" (click)="changeLearningLanguage(lang.code)">
                        {{ lang.tradLabel | translate }}
@@ -74,35 +74,33 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mx-auto">
           <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" data-toggle="collapse" data-target="#navbarSupportedContent.show">
-            <a [routerLink]=" '/' + ('localizeRouter.home' | translate) | localize"
+            <a [routerLink]="'/' + ('localizeRouter.home' | translate) | localize"
               class="nav-link">{{ 'layout.home' | translate }}</a>
           </li>
           <li class="nav-item" [class.active]="router.url.split('/')[1] === 'gameboard'"
             data-toggle="collapse" data-target="#navbarSupportedContent.show">
-            <a  [routerLink]=" '/' + ('localizeRouter.gameboard' | translate) +'/' + cpntData.theme?.learningUid | localize"
-              class="nav-link" [routerLink]="'/gameboard/'+ cpntData.theme?.learningUid | localize">
-              {{ 'layout.gameboard' | translate }}
-            </a>
+            <a [routerLink]=" '/' + ('localizeRouter.gameboard' | translate) +'/' + themeData?.learningUid | localize"
+              class="nav-link">{{ 'layout.gameboard' | translate }}</a>
           </li>
           <li class="nav-item" [class.active]="router.url.split('/')[1] === 'blackboard'"
             data-toggle="collapse" data-target="#navbarSupportedContent.show">
-            <a class="nav-link" [routerLink]="'/blackboard/'+ cpntData.theme?.learningUid | localize">
-              {{ 'layout.blackboard' | translate }}
-            </a>
+            <a [routerLink]=" '/' + ('localizeRouter.gameboard' | translate) +'/' + themeData?.learningUid | localize" class="nav-link">{{ 'layout.blackboard' | translate }}</a>
           </li>
           <li class="nav-item" routerLinkActive="active"
           data-toggle="collapse" data-target="#navbarSupportedContent.show">
-            <a class="nav-link" [routerLink]="'/exams' | localize">{{ 'layout.exams' | translate }}</a>
+            <a [routerLink]="'/' + ('localizeRouter.exams' | translate) | localize"
+              class="nav-link">{{ 'layout.exams' | translate }}</a>
           </li>
           <li class="nav-item" routerLinkActive="active"
           data-toggle="collapse" data-target="#navbarSupportedContent.show">
-            <a class="nav-link" [routerLink]="'/about' | localize">{{ 'layout.about' | translate }}</a>
+            <a [routerLink]="'/' + ('localizeRouter.about' | translate) | localize"
+              class="nav-link">{{ 'layout.about' | translate }}</a>
           </li>
           <li *ngIf="cpntData.user && cpntData.user.isConnected &&
             cpntData.user.infos && cpntData.user.infos.role === 'Admin'"
             class="nav-item" routerLinkActive="active"
             data-toggle="collapse" data-target="#navbarSupportedContent.show">
-            <a class="nav-link" [routerLink]="'/admin' | localize">{{ 'layout.admin' | translate }}</a>
+            <a class="nav-link" [routerLink]="'/admin'">{{ 'layout.admin' | translate }}</a>
           </li>
         </ul>
       </div>

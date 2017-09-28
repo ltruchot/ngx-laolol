@@ -1,61 +1,61 @@
 // ng dependencies
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
 // npm dependencies
 import { Subscription } from 'rxjs/Subscription';
 
 // custom services
+import { ItemService } from './../shared/services/item.service';
 import { ThemeService } from './../shared/services/theme.service';
 import { LanguageService } from './../shared/services/language.service';
 
 // custome models
 import { Theme } from './../shared/models/theme.models';
+import { Item } from './../shared/models/item.models';
+
+// custom components
+import { LaololComponent } from './../shared/components/abstract/laolol.component';
 
 @Component({
 	selector: 'app-blackboard',
 	templateUrl: './blackboard.component.html'
 })
-export class BlackboardComponent implements OnInit, OnDestroy {
+export class BlackboardComponent extends LaololComponent implements OnInit, OnDestroy {
 	themeSubscription: Subscription;
+	routeSubscription: Subscription;
 	cpntData = {
 		items: [],
-		lang: null,
-		availableLang: null,
-		theme: null,
 		vowels: {
 			fr: /[aeiouyAEIOUYàèìòùÀÈÌÒÙáéíóúâêîôûäëïöüÿÄËÏÖÜŸÆæœ]/,
 			en: /[aeiou]/
 		}
 	};
 
-	constructor(private themeService: ThemeService,
-		private languageService: LanguageService,
-		private route: ActivatedRoute,
-		public router: Router) {
-		this.themeSubscription = this.themeService.currentTheme$.subscribe(data => {
-			this.resetTheme(data);
-		});
+	constructor (private route: ActivatedRoute,
+		public router: Router,
+		itemService: ItemService, languageService: LanguageService, themeService: ThemeService) {
+		super(itemService, languageService, themeService);
 	}
 
 	ngOnInit () {
-		this.cpntData.availableLang = this.languageService.AVAILABLE_LANG;
-		this.cpntData.lang =  this.languageService.data;
-		this.cpntData.theme =  this.themeService.data;
-		this.route.params.subscribe(params => {
-			if (!this.cpntData.theme.all.length) {
-				const sub = this.themeService.read$.subscribe(themes => {
+		this.themeSubscription = this.themeService.currentTheme$.subscribe((data: Item[]) => {
+			this.resetTheme(data);
+		});
+		this.routeSubscription = this.route.params.subscribe((params: any) => {
+			if (!this.themeData.all.length) {
+				const sub = this.themeService.read$.subscribe(() => {
 					sub.unsubscribe();
-					this.checkRouteParams(params.uid, themes);
-				})
+					this.checkRouteParams(params.uid);
+				});
 			} else {
-				this.checkRouteParams(params.uid, this.cpntData.theme.all);
+				this.checkRouteParams(params.uid);
 			}
 		});
 	}
 
-	 checkRouteParams (uid: string, allThemes: Array<Theme>) {
-		if (uid && this.cpntData.theme.all.find(item => item.uid === uid)) {
+	checkRouteParams (uid: string) {
+		if (uid && this.themeData.all.find((theme: Theme) => theme.uid === uid)) {
 			this.themeService.changeLearningTheme(uid);
 		} else {
 			this.router.navigate(['404']);
@@ -66,7 +66,7 @@ export class BlackboardComponent implements OnInit, OnDestroy {
 		this.cpntData.items.length = 0;
 		this.cpntData.items.push(...data);
 		this.cpntData.items.forEach((item) => {
-			this.cpntData.availableLang.forEach((avLang) => {
+			this.langData.availableLanguages.forEach((avLang) => {
 				const sound = item[avLang.code].snd;
 				if (sound) {
 					item[avLang.code].audio = new Audio();
@@ -86,15 +86,16 @@ export class BlackboardComponent implements OnInit, OnDestroy {
 		this.languageService.chooseLearningLang(code);
 	}
 
-	playsound(index: string) {
-		const lang = this.cpntData.lang.learningLang;
+	playsound (index: string) {
+		const lang = this.langData.learningLangInfos.code;
 		if (this.cpntData.items[index][lang].audio) {
 			this.cpntData.items[index][lang].audio.play();
 		}
 	}
 
-	ngOnDestroy() {
+	ngOnDestroy () {
 		// prevent memory leak when component destroyed
 		this.themeSubscription.unsubscribe();
+		this.routeSubscription .unsubscribe();
 	}
 }

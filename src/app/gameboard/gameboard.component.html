@@ -1,24 +1,23 @@
-<div [hidden]= "cpntData.lang?.isCurrentLoading || !(cpntData.lang?.isLearningLoading)" class="loading"></div>
 <app-submenu></app-submenu>
 <div class="row">
 	<div class="col">
 		<div class="mx0 pxtb5" [hidden]="cpntData.winItemIdx === null">
-			<span [ngClass]="{'font-lao': cpntData.lang?.currentLang === 'lo'}">{{ 'gameboard.findTranslation' | translate }}:</span>
+			<span [ngClass]="{'font-lao': langData?.currentLang === 'lo'}">{{ 'gameboard.findTranslation' | translate }}:</span>
 			<span class="text-big" *ngIf="cpntData.items[cpntData.winItemIdx]"
 				[ngClass]="{ 'font-lao': isLaoLanguage }">
-				{{ cpntData.items[cpntData.winItemIdx][cpntData.theme.isReversed ? cpntData.lang.learningLang : cpntData.lang.currentLang].wrd }}
+				{{ cpntData.items[cpntData.winItemIdx][themeData.isReversed ? langData.learningLang : langData.currentLang].wrd }}
 			</span>
-			<ng-template [ngIf]="cpntData.theme?.isReversed &&
-				cpntData.theme.displayKaraoke &&
-				!cpntData.theme.learning?.noKaraoke &&
+			<ng-template [ngIf]="themeData?.isReversed &&
+				themeData.displayKaraoke &&
+				!themeData.learning?.noKaraoke &&
 				cpntData.items[cpntData.winItemIdx] &&
-				cpntData.items[cpntData.winItemIdx][cpntData.lang.learningLang].kk[cpntData.lang.currentLang]">
-				<em class="text-primary" [ngClass]="{'font-lao': !isLaoLanguage}" innerHTML="{{ cpntData.items[cpntData.winItemIdx][cpntData.lang.learningLang].kk[cpntData.lang.currentLang] | unbreakable }}"></em>
+				cpntData.items[cpntData.winItemIdx][langData.learningLang].kk[langData.currentLang]">
+				<em class="text-primary" [ngClass]="{'font-lao': !isLaoLanguage}" innerHTML="{{ cpntData.items[cpntData.winItemIdx][langData.learningLang].kk[langData.currentLang] | unbreakable }}"></em>
 			</ng-template>
-			<em *ngIf="(cpntData.lang?.currentLang === 'fr' || cpntData.lang?.currentLang === 'en') &&
-			!cpntData.theme.isReversed && cpntData.items[cpntData.winItemIdx] &&
-			cpntData.items[cpntData.winItemIdx][cpntData.lang.currentLang].meta?.tone">
-				({{ cpntData.items[cpntData.winItemIdx][cpntData.lang.currentLang].meta?.tone }})
+			<em *ngIf="(langData?.currentLang === 'fr' || langData?.currentLang === 'en') &&
+			!themeData.isReversed && cpntData.items[cpntData.winItemIdx] &&
+			cpntData.items[cpntData.winItemIdx][langData.currentLang].meta?.tone">
+				({{ cpntData.items[cpntData.winItemIdx][langData.currentLang].meta?.tone }})
 			</em>
 		</div>
 	</div>
@@ -34,19 +33,19 @@
 				'btn-danger': i === cpntData.clickedIdx && cpntData.clickedIdx !== cpntData.winItemIdx,
 				'disabled': cpntData.clickedIdx !== null && (cpntData.clickedIdx !== i)
 			}">
-				<span [ngClass]="{'font-lao': !isLaoLanguage }">{{ item[cpntData.theme.isReversed ? cpntData.lang.currentLang : cpntData.lang.learningLang].wrd }}</span>
-				<em *ngIf="(cpntData.lang?.currentLang === 'fr' || cpntData.lang?.currentLang === 'en') &&
-					cpntData.theme.isReversed &&
-					item[cpntData.lang.currentLang].meta?.tone">
-					({{ item[cpntData.lang.currentLang].meta?.tone }})
+				<span [ngClass]="{'font-lao': !isLaoLanguage }">{{ item[themeData.isReversed ? langData.currentLang : langData.learningLang].wrd }}</span>
+				<em *ngIf="(langData?.currentLang === 'fr' || langData?.currentLang === 'en') &&
+					themeData.isReversed &&
+					item[langData.currentLang].meta?.tone">
+					({{ item[langData.currentLang].meta?.tone }})
 				</em>
-				<ng-template [ngIf]="cpntData.theme.displayKaraoke && !cpntData.theme.learning.noKaraoke && item[cpntData.lang.learningLang].kk && !cpntData.theme.isReversed">
+				<ng-template [ngIf]="themeData.displayKaraoke && !themeData.learning.noKaraoke && item[langData.learningLang].kk && !themeData.isReversed">
 					<br />
 					<em [ngClass]="{
 						'text-primary': cpntData.clickedIdx === null || (cpntData.clickedIdx === -1),
 						'text-dark': cpntData.clickedIdx > 0,
 						'font-lao': isLaoLanguage
-					}" innerHTML="{{ item[cpntData.lang.learningLang].kk[cpntData.lang.currentLang] | unbreakable }}">
+					}" innerHTML="{{ item[langData.learningLang].kk[langData.currentLang] | unbreakable }}">
 					</em>
 				</ng-template>
 			</button>
@@ -65,7 +64,7 @@
 <div class="row">
 	<div class="col">
 		<div [hidden]="cpntData.clickedIdx === null"
-			[ngClass]="{'font-lao': cpntData.lang?.currentLang === 'lo'}">
+			[ngClass]="{'font-lao': langData?.currentLang === 'lo'}">
 			<div *ngIf="cpntData.clickedIdx === cpntData.winItemIdx; else elseBlock">
 				{{ 'gameboard.correctAnswer' | translate }}
 			</div>

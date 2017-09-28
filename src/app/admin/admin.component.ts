@@ -27,35 +27,29 @@ import { Item } from './../shared/models/item.models';
 import { Theme } from './../shared/models/theme.models';
 declare const $: any;
 
+// custom components
+import { LaololComponent } from './../shared/components/abstract/laolol.component';
+
 @Component({
 	selector: 'app-admin',
 	templateUrl: './admin.component.html'
 })
-export class AdminComponent implements OnInit, OnDestroy {
+export class AdminComponent extends LaololComponent implements OnInit, OnDestroy {
 	cpntData = {
-		lang: null,
-		items: null,
-		themes: null,
 		tabSection: 0,
 		selectedFilter: 'all'
 	};
 	subscriptions: Subscription[] = [];
 
-	constructor (private themeService: ThemeService,
-		private languageService: LanguageService,
-		private itemService: ItemService,
-		private toastrService: ToastrService,
+	constructor (private toastrService: ToastrService,
 		private modalService: ModalService,
 		private apiService: ApiService,
-		private versionService: VersionService) {
+		private versionService: VersionService,
+		itemService: ItemService, languageService: LanguageService, themeService: ThemeService) {
+		super(itemService, languageService, themeService);
 	}
 
 	ngOnInit () {
-		// init shared data
-		this.cpntData.lang =  this.languageService.data;
-		this.cpntData.themes = this.themeService.data;
-		this.cpntData.items = this.itemService.data;
-
 		// init CRUD subscriptions
 		const initialSubscriptions = [
 			// -- read
@@ -106,13 +100,13 @@ export class AdminComponent implements OnInit, OnDestroy {
 	get filteredItems () {
 		// console.log('admin.service::get filteredItems', this.cpntData.selectedFilter)
 		if (this.cpntData.selectedFilter === 'all') {
-			return this.cpntData.items.all;
+			return this.itemData.all;
 		} else if (this.cpntData.selectedFilter === 'none') {
-			return this.cpntData.items.all.filter((item) => {
+			return this.itemData.all.filter((item) => {
 			return item.themes.length === 0;
 		});
 		}
-		return this.cpntData.items.all.filter((item) => {
+		return this.itemData.all.filter((item) => {
 			return item.themes.indexOf(this.cpntData.selectedFilter) !== -1;
 		});
 	}
@@ -140,19 +134,19 @@ export class AdminComponent implements OnInit, OnDestroy {
 	}
 
 	createEmptyTheme () {
-		this.cpntData.themes.current = new Theme();
+		this.themeData.current = new Theme();
 	}
 
 	createEmptyItem () {
-		this.cpntData.items.current = new Item();
+		this.itemData.current = new Item();
 	}
 
-	confirmDeleteItem (id: string, event) {
+	confirmDeleteItem (id: string) {
 		this.modalService.setConfirmMethod(() => {
 			this.itemService.delete(id);
 		});
 	}
-	confirmDeleteTheme (id: string, event) {
+	confirmDeleteTheme (id: string) {
 		this.modalService.setConfirmMethod(() => {
 			this.themeService.delete(id);
 		});

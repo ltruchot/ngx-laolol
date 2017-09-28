@@ -1,96 +1,95 @@
-<div [hidden]= "cpntData.lang?.isCurrentLoading || !(cpntData.lang?.isLearningLoading)" class="loading"></div>
 <app-submenu></app-submenu>
 <div class="row">
 	<div class="col">
-		<h2 class="text-center backboard-title" [ngClass]="{'font-lao': !cpntData.lang.isCurrentLangLao}"
-			*ngIf="cpntData.theme?.learning && cpntData.lang?.learningLang">
+		<h2 class="text-center backboard-title" [ngClass]="{'font-lao': !langData.isCurrentLangLao}"
+			*ngIf="themeData?.learning && langData?.learningLang">
 			{{
-				(cpntData.theme.learning.displayPlural ?
-				cpntData.theme.learning.link[cpntData.lang.learningLang].tongue.plural :
-				cpntData.theme.learning.link[cpntData.lang.learningLang].wrd)  | capitalize
+				(themeData.learning.displayPlural ?
+				themeData.learning.link[langData.learningLang].tongue.plural :
+				themeData.learning.link[langData.learningLang].wrd)  | capitalize
 			}}
-			<ng-template [ngIf]="cpntData.theme.displayKaraoke &&
-				cpntData.theme.learning.link[cpntData.lang.learningLang].kk &&
-				cpntData.theme.learning.link[cpntData.lang.learningLang].kk[cpntData.lang.currentLang]">
-				<em class="text-primary" [ngClass]="{'font-lao': cpntData.lang.isCurrentLangLao}" innerHTML="{{ cpntData.theme.learning.link[cpntData.lang.learningLang].kk[cpntData.lang.currentLang] | unbreakable }}"></em>
+			<ng-template [ngIf]="themeData.displayKaraoke &&
+				themeData.learning.link[langData.learningLang].kk &&
+				themeData.learning.link[langData.learningLang].kk[langData.currentLang]">
+				<em class="text-primary" [ngClass]="{'font-lao': langData.isCurrentLangLao}" innerHTML="{{ themeData.learning.link[langData.learningLang].kk[langData.currentLang] | unbreakable }}"></em>
 			</ng-template>
 
-			<em [ngClass]="{'font-lao': cpntData.lang.isCurrentLangLao}">
+			<em [ngClass]="{'font-lao': langData.isCurrentLangLao}">
 				({{
-					(cpntData.theme.learning.displayPlural ?
-					cpntData.theme.learning.link[cpntData.lang.currentLang].tongue.plural :
-					cpntData.theme.learning.link[cpntData.lang.currentLang].wrd)  | capitalize
+					(themeData.learning.displayPlural ?
+					themeData.learning.link[langData.currentLang].tongue.plural :
+					themeData.learning.link[langData.currentLang].wrd)  | capitalize
 				}})
 			</em>
 		</h2>
 	</div>
 </div>
-<div class="blackboard-items" *ngIf="cpntData.theme.items.length">
+<div class="blackboard-items" *ngIf="themeData.items.length">
 	<div class="row">
 		<div class="col-6 col-sm-4 col-md-3 mxtb5" *ngFor="let item of cpntData.items; let i = index;">
 			<div class="card h-100">
 			  <div class="card-header pos-r">
-			    <ng-template [ngIf]="cpntData.lang?.learningLang === 'fr'">
-					  <span *ngIf="(!cpntData.theme?.learning?.noArticle) &&
+			    <ng-template [ngIf]="langData?.learningLang === 'fr'">
+					  <span *ngIf="(!themeData?.learning?.noArticle) &&
 					  	item.fr.meta && item.fr.meta.isMale !== undefined">
 					  	{{ item.fr.meta.isMale ? 'un' : 'une' }}
 					  </span>
 					  {{ item.fr.wrd }}
 					</ng-template>
-					<ng-template [ngIf]="cpntData.lang?.learningLang === 'en'">
-						<span *ngIf="!cpntData.theme?.learning?.noArticle">
+					<ng-template [ngIf]="langData?.learningLang === 'en'">
+						<span *ngIf="!themeData?.learning?.noArticle">
 					  	{{ cpntData.vowels.en.test(item.en.wrd[0]) ? "an" : "a" }}
 					  </span>
 					  {{ item.en.wrd }}
 					</ng-template>
-					<ng-template [ngIf]="cpntData.lang?.learningLang === 'lo'">
+					<ng-template [ngIf]="langData?.learningLang === 'lo'">
 						<span class="font-lao">{{ item.lo.wrd }}</span>
 					</ng-template>
-					<ng-template [ngIf]="cpntData.theme.displayKaraoke && cpntData.lang?.learningLang &&
-						!cpntData.theme.learning.noKaraoke &&
-						item[cpntData.lang.learningLang].kk &&
-						item[cpntData.lang.learningLang].kk[cpntData.lang.currentLang]">
+					<ng-template [ngIf]="themeData.displayKaraoke && langData?.learningLang &&
+						!themeData.learning.noKaraoke &&
+						item[langData.learningLang].kk &&
+						item[langData.learningLang].kk[langData.currentLang]">
 						<br />
-						<em class="text-medium text-primary" [ngClass]="{'font-lao': cpntData.lang.isCurrentLangLao}" innerHTML="{{ item[cpntData.lang.learningLang].kk[cpntData.lang.currentLang] | unbreakable }}"></em>
+						<em class="text-medium text-primary" [ngClass]="{'font-lao': langData.isCurrentLangLao}" innerHTML="{{ item[langData.learningLang].kk[langData.currentLang] | unbreakable }}"></em>
 					</ng-template>
-					<label class="pos-top-right p5" *ngIf="item[cpntData.lang.learningLang].audioLoaded"
+					<label class="pos-top-right p5" *ngIf="item[langData.learningLang].audioLoaded"
 					title="{{ 'blackboard.listen' | translate }}" (click)="playsound(i)">
 						<span class="text-medium icon-volume-low"></span>
 					</label>
 			  </div>
-			  <div class="card-img-top pos-r" *ngIf="cpntData.theme?.learning?.hasImages">
+			  <div class="card-img-top pos-r" *ngIf="themeData?.learning?.hasImages">
 			  	<img *ngIf="!item.img" src="/assets/img/questionmark.jpg" />
 					<img *ngIf="item.img" [src]="'/assets/medias/' + item.img" />
-					<div *ngIf="cpntData.theme.learning.hasSpecialExample" class="text-muted pos-top-left">
+					<div *ngIf="themeData.learning.hasSpecialExample" class="text-muted pos-top-left">
 						{{ item.lo.ex }}
 					</div>
 				</div>
 			  <div class="card-body">
-			    <h3 class="card-title" [ngClass]="{'font-lao': cpntData.lang.isCurrentLangLao}">{{ item[cpntData.lang.currentLang].wrd }}</h3>
-			    <p class="card-text" *ngIf="cpntData.lang && (cpntData.lang.learningLang === 'fr') && item.fr.meta && (item.fr.meta.isMale !== undefined)">
+			    <h3 class="card-title" [ngClass]="{'font-lao': langData.isCurrentLangLao}">{{ item[langData.currentLang].wrd }}</h3>
+			    <p class="card-text" *ngIf="langData && (langData.learningLang === 'fr') && item.fr.meta && (item.fr.meta.isMale !== undefined)">
 						<strong>
 							{{ cpntData.vowels.fr.test(item.fr.wrd[0]) ? "l'" : (item.fr.meta.isMale ? "le " : "la ") }}{{ item.fr.wrd }}
 						</strong>
-						 <em  [ngClass]="{'font-lao': cpntData.lang.isCurrentLangLao}">({{ item.fr.meta.isMale ? ('blackboard.masculine' | translate) : ('blackboard.feminine' | translate) }})</em>
+						 <em  [ngClass]="{'font-lao': langData.isCurrentLangLao}">({{ item.fr.meta.isMale ? ('blackboard.masculine' | translate) : ('blackboard.feminine' | translate) }})</em>
 					</p>
 					<div class="collapse" [ngClass]="{
-						'hide': !cpntData.theme?.isMoreInfos,
-						'show': cpntData.theme?.isMoreInfos
+						'hide': !themeData?.isMoreInfos,
+						'show': themeData?.isMoreInfos
 					}">
-						<hr *ngIf="(!cpntData.theme.learning.noPlural && cpntData.lang &&
-							(cpntData.lang.learningLang === 'fr' || cpntData.lang.learningLang === 'en')) ||
-							(item[cpntData.lang.currentLang].meta && item[cpntData.lang.currentLang].meta.comment) ||
-							cpntData.lang.currentLang === 'lo'" />
-						<p class="card-text" *ngIf="!cpntData.theme.learning.noPlural && !cpntData.lang?.learningLangInfos?.noPlural">
-							<strong *ngIf="cpntData.lang.learningLang === 'fr'">les</strong>
-							<strong>{{ item[cpntData.lang.learningLang].tongue.plural }}</strong>
+						<hr *ngIf="(!themeData.learning.noPlural && langData &&
+							(langData.learningLang === 'fr' || langData.learningLang === 'en')) ||
+							(item[langData.currentLang].meta && item[langData.currentLang].meta.comment) ||
+							langData.currentLang === 'lo'" />
+						<p class="card-text" *ngIf="!themeData.learning.noPlural && !langData?.learningLangInfos?.noPlural">
+							<strong *ngIf="langData.learningLang === 'fr'">les</strong>
+							<strong>{{ item[langData.learningLang].tongue.plural }}</strong>
 						</p>
 						<p class="card-text"
-							*ngIf="item[cpntData.lang.currentLang].meta && item[cpntData.lang.currentLang].meta.comment">
-							<em>{{ item[cpntData.lang.currentLang].meta.comment }}</em>
+							*ngIf="item[langData.currentLang].meta && item[langData.currentLang].meta.comment">
+							<em>{{ item[langData.currentLang].meta.comment }}</em>
 						</p>
-				    <p class="card-text" *ngIf="cpntData.lang?.currentLang === 'lo'">
-							<span class="text-uppercase">{{ item[cpntData.lang.learningLang].wrd }}</span>
+				    <p class="card-text" *ngIf="langData?.currentLang === 'lo'">
+							<span class="text-uppercase">{{ item[langData.learningLang].wrd }}</span>
 						</p>
 					</div>
 			  </div>
