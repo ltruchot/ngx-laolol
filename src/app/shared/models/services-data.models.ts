@@ -31,6 +31,7 @@ export interface IThemeServiceData {
 	learningUid: string;
 	learning: Theme;
 	displayKaraoke: boolean;
+	noLaoWriting: boolean;
 	isReversed: boolean;
 	isMoreInfos: boolean;
 	isCurrentLoading: boolean;

@@ -40,7 +40,10 @@
     "intro2": "It can be used by Lao-speaker as well, to learn english and french.",
     "andNow": "And now",
     "letsPlay": "let's play!",
-    "wantLearn": "I want to learn"
+    "wantLearn": "I want to learn",
+    "iAm": "I am",
+    "aStudent": "a student",
+    "aTraveller": "a traveller"
   },
   "gameboard": {
     "findTranslation": "Find the translation of",
@@ -57,7 +60,7 @@
   "submenu": {
     "language": "Language",
     "topic": "Topic",
-    "level": "level",
+    "level": "lvl",
     "all": "All",
     "karaoke": "karaoke",
     "reverse": "reverse",

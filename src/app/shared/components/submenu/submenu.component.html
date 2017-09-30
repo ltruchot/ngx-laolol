@@ -9,9 +9,9 @@
 				themeData.learning.link[langData.current?.code].wrd) | truncate:[7]
 			}}
 		</button>
-		<div class="dropdown-menu" aria-labelledby="btn-submenu-theme" *ngIf="themeData?.all?.length">
+		<div class="dropdown-menu" aria-labelledby="btn-submenu-theme" *ngIf="themeData?.all?.length && langData.current">
 			<ng-container *ngFor="let theme of themeData.all; let i = index;">
-					<a *ngIf="theme.isVisible" class="dropdown-item" [ngClass]="{'active': theme.uid  === themeData.learningUid}" [routerLink]="[cpntData.currentUrl, theme.uid] | localize">
+					<a *ngIf="theme.isVisible" class="dropdown-item" [ngClass]="{'active': theme.uid  === themeData.learningUid}" [routerLink]="[cpntData.currentUrl, theme.link[langData.current.code].tongue.slug] | localize">
 						{{
 							theme.displayPlural ?
 							theme.link[langData.current?.code].tongue.plural :
@@ -22,13 +22,13 @@
 			</ng-container>
 		</div>
 	</div>
-	<div class="btn-group btn-sm" role="group" *ngIf="themeData?.learning?.levels > 1">
+	<div class="btn-group btn-sm px-smaller-r" role="group" *ngIf="themeData?.learning?.levels > 1">
 		<button id="btn-submenu-level" class="btn btn-danger dropdown-toggle btn-sm"
 			data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 				<span *ngIf="themeData.learningLevel === themeData.levels.length - 1; else realLvl">{{ 'submenu.all' | translate }}</span>
 				<ng-template #realLvl>{{ 'submenu.level' | translate }} {{ themeData.learningLevel + 1 }}</ng-template>
 		</button>
-		<div class="dropdown-menu" aria-labelledby="btn-submenu-level">
+		<div class="dropdown-menu px-smaller-r" aria-labelledby="btn-submenu-level">
 			<ng-container *ngFor="let level of themeData.levels; let i = index;">
 				<a class="dropdown-item" [ngClass]="{'active': i  === themeData.learningLevel}"
 					(click)="changeLearningLevel(i)">
@@ -38,21 +38,27 @@
 			</ng-container>
 		</div>
 	</div>
-	<div class="btn-group btn-sm" *ngIf="!themeData?.learning?.noKaraoke">
+	<div class="btn-group btn-sm px-smaller-r" *ngIf="!themeData?.learning?.noKaraoke">
 		<button class="btn btn-light btn-sm"
 			[ngClass]="{'active': themeData.displayKaraoke}"
 			title="{{ 'submenu.karaoke' | translate }}" (click)="toggleKaraoke()">
 			<span class="icon-spell-check"></span>
 		</button>
 	</div>
-	<div class="btn-group btn-sm" *ngIf="cpntData.currentUrl === 'gameboard'">
+	<div class="btn-group btn-sm px-smaller-r" *ngIf="cpntData.currentUrl === 'gameboard'">
 		<button class="btn btn-light btn-sm"
 			[ngClass]="{'active': themeData?.isReversed}"
 			title="{{ 'submenu.reverse' | translate }}" (click)="themeData.isReversed = !themeData.isReversed">
 			<span class="icon-loop"></span>
 		</button>
 	</div>
-		<div class="btn-group btn-sm" *ngIf="cpntData.currentUrl === 'blackboard' && !themeData?.learning?.noMoreInfos">
+	<div class="btn-group btn-sm px-smaller-r" *ngIf="!isCurrentLangLao">
+		<button class="btn btn-light btn-sm"
+			[ngClass]="{'active': !themeData.noLaoWriting}" (click)="toggleLaoWriting()">
+			<span>ລາວ</span>
+		</button>
+	</div>
+		<div class="btn-group btn-sm px-smaller-r" *ngIf="!themeData?.learning?.noMoreInfos">
 		<button class="btn btn-light btn-sm"
 			[ngClass]="{'active': themeData?.isMoreInfos}"
 			title="{{ 'submenu.moreInfos' | translate }}" (click)="toggleMoreInfos()">

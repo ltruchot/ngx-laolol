@@ -1,20 +1,90 @@
 <div class="view-home" [ngClass]="{'font-lao': isCurrentLangLao}">
-	<p>
-	  {{ 'home.intro1' | translate }}<br />
-	  {{ 'home.intro2' | translate }}
-	</p>
-	<p>{{ 'home.andNow' | translate }}, {{ 'home.letsPlay' | translate }}<br/>
-		{{ 'home.wantLearn' | translate }}:
-			<a *ngIf="!isCurrentLangLao"
-				[routerLink]="'/gameboard/' + themeData?.learning?.uid"
-				(click)="changeLearningLang('lo')">{{ 'words.languageLao' | translate }}</a>
-			<ng-template [ngIf]="isCurrentLangLao">{{ 'words.or' | translate }}</ng-template>
-			<a *ngIf="langData.current?.code !== 'fr'"
-				[routerLink]="'/gameboard/' + themeData?.learning?.uid"
-				(click)="changeLearningLang('fr')">{{ 'words.languageFrench' | translate }}</a><!--
-		--><ng-template [ngIf]="isCurrentLangLao"> {{ 'words.or' | translate }} </ng-template><!--
-		--><a *ngIf="langData.current?.code !== 'en'"
-				[routerLink]="'/gameboard/' + themeData?.learning?.uid"
-				(click)="changeLearningLang('en')">{{ 'words.languageEnglish' | translate }}</a>.
-	</p>
+	<div class="row">
+		<div class="col-12">
+			<p>
+			  {{ 'home.intro1' | translate }}<br />
+			  {{ 'home.intro2' | translate }}
+			</p>
+		</div>
+		<div class="col-12">
+<!-- 			<p>C'est votre première visite ? <a (click)="launchTutorial()" href="#">Oui, je veux découvrir le site en une minute</a></p> -->
+			<h2 class='text-center'>{{ 'home.iAm' | translate }}...</h2>
+		</div>
+		<div class="col-12">
+			<div class="card-deck mxb10">
+			  <div class="card" *ngIf="studentDefaultTheme && studentSpecialThemes && studentThemes">
+			    <button class="card-img-top btn btn-success btn-block btn-lg text-bigger" type="button"
+			    (click)="changeTheme(studentDefaultTheme.uid, false)"
+			    [routerLink]="'/' + ('localizeRouter.blackboard' | translate) + '/' +  studentDefaultTheme.link[langData.current.code].tongue.slug | localize">{{ 'home.aStudent' | translate }}</button>
+			    <div class="card-body">
+			      <h4 class="card-title text-big">Apprendre la langue</h4>
+			      <p class="card-text">Lire le lao permet de comprendre le fonctionnement de cette langue. Je vais apprendre
+		      		<ng-container *ngFor="let theme of studentSpecialThemes; let i = index;">
+			      		<a [routerLink]="'/' + ('localizeRouter.blackboard' | translate) + '/' +  theme.link[langData.current.code].tongue.slug | localize"
+			      		(click)="changeTheme(theme.uid, false)">{{
+		      					theme.displayPlural ?
+										theme.link[langData.current.code].tongue.plural :
+										theme.link[langData.current.code].wrd
+									}}</a>{{ i === 2 ? '.' : ','}}
+		      		</ng-container>
+			      	<br />Enfin, je pourrais découvrir des thèmes plus avancés comme:
+			      </p>
+			      <ul>
+			      	<li *ngFor="let theme of studentThemes;">
+		      			<a (click)="changeTheme(theme.uid, false)" [routerLink]="'/' + ('localizeRouter.blackboard' | translate) + '/' +  theme.link[langData.current.code].tongue.slug | localize">
+		      				{{
+		      					theme.displayPlural ?
+										theme.link[langData.current.code].tongue.plural :
+										theme.link[langData.current.code].wrd
+									}}
+		      			</a>
+		      		</li>
+			      	<li>la famille</li>
+			      	<li>le corps humain</li>
+			      </ul>
+			    </div>
+			    <div class="card-footer"><small class="text-muted">500 mots suffisent pour parler une langue.</small></div>
+			  </div>
+			  <div class="card" *ngIf="touristDefaultTheme">
+			    <button class="card-img-top btn btn-info btn-block btn-lg text-bigger" type="button"
+			    (click)="changeTheme(touristDefaultTheme.uid, true)"
+			    [routerLink]="'/' + ('localizeRouter.blackboard' | translate) + '/' +  touristDefaultTheme.link[langData.current.code].tongue.slug | localize">{{ 'home.aTraveller' | translate }}</button>
+			    <div class="card-body">
+			      <h4 class="card-title text-big">Découvrir quelques bases</h4>
+			      <p class="card-text">Inutile de connaître l'alphabet lao. Je n'apprendrai que <a href="#">la prononciation</a> et je vais me concentrer sur ces thèmes :</p>
+		      	<ul>
+		      		<li *ngFor="let theme of touristThemes;">
+		      			<a (click)="changeTheme(theme.uid, true)" [routerLink]="'/' + ('localizeRouter.blackboard' | translate) + '/' +  theme.link[langData.current.code].tongue.slug | localize">
+		      				{{
+		      					theme.displayPlural ?
+										theme.link[langData.current.code].tongue.plural :
+										theme.link[langData.current.code].wrd
+									}}
+		      			</a>
+		      		</li>
+		      		<li>la rencontre</li>
+		      		<li>les pronoms</li>
+		      		<li>les transports</li>
+		      	</ul>
+			    </div>
+			    <div class="card-footer"><small class="text-muted">10 minutes par jours avant le voyage.</small></div>
+			  </div>
+		  </div>
+		  <p *ngIf="participantTheme">Laolol existe grâce à nos généreux donateurs. Ils soutiennent ce projet depuis plusieurs mois. Découvrez la section <a (click)="changeTheme('participants', false)" [routerLink]="'/' + ('localizeRouter.blackboard' | translate) + '/' +  participantTheme.link[langData.current.code].tongue.slug | localize">"participants"</a> qui leur est dédiées, et les mots qu'ils ont choisis !</p>
+
+		  <!-- 		<p>{{ 'home.andNow' | translate }}, {{ 'home.letsPlay' | translate }}
+			<br/>
+			{{ 'home.wantLearn' | translate }}:
+				<a *ngIf="!isCurrentLangLao"
+					[routerLink]="'/gameboard/' + themeData?.learning?.uid"
+					(click)="changeLearningLang('lo')">{{ 'words.languageLao' | translate }}</a>
+				<ng-template [ngIf]="isCurrentLangLao">{{ 'words.or' | translate }}</ng-template>
+				<a *ngIf="langData.current?.code !== 'fr'"
+					[routerLink]="'/gameboard/' + themeData?.learning?.uid"
+					(click)="changeLearningLang('fr')">{{ 'words.languageFrench' | translate }}</a><<ng-template [ngIf]="isCurrentLangLao"> {{ 'words.or' | translate }} </ng-template><a *ngIf="langData.current?.code !== 'en'"
+					[routerLink]="'/gameboard/' + themeData?.learning?.uid"
+					(click)="changeLearningLang('en')">{{ 'words.languageEnglish' | translate }}</a>.
+		</p>-->
+		 </div>
+	</div>
 </div>

@@ -11,6 +11,7 @@ import 'rxjs/add/observable/throw';
 
 // custom services
 import { ApiService } from './api.service';
+import { LanguageService } from './language.service';
 import { UserService } from './user.service';
 import { StorageService } from './storage.service';
 import { ItemService } from './item.service';
@@ -27,6 +28,7 @@ import {
 } from '../models/error.models';
 import { Theme } from '../models/theme.models';
 import { Item } from './../models/item.models';
+import { ILanguage } from './../models/language.models';
 import { IItemsResponse, IThemeServiceData } from './../models/services-data.models';
 
 @Injectable()
@@ -46,6 +48,7 @@ export class ThemeService {
 		displayKaraoke: true,
 		isReversed: false,
 		isMoreInfos: false,
+		noLaoWriting: false,
 		isCurrentLoading: false,
 		learningLevel: 0,
 		levels: [],
@@ -62,7 +65,7 @@ export class ThemeService {
 
 	constructor (private apiService: ApiService, private userService: UserService,
 		private storage: StorageService, private itemService: ItemService,
-		private tongueService: TongueService)  {
+		private tongueService: TongueService, private languageService: LanguageService)  {
 
 		// create
 		this.createSubject = new Subject();
@@ -124,7 +127,9 @@ export class ThemeService {
 					this.data.items.length = 0;
 					this.data.items.push(...data);
 					this.currentThemeSource.next(this.getCurrentLevel());
+					this.data.isCurrentLoading = false;
 				} else {
+					this.data.isCurrentLoading = false;
 					if (this.data.learning && this.data.learning.uid) {
 						throw new Error(`Theme "${this.data.learning.uid}" wasn't loaded correctly.
 						Check if theme exists ans is correctly populated with at least 4 items`);
@@ -132,32 +137,59 @@ export class ThemeService {
 						throw new Error(`No valid learning found. Check db & request`);
 					}
 				}
-				this.data.isCurrentLoading = false;
 			}
 		});
 	}
 
+	getThemeUidBySlug (slug: string): string {
+		// console.log('theme.service::getThemeUidBySlug', slug);
+		let themeFound: Theme;
+		this.languageService.data.availableLanguages.some((language: ILanguage) => {
+			themeFound = this.data.all.find((theme: Theme) => {
+				return theme.link[language.code].tongue.slug === slug;
+			});
+			return !!themeFound;
+		});
+		return themeFound ? themeFound.uid : '';
+	}
+
+	getThemeByUid (themeUid: string): Theme {
+		return this.data.all.find((theme: Theme) => theme.uid === themeUid);
+	}
 	resetThemes () {
 		// console.log('theme.service::resetThemes');
 		this.storage.removeItem('allThemes');
 		this.storage.removeItem('loadedThemes');
 	}
 
-	checkLevels () {
+	checkLevels (forceReset?: boolean) {
 		// console.log('submenu.component::checkLevels', this.data.learning);
-		this.data.learningLevel = 0;
+		if (forceReset) {
+			this.data.learningLevel = 0;
+		}
 		const levels = this.data.learning && this.data.learning.levels;
 		this.data.levels = levels ? Array.from(Array(levels + 1).keys()) : [];
 	}
 
 	toggleKaraoke () {
 		this.data.displayKaraoke = !this.data.displayKaraoke;
+		if (this.data.noLaoWriting && !this.data.displayKaraoke) {
+			this.toggleNoLaoWriting();
+		}
 		this.storage.setItem('isKaraokeActivated', this.data.displayKaraoke);
 	}
 
 	toggleMoreInfos () {
 		this.data.isMoreInfos = !this.data.isMoreInfos;
 		this.storage.setItem('isMoreInfosActivated', this.data.isMoreInfos);
+	}
+
+	toggleNoLaoWriting () {
+		this.data.noLaoWriting = !this.data.noLaoWriting;
+		if (this.data.noLaoWriting && !this.data.displayKaraoke) {
+			this.toggleKaraoke();
+		}
+		this.storage.setItem('isNoLaoWritingActivated', this.data.isMoreInfos);
 	}
 
 	getCurrentLevel () {
@@ -183,9 +215,9 @@ export class ThemeService {
 		// console.log('theme.service::changeLearningTheme', uid);
 		if (uid !== this.data.learningUid) {
 			this.data.learningUid = uid;
-			this.data.learning = this.data.all.find((theme: Theme) => theme.uid === uid);
+			this.data.learning = this.getThemeByUid(uid);
 			this.storage.setItem('currentLearningThemeUid', uid);
-			this.checkLevels();
+			this.checkLevels(true);
 			this.getCurrentTheme();
 		} else  {
 			this.checkLevels();
@@ -249,9 +281,10 @@ export class ThemeService {
 		themes.forEach((theme: Theme) => {
 			this.enhanceThemeWithLink(theme);
 		});
+		themes.sort((a: any, b: any) => a.uid.localeCompare(b.uid));
 		this.data.all.length = 0;
 		this.data.all.push(...themes);
-		this.data.learning = this.data.all.find((theme: Theme) => theme.uid === this.data.learningUid);
+		this.data.learning = this.getThemeByUid(this.data.learningUid);
 		this.checkLevels();
 		this.data.isCurrentLoading = false;
 	}
@@ -261,7 +294,6 @@ export class ThemeService {
 		const linkedItem = this.itemService.data.all.find((item: Item) => item.uid === theme.linkUid);
 		if (linkedItem) {
 			this.tongueService.addSlugs(linkedItem, theme.displayPlural);
-			console.log(linkedItem);
 			theme.link = linkedItem;
 		} else {
 			console.error(`Theme ${theme.uid} error: linked item ${theme.linkUid} not found.`);

@@ -9,6 +9,7 @@
 .mx0 { margin:0 !important; }
 .mxb0 { margin-bottom: 0; }
 .mxb10 { margin-bottom: 10px; }
+.mxt5 { margin-top: 5px;}
 .mxtb5 { margin: 5px 0; }
 .mxtb10 { margin: 10px 0; }
 .mxr5 { margin-right: 5px;}
@@ -20,8 +21,15 @@
 .pxb8 { padding-bottom: 8px;}
 .pxtb5 { padding: 5px 0; }
 .px5lr8 { padding: 5px 8px; }
+.px-medium { padding: .75rem;}
+.px-smaller-r {
+  @include media-breakpoint-down(xs) {
+    padding: .25rem;
+  }
+}
 
 // font-size
+.text-bigger { font-size: 1.4rem }
 .text-big { font-size: 1.3rem }
 .text-standard { font-size: 1rem; }
 .text-standard-2 { font-size: .9rem; }

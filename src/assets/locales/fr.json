@@ -40,7 +40,10 @@
     "intro2": "Ce site peut aussi être utilisé par les laophones pour apprendre le français ou l'anglais.",
     "andNow": "Allez",
     "letsPlay": "c'est parti !",
-    "wantLearn": "Je veux apprendre "
+    "wantLearn": "Je veux apprendre ",
+    "iAm": "Je suis",
+    "aStudent": "un étudiant",
+    "aTraveller": "un voyageur"
   },
   "gameboard": {
     "findTranslation": "Trouver la traduction de",
@@ -57,7 +60,7 @@
   "submenu": {
     "language": "Langue",
     "topic": "Thème",
-    "level": "niveau",
+    "level": "niv.",
     "all": "Tous",
     "karaoke": "karaoke",
     "reverse": "inverser",

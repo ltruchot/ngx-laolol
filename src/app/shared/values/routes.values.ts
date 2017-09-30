@@ -6,7 +6,7 @@ const ROUTES_CONFIG = [{
 	name: 'blackboard',
 	paths: { en: 'blackboard', fr: 'salle-de-cours', ລາວ: 'ຫ້ອງຮຽນ' },
 	module: './blackboard/blackboard.module#BlackboardModule',
-	urlParam: 'themeUid'
+	urlParam: 'themeSlug'
 }, {
 	name: 'exams',
 	paths: { en: 'exams', fr: 'examens', ລາວ: 'ປະເມີນຜົນ' },
@@ -15,7 +15,7 @@ const ROUTES_CONFIG = [{
 	name: 'gameboard',
 	paths: { en: 'gameboard', fr: 'salle-de-jeu', ລາວ: 'ຫ້ອງເກມ' },
 	module: './gameboard/gameboard.module#GameboardModule',
-	urlParam: 'themeUid'
+	urlParam: 'themeSlug'
 }, {
 	name: 'home',
 	paths: { en: 'home', fr: 'accueil', ລາວ: 'ໜ້າຫຼັກ' },

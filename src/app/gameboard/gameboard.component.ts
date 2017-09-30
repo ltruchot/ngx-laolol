@@ -8,7 +8,8 @@ import { Subscription } from 'rxjs/Subscription';
 // custom models
 import { IGameboardCpntData } from './gameboard.models';
 import { Item } from './../shared/models/item.models';
-import { Theme } from './../shared/models/theme.models';
+// import { Theme } from './../shared/models/theme.models';
+// import { ILanguage } from './../shared/models/language.models';
 
 // custom services
 import { ItemService } from './../shared/services/item.service';
@@ -49,10 +50,10 @@ export class GameboardComponent extends LaololComponent implements OnInit, OnDes
 			if (!this.themeData.all.length) {
 				const sub = this.themeService.read$.subscribe(() => {
 					sub.unsubscribe();
-					this.checkRouteParams(params.themeUid);
+					this.checkRouteParams(params.themeSlug);
 				});
 			} else {
-				this.checkRouteParams(params.themeUid);
+				this.checkRouteParams(params.themeSlug);
 			}
 		});
 	}
@@ -65,11 +66,13 @@ export class GameboardComponent extends LaololComponent implements OnInit, OnDes
 		(!this.isCurrentLangLao && this.themeData.isReversed);
 	}
 
-	checkRouteParams (themeUid: string) {
-		if (themeUid && this.themeData.all.find((theme: Theme) => theme.uid === themeUid)) {
+	checkRouteParams (themeSlug: string) {
+		const themeUid = this.themeService.getThemeUidBySlug(themeSlug);
+		if (themeUid) {
 			this.themeService.changeLearningTheme(themeUid);
 		} else {
 			this.router.navigate(['notfound']);
+			console.error('Theme uid not found:', themeUid);
 		}
 	}
 
@@ -157,7 +160,11 @@ export class GameboardComponent extends LaololComponent implements OnInit, OnDes
 	ngOnDestroy () {
 		// prevent memory leak when component destroyed
 		window.clearInterval(this.questionTimer);
-		this.themeSubscription.unsubscribe();
-		this.routeSubscription.unsubscribe();
+		if (this.themeSubscription && typeof this.themeSubscription.unsubscribe === 'function') {
+			this.themeSubscription.unsubscribe();
+		}
+		if (this.routeSubscription && typeof this.routeSubscription.unsubscribe === 'function') {
+			this.routeSubscription .unsubscribe();
+		}
 	}
 }

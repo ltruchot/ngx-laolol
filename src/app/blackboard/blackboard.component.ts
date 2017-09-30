@@ -11,7 +11,7 @@ import { ThemeService } from './../shared/services/theme.service';
 import { LanguageService } from './../shared/services/language.service';
 
 // custome models
-import { Theme } from './../shared/models/theme.models';
+// import { Theme } from './../shared/models/theme.models';
 import { Item } from './../shared/models/item.models';
 import { ILanguage } from './../shared/models/language.models';
 
@@ -47,19 +47,25 @@ export class BlackboardComponent extends LaololComponent implements OnInit, OnDe
 			if (!this.themeData.all.length) {
 				const sub = this.themeService.read$.subscribe(() => {
 					sub.unsubscribe();
-					this.checkRouteParams(params.themeUid);
+					this.checkRouteParams(params.themeSlug);
 				});
 			} else {
-				this.checkRouteParams(params.themeUid);
+				this.checkRouteParams(params.themeSlug);
 			}
 		});
 	}
 
-	checkRouteParams (themeUid: string) {
-		if (themeUid && this.themeData.all.find((theme: Theme) => theme.uid === themeUid)) {
+	get isHidingLao () {
+		return !this.isCurrentLangLao && this.themeData.noLaoWriting;
+	}
+
+	checkRouteParams (themeSlug: string) {
+		const themeUid = this.themeService.getThemeUidBySlug(themeSlug);
+		if (themeUid) {
 			this.themeService.changeLearningTheme(themeUid);
 		} else {
 			this.router.navigate(['notfound']);
+			console.error('Theme uid not found:', themeUid);
 		}
 	}
 
@@ -96,7 +102,11 @@ export class BlackboardComponent extends LaololComponent implements OnInit, OnDe
 
 	ngOnDestroy () {
 		// prevent memory leak when component destroyed
-		this.themeSubscription.unsubscribe();
-		this.routeSubscription .unsubscribe();
+		if (this.themeSubscription && typeof this.themeSubscription.unsubscribe === 'function') {
+			this.themeSubscription.unsubscribe();
+		}
+		if (this.routeSubscription && typeof this.routeSubscription.unsubscribe === 'function') {
+			this.routeSubscription .unsubscribe();
+		}
 	}
 }

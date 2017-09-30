@@ -48,4 +48,7 @@ export class SubmenuComponent extends LaololComponent implements OnInit {
 	toggleMoreInfos () {
 		this.themeService.toggleMoreInfos();
 	}
+	toggleLaoWriting () {
+		this.themeService.toggleNoLaoWriting();
+	}
 }

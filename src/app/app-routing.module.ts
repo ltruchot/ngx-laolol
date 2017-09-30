@@ -18,9 +18,9 @@ import { ROUTES_CONFIG } from './shared/values/routes.values';
 const routes: Routes = [
 	{ path: '', redirectTo: '/home', pathMatch: 'full' },
 	{ path: 'about', loadChildren: './about/about.module#AboutModule' },
-	{ path: 'blackboard/:themeUid', loadChildren: './blackboard/blackboard.module#BlackboardModule' },
+	{ path: 'blackboard/:themeSlug', loadChildren: './blackboard/blackboard.module#BlackboardModule' },
 	{ path: 'exams', loadChildren: './exams/exams.module#ExamsModule' },
-	{ path: 'gameboard/:themeUid', loadChildren: './gameboard/gameboard.module#GameboardModule' },
+	{ path: 'gameboard/:themeSlug', loadChildren: './gameboard/gameboard.module#GameboardModule' },
 	{ path: 'home', loadChildren: './home/home.module#HomeModule' },
 	{
 		path: 'admin',

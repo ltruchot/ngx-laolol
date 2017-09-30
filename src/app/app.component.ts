@@ -91,8 +91,8 @@ export class AppComponent extends LaololComponent implements OnInit, OnDestroy {
 		this.cpntData.user = this.userService.data;
 	}
 
-	get urlParam () {
-		return (this.themeData.learning && this.themeData.learning.uid) || '';
+	get currentThemeSlug () {
+		return this.themeData.learning && this.themeData.learning.link[this.langData.current.code].tongue.slug;
 	}
 
 	changeCurrentLanguage (code: string, init: boolean) {
@@ -112,7 +112,7 @@ export class AppComponent extends LaololComponent implements OnInit, OnDestroy {
 		});
 		if (!init && i18nRoute) {
 			const urlTree = [code, i18nRoute];
-			if (needParam && this.urlParam) { urlTree.push(this.urlParam); }
+			if (needParam) { urlTree.push(this.currentThemeSlug); }
 			this.router.navigate(urlTree);
 		}
 	}
