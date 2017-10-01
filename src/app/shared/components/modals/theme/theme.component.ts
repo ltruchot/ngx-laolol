@@ -24,7 +24,7 @@ export class ThemeComponent implements OnInit {
 	jsonForm: FormGroup;
 	cpntData = {
 		themes: null,
-		isJson: false
+		isJSON: false
 	};
 	constructor (private formBuilder: FormBuilder, private toastrService: ToastrService,
 		private themeService: ThemeService, private itemService: ItemService) { }

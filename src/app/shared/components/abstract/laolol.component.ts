@@ -9,8 +9,11 @@ import { ThemeService } from './../../services/theme.service';
 // custom models
 import { IItemServiceData, ILanguageServiceData, IThemeServiceData } from './../../models/services-data.models';
 
-@Component({})
-export abstract class LaololComponent {
+@Component({
+	selector: 'app-laolol',
+	template: ''
+})
+export class LaololComponent {
 	langData: ILanguageServiceData;
 	itemData: IItemServiceData;
 	themeData: IThemeServiceData;

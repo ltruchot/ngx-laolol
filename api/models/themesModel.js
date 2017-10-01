@@ -23,6 +23,7 @@ var ThemesSchema = new Schema({
 	noArticle: Boolean,
 	noKaraoke: Boolean,
 	noPlural: Boolean,
+	noMoreInfos: Boolean,
 	validated: Boolean,
 	laoClassifierUid: String,
 	levels: Number,

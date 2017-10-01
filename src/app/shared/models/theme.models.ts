@@ -16,6 +16,7 @@ export class Theme {
 	noArticle?: boolean;
 	noKaraoke?: boolean;
 	noPlural?: boolean;
+	noMoreInfos?: boolean;
 	levels = 1;
 	laoClassifierUid: string;
 	_userId?: string;

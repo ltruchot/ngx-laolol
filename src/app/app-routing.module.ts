@@ -44,10 +44,16 @@ ROUTES_CONFIG.forEach((route: any) => {
 });
 
 // language export for AOT build
+// export function HttpLoaderFactory (translate: TranslateService, location: Location,
+// 	settings: LocalizeRouterSettings, http: HttpClient) {
+// 	return new LocalizeRouterHttpLoader(translate, location, settings, http);
+// }
+
 export function HttpLoaderFactory (translate: TranslateService, location: Location,
 	settings: LocalizeRouterSettings, http: HttpClient) {
-	return new LocalizeRouterHttpLoader(translate, location, settings, http);
+	return new LocalizeRouterHttpLoader(translate, location, settings, http, '/assets/locales.json');
 }
+
 @NgModule({
 	imports: [
 		RouterModule.forRoot(routes),

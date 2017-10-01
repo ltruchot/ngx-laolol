@@ -45,7 +45,7 @@ export class AppComponent extends LaololComponent implements OnInit, OnDestroy {
 		currentVersion: 'Version 1.0.1',
 		currentUrl: ''
 	};
-	constructor (private router: Router, private userService: UserService,
+	constructor (public router: Router, private userService: UserService,
 		private storageService: StorageService, private apiService: ApiService,
 		private localize: LocalizeRouterService,
 		itemService: ItemService, languageService: LanguageService, themeService: ThemeService) {
