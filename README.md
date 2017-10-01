@@ -1,6 +1,6 @@
 # Ngx Laolol
 
-Current version: Beta v1.0.0 "Playground of Languages".
+Current version: Release v1.0.1 "Playground of Languages".
 
 Running here: [laolol.com](http://laolol.com)
 
@@ -8,6 +8,8 @@ Running here: [laolol.com](http://laolol.com)
 Laolol / ລາວ555 is an [Angular 4](https://angular.io/) web application to learn the lao language for english/french-speakers and vice versa.
 
 Laolol main dependencies are [Bootstrap 4](https://v4-alpha.getbootstrap.com) and [Express 4](http://expressjs.com/): simple and maintenable stuff, no bullshit.
+
+Database is no-sql mongodb, used with [mongoose]();s
 
 
 Licences: [CC-BY-NC-4.0](https://creativecommons.org/licenses/by-nc/4.0/): you can use/copy/modify any code but only without commercial intentions. ©2017 All right reserved for every other medias (sounds, images, videos, pictures, etc.) including [Xan Harotin's illustrations](https://xanharotin.wordpress.com/).
@@ -25,5 +27,5 @@ Run `npm run release` to build the project and `node server.js` to launch it. Na
 
 ## Infos
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.0.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.4.4.
 
