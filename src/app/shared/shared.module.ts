@@ -16,6 +16,7 @@ import { SubmenuComponent } from './components/submenu/submenu.component';
 import { ThemeComponent } from './components/modals/theme/theme.component';
 import { MultiselectComponent } from './components/forms/multiselect/multiselect.component';
 import { LaololComponent } from './components/abstract/laolol.component';
+import { JsonldComponent } from './components/jsonld/jsonld.component';
 
 // custom pipes
 import { CapitalizePipe } from './pipes/capitalize.pipe';
@@ -24,10 +25,10 @@ import { UnbreakablePipe } from './pipes/unbreakable.pipe';
 
 @NgModule({
 	imports: [CommonModule, TranslateModule, FormsModule, ReactiveFormsModule, LocalizeRouterModule, RouterModule],
-	declarations: [SubmenuComponent, LoginComponent, ConfirmComponent, LaololComponent,
+	declarations: [SubmenuComponent, LoginComponent, ConfirmComponent, LaololComponent, JsonldComponent,
 	ItemComponent, ThemeComponent, MultiselectComponent, CapitalizePipe, TruncatePipe, UnbreakablePipe],
 	providers: [],
-	exports: [SubmenuComponent, LoginComponent, ConfirmComponent, LaololComponent,
+	exports: [SubmenuComponent, LoginComponent, ConfirmComponent, LaololComponent, JsonldComponent,
 	ItemComponent, ThemeComponent, MultiselectComponent, CapitalizePipe, TruncatePipe, UnbreakablePipe]
 })
 export class SharedModule { }

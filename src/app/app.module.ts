@@ -37,7 +37,7 @@ import { VersionService } from './shared/services/version.service';
 import { CustomUrlSerializer } from './shared/others/CustomUrlSerializer';
 
 export function HttpLoaderFactory (http: HttpClient) {
-	return new TranslateHttpLoader(http, '/assets/locales/', '.json');
+	return new TranslateHttpLoader(http, '/assets/locales/');
 }
 
 @NgModule({

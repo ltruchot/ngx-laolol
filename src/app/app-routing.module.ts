@@ -5,7 +5,7 @@ import { HttpClient } from '@angular/common/http';
 import { Location } from '@angular/common';
 
 // npm dependencies
-import {  TranslateService } from '@ngx-translate/core';
+import { TranslateService } from '@ngx-translate/core';
 import { LocalizeParser, LocalizeRouterModule, LocalizeRouterSettings } from 'localize-router';
 import { LocalizeRouterHttpLoader } from 'localize-router-http-loader';
 
@@ -44,11 +44,6 @@ ROUTES_CONFIG.forEach((route: any) => {
 });
 
 // language export for AOT build
-// export function HttpLoaderFactory (translate: TranslateService, location: Location,
-// 	settings: LocalizeRouterSettings, http: HttpClient) {
-// 	return new LocalizeRouterHttpLoader(translate, location, settings, http);
-// }
-
 export function HttpLoaderFactory (translate: TranslateService, location: Location,
 	settings: LocalizeRouterSettings, http: HttpClient) {
 	return new LocalizeRouterHttpLoader(translate, location, settings, http, '/assets/locales.json');
