@@ -16,7 +16,6 @@ import { AdminActivationService } from './shared/services/admin-activation.servi
 import { ROUTES_CONFIG } from './shared/values/routes.values';
 
 const routes: Routes = [
-	{ path: '', redirectTo: '/home', pathMatch: 'full' },
 	{ path: 'about', loadChildren: './about/about.module#AboutModule' },
 	{ path: 'blackboard/:themeSlug', loadChildren: './blackboard/blackboard.module#BlackboardModule' },
 	{ path: 'exams', loadChildren: './exams/exams.module#ExamsModule' },
@@ -29,7 +28,8 @@ const routes: Routes = [
 		data: { skipRouteLocalization: true }
 	},
 	{ path: 'notfound', loadChildren: './notfound/notfound.module#NotfoundModule' },
-	{ path: '**', redirectTo: '/notfound' }
+	{ path: '**', redirectTo: '/notfound' },
+	{ path: '', loadChildren: './home/home.module#HomeModule', pathMatch: 'full' }
 ];
 
 ROUTES_CONFIG.forEach((route: any) => {

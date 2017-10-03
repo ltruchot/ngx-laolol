@@ -20,6 +20,7 @@ import 'rxjs/add/operator/filter';
 import { ROUTES_CONFIG } from './shared/values/routes.values';
 
 // custom services
+import { SeoService } from './shared/services/seo.service';
 import { LanguageService } from './shared/services/language.service';
 import { ThemeService } from './shared/services/theme.service';
 import { UserService } from './shared/services/user.service';
@@ -28,7 +29,7 @@ import { ApiService } from './shared/services/api.service';
 import { ItemService } from './shared/services/item.service';
 
 // custome models
-// import { ReadHttpError } from './shared/models/error.models';
+import { ISeoServiceData } from './shared/models/services-data.models';
 
 // custom components
 import { LaololComponent } from './shared/components/abstract/laolol.component';
@@ -39,24 +40,23 @@ import { LaololComponent } from './shared/components/abstract/laolol.component';
 })
 export class AppComponent extends LaololComponent implements OnInit, OnDestroy {
 	routeSubscription: Subscription;
+	seoData: ISeoServiceData;
 	cpntData = {
 		user: null,
 		loadingRoute: true,
-		currentVersion: 'Version 1.0.4',
+		currentVersion: 'Version 1.0.6',
 		currentUrl: ''
 	};
 	constructor (public router: Router, private userService: UserService,
 		private storageService: StorageService, private apiService: ApiService,
-		private localize: LocalizeRouterService,
+		private localize: LocalizeRouterService, private seoService: SeoService,
 		itemService: ItemService, languageService: LanguageService, themeService: ThemeService) {
 		super(itemService, languageService, themeService);
 	}
 
 	ngOnInit () {
+		this.seoData = this.seoService.data;
 		this.changeCurrentLanguage(this.localize.parser.currentLang, true);
-		// this.localize.routerEvents.subscribe((lang: string) => {
-		// 	this.languageService.changeTranslation(lang);
-		// });
 
 		// manage loading states
 		this.themeData =  this.themeService.data;
@@ -96,6 +96,7 @@ export class AppComponent extends LaololComponent implements OnInit, OnDestroy {
 	}
 
 	changeCurrentLanguage (code: string, init: boolean) {
+		this.seoService.applyCurrentLang(code);
 		let needParam = false;
 		this.languageService.changeTranslation(code);
 		let i18nRoute: string;

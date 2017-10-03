@@ -12,6 +12,7 @@ import { StorageService } from './storage.service';
 
 @Injectable()
 export class ApiService {
+	private serverUrl = environment.serverUrl;
 	private cachedObs = {};
 
 	constructor (private http: Http, private storageService: StorageService) { }
@@ -52,12 +53,12 @@ export class ApiService {
 	}
 
 	getResources (url: string, auth?: boolean, search?: URLSearchParams)  {
-		url = environment.serverUrl + url;
+		url = this.serverUrl + url;
 		return this.http.get(url, this.getBasicOptions(auth, search)).map(res => res.json());
 	}
 
 	deleteResources (url: string, auth?: boolean)  {
-		url = environment.serverUrl + url;
+		url = this.serverUrl + url;
 		return this.http.delete(url, this.getBasicOptions(auth)).map(res => res.json());
 	}
 
@@ -81,7 +82,7 @@ export class ApiService {
 		});
 		if (auth) { this.addAuth(headers); }
 		const options = new RequestOptions({ headers: headers });
-		return this.http.post(environment.serverUrl + url, data ? body.toString() : {}, options).map(res => res.json());
+		return this.http.post(this.serverUrl + url, data ? body.toString() : {}, options).map(res => res.json());
 	}
 
 	putResources (url: string, data: any, auth?: boolean) {
@@ -91,7 +92,7 @@ export class ApiService {
 		});
 		if (auth) { this.addAuth(headers); }
 		const options = new RequestOptions({ headers: headers });
-		return this.http.put(environment.serverUrl + url, data ? body.toString() : {}, options).map(res => res.json());
+		return this.http.put(this.serverUrl + url, data ? body.toString() : {}, options).map(res => res.json());
 	}
 
 	addAuth (headers: Headers) {

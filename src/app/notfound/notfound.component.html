@@ -1,3 +1,3 @@
 <p>
-  not found: <a routerLink="/home">go home ?</a>
+  not found: <a [routerLink]=" '/' + ('localizeRouter.home' | translate) | localize">go home ?</a>
 </p>

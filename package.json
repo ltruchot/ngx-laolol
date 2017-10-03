@@ -1,13 +1,13 @@
 {
   "name": "ngx-laolol",
-  "version": "1.0.4",
+  "version": "1.0.6",
   "license": "CC-BY-NC-4.0",
   "author": "Loïc TRUCHOT",
   "description": "Learn lao language while playing.",
   "private": true,
   "engines": {
-    "node": "~8.4.0",
-    "npm": "~5.3.0"
+    "node": "~8.6.0",
+    "npm": "~5.4.0"
   },
   "scripts": {
     "ng": "ng",

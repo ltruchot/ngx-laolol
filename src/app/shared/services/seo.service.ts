@@ -1,18 +1,38 @@
 // ng dependencies
-import { Injectable } from '@angular/core';
-import { DomSanitizer } from '@angular/platform-browser';
+import { Inject, Injectable } from '@angular/core';
+import { DOCUMENT, DomSanitizer } from '@angular/platform-browser';
+
+// ng dependencies
+// import { LangChangeEvent, TranslateService } from '@ngx-translate/core';
+
+// custom service
+import { LanguageService } from './language.service';
 
 // custom models
 import { ISeoServiceData } from './../models/services-data.models';
 
+// custom values
+import { environment } from './../../../environments/environment';
+
 @Injectable()
 export class SeoService {
 	private urlParts: string[];
-	siteUrl = 'http://laolol.com';
+	siteUrl = environment.serverUrl + '/';
 	data: ISeoServiceData = {
 		breadCrumbSafeHtml: ''
 	};
-	constructor (private sanitizer: DomSanitizer) {}
+	constructor (private sanitizer: DomSanitizer, @Inject(DOCUMENT)
+		private _document: HTMLDocument, private languageService: LanguageService/*,
+		translate: TranslateService*/) {
+		// translate.onLangChange.subscribe((event: LangChangeEvent) => {
+		// 	this.applyCurrentLang(event.lang);
+		// });
+	}
+
+	applyCurrentLang (code: string) {
+		console.log('document state', this._document);
+		this._document.documentElement.lang = this.languageService.getLangInfos(code).code;
+	}
 
 	applyCurrentBreadCrumb (url: string) {
 		this.urlParts = url.split('/');
