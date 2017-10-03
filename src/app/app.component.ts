@@ -42,7 +42,7 @@ export class AppComponent extends LaololComponent implements OnInit, OnDestroy {
 	cpntData = {
 		user: null,
 		loadingRoute: true,
-		currentVersion: 'Version 1.0.3',
+		currentVersion: 'Version 1.0.4',
 		currentUrl: ''
 	};
 	constructor (public router: Router, private userService: UserService,

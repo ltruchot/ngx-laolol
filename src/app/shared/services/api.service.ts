@@ -1,6 +1,7 @@
 // ng dependencies
 import { Injectable } from '@angular/core';
-import { Http, RequestOptions, Headers, URLSearchParams } from '@angular/http';
+import { Headers, Http, RequestOptions, URLSearchParams } from '@angular/http';
+import { environment } from './../../../environments/environment';
 
 // npm dependencies
 import { ReplaySubject } from 'rxjs/ReplaySubject';
@@ -11,12 +12,11 @@ import { StorageService } from './storage.service';
 
 @Injectable()
 export class ApiService {
-	private SERVER_URL = 'http://localhost:3000/'; // 'http://laolol.com/';
 	private cachedObs = {};
 
-	constructor(private http: Http, private storageService: StorageService) { }
+	constructor (private http: Http, private storageService: StorageService) { }
 
-	getData(resource, forceRefresh?: boolean) {
+	getData (resource, forceRefresh?: boolean) {
 
 		// if no cache space exists, create it with new Subject
 		if (typeof this.cachedObs[resource] === 'undefined') {
@@ -52,12 +52,12 @@ export class ApiService {
 	}
 
 	getResources (url: string, auth?: boolean, search?: URLSearchParams)  {
-		url = this.SERVER_URL + url;
+		url = environment.serverUrl + url;
 		return this.http.get(url, this.getBasicOptions(auth, search)).map(res => res.json());
 	}
 
 	deleteResources (url: string, auth?: boolean)  {
-		url = this.SERVER_URL + url;
+		url = environment.serverUrl + url;
 		return this.http.delete(url, this.getBasicOptions(auth)).map(res => res.json());
 	}
 
@@ -77,21 +77,21 @@ export class ApiService {
 		}
 
 		const headers = new Headers({
-			'Content-Type': contentType,
+			'Content-Type': contentType
 		});
 		if (auth) { this.addAuth(headers); }
-		const options = new RequestOptions({headers: headers});
-		return this.http.post(this.SERVER_URL + url, data ? body.toString() : {}, options).map(res => res.json());
+		const options = new RequestOptions({ headers: headers });
+		return this.http.post(environment.serverUrl + url, data ? body.toString() : {}, options).map(res => res.json());
 	}
 
 	putResources (url: string, data: any, auth?: boolean) {
 		let body = JSON.stringify(data);
 		const headers = new Headers({
-			'Content-Type': 'application/json',
+			'Content-Type': 'application/json'
 		});
 		if (auth) { this.addAuth(headers); }
-		const options = new RequestOptions({headers: headers});
-		return this.http.put(this.SERVER_URL + url, data ? body.toString() : {}, options).map(res => res.json());
+		const options = new RequestOptions({ headers: headers });
+		return this.http.put(environment.serverUrl + url, data ? body.toString() : {}, options).map(res => res.json());
 	}
 
 	addAuth (headers: Headers) {
