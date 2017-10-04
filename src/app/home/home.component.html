@@ -51,7 +51,10 @@
 			    [routerLink]="'/' + ('localizeRouter.blackboard' | translate) + '/' +  touristDefaultTheme.link[langData.current.code].tongue.slug | localize">{{ 'home.aTraveller' | translate }}</button>
 			    <div class="card-body">
 			      <h4 class="card-title text-big">Découvrir quelques bases</h4>
-			      <p class="card-text">Inutile de connaître l'alphabet lao. Je n'apprendrai que <a href="#">la prononciation</a> et je vais me concentrer sur ces thèmes :</p>
+			      <p class="card-text">Inutile de connaître l'alphabet lao. Je n'apprendrai que
+			      	<a *ngIf="touristSpecialTheme?.uid" [routerLink]="'/' + ('localizeRouter.blackboard' | translate) + '/' +
+			      		touristSpecialTheme.link[langData.current.code].tongue.slug | localize"
+			      	(click)="changeTheme(touristSpecialTheme.uid, true)">la prononciation</a> et je vais me concentrer sur ces thèmes :</p>
 		      	<ul>
 		      		<li *ngFor="let theme of touristThemes;">
 		      			<a (click)="changeTheme(theme.uid, true)" [routerLink]="'/' + ('localizeRouter.blackboard' | translate) + '/' +  theme.link[langData.current.code].tongue.slug | localize">

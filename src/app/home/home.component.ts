@@ -55,6 +55,10 @@ export class HomeComponent extends LaololComponent implements OnInit {
 		return this.themeData.all.find((theme: Theme) => theme.uid === 'politeness');
 	}
 
+	get touristSpecialTheme (): Theme {
+		return this.themeData.all.find((theme: Theme) => theme.uid === 'pronunciation');
+	}
+
 	get participantTheme (): Theme {
 		return this.themeData.all.find((theme: Theme) => theme.uid === 'participants');
 	}
