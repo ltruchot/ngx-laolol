@@ -41,10 +41,11 @@ import { LaololComponent } from './shared/components/abstract/laolol.component';
 export class AppComponent extends LaololComponent implements OnInit, OnDestroy {
 	routeSubscription: Subscription;
 	seoData: ISeoServiceData;
+	initilized = false;
 	cpntData = {
 		user: null,
 		loadingRoute: true,
-		currentVersion: 'Version 1.0.6',
+		currentVersion: 'Version 1.0.7',
 		currentUrl: ''
 	};
 	constructor (public router: Router, private userService: UserService,
@@ -56,7 +57,6 @@ export class AppComponent extends LaololComponent implements OnInit, OnDestroy {
 
 	ngOnInit () {
 		this.seoData = this.seoService.data;
-		this.changeCurrentLanguage(this.localize.parser.currentLang, true);
 
 		// manage loading states
 		this.themeData =  this.themeService.data;
@@ -92,10 +92,11 @@ export class AppComponent extends LaololComponent implements OnInit, OnDestroy {
 	}
 
 	get currentThemeSlug () {
-		return this.themeData.learning && this.themeData.learning.link[this.langData.current.code].tongue.slug;
+		return this.themeData.learning && this.langData.current && this.themeData.learning.link[this.langData.current.code].tongue.slug;
 	}
 
 	changeCurrentLanguage (code: string, init: boolean) {
+		// console.log('app.component::changeCurrentLanguage', code);
 		this.seoService.applyCurrentLang(code);
 		let needParam = false;
 		this.languageService.changeTranslation(code);
@@ -111,7 +112,10 @@ export class AppComponent extends LaololComponent implements OnInit, OnDestroy {
 				}
 			}
 		});
-		if (!init && i18nRoute) {
+		if (!i18nRoute && init) {
+			i18nRoute = ROUTES_CONFIG.find((item) => item.name === 'home').paths[code];
+			this.router.navigate([code, i18nRoute]);
+		} else if (!init) {
 			const urlTree = [code, i18nRoute];
 			if (needParam) { urlTree.push(this.currentThemeSlug); }
 			this.router.navigate(urlTree);
@@ -133,6 +137,10 @@ export class AppComponent extends LaololComponent implements OnInit, OnDestroy {
 			this.cpntData.loadingRoute = false;
 			ga('set', 'page', event.urlAfterRedirects);
 			ga('send', 'pageview');
+			if (!this.initilized) {
+				this.changeCurrentLanguage(this.localize.parser.currentLang, true);
+				this.initilized = true;
+			}
 		}
 
 		// Set loading state to false in both of the below events to hide the spinner in case a request fails

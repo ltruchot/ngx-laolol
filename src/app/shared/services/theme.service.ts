@@ -282,6 +282,7 @@ export class ThemeService {
 			this.enhanceThemeWithLink(theme);
 		});
 		themes.sort((a: any, b: any) => a.uid.localeCompare(b.uid));
+		themes.sort((a: any, b: any) => (a.isBasic === b.isBasic) ? 0 : a.isBasic ? -1 : 1);
 		this.data.all.length = 0;
 		this.data.all.push(...themes);
 		this.data.learning = this.getThemeByUid(this.data.learningUid);

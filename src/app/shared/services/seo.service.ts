@@ -30,7 +30,6 @@ export class SeoService {
 	}
 
 	applyCurrentLang (code: string) {
-		console.log('document state', this._document);
 		this._document.documentElement.lang = this.languageService.getLangInfos(code).code;
 	}
 

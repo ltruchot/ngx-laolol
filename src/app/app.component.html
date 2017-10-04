@@ -44,7 +44,7 @@
                 </button>
                 <div class="dropdown-menu"  aria-labelledby="btn-menu-lang">
                   <ng-container *ngFor="let lang of langData.availableLanguages">
-                    <a *ngIf="lang.code !== langData.current?.code && lang.code !== langData.learning.code"
+                    <a *ngIf="lang.code !== langData.current?.code && lang.code !== langData.learning?.code"
                       class="dropdown-item" (click)="changeLearningLanguage(lang.code)">
                        {{ lang.tradLabel | translate }}
                     </a>

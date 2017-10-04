@@ -1,6 +1,6 @@
 {
   "name": "ngx-laolol",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "license": "CC-BY-NC-4.0",
   "author": "Loïc TRUCHOT",
   "description": "Learn lao language while playing.",
@@ -15,7 +15,8 @@
     "build": "ng build",
     "release": "rm -rf dist && ng build --prod --aot=false",
     "update": "rm -rf node_modules && npm cache verify && npm i",
-    "gitrefresh": "git reset HEAD --hard && git clean -fd && git fetch --all --tags --prune",
+    "gitreset": "git reset HEAD --hard && git clean -fd",
+    "gitrefresh": "git fetch --all --tags --prune",
     "fixtures": "node fixtures.js",
     "deploy": "npm run release && pm2 restart laolol",
     "test": "ng test",
