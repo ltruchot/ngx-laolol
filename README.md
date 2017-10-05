@@ -1,6 +1,6 @@
 # Ngx Laolol
 
-Current version: Release v1.0.8 "Playground of Languages".
+Current version: Release v1.0.9 "Playground of Languages".
 
 Running here: [laolol.com](https://laolol.com)
 
@@ -11,6 +11,7 @@ Laolol main dependencies are [Bootstrap 4](https://v4-alpha.getbootstrap.com) an
 
 Database is no-sql [MongoDB](https://www.mongodb.com/), used with [mongoose](http://mongoosejs.com/);
 
+Laolol work with [laonetics](http://laonetics.io) to generate lao phonetics, sort lao word, etc.
 
 Licences: [CC-BY-NC-4.0](https://creativecommons.org/licenses/by-nc/4.0/): you can use/copy/modify any code but only without commercial intentions. ©2017 All right reserved for every other medias (sounds, images, videos, pictures, etc.) including [Xan Harotin's illustrations](https://xanharotin.wordpress.com/).
 
