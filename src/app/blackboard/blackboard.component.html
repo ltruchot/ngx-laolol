@@ -27,13 +27,22 @@
 	</div>
 </div>
 <!-- end section title -->
+<!-- begin section level description -->
+<div class="row" *ngIf="themeData.learning && langData.current?.code && themeData.learning[langData.current.code] &&  themeData.learning[langData.current.code].desc?.length">
+	<div class="col-12" [ngClass]="{'font-lao': langData.isCurrentLangLao}">
+		<p>
+			<em>{{ themeData.learning[langData.current.code].desc[themeData.learningLevel] }}</em>
+		</p>
+	</div>
+</div>
+<!-- end section level description -->
 <!-- begin section items -->
 <div class="blackboard-items" *ngIf="themeData.items.length">
 	<div class="row">
 		<div class="col-6 col-sm-4 col-md-3 mxtb5" *ngFor="let item of cpntData.items; let i = index;">
 			<div class="card h-100">
 				<div class="vertical-text" *ngIf="themeData.learning?.uid === 'participants'">
-					Offered by {{ item.meta.owner }}</div>
+					{{ 'blackboard.offeredBy' | translate | capitalize }} {{ item.meta.owner }}</div>
 			  <div class="card-header pos-r">
 			    <!-- begin header learning word -->
 			    <ng-template [ngIf]="langData.learning.code === 'fr'">

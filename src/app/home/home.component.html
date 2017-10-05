@@ -17,7 +17,7 @@
 			    (click)="changeTheme(studentDefaultTheme.uid, false)"
 			    [routerLink]="'/' + ('localizeRouter.blackboard' | translate) + '/' +  studentDefaultTheme.link[langData.current.code].tongue.slug | localize">{{ 'home.aStudent' | translate }}</button>
 			    <div class="card-body">
-			      <h4 class="card-title text-big">Apprendre la langue</h4>
+			      <h4 class="card-title text-big">{{ 'home.learnLanguage' | translate | capitalize }}</h4>
 			      <p class="card-text">Lire le lao permet de comprendre le fonctionnement de cette langue. Je vais apprendre
 		      		<ng-container *ngFor="let theme of studentSpecialThemes; let i = index;">
 			      		<a [routerLink]="'/' + ('localizeRouter.blackboard' | translate) + '/' +  theme.link[langData.current.code].tongue.slug | localize"
@@ -50,7 +50,7 @@
 			    (click)="changeTheme(touristDefaultTheme.uid, true)"
 			    [routerLink]="'/' + ('localizeRouter.blackboard' | translate) + '/' +  touristDefaultTheme.link[langData.current.code].tongue.slug | localize">{{ 'home.aTraveller' | translate }}</button>
 			    <div class="card-body">
-			      <h4 class="card-title text-big">Découvrir quelques bases</h4>
+			      <h4 class="card-title text-big">{{ 'home.discoverBases' | translate | capitalize }}</h4>
 			      <p class="card-text">Inutile de connaître l'alphabet lao. Je n'apprendrai que
 			      	<a *ngIf="touristSpecialTheme?.uid" [routerLink]="'/' + ('localizeRouter.blackboard' | translate) + '/' +
 			      		touristSpecialTheme.link[langData.current.code].tongue.slug | localize"

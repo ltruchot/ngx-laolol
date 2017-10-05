@@ -43,7 +43,9 @@
     "wantLearn": "ຂ້ອຍ ຢາກ ຮຽນ",
     "iAm": "ຂ້ອຍເປັນ",
     "aStudent": "ນັກສຶກສາ",
-    "aTraveller": "ນັກທ່ອງທ່ຽວ"
+    "aTraveller": "ນັກທ່ອງທ່ຽວ",
+    "learnLanguage": "ຮຽນພາສາ",
+    "discoverBases": "discover some bases"
   },
   "gameboard": {
     "findTranslation": "ຊອກຫາຄໍາແປທີ່ຖຶກຕ້ອງ",
@@ -55,7 +57,8 @@
     "feminine": "ເພດແມ່",
     "masculine": "ເພດຜູ້",
     "karaoke": "ຄາລາໂອເກະ",
-    "listen": "ຟັງ"
+    "listen": "ຟັງ",
+    "offeredBy": "offered by"
   },
   "submenu": {
     "language": "ພາສາ",
@@ -87,6 +90,11 @@
     "presLoic4": "You can help him by contributing to the shared working repository",
     "presSoulisack1": "is PhD in social and pedagogical sciences, professor of languages (French, English, Lao, Vietnamese) and researcher in anthropology and linguistics",
     "presSoulisack2": " He heads the Department of Social Sciences at the University of Health Sciences in Vientiane, Laos",
-    "presSoulisack3": "He brings his linguistic expertise for the choice of themes and words (items) to be learned on LaoLol. He is also responsible for all lao translations on the website"
+    "presSoulisack3": "He brings his linguistic expertise for the choice of themes and words (items) to be learned on LaoLol. He is also responsible for all lao translations on the website",
+    "manyThanksTo": "ຂອບໃຈຫຼາຍໆ",
+    "from": "ຈາກ",
+    "frenchInstitute": "ສະຖາບັນຝຣັ່ງ",
+    "todo": "ທີ່ໄດ້ປະກອຍສ່ວນເຂົ້າໃນການອອກສຽງພາສາລາວ ຂອງພາກສ່ວນຮຽນພາສາລາວ ໃນ LaoLol. ຫລ້າ ແມ່ນອະດີດນັກຮຽນຫ້ອງສອງພາສາຝຣັ່ງ-ລາວ, ເປັນຜູ້ໜຶ່ງທີ່ມັກຮັກໃນການເຮັດກິດຈະກຳດ້ານພາສາຝຣັ່ງ ແລະ ສາມາດເວົ້າພາສາຝຣັ່ງໄດ້ເກັ່ງຫຼາຍ.  ປັດຈຸບັນນີ້ ລາວໄດ້ເປັນຜູ້ຮັບຜິດຊອບພະແນກຕອນຮັບ ແລະ ພະແນກການຮຽນການສອນທີມີທັງພາສາຝຣັ່ງ-ອັງກິດ-ລາວ ໃນສະຖາບັນຝຣັ່ງ."
+
   }
 }

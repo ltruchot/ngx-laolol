@@ -7,6 +7,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TranslateModule } from '@ngx-translate/core';
 import { LocalizeRouterModule } from 'localize-router';
 
+// custom modules
 import { SharedModule } from './../shared/shared.module';
 
 import { AdminComponent } from './admin.component';

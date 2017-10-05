@@ -6,6 +6,9 @@ import { RouterModule } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
 import { LocalizeRouterModule } from 'localize-router';
 
+// custom modules
+import { SharedModule } from './../shared/shared.module';
+
 import { AboutComponent } from './about.component';
 
 const routes =  [{ path: '', component: AboutComponent, pathMatch: 'full'}];
@@ -14,6 +17,7 @@ const routes =  [{ path: '', component: AboutComponent, pathMatch: 'full'}];
 	imports: [
 		CommonModule,
 		TranslateModule,
+		SharedModule,
 		RouterModule.forChild(routes),
 		LocalizeRouterModule.forChild(routes)
 	],

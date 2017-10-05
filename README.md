@@ -1,6 +1,6 @@
 # Ngx Laolol
 
-Current version: Release v1.0.7 "Playground of Languages".
+Current version: Release v1.0.8 "Playground of Languages".
 
 Running here: [laolol.com](https://laolol.com)
 

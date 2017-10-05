@@ -66,6 +66,10 @@ export class GameboardComponent extends LaololComponent implements OnInit, OnDes
 		(!this.isCurrentLangLao && this.themeData.isReversed);
 	}
 
+	get isHidingLao () {
+		return !this.isCurrentLangLao && this.themeData.noLaoWriting;
+	}
+
 	checkRouteParams (themeSlug: string) {
 		const themeUid = this.themeService.getThemeUidBySlug(themeSlug);
 		if (themeUid) {
