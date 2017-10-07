@@ -97,6 +97,20 @@ export class ThemeService {
 		this.data.isMoreInfos = typeof isMoreInfosActivated !== 'undefined' ? isMoreInfosActivated : true;
 	}
 
+	naturalCompare (a, b) {
+		const ax = [];
+		const bx = [];
+		a.uid.replace(/(\d+)|(\D+)/g, (_, $1, $2) => { ax.push([$1 || Infinity, $2 || '']); });
+		b.uid.replace(/(\d+)|(\D+)/g, (_, $1, $2) => { bx.push([$1 || Infinity, $2 || '']); });
+		while (ax.length && bx.length) {
+			const an = ax.shift();
+			const bn = bx.shift();
+			const nn = (an[0] - bn[0]) || an[1].localeCompare(bn[1]);
+			if (nn) { return nn; }
+		}
+		return ax.length - bx.length;
+	}
+
 	initialize () {
 		// subscrine to special themes items request, needed before theme request;
 		const themeItemSub = this.itemService.read$.subscribe((res: IItemsResponse) => {
@@ -120,6 +134,8 @@ export class ThemeService {
 
 				if (this.data.learning.isLaoAlphabet) {
 					this.tongueService.sortLaoItems(data);
+				} else {
+					data.sort(this.naturalCompare);
 				}
 
 				this.data.items.length = 0;

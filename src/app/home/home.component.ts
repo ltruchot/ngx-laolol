@@ -34,7 +34,7 @@ export class HomeComponent extends LaololComponent implements OnInit {
 		return filteredThemes;
 	}
 	get studentThemes (): Theme[] {
-		const studentThemes: string[] = ['professions', 'animals'];
+		const studentThemes: string[] = ['family', 'professions', 'animals'];
 		return this.themeData.all.filter((theme: Theme) => {
 			return studentThemes.indexOf(theme.uid) !== -1;
 		});

@@ -74,8 +74,7 @@ export class ItemComponent implements OnInit, OnDestroy, AfterViewInit {
 				meta: this.formBuilder.group({ feminine: [''], masculine: [''], classifier: [''], comment: [''] })
 			}),
 			meta: this.formBuilder.group({
-				imgAuthor: [''],
-				imgResource: [''],
+				illustratorUid: [''],
 				owner: [''],
 				ownerResource: [''],
 				contrary: ['']

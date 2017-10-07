@@ -59,8 +59,7 @@ var ItemsSchema = new Schema({
 		meta: Schema.Types.Mixed
 	},
 	meta: {
-		imgAuthor: String,
-		imgResource: String,
+		illustratorUid: String,
 		contrary: String,
 		conflicts: [String],
 		owner: String,

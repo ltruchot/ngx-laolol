@@ -50,8 +50,7 @@ export interface IItemMeta {
 	conflicts?: string[];
 	owner?: string;
 	ownerResource?: string;
-	imgAuthor?: string;
-	imgResource?: string;
+	illustratorUid?: string;
 }
 
 export interface IKaraokeItem {
