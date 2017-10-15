@@ -44,8 +44,12 @@
 						<app-multiselect #selectThemes title="Themes" id="select-themes" [list]="cpntData.themes.all"
 						displayedProp="uid" (onMultiselectChange)="changeThemes($event)">
 						</app-multiselect>
-						<h6 class="form-text mxb10"><strong>Common optional parameters</strong></h6>
-						<div>
+						<app-multiselect #selectConflicts title="Conflicts" id="select-conflicts" displayedProp="uid"
+							[list]="sameThemeItems" (onMultiselectChange)="changeConflicts($event)">
+						</app-multiselect>
+						<h6 class="form-text mxb10"><a data-toggle="collapse" href="#commonOptions" class="form-text mxb10"
+							aria-expanded="false" aria-controls="commonOptions">Common optional parameters</a></h6>
+						<div class="collapse" id="commonOptions" >
 							<div class="form-group row">
 								<label for="img" class="col-3 col-form-label col-form-label-sm">Image: </label>
 								<div class="col-9">
@@ -75,15 +79,36 @@
 								</div>
 							</div>
 							<div class="form-group row" formGroupName="meta">
-								<label for="meta-contraty" class="col-3 col-form-label col-form-label-sm">Contrary UID: </label>
+								<label for="meta-contrary" class="col-3 col-form-label col-form-label-sm">Contrary UID: </label>
 								<div class="col-9">
-									<input type="text" class="form-control form-control-sm" id="meta-contraty" name="meta-contraty"
+									<input type="text" class="form-control form-control-sm" id="meta-contrary" name="meta-contrary"
 										formControlName="contrary" [(ngModel)]="cpntData.items.current.meta.contrary" />
 								</div>
 							</div>
-							<app-multiselect #selectConflicts title="Conflicts" id="select-conflicts" displayedProp="uid"
-								[list]="sameThemeItems" (onMultiselectChange)="changeConflicts($event)">
-							</app-multiselect>
+							<div class="form-group row" formGroupName="meta">
+								<label for="meta-display-article" class="col-3 col-form-label col-form-label-sm">Contrary UID: </label>
+								<div class="col-9">
+									<input type="text" class="form-control form-control-sm" id="meta-display-article" name="meta-display-article"
+										formControlName="contrary" [(ngModel)]="cpntData.items.current.meta.displayArticle" />
+								</div>
+							</div>
+							<div class="form-group row" formGroupName="meta">
+								<label for="meta-weight" class="col-3 col-form-label col-form-label-sm">Weight (number): </label>
+								<div class="col-9">
+									<input type="number" class="form-control form-control-sm" id="meta-weight" name="meta-weight"
+										formControlName="weight" [(ngModel)]="cpntData.items.current.meta.weight" />
+								</div>
+							</div>
+							<div class="form-group row"  formGroupName="meta">
+								<div class="form-check col-12 mxb0">
+									<label for="meta-display-article" class="form-check-label text-standard-2">
+										<input type="checkbox" class="form-check-input text-standard-2" id="meta-display-article"
+											name="meta-display-article" formControlName="displayArticle"
+											[(ngModel)]="cpntData.items.current.displayArticle" />
+											Display article (like "a bird" vs "bird")
+									</label>
+								</div>
+							</div>
 							<!-- <div class="form-group">
 						    <label for="select-conflicts" class="text-standard-2">Conflicts ([ctrl] + [left click] for multi-choice)</label>
 						    <select #selectConflicts class="form-control form-control-sm"
@@ -273,28 +298,6 @@
 						<a data-toggle="collapse" href="#loOptions" class="form-text mxb10"
 							aria-expanded="false" aria-controls="loOptions">Lao optional parameters</a>
 						<div class="collapse" id="loOptions"  formGroupName="lo">
-						<button type="button" (click)="generateLaonetics()" class="btn btn-primary">Generate Laonetics</button>
-							<div class="form-group row" formGroupName="kk">
-								<label for="lo-kk-fr" class="col-3 col-form-label col-form-label-sm">Karaoke Fr: </label>
-								<div class="col-9">
-									<input type="text" class="form-control form-control-sm" id="lo-kk-fr" name="lo-kk-fr"
-										formControlName="fr" [(ngModel)]="cpntData.items.current.lo.kk.fr" />
-								</div>
-							</div>
-							<div class="form-group row" formGroupName="kk">
-								<label for="lo-kk-en" class="col-3 col-form-label col-form-label-sm">Karaoke En: </label>
-								<div class="col-9">
-									<input type="text" class="form-control form-control-sm" id="lo-kk-en" name="lo-kk-en"
-										formControlName="en" [(ngModel)]="cpntData.items.current.lo.kk.en" />
-								</div>
-							</div>
-							<div class="form-group row" formGroupName="kk">
-								<label for="lo-kk-ipa" class="col-3 col-form-label col-form-label-sm">Karaoke IPA: </label>
-								<div class="col-9">
-									<input type="text" class="form-control form-control-sm" id="lo-kk-ipa" name="lo-kk-ipa"
-										formControlName="ipa" [(ngModel)]="cpntData.items.current.lo.kk.ipa" />
-								</div>
-							</div>
 							<div class="form-group row">
 								<label for="lo-snd" class="col-3 col-form-label col-form-label-sm">Sound: </label>
 								<div class="col-9">

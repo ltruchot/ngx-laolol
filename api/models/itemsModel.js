@@ -22,7 +22,9 @@ var ItemsSchema = new Schema({
 		},
 		kk: {
 			lo: String,
-			ipa: String
+			ipa: String,
+			loExample: String,
+			ipaExample: String
 		},
 		ex: String,
 		img: String,
@@ -36,7 +38,9 @@ var ItemsSchema = new Schema({
 		},
 		kk: {
 			lo: String,
-			ipa: String
+			ipa: String,
+			loExample: String,
+			ipaExample: String
 		},
 		ex: String,
 		img: String,
@@ -51,7 +55,10 @@ var ItemsSchema = new Schema({
 		kk: {
 			en: String,
 			fr: String,
-			ipa: String
+			ipa: String,
+			enExample: String,
+			frExample: String,
+			ipaExample: String
 		},
 		ex: String,
 		img: String,
@@ -63,7 +70,9 @@ var ItemsSchema = new Schema({
 		contrary: String,
 		conflicts: [String],
 		owner: String,
-		ownerResource: String
+		ownerResource: String,
+		displayArticle: Boolean,
+		weight: Number
 	},
 	_userId: { type: Schema.Types.ObjectId, ref: 'User' }
 });

@@ -11,6 +11,7 @@ export class Theme {
 	isLaoAlphabet?: boolean;
 	isVisible?: boolean;
 	isBasic?: boolean;
+	hasWeight?: boolean;
 	hasImages?: boolean;
 	hasSpecialExample?: boolean;
 	noArticle?: boolean;

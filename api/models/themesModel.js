@@ -17,6 +17,7 @@ var ThemesSchema = new Schema({
 	hasCapital: Boolean,
 	hasImages: Boolean,
 	hasSpecialExample: Boolean,
+	hasWeight: Boolean,
 	isBasic: Boolean,
 	isLaoAlphabet: Boolean,
 	isVisible: Boolean,

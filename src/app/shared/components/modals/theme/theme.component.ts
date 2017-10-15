@@ -54,6 +54,7 @@ export class ThemeComponent implements OnInit {
 			isBasic: [false],
 			isLaoAlphabet: [false],
 			hasImages: [false],
+			hasWeight: [false],
 			hasSpecialExample: [false],
 			noArticle: [false],
 			noKaraoke: [false],

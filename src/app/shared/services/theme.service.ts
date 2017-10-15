@@ -137,6 +137,9 @@ export class ThemeService {
 				} else {
 					data.sort(this.naturalCompare);
 				}
+				if (this.data.learning.hasWeight) {
+					data.sort((a, b) => a.meta.weight - b.meta.weight);
+				}
 
 				this.data.items.length = 0;
 				if (data && data.length && data.length >= 4) {

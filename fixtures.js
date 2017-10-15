@@ -9,7 +9,7 @@ function restore () {
 		'--username', config.dbuser,
 		'--password', config.dbpass,
 		'--db', config.dbname,
-		'--dir', path.join(__dirname, 'fixtures', config.lastVerifiedBackup, config.dbname),
+		'--dir', path.join(__dirname, 'fixtures', '1508058954912', config.dbname),
 		'--drop',
 		'--gzip'
 	]);

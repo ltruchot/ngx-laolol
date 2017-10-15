@@ -45,10 +45,15 @@ export class HomeComponent extends LaololComponent implements OnInit {
 	}
 
 	get touristThemes (): Theme[] {
-		const touristThemes: string[] = ['politeness', 'numbers', 'time', 'places'];
-		return this.themeData.all.filter((theme: Theme) => {
-			return touristThemes.indexOf(theme.uid) !== -1;
+		const displayedThemes = [];
+		const touristThemes: string[] = ['politeness', 'numbers', 'time', 'places', 'pronouns'];
+		touristThemes.forEach((uid: string) => {
+			const themeFound = this.themeData.all.find((theme: Theme) => theme.uid === uid);
+			if (themeFound) {
+				displayedThemes.push(themeFound);
+			}
 		});
+		return displayedThemes;
 	}
 
 	get touristDefaultTheme (): Theme {

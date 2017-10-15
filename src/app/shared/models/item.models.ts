@@ -23,8 +23,8 @@ export class Item {
 
 export class LangItem {
 	wrd = '';
-	kk = {} as IKaraokeItem;
 	meta = {} as ILangItemMeta;
+	kk = {} as IKaraokeItem;
 	tongue = new TongueData();
 	ex?: string;
 	img?: string;
@@ -43,6 +43,7 @@ export interface ILangItemMeta {
 export class TongueData {
 	plural = '';
 	slug?: string;
+	kk = {} as IKaraokeItem;
 }
 
 export interface IItemMeta {
@@ -51,6 +52,8 @@ export interface IItemMeta {
 	owner?: string;
 	ownerResource?: string;
 	illustratorUid?: string;
+	weight?: number;
+	displayArticle?: boolean;
 }
 
 export interface IKaraokeItem {
@@ -58,4 +61,8 @@ export interface IKaraokeItem {
 	en?: string;
 	fr?: string;
 	ipa?: string;
+	loExample?: string;
+	enExample?: string;
+	frExample?: string;
+	ipaExample?: string;
 }

@@ -4,9 +4,6 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 // npm dependencies
 import { ToastrService } from 'ngx-toastr';
-import {
-	ISlicedSyllables
-} from 'laonetics';
 
 // custom models
 declare const $: any;
@@ -14,7 +11,6 @@ declare const $: any;
 // custom services
 import { ItemService } from './../../../services/item.service';
 import { ThemeService } from './../../../services/theme.service';
-import { TongueService } from './../../../services/tongue.service';
 
 // custom models
 import { Item } from '../../../models/item.models';
@@ -39,7 +35,7 @@ export class ItemComponent implements OnInit, OnDestroy, AfterViewInit {
 	};
 	constructor (private formBuilder: FormBuilder, private toastrService: ToastrService,
 		private itemService: ItemService, private themeService: ThemeService,
-		private appRef: ApplicationRef, private tongueService: TongueService) {
+		private appRef: ApplicationRef) {
 	}
 
 	ngOnInit () {
@@ -67,7 +63,6 @@ export class ItemComponent implements OnInit, OnDestroy, AfterViewInit {
 			}),
 			lo: this.formBuilder.group({
 				wrd: ['', Validators.required],
-				kk: this.formBuilder.group({ fr: [''], en: [''], ipa: [''] }),
 				snd: [''],
 				img: [''],
 				ex: [''],
@@ -77,7 +72,9 @@ export class ItemComponent implements OnInit, OnDestroy, AfterViewInit {
 				illustratorUid: [''],
 				owner: [''],
 				ownerResource: [''],
-				contrary: ['']
+				contrary: [''],
+				displayArticle: [false],
+				weight: [0]
 				// conflict?: Array<string>; - done appart
 			})
 		});
@@ -112,16 +109,6 @@ export class ItemComponent implements OnInit, OnDestroy, AfterViewInit {
 	ngOnDestroy () {
 		$('#itemModal').off('shown.bs.modal');
 		$('#commonOptions').off('shown.bs.collapse');
-	}
-
-	generateLaonetics () {
-		const lo = this.cpntData.items.current.lo;
-		if (lo.wrd) {
-			const slicedSyllables: ISlicedSyllables = this.tongueService.getKaraoke(lo.wrd);
-			lo.kk.fr = slicedSyllables.roms[0].join(' ');
-			lo.kk.en = slicedSyllables.roms[1].join(' ');
-			lo.kk.ipa = slicedSyllables.roms[2].join(' ');
-		}
 	}
 
 	changeTab (isJSON: boolean) {
