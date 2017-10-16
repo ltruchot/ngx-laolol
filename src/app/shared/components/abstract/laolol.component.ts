@@ -31,4 +31,11 @@ export class LaololComponent {
 	get isCurrentLangLao () {
 		return this.langData.current && this.langData.current.code === 'lo';
 	}
+
+	/*
+		An other getter to recalculate if the lao special font is needed
+ */
+	get isLearningLangLao () {
+		return this.langData.learning && this.langData.learning.code === 'lo';
+	}
 }

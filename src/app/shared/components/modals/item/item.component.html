@@ -298,6 +298,28 @@
 						<a data-toggle="collapse" href="#loOptions" class="form-text mxb10"
 							aria-expanded="false" aria-controls="loOptions">Lao optional parameters</a>
 						<div class="collapse" id="loOptions"  formGroupName="lo">
+							<button type="button" (click)="generateLaonetics()" class="btn btn-primary">Generate Laonetics</button>
+							<div class="form-group row" formGroupName="kk">
+								<label for="lo-kk-fr" class="col-3 col-form-label col-form-label-sm">Karaoke Fr: </label>
+								<div class="col-9">
+									<input type="text" class="form-control form-control-sm" id="lo-kk-fr" name="lo-kk-fr"
+										formControlName="fr" [(ngModel)]="cpntData.items.current.lo.kk.fr" />
+								</div>
+							</div>
+							<div class="form-group row" formGroupName="kk">
+								<label for="lo-kk-en" class="col-3 col-form-label col-form-label-sm">Karaoke En: </label>
+								<div class="col-9">
+									<input type="text" class="form-control form-control-sm" id="lo-kk-en" name="lo-kk-en"
+										formControlName="en" [(ngModel)]="cpntData.items.current.lo.kk.en" />
+								</div>
+							</div>
+							<div class="form-group row" formGroupName="kk">
+								<label for="lo-kk-ipa" class="col-3 col-form-label col-form-label-sm">Karaoke IPA: </label>
+								<div class="col-9">
+									<input type="text" class="form-control form-control-sm" id="lo-kk-ipa" name="lo-kk-ipa"
+										formControlName="ipa" [(ngModel)]="cpntData.items.current.lo.kk.ipa" />
+								</div>
+							</div>
 							<div class="form-group row">
 								<label for="lo-snd" class="col-3 col-form-label col-form-label-sm">Sound: </label>
 								<div class="col-9">
@@ -317,6 +339,27 @@
 								<div class="col-9">
 									<input type="text" class="form-control form-control-sm" id="lo-ex" name="lo-ex"
 										formControlName="ex" [(ngModel)]="cpntData.items.current.lo.ex" />
+								</div>
+							</div>
+							<div class="form-group row" formGroupName="kkEx">
+								<label for="lo-kkEx-fr" class="col-3 col-form-label col-form-label-sm">Ex Karaoke Fr: </label>
+								<div class="col-9">
+									<input type="text" class="form-control form-control-sm" id="lo-kkEx-fr" name="lo-kkEx-fr"
+										formControlName="fr" [(ngModel)]="cpntData.items.current.lo.kkEx.fr" />
+								</div>
+							</div>
+							<div class="form-group row" formGroupName="kkEx">
+								<label for="lo-kkEx-en" class="col-3 col-form-label col-form-label-sm">Ex Karaoke En: </label>
+								<div class="col-9">
+									<input type="text" class="form-control form-control-sm" id="lo-kkEx-en" name="lo-kkEx-en"
+										formControlName="en" [(ngModel)]="cpntData.items.current.lo.kkEx.en" />
+								</div>
+							</div>
+							<div class="form-group row" formGroupName="kkEx">
+								<label for="lo-kkEx-ipa" class="col-3 col-form-label col-form-label-sm">Ex Karaoke IPA: </label>
+								<div class="col-9">
+									<input type="text" class="form-control form-control-sm" id="lo-kkEx-ipa" name="lo-kkEx-ipa"
+										formControlName="ipa" [(ngModel)]="cpntData.items.current.lo.kkEx.ipa" />
 								</div>
 							</div>
 							<div class="form-group row" formGroupName="meta">

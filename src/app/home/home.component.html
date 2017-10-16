@@ -76,7 +76,7 @@
 		  <!-- 		<p>{{ 'home.andNow' | translate }}, {{ 'home.letsPlay' | translate }}
 			<br/>
 			{{ 'home.wantLearn' | translate }}:
-				<a *ngIf="!isCurrentLangLao"
+				<a *ngIf="isLearningLangLao"
 					[routerLink]="'/gameboard/' + themeData?.learning?.uid"
 					(click)="changeLearningLang('lo')">{{ 'words.languageLao' | translate }}</a>
 				<ng-template [ngIf]="isCurrentLangLao">{{ 'words.or' | translate }}</ng-template>

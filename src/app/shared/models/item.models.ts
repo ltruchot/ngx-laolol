@@ -25,6 +25,7 @@ export class LangItem {
 	wrd = '';
 	meta = {} as ILangItemMeta;
 	kk = {} as IKaraokeItem;
+	kkEx = {} as IKaraokeItem;
 	tongue = new TongueData();
 	ex?: string;
 	img?: string;
@@ -43,7 +44,6 @@ export interface ILangItemMeta {
 export class TongueData {
 	plural = '';
 	slug?: string;
-	kk = {} as IKaraokeItem;
 }
 
 export interface IItemMeta {
@@ -61,8 +61,4 @@ export interface IKaraokeItem {
 	en?: string;
 	fr?: string;
 	ipa?: string;
-	loExample?: string;
-	enExample?: string;
-	frExample?: string;
-	ipaExample?: string;
 }

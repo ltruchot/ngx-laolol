@@ -52,7 +52,7 @@
 			<span class="icon-loop"></span>
 		</button>
 	</div>
-	<div class="btn-group btn-sm px-smaller-r" *ngIf="!isCurrentLangLao">
+	<div class="btn-group btn-sm px-smaller-r" *ngIf="isLearningLangLao">
 		<button class="btn btn-light btn-sm"
 			[ngClass]="{'active': !themeData.noLaoWriting}" (click)="toggleLaoWriting()">
 			<span>ລາວ</span>

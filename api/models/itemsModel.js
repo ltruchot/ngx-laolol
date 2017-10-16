@@ -22,9 +22,11 @@ var ItemsSchema = new Schema({
 		},
 		kk: {
 			lo: String,
-			ipa: String,
-			loExample: String,
-			ipaExample: String
+			ipa: String
+		},
+		kkEx: {
+			lo: String,
+			ipa: String
 		},
 		ex: String,
 		img: String,
@@ -38,9 +40,11 @@ var ItemsSchema = new Schema({
 		},
 		kk: {
 			lo: String,
-			ipa: String,
-			loExample: String,
-			ipaExample: String
+			ipa: String
+		},
+		kkEx: {
+			lo: String,
+			ipa: String
 		},
 		ex: String,
 		img: String,
@@ -55,10 +59,12 @@ var ItemsSchema = new Schema({
 		kk: {
 			en: String,
 			fr: String,
-			ipa: String,
-			enExample: String,
-			frExample: String,
-			ipaExample: String
+			ipa: String
+		},
+		kkEx: {
+			en: String,
+			fr: String,
+			ipa: String
 		},
 		ex: String,
 		img: String,

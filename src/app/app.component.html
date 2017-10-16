@@ -10,7 +10,7 @@
         <h1 class="main-title">
           <a [routerLink]=" '/' + ('localizeRouter.home' | translate) | localize">
             <img alt="{{ 'layout.lao' | translate}}{{ 'layout.lol' | translate}}"
-              [src]="!isCurrentLangLao ? '/assets/img/laolol-title.png' : '/assets/img/laolol-title-lao.png'" />
+              [src]="isLearningLangLao ? '/assets/img/laolol-title.png' : '/assets/img/laolol-title-lao.png'" />
             <span class="sr-only">{{ 'layout.lao' | translate }}{{ 'layout.lol' | translate }}</span>
           </a>
           <em class="version-title text-smallest">{{ cpntData.currentVersion }}</em>

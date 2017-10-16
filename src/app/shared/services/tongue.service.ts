@@ -25,12 +25,10 @@ export class TongueService {
 
 	enhanceItem (item: Item) {
 		const allLangages: ILanguage[] = this.languageService.data.availableLanguages;
-
 		allLangages.forEach((language: ILanguage) => {
 			item[language.code].tongue = new TongueData();
 			item[language.code].tongue.plural = this.getPlural(item, language.code);
 		});
-		this.generateLaonetics(item);
 	}
 
 	getPlural (item: Item, languageCode: string) {
@@ -69,19 +67,15 @@ export class TongueService {
 		const lo = item.lo;
 		if (lo.wrd) {
 			const slicedSyllables: ISlicedSyllables = this.getKaraoke(lo.wrd);
-			lo.tongue.kk.fr = slicedSyllables.roms[0].join(' ');
-			lo.tongue.kk.en = slicedSyllables.roms[1].join(' ');
-			lo.tongue.kk.ipa = slicedSyllables.roms[2].join(' ');
+			lo.kk.fr = slicedSyllables.roms[0].join(' ');
+			lo.kk.en = slicedSyllables.roms[1].join(' ');
+			lo.kk.ipa = slicedSyllables.roms[2].join(' ');
 		}
 		if (lo.ex) {
 			const slicedSyllables: ISlicedSyllables = this.getKaraoke(lo.ex);
-			lo.tongue.kk.frExample = slicedSyllables.roms[0].join(' ');
-			lo.tongue.kk.enExample = slicedSyllables.roms[1].join(' ');
-			lo.tongue.kk.ipaExample = slicedSyllables.roms[2].join(' ');
+			lo.kkEx.fr = slicedSyllables.roms[0].join(' ');
+			lo.kkEx.en = slicedSyllables.roms[1].join(' ');
+			lo.kkEx.ipa = slicedSyllables.roms[2].join(' ');
 		}
-		item.fr.tongue.kk.lo = item.fr.kk && item.fr.kk.lo;
-		item.en.tongue.kk.lo = item.en.kk && item.en.kk.lo;
-		item.fr.tongue.kk.loExample = item.fr.kk && item.fr.kk.loExample;
-		item.en.tongue.kk.loExample = item.en.kk && item.en.kk.loExample;
 	}
 }

@@ -2,7 +2,7 @@
 <!-- begin section title -->
 <div class="row">
 	<div class="col">
-		<h2 class="text-center backboard-title" [ngClass]="{'font-lao': !langData.isCurrentLangLao}"
+		<h2 class="text-center backboard-title" [ngClass]="{'font-lao': isLearningLangLao}"
 			*ngIf="themeData?.learning && langData.learning.code">
 			<ng-template [ngIf]="!isHidingLao">
 				{{
@@ -12,11 +12,11 @@
 				}}
 			</ng-template>
 			<ng-template [ngIf]="themeData.displayKaraoke &&
-				themeData.learning.link[langData.learning.code].tongue.kk &&
-				themeData.learning.link[langData.learning.code].tongue.kk[langData.current.code]">
-				<em class="text-primary" [ngClass]="{'font-lao': langData.isCurrentLangLao}" innerHTML="{{ themeData.learning.link[langData.learning.code].tongue.kk[langData.current.code] | unbreakable }}"></em>
+				themeData.learning.link[langData.learning.code].kk &&
+				themeData.learning.link[langData.learning.code].kk[langData.current.code]">
+				<em class="text-primary" [ngClass]="{'font-lao': isCurrentLangLao}" innerHTML="{{ themeData.learning.link[langData.learning.code].kk[langData.current.code] | unbreakable }}"></em>
 			</ng-template>
-			<em [ngClass]="{'font-lao': langData.isCurrentLangLao}">
+			<em [ngClass]="{'font-lao': isCurrentLangLao}">
 				({{
 					(themeData.learning.displayPlural ?
 					themeData.learning.link[langData.current.code].tongue.plural :
@@ -29,7 +29,7 @@
 <!-- end section title -->
 <!-- begin section level description -->
 <div class="row" *ngIf="themeData.learning && langData.current?.code && themeData.learning[langData.current.code] &&  themeData.learning[langData.current.code].desc?.length">
-	<div class="col-12" [ngClass]="{'font-lao': langData.isCurrentLangLao}">
+	<div class="col-12" [ngClass]="{'font-lao': isCurrentLangLao}">
 		<p>
 			<em>{{ themeData.learning[langData.current.code].desc[themeData.learningLevel] }}</em>
 		</p>
@@ -65,14 +65,14 @@
 					<!-- begin header karaoke word -->
 					<ng-template [ngIf]="themeData.displayKaraoke && langData.learning.code &&
 						!themeData.learning.noKaraoke &&
-						item[langData.learning.code].tongue.kk &&
-						item[langData.learning.code].tongue.kk[langData.current.code]">
+						item[langData.learning.code].kk &&
+						item[langData.learning.code].kk[langData.current.code]">
 						<br *ngIf="!isHidingLao" />
 						<em class="text-primary" [ngClass]="{
-							'font-lao': langData.isCurrentLangLao,
+							'font-lao': isCurrentLangLao,
 							'text-big': isHidingLao,
 							'text-medium': !isHidingLao
-						}" innerHTML="{{ item[langData.learning.code].tongue.kk[langData.current.code] | unbreakable }}"></em>
+						}" innerHTML="{{ item[langData.learning.code].kk[langData.current.code] | unbreakable }}"></em>
 					</ng-template>
 					<!-- begin header karaoke word -->
 					<label class="pos-top-right p5" *ngIf="item[langData.learning.code].audioLoaded"
@@ -88,22 +88,22 @@
 					</div>
 				</div>
 			  <div class="card-body px-medium">
-			    <h3 class="card-title" [ngClass]="{'font-lao': langData.isCurrentLangLao}">{{ item[langData.current.code].wrd }}</h3>
+			    <h3 class="card-title" [ngClass]="{'font-lao': isCurrentLangLao}">{{ item[langData.current.code].wrd }}</h3>
 			    <p class="card-text" *ngIf="langData && (langData.learning.code === 'fr') && item.fr.meta && (item.fr.meta.isMale !== undefined)">
 						<strong>
 							{{ cpntData.vowels.fr.test(item.fr.wrd[0]) ? "l'" : (item.fr.meta.isMale ? "le " : "la ") }}{{ item.fr.wrd }}
 						</strong>
-						 <em  [ngClass]="{'font-lao': langData.isCurrentLangLao}">({{ item.fr.meta.isMale ? ('blackboard.masculine' | translate) : ('blackboard.feminine' | translate) }})</em>
+						 <em [ngClass]="{'font-lao': isCurrentLangLao}">({{ item.fr.meta.isMale ? ('blackboard.masculine' | translate) : ('blackboard.feminine' | translate) }})</em>
 					</p>
 					<div class="collapse" [ngClass]="{
 						'hide': !themeData?.isMoreInfos,
 						'show': themeData?.isMoreInfos
 					}">
-						<hr *ngIf="(!themeData.learning.noPlural && langData &&
-							(langData.learning.code === 'fr' || langData.learning.code === 'en')) ||
+						<hr *ngIf="(!themeData.learning.noPlural && langData && (langData.learning.code === 'fr' || langData.learning.code === 'en')) ||
 							(item[langData.current.code].meta && item[langData.current.code].meta.comment) ||
+							item[langData.current.code].ex ||
 							langData.current.code === 'lo' ||
-							item[langData.learning.code].tongue.kk && item[langData.learning.code].tongue.kk.ipa" />
+							item[langData.learning.code].kk && item[langData.learning.code].kk.ipa" />
 						<p class="card-text" *ngIf="!themeData.learning.noPlural && !langData?.learning?.noPlural">
 							<strong *ngIf="langData.learning.code === 'fr'">les</strong>
 							<strong>{{ item[langData.learning.code].tongue.plural }}</strong>
@@ -115,8 +115,17 @@
 				    <p class="card-text" *ngIf="isCurrentLangLao">
 							<span class="text-uppercase">{{ item[langData.learning.code].wrd }}</span>
 						</p>
-						<p class="card-text" *ngIf="item[langData.learning.code].tongue.kk && item[langData.learning.code].tongue.kk.ipa">
-							<span>IPA: <em>/{{ item[langData.learning.code].tongue.kk.ipa }}/</em></span>
+						<p class="card-text" *ngIf="item[langData.learning.code].kk && item[langData.learning.code].kk.ipa">
+							<span>IPA: <em>/{{ item[langData.learning.code].kk.ipa }}/</em></span>
+						</p>
+						<p class="card-text text-muted" *ngIf="item[langData.current.code].ex && !themeData.learning.hasSpecialExample">
+							<em [ngClass]="{'font-lao': isLearningLangLao}" *ngIf="!isHidingLao">
+								“{{ item[langData.learning.code].ex }}”
+							</em><br *ngIf="item[langData.learning.code].kkEx[langData.current.code] && !isHidingLao && themeData.displayKaraoke" />
+							<em class="text-medium"
+								*ngIf="item[langData.learning.code].kkEx[langData.current.code] && themeData.displayKaraoke">
+							“{{ item[langData.learning.code].kkEx[langData.current.code] }}”</em>
+							<em class="text-medium" [ngClass]="{'font-lao': isCurrentLangLao}" *ngIf="item[langData.current.code].ex">({{ item[langData.current.code].ex }})</em>
 						</p>
 					</div>
 			  </div>

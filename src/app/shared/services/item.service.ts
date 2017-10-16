@@ -103,10 +103,13 @@ export class ItemService {
 			// compensate lack of data for some old items
 			item.meta = item.meta || {};
 			item.lo.kk = item.lo.kk || {};
+			item.lo.kkEx = item.lo.kkEx || {};
 			item.lo.meta = item.lo.meta || {};
 			item.fr.kk = item.fr.kk || {};
+			item.fr.kkEx = item.fr.kkEx || {};
 			item.fr.meta = item.fr.meta || {};
 			item.en.kk = item.en.kk || {};
+			item.en.kkEx = item.en.kkEx || {};
 			item.en.meta = item.en.meta || {};
 		});
 		this.data.all.push(...data);

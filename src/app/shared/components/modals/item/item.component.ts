@@ -11,6 +11,7 @@ declare const $: any;
 // custom services
 import { ItemService } from './../../../services/item.service';
 import { ThemeService } from './../../../services/theme.service';
+import { TongueService } from './../../../services/tongue.service';
 
 // custom models
 import { Item } from '../../../models/item.models';
@@ -35,7 +36,7 @@ export class ItemComponent implements OnInit, OnDestroy, AfterViewInit {
 	};
 	constructor (private formBuilder: FormBuilder, private toastrService: ToastrService,
 		private itemService: ItemService, private themeService: ThemeService,
-		private appRef: ApplicationRef) {
+		private tongueService: TongueService, private appRef: ApplicationRef) {
 	}
 
 	ngOnInit () {
@@ -47,6 +48,7 @@ export class ItemComponent implements OnInit, OnDestroy, AfterViewInit {
 			en: this.formBuilder.group({
 				wrd: ['', Validators.required],
 				kk: this.formBuilder.group({ lo: [''], ipa: [''] }),
+				kkEx: this.formBuilder.group({ lo: [''], ipa: [''] }),
 				snd: [''],
 				img: [''],
 				ex: [''],
@@ -55,6 +57,7 @@ export class ItemComponent implements OnInit, OnDestroy, AfterViewInit {
 			fr: this.formBuilder.group({
 				wrd: ['', Validators.required],
 				kk: this.formBuilder.group({ lo: [''], ipa: [''] }),
+				kkEx: this.formBuilder.group({ lo: [''], ipa: [''] }),
 				snd: [''],
 				img: [''],
 				ex: [''],
@@ -63,6 +66,8 @@ export class ItemComponent implements OnInit, OnDestroy, AfterViewInit {
 			}),
 			lo: this.formBuilder.group({
 				wrd: ['', Validators.required],
+				kk: this.formBuilder.group({ fr: [''], en: [''], ipa: [''] }),
+				kkEx: this.formBuilder.group({ fr: [''], en: [''], ipa: [''] }),
 				snd: [''],
 				img: [''],
 				ex: [''],
@@ -186,5 +191,9 @@ export class ItemComponent implements OnInit, OnDestroy, AfterViewInit {
 			this.cpntData.selectedConflicts = Array.from(meta.conflicts as string[]);
 			this.selectConflictsRef.updateSelectList(this.cpntData.selectedConflicts);
 		}
+	}
+
+	generateLaonetics () {
+		this.tongueService.generateLaonetics(this.itemService.data.current);
 	}
 }
