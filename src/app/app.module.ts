@@ -1,43 +1,26 @@
 // ng dependencies
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { CommonModule } from '@angular/common';
-import { HttpModule } from '@angular/http';
+import { ServiceWorkerModule } from '@angular/service-worker';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { UrlSerializer } from '@angular/router';
 
 // npm dependencies
-import { TranslateLoader, TranslateModule, TranslateService } from '@ngx-translate/core';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-import { ToastrModule } from 'ngx-toastr';
 
 // custom modules
-import { AppRoutingModule } from './app-routing.module';
-import { SharedModule } from './shared/shared.module';
+import { AppRoutingModule } from '@app/app.routing.module';
+import { CoreModule } from '@core/core.module';
 
 // custom components
-import { AppComponent } from './app.component';
+import { AppComponent } from '@app/app.component';
 
-// custom services
-import { AdminActivationService } from './shared/services/admin-activation.service';
-import { ApiService } from './shared/services/api.service';
-import { ItemService } from './shared/services/item.service';
-import { LanguageService } from './shared/services/language.service';
-import { ModalService } from './shared/services/modal.service';
-import { SeoService } from './shared/services/seo.service';
-import { StorageService } from './shared/services/storage.service';
-import { ThemeService } from './shared/services/theme.service';
-import { TongueService } from './shared/services/tongue.service';
-import { UserService } from './shared/services/user.service';
-import { VersionService } from './shared/services/version.service';
+// custom values
+import { environment } from '@env/environment';
 
-// custom others
-import { CustomUrlSerializer } from './shared/others/CustomUrlSerializer';
-
-export function HttpLoaderFactory (http: HttpClient) {
-	return new TranslateHttpLoader(http, '/assets/locales/', '.json');
+// AoT requires an exported function for factories
+export function HttpLoaderFactory (http: HttpClient): TranslateHttpLoader {
+	return new TranslateHttpLoader(http);
 }
 
 @NgModule({
@@ -45,41 +28,20 @@ export function HttpLoaderFactory (http: HttpClient) {
 		AppComponent
 	],
 	imports: [
+		AppRoutingModule,
+		CoreModule,
 		BrowserModule,
-		FormsModule,
-		ReactiveFormsModule,
-		HttpModule,
 		HttpClientModule,
+		ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production }),
 		TranslateModule.forRoot({
 			loader: {
 				provide: TranslateLoader,
 				useFactory: HttpLoaderFactory,
-				deps: [ HttpClient ]
+				deps: [HttpClient]
 			}
-		}),
-		AppRoutingModule,
-		SharedModule,
-		CommonModule,
-		BrowserAnimationsModule, // required by ToastrModule
-		ToastrModule.forRoot({
-			// timeOut: 100000
 		})
 	],
-	providers: [
-		{ provide: UrlSerializer, useClass: CustomUrlSerializer },
-		AdminActivationService,
-		ApiService,
-		ItemService,
-		LanguageService,
-		ModalService,
-		SeoService,
-		StorageService,
-		ThemeService,
-		TongueService,
-		TranslateService,
-		UserService,
-		VersionService
-	],
+	providers: [],
 	bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }

@@ -1,6 +1,6 @@
 import { AppPage } from './app.po';
 
-describe('ng1.4.4 App', () => {
+describe('ngx-laolol App', () => {
   let page: AppPage;
 
   beforeEach(() => {

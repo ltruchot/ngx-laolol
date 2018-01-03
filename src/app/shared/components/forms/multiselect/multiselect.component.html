@@ -1,9 +1,0 @@
-<div class="form-group">
-	<label for="{{ id }}" class="text-standard-2">{{ title }} ([ctrl] + [left click] for multi-choice)</label>
-	<select #select class="form-control form-control-sm"
-		(change)="onChangeOption($event.target.options)" id="{{ id }}" multiple>
-		<option *ngFor="let item of list" [value]="item[displayedProp]">
-			{{ item[displayedProp] }}
-		</option>
-	</select>
-</div>

@@ -21,12 +21,10 @@
       "styles": [
         "assets/css/icomoon.css",
         "assets/css/flags.min.css",
-        "../node_modules/ngx-toastr/toastr.css",
         "styles.scss"
       ],
       "scripts": [
         "../node_modules/jquery/dist/jquery.min.js",
-        "../node_modules/tether/dist/js/tether.min.js",
         "../node_modules/popper.js/dist/umd/popper.min.js",
         "../node_modules/bootstrap/dist/js/bootstrap.min.js"
       ],
@@ -34,7 +32,8 @@
       "environments": {
         "dev": "environments/environment.ts",
         "prod": "environments/environment.prod.ts"
-      }
+      },
+      "serviceWorker": true
     }
   ],
   "e2e": {
